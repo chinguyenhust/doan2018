@@ -87,7 +87,7 @@ export default class MyGroup extends Component {
         </ScrollView>
 
 
-        <TouchableOpacity style={{ zIndex: 1000, bottom: 60, justifyContent: 'flex-end', marginLeft: "80%", position: 'absolute' }} onPress={()=>navigate("Map")}>
+        <TouchableOpacity style={{ zIndex: 1000, bottom: 60, justifyContent: 'flex-end', marginLeft: "80%", position: 'absolute' }} onPress={()=>navigate("CreatGroup")}>
           <IconAdd name="add-circle" size={60} style={{ color: "green" }} />
         </TouchableOpacity>
       </View>

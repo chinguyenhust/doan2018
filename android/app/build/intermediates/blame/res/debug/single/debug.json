@@ -392,12 +392,12 @@
         "source": "/Users/daisy/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/eebf510df22f50bead323a32e018f0a6/res/drawable-v23/abc_control_background_material.xml"
     },
     {
-        "merged": "/Users/daisy/doan2018/android/app/build/intermediates/res/merged/debug/drawable_notification_bg_low.xml.flat",
-        "source": "/Users/daisy/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/00bb65cf0dbe87ef098a28cbd630cc1e/res/drawable/notification_bg_low.xml"
-    },
-    {
         "merged": "/Users/daisy/doan2018/android/app/build/intermediates/res/merged/debug/drawable_abc_switch_thumb_material.xml.flat",
         "source": "/Users/daisy/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/eebf510df22f50bead323a32e018f0a6/res/drawable/abc_switch_thumb_material.xml"
+    },
+    {
+        "merged": "/Users/daisy/doan2018/android/app/build/intermediates/res/merged/debug/drawable_notification_bg_low.xml.flat",
+        "source": "/Users/daisy/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/00bb65cf0dbe87ef098a28cbd630cc1e/res/drawable/notification_bg_low.xml"
     },
     {
         "merged": "/Users/daisy/doan2018/android/app/build/intermediates/res/merged/debug/color-v23_abc_tint_edittext.xml.flat",
@@ -862,6 +862,10 @@
     {
         "merged": "/Users/daisy/doan2018/android/app/build/intermediates/res/merged/debug/layout_abc_action_menu_item_layout.xml.flat",
         "source": "/Users/daisy/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/eebf510df22f50bead323a32e018f0a6/res/layout/abc_action_menu_item_layout.xml"
+    },
+    {
+        "merged": "/Users/daisy/doan2018/android/app/build/intermediates/res/merged/debug/xml_provider_paths.xml.flat",
+        "source": "/Users/daisy/doan2018/node_modules/react-native-image-picker/android/build/intermediates/packaged_res/debug/xml/provider_paths.xml"
     },
     {
         "merged": "/Users/daisy/doan2018/android/app/build/intermediates/res/merged/debug/mipmap-mdpi_ic_launcher.png.flat",
@@ -1814,6 +1818,10 @@
     {
         "merged": "/Users/daisy/doan2018/android/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_ic_commit_search_api_mtrl_alpha.png.flat",
         "source": "/Users/daisy/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/eebf510df22f50bead323a32e018f0a6/res/drawable-mdpi-v4/abc_ic_commit_search_api_mtrl_alpha.png"
+    },
+    {
+        "merged": "/Users/daisy/doan2018/android/app/build/intermediates/res/merged/debug/layout_list_item.xml.flat",
+        "source": "/Users/daisy/doan2018/node_modules/react-native-image-picker/android/build/intermediates/packaged_res/debug/layout/list_item.xml"
     },
     {
         "merged": "/Users/daisy/doan2018/android/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_notification_bg_low_pressed.9.png.flat",

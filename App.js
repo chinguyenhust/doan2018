@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import Map from './src/component/home/Map';
 import MyGroup from './src/component/group/MyGroup';
+import CreatGroup from './src/component/group/CreatGroup';
 
 import { StackNavigator, createStackNavigator, createAppContainer } from 'react-navigation';
 const MainStack = createStackNavigator(
@@ -11,6 +12,9 @@ const MainStack = createStackNavigator(
     },
     Map: {
       screen: Map,
+    },
+    CreatGroup: {
+      screen: CreatGroup,
     },
   }, {
     headerMode: 'none',
