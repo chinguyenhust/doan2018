@@ -1,11 +1,12 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml:1:1-29:12
-INJECTED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml:1:1-29:12
-INJECTED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml:1:1-29:12
-INJECTED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml:1:1-29:12
-MERGED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml:1:1-29:12
+ADDED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml:1:1-31:12
+INJECTED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml:1:1-31:12
+INJECTED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml:1:1-31:12
+INJECTED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml:1:1-31:12
+MERGED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml:1:1-31:12
 MERGED from [:react-native-vector-icons] /Users/daisy/doan2018/node_modules/react-native-vector-icons/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
+MERGED from [:react-native-image-picker] /Users/daisy/doan2018/node_modules/react-native-image-picker/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-23:12
 MERGED from [:react-native-firebase] /Users/daisy/doan2018/node_modules/react-native-firebase/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-15:12
 MERGED from [:react-native-gesture-handler] /Users/daisy/doan2018/node_modules/react-native-gesture-handler/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
 MERGED from [:react-native-maps] /Users/daisy/doan2018/node_modules/react-native-maps/lib/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-12:12
@@ -65,13 +66,13 @@ INJECTED from /Users/daisy/doan2018/android/app/src/debug/AndroidManifest.xml:2:
 		INJECTED from /Users/daisy/doan2018/android/app/src/debug/AndroidManifest.xml
 	android:versionName
 		INJECTED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml
-		ADDED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml:1:1-29:12
+		ADDED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml:1:1-31:12
 		INJECTED from /Users/daisy/doan2018/android/app/src/debug/AndroidManifest.xml
 	xmlns:tools
 		ADDED from /Users/daisy/doan2018/android/app/src/debug/AndroidManifest.xml:3:5-51
 	android:versionCode
 		INJECTED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml
-		ADDED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml:1:1-29:12
+		ADDED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml:1:1-31:12
 		INJECTED from /Users/daisy/doan2018/android/app/src/debug/AndroidManifest.xml
 	xmlns:android
 		ADDED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml:1:11-69
@@ -85,10 +86,20 @@ MERGED from [com.google.android.gms:play-services-maps:11.8.0] /Users/daisy/.gra
 MERGED from [com.google.android.gms:play-services-maps:11.8.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-maps-11.8.0.aar/d10072fbdfe27cd963ed5947290756e7/AndroidManifest.xml:24:5-67
 	android:name
 		ADDED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml:4:22-64
+uses-permission#android.permission.CAMERA
+ADDED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml:5:5-65
+	android:name
+		ADDED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml:5:22-62
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml:6:5-80
+	android:name
+		ADDED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml:6:22-78
 application
-ADDED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml:6:5-27:19
-MERGED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml:6:5-27:19
-MERGED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml:6:5-27:19
+ADDED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml:8:5-29:19
+MERGED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml:8:5-29:19
+MERGED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml:8:5-29:19
+MERGED from [:react-native-image-picker] /Users/daisy/doan2018/node_modules/react-native-image-picker/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:11:5-21:19
+MERGED from [:react-native-image-picker] /Users/daisy/doan2018/node_modules/react-native-image-picker/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:11:5-21:19
 MERGED from [com.facebook.react:react-native:0.59.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/react-native-0.59.1.aar/9e7532d549f6de008c60fe8fbad2a367/AndroidManifest.xml:11:5-20
 MERGED from [com.facebook.react:react-native:0.59.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/react-native-0.59.1.aar/9e7532d549f6de008c60fe8fbad2a367/AndroidManifest.xml:11:5-20
 MERGED from [com.google.android.gms:play-services-maps:11.8.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-maps-11.8.0.aar/d10072fbdfe27cd963ed5947290756e7/AndroidManifest.xml:30:5-20
@@ -118,65 +129,67 @@ MERGED from [com.google.android.gms:play-services-tasks-license:11.8.0] /Users/d
 	android:appComponentFactory
 		ADDED from [com.android.support:support-compat:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/00bb65cf0dbe87ef098a28cbd630cc1e/AndroidManifest.xml:22:18-91
 	android:label
-		ADDED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml:8:7-39
-		ADDED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml:8:7-39
+		ADDED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml:10:7-39
+		ADDED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml:10:7-39
 	tools:ignore
 		ADDED from /Users/daisy/doan2018/android/app/src/debug/AndroidManifest.xml:7:39-78
 	android:roundIcon
-		ADDED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml:10:7-52
-		ADDED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml:10:7-52
+		ADDED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml:12:7-52
+		ADDED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml:12:7-52
 	tools:targetApi
 		ADDED from /Users/daisy/doan2018/android/app/src/debug/AndroidManifest.xml:7:18-38
 	android:icon
-		ADDED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml:9:7-41
-		ADDED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml:9:7-41
+		ADDED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml:11:7-41
+		ADDED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml:11:7-41
 	android:allowBackup
-		ADDED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml:11:7-34
-		ADDED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml:11:7-34
+		ADDED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml:13:7-34
+		ADDED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml:13:7-34
 	android:networkSecurityConfig
 		ADDED from /Users/daisy/doan2018/android/app/src/debug/AndroidManifest.xml:7:79-135
 	android:theme
-		ADDED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml:12:7-38
-		ADDED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml:12:7-38
+		ADDED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml:14:7-38
+		ADDED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml:14:7-38
 	android:name
-		ADDED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml:7:7-38
-		ADDED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml:7:7-38
+		ADDED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml:9:7-38
+		ADDED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml:9:7-38
 meta-data#com.google.android.geo.API_KEY
-ADDED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml:13:7-15:67
+ADDED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml:15:7-17:67
 	android:value
-		ADDED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml:15:10-65
+		ADDED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml:17:10-65
 	android:name
-		ADDED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml:14:10-55
+		ADDED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml:16:10-55
 activity#com.doan2018.MainActivity
-ADDED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml:16:7-25:18
+ADDED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml:18:7-27:18
 	android:label
-		ADDED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml:18:9-41
+		ADDED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml:20:9-41
 	android:windowSoftInputMode
-		ADDED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml:20:9-51
+		ADDED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml:22:9-51
 	android:configChanges
-		ADDED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml:19:9-79
+		ADDED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml:21:9-79
 	android:name
-		ADDED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml:17:9-37
+		ADDED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml:19:9-37
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml:21:9-24:25
+ADDED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml:23:9-26:25
 action#android.intent.action.MAIN
-ADDED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml:22:13-65
+ADDED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml:24:13-65
 	android:name
-		ADDED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml:22:21-62
+		ADDED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml:24:21-62
 category#android.intent.category.LAUNCHER
-ADDED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml:23:13-73
+ADDED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml:25:13-73
 	android:name
-		ADDED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml:23:23-70
+		ADDED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml:25:23-70
 activity#com.facebook.react.devsupport.DevSettingsActivity
-ADDED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml:26:7-84
+ADDED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml:28:7-84
 	android:name
-		ADDED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml:26:17-81
+		ADDED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml:28:17-81
 uses-sdk
 INJECTED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml
 INJECTED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml
 MERGED from [:react-native-vector-icons] /Users/daisy/doan2018/node_modules/react-native-vector-icons/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [:react-native-vector-icons] /Users/daisy/doan2018/node_modules/react-native-vector-icons/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-image-picker] /Users/daisy/doan2018/node_modules/react-native-image-picker/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-image-picker] /Users/daisy/doan2018/node_modules/react-native-image-picker/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [:react-native-firebase] /Users/daisy/doan2018/node_modules/react-native-firebase/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [:react-native-firebase] /Users/daisy/doan2018/node_modules/react-native-firebase/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [:react-native-gesture-handler] /Users/daisy/doan2018/node_modules/react-native-gesture-handler/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
@@ -287,6 +300,22 @@ uses-permission#android.permission.SYSTEM_ALERT_WINDOW
 ADDED from /Users/daisy/doan2018/android/app/src/debug/AndroidManifest.xml:5:5-77
 	android:name
 		ADDED from /Users/daisy/doan2018/android/app/src/debug/AndroidManifest.xml:5:22-75
+provider#com.imagepicker.FileProvider
+ADDED from [:react-native-image-picker] /Users/daisy/doan2018/node_modules/react-native-image-picker/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:12:9-20:20
+	android:grantUriPermissions
+		ADDED from [:react-native-image-picker] /Users/daisy/doan2018/node_modules/react-native-image-picker/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:16:13-47
+	android:authorities
+		ADDED from [:react-native-image-picker] /Users/daisy/doan2018/node_modules/react-native-image-picker/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:14:13-60
+	android:exported
+		ADDED from [:react-native-image-picker] /Users/daisy/doan2018/node_modules/react-native-image-picker/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:15:13-37
+	android:name
+		ADDED from [:react-native-image-picker] /Users/daisy/doan2018/node_modules/react-native-image-picker/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:13:13-56
+meta-data#android.support.FILE_PROVIDER_PATHS
+ADDED from [:react-native-image-picker] /Users/daisy/doan2018/node_modules/react-native-image-picker/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:17:13-19:58
+	android:resource
+		ADDED from [:react-native-image-picker] /Users/daisy/doan2018/node_modules/react-native-image-picker/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:19:17-55
+	android:name
+		ADDED from [:react-native-image-picker] /Users/daisy/doan2018/node_modules/react-native-image-picker/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:18:17-67
 uses-permission#android.permission.WAKE_LOCK
 ADDED from [:react-native-firebase] /Users/daisy/doan2018/node_modules/react-native-firebase/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:12:5-68
 	android:name
