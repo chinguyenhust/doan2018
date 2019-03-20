@@ -1,0 +1,37 @@
+dependencies: \
+  /Users/daisy/doan2018/node_modules/react-native/Libraries/Text/TextInput/RCTBaseTextInputView.m \
+  /Users/daisy/doan2018/node_modules/react-native/Libraries/Text/TextInput/RCTBaseTextInputView.h \
+  /Users/daisy/doan2018/ios/build/doan2018/Build/Products/Debug-iphonesimulator/include/React/RCTView.h \
+  /Users/daisy/doan2018/ios/build/doan2018/Build/Products/Debug-iphonesimulator/include/React/RCTBorderStyle.h \
+  /Users/daisy/doan2018/ios/build/doan2018/Build/Products/Debug-iphonesimulator/include/React/RCTComponent.h \
+  /Users/daisy/doan2018/ios/build/doan2018/Build/Products/Debug-iphonesimulator/include/React/RCTPointerEvents.h \
+  /Users/daisy/doan2018/node_modules/react-native/Libraries/Text/TextInput/RCTBackedTextInputDelegate.h \
+  /Users/daisy/doan2018/node_modules/react-native/Libraries/Text/TextInput/RCTBackedTextInputViewProtocol.h \
+  /Users/daisy/doan2018/ios/build/doan2018/Build/Products/Debug-iphonesimulator/include/React/RCTAccessibilityManager.h \
+  /Users/daisy/doan2018/ios/build/doan2018/Build/Products/Debug-iphonesimulator/include/React/RCTBridge.h \
+  /Users/daisy/doan2018/ios/build/doan2018/Build/Products/Debug-iphonesimulator/include/React/RCTBridgeDelegate.h \
+  /Users/daisy/doan2018/ios/build/doan2018/Build/Products/Debug-iphonesimulator/include/React/RCTJavaScriptLoader.h \
+  /Users/daisy/doan2018/ios/build/doan2018/Build/Products/Debug-iphonesimulator/include/React/RCTDefines.h \
+  /Users/daisy/doan2018/ios/build/doan2018/Build/Products/Debug-iphonesimulator/include/React/RCTBridgeModule.h \
+  /Users/daisy/doan2018/ios/build/doan2018/Build/Products/Debug-iphonesimulator/include/React/RCTFrameUpdate.h \
+  /Users/daisy/doan2018/ios/build/doan2018/Build/Products/Debug-iphonesimulator/include/React/RCTInvalidating.h \
+  /Users/daisy/doan2018/ios/build/doan2018/Build/Products/Debug-iphonesimulator/include/React/RCTConvert.h \
+  /Users/daisy/doan2018/ios/build/doan2018/Build/Products/Debug-iphonesimulator/include/React/RCTAnimationType.h \
+  /Users/daisy/doan2018/ios/build/doan2018/Build/Products/Debug-iphonesimulator/include/React/RCTLog.h \
+  /Users/daisy/doan2018/ios/build/doan2018/Build/Products/Debug-iphonesimulator/include/React/RCTAssert.h \
+  /Users/daisy/doan2018/ios/build/doan2018/Build/Products/Debug-iphonesimulator/include/React/RCTUtils.h \
+  /Users/daisy/doan2018/ios/build/doan2018/Build/Products/Debug-iphonesimulator/include/React/RCTTextDecorationLineType.h \
+  /Users/daisy/doan2018/ios/build/doan2018/Build/Products/Debug-iphonesimulator/include/yoga/Yoga.h \
+  /Users/daisy/doan2018/ios/build/doan2018/Build/Products/Debug-iphonesimulator/include/yoga/YGEnums.h \
+  /Users/daisy/doan2018/ios/build/doan2018/Build/Products/Debug-iphonesimulator/include/yoga/YGMacros.h \
+  /Users/daisy/doan2018/ios/build/doan2018/Build/Products/Debug-iphonesimulator/include/yoga/YGValue.h \
+  /Users/daisy/doan2018/ios/build/doan2018/Build/Products/Debug-iphonesimulator/include/React/RCTEventDispatcher.h \
+  /Users/daisy/doan2018/ios/build/doan2018/Build/Products/Debug-iphonesimulator/include/React/RCTUIManager.h \
+  /Users/daisy/doan2018/ios/build/doan2018/Build/Products/Debug-iphonesimulator/include/React/RCTRootView.h \
+  /Users/daisy/doan2018/ios/build/doan2018/Build/Products/Debug-iphonesimulator/include/React/RCTViewManager.h \
+  /Users/daisy/doan2018/ios/build/doan2018/Build/Products/Debug-iphonesimulator/include/React/UIView+React.h \
+  /Users/daisy/doan2018/node_modules/react-native/Libraries/Text/TextInput/RCTInputAccessoryView.h \
+  /Users/daisy/doan2018/node_modules/react-native/Libraries/Text/TextInput/RCTInputAccessoryViewContent.h \
+  /Users/daisy/doan2018/node_modules/react-native/Libraries/Text/RCTTextAttributes.h \
+  /Users/daisy/doan2018/node_modules/react-native/Libraries/Text/RCTTextTransform.h \
+  /Users/daisy/doan2018/node_modules/react-native/Libraries/Text/TextInput/RCTTextSelection.h
