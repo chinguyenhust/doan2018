@@ -5,20 +5,25 @@ INJECTED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml:1:1
 INJECTED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml:1:1-29:12
 INJECTED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml:1:1-29:12
 MERGED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml:1:1-29:12
+MERGED from [:react-native-vector-icons] /Users/daisy/doan2018/node_modules/react-native-vector-icons/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
+MERGED from [:react-native-firebase] /Users/daisy/doan2018/node_modules/react-native-firebase/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-15:12
+MERGED from [:react-native-gesture-handler] /Users/daisy/doan2018/node_modules/react-native-gesture-handler/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
 MERGED from [:react-native-maps] /Users/daisy/doan2018/node_modules/react-native-maps/lib/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-12:12
 MERGED from [com.facebook.react:react-native:0.59.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/react-native-0.59.1.aar/9e7532d549f6de008c60fe8fbad2a367/AndroidManifest.xml:2:1-13:12
 MERGED from [com.android.support:appcompat-v7:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/eebf510df22f50bead323a32e018f0a6/AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.android.gms:play-services-maps:11.8.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-maps-11.8.0.aar/d10072fbdfe27cd963ed5947290756e7/AndroidManifest.xml:17:1-32:12
 MERGED from [com.google.android.gms:play-services-base:11.8.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-base-11.8.0.aar/e188c834c3f546e8f0f629773b5dda27/AndroidManifest.xml:17:1-29:12
-MERGED from [com.google.maps.android:android-maps-utils:0.5] /Users/daisy/.gradle/caches/transforms-1/files-1.1/android-maps-utils-0.5.aar/85ee30087008c5d4579be5fc52be8170/AndroidManifest.xml:2:1-13:12
 MERGED from [com.google.android.gms:play-services-tasks:11.8.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-tasks-11.8.0.aar/cec77e1e3d2122e7a6a6fcfa78e448f0/AndroidManifest.xml:2:1-9:12
 MERGED from [com.google.android.gms:play-services-basement:11.8.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-basement-11.8.0.aar/f16ffa0f9b3730026201e36bd86d2cd3/AndroidManifest.xml:17:1-28:12
 MERGED from [com.android.support:support-v4:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/support-v4-28.0.0.aar/d428f91973d671262c9b961ad15869bc/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:multidex:1.0.2] /Users/daisy/.gradle/caches/transforms-1/files-1.1/multidex-1.0.2.aar/595a59983669585ee971112f4c386f4c/AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.maps.android:android-maps-utils:0.5] /Users/daisy/.gradle/caches/transforms-1/files-1.1/android-maps-utils-0.5.aar/85ee30087008c5d4579be5fc52be8170/AndroidManifest.xml:2:1-13:12
 MERGED from [com.android.support:support-fragment:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/support-fragment-28.0.0.aar/a138bf0b62423756ccbfd1a50c7cf32c/AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:animated-vector-drawable:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-28.0.0.aar/670f28cb9c3a8f2f46bf2d66f99eb80b/AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:support-core-ui:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/support-core-ui-28.0.0.aar/e4cae4da7ceacfa961ccc9b4a1a660a0/AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:support-core-utils:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/support-core-utils-28.0.0.aar/7cae271ecde47dbd12176bd2225015c8/AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:support-vector-drawable:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-28.0.0.aar/b0c450ebe98c76c0b90e060b5626a6c2/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-media-compat:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/support-media-compat-28.0.0.aar/ad958fcccf299334b6732f0e0d009590/AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:loader:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/loader-28.0.0.aar/4e19f712c3b7a8b008a273c99dc368a4/AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:viewpager:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/viewpager-28.0.0.aar/f6780214a52c0b343792fb7c44b4ecb1/AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:coordinatorlayout:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/coordinatorlayout-28.0.0.aar/aa4e96b69dfb7a6873206d7a489ea5f1/AndroidManifest.xml:17:1-22:12
@@ -27,7 +32,6 @@ MERGED from [com.android.support:slidingpanelayout:28.0.0] /Users/daisy/.gradle/
 MERGED from [com.android.support:customview:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/customview-28.0.0.aar/31d820877862b3a6c3371b6e282901bd/AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:swiperefreshlayout:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/swiperefreshlayout-28.0.0.aar/b1cf5c3fd7d8731a1fc5e5bef383d13b/AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:asynclayoutinflater:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/asynclayoutinflater-28.0.0.aar/325a9eec47d61f739831cc7c4c284df4/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-media-compat:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/support-media-compat-28.0.0.aar/ad958fcccf299334b6732f0e0d009590/AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:support-compat:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/00bb65cf0dbe87ef098a28cbd630cc1e/AndroidManifest.xml:17:1-24:12
 MERGED from [com.android.support:versionedparcelable:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/versionedparcelable-28.0.0.aar/de411835670c3acaa7115460e5317af9/AndroidManifest.xml:17:1-25:12
 MERGED from [com.android.support:cursoradapter:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/cursoradapter-28.0.0.aar/048cde08bb8bdbe72d5de80159b4fcc1/AndroidManifest.xml:17:1-22:12
@@ -36,10 +40,10 @@ MERGED from [com.android.support:documentfile:28.0.0] /Users/daisy/.gradle/cache
 MERGED from [com.android.support:localbroadcastmanager:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/localbroadcastmanager-28.0.0.aar/eaa2402acc34bedb7cdc625aac3f27f4/AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:print:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/print-28.0.0.aar/b5cdbfbcf1533a53f0c4f5afa3dc8f90/AndroidManifest.xml:17:1-22:12
 MERGED from [android.arch.lifecycle:viewmodel:1.1.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.1.aar/1b9e01d7cc1ab304b95cd196e9717edf/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:interpolator:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/interpolator-28.0.0.aar/7872616d4c695726ebf08ec00afb330d/AndroidManifest.xml:17:1-22:12
 MERGED from [android.arch.lifecycle:livedata:1.1.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/livedata-1.1.1.aar/4de65696efa876e804b0a1d1aff78289/AndroidManifest.xml:17:1-22:12
 MERGED from [android.arch.lifecycle:livedata-core:1.1.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.1.aar/6e5d4406fd0ee11b1cb4aa9009fceacd/AndroidManifest.xml:17:1-22:12
 MERGED from [android.arch.core:runtime:1.1.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/a66d4736efe40ecf099d9e6aec1d5772/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:interpolator:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/interpolator-28.0.0.aar/7872616d4c695726ebf08ec00afb330d/AndroidManifest.xml:17:1-22:12
 MERGED from [com.facebook.fresco:fresco:1.10.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/fresco-1.10.0.aar/2c510d9a8ec4b6d0e3fb742d6cd30717/AndroidManifest.xml:2:1-9:12
 MERGED from [com.facebook.fresco:imagepipeline-okhttp3:1.10.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/imagepipeline-okhttp3-1.10.0.aar/762899de069b12c45b21778dbf090215/AndroidManifest.xml:2:1-9:12
 MERGED from [com.facebook.fresco:drawee:1.10.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/drawee-1.10.0.aar/969f81f1c1ca146065a6d1069236d372/AndroidManifest.xml:2:1-9:12
@@ -73,6 +77,8 @@ INJECTED from /Users/daisy/doan2018/android/app/src/debug/AndroidManifest.xml:2:
 		ADDED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml:1:11-69
 uses-permission#android.permission.INTERNET
 ADDED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml:4:5-67
+MERGED from [:react-native-firebase] /Users/daisy/doan2018/node_modules/react-native-firebase/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:11:5-67
+MERGED from [:react-native-firebase] /Users/daisy/doan2018/node_modules/react-native-firebase/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:11:5-67
 MERGED from [:react-native-maps] /Users/daisy/doan2018/node_modules/react-native-maps/lib/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:9:5-67
 MERGED from [:react-native-maps] /Users/daisy/doan2018/node_modules/react-native-maps/lib/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:9:5-67
 MERGED from [com.google.android.gms:play-services-maps:11.8.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-maps-11.8.0.aar/d10072fbdfe27cd963ed5947290756e7/AndroidManifest.xml:24:5-67
@@ -89,12 +95,12 @@ MERGED from [com.google.android.gms:play-services-maps:11.8.0] /Users/daisy/.gra
 MERGED from [com.google.android.gms:play-services-maps:11.8.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-maps-11.8.0.aar/d10072fbdfe27cd963ed5947290756e7/AndroidManifest.xml:30:5-20
 MERGED from [com.google.android.gms:play-services-base:11.8.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-base-11.8.0.aar/e188c834c3f546e8f0f629773b5dda27/AndroidManifest.xml:22:5-27:19
 MERGED from [com.google.android.gms:play-services-base:11.8.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-base-11.8.0.aar/e188c834c3f546e8f0f629773b5dda27/AndroidManifest.xml:22:5-27:19
-MERGED from [com.google.maps.android:android-maps-utils:0.5] /Users/daisy/.gradle/caches/transforms-1/files-1.1/android-maps-utils-0.5.aar/85ee30087008c5d4579be5fc52be8170/AndroidManifest.xml:7:5-11:19
-MERGED from [com.google.maps.android:android-maps-utils:0.5] /Users/daisy/.gradle/caches/transforms-1/files-1.1/android-maps-utils-0.5.aar/85ee30087008c5d4579be5fc52be8170/AndroidManifest.xml:7:5-11:19
 MERGED from [com.google.android.gms:play-services-tasks:11.8.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-tasks-11.8.0.aar/cec77e1e3d2122e7a6a6fcfa78e448f0/AndroidManifest.xml:7:5-20
 MERGED from [com.google.android.gms:play-services-tasks:11.8.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-tasks-11.8.0.aar/cec77e1e3d2122e7a6a6fcfa78e448f0/AndroidManifest.xml:7:5-20
 MERGED from [com.google.android.gms:play-services-basement:11.8.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-basement-11.8.0.aar/f16ffa0f9b3730026201e36bd86d2cd3/AndroidManifest.xml:22:5-26:19
 MERGED from [com.google.android.gms:play-services-basement:11.8.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-basement-11.8.0.aar/f16ffa0f9b3730026201e36bd86d2cd3/AndroidManifest.xml:22:5-26:19
+MERGED from [com.google.maps.android:android-maps-utils:0.5] /Users/daisy/.gradle/caches/transforms-1/files-1.1/android-maps-utils-0.5.aar/85ee30087008c5d4579be5fc52be8170/AndroidManifest.xml:7:5-11:19
+MERGED from [com.google.maps.android:android-maps-utils:0.5] /Users/daisy/.gradle/caches/transforms-1/files-1.1/android-maps-utils-0.5.aar/85ee30087008c5d4579be5fc52be8170/AndroidManifest.xml:7:5-11:19
 MERGED from [com.android.support:support-compat:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/00bb65cf0dbe87ef098a28cbd630cc1e/AndroidManifest.xml:22:5-94
 MERGED from [com.android.support:support-compat:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/00bb65cf0dbe87ef098a28cbd630cc1e/AndroidManifest.xml:22:5-94
 MERGED from [com.android.support:versionedparcelable:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/versionedparcelable-28.0.0.aar/de411835670c3acaa7115460e5317af9/AndroidManifest.xml:22:5-23:19
@@ -169,6 +175,12 @@ uses-sdk
 INJECTED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml
 INJECTED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml
+MERGED from [:react-native-vector-icons] /Users/daisy/doan2018/node_modules/react-native-vector-icons/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-vector-icons] /Users/daisy/doan2018/node_modules/react-native-vector-icons/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-firebase] /Users/daisy/doan2018/node_modules/react-native-firebase/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-firebase] /Users/daisy/doan2018/node_modules/react-native-firebase/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-gesture-handler] /Users/daisy/doan2018/node_modules/react-native-gesture-handler/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-gesture-handler] /Users/daisy/doan2018/node_modules/react-native-gesture-handler/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [:react-native-maps] /Users/daisy/doan2018/node_modules/react-native-maps/lib/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-7:41
 MERGED from [:react-native-maps] /Users/daisy/doan2018/node_modules/react-native-maps/lib/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-7:41
 MERGED from [com.facebook.react:react-native:0.59.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/react-native-0.59.1.aar/9e7532d549f6de008c60fe8fbad2a367/AndroidManifest.xml:7:5-9:41
@@ -179,14 +191,16 @@ MERGED from [com.google.android.gms:play-services-maps:11.8.0] /Users/daisy/.gra
 MERGED from [com.google.android.gms:play-services-maps:11.8.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-maps-11.8.0.aar/d10072fbdfe27cd963ed5947290756e7/AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-base:11.8.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-base-11.8.0.aar/e188c834c3f546e8f0f629773b5dda27/AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-base:11.8.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-base-11.8.0.aar/e188c834c3f546e8f0f629773b5dda27/AndroidManifest.xml:20:5-44
-MERGED from [com.google.maps.android:android-maps-utils:0.5] /Users/daisy/.gradle/caches/transforms-1/files-1.1/android-maps-utils-0.5.aar/85ee30087008c5d4579be5fc52be8170/AndroidManifest.xml:5:5-43
-MERGED from [com.google.maps.android:android-maps-utils:0.5] /Users/daisy/.gradle/caches/transforms-1/files-1.1/android-maps-utils-0.5.aar/85ee30087008c5d4579be5fc52be8170/AndroidManifest.xml:5:5-43
 MERGED from [com.google.android.gms:play-services-tasks:11.8.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-tasks-11.8.0.aar/cec77e1e3d2122e7a6a6fcfa78e448f0/AndroidManifest.xml:5:5-44
 MERGED from [com.google.android.gms:play-services-tasks:11.8.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-tasks-11.8.0.aar/cec77e1e3d2122e7a6a6fcfa78e448f0/AndroidManifest.xml:5:5-44
 MERGED from [com.google.android.gms:play-services-basement:11.8.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-basement-11.8.0.aar/f16ffa0f9b3730026201e36bd86d2cd3/AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-basement:11.8.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-basement-11.8.0.aar/f16ffa0f9b3730026201e36bd86d2cd3/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-v4:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/support-v4-28.0.0.aar/d428f91973d671262c9b961ad15869bc/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-v4:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/support-v4-28.0.0.aar/d428f91973d671262c9b961ad15869bc/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:multidex:1.0.2] /Users/daisy/.gradle/caches/transforms-1/files-1.1/multidex-1.0.2.aar/595a59983669585ee971112f4c386f4c/AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:multidex:1.0.2] /Users/daisy/.gradle/caches/transforms-1/files-1.1/multidex-1.0.2.aar/595a59983669585ee971112f4c386f4c/AndroidManifest.xml:20:5-43
+MERGED from [com.google.maps.android:android-maps-utils:0.5] /Users/daisy/.gradle/caches/transforms-1/files-1.1/android-maps-utils-0.5.aar/85ee30087008c5d4579be5fc52be8170/AndroidManifest.xml:5:5-43
+MERGED from [com.google.maps.android:android-maps-utils:0.5] /Users/daisy/.gradle/caches/transforms-1/files-1.1/android-maps-utils-0.5.aar/85ee30087008c5d4579be5fc52be8170/AndroidManifest.xml:5:5-43
 MERGED from [com.android.support:support-fragment:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/support-fragment-28.0.0.aar/a138bf0b62423756ccbfd1a50c7cf32c/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-fragment:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/support-fragment-28.0.0.aar/a138bf0b62423756ccbfd1a50c7cf32c/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:animated-vector-drawable:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-28.0.0.aar/670f28cb9c3a8f2f46bf2d66f99eb80b/AndroidManifest.xml:20:5-44
@@ -197,6 +211,8 @@ MERGED from [com.android.support:support-core-utils:28.0.0] /Users/daisy/.gradle
 MERGED from [com.android.support:support-core-utils:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/support-core-utils-28.0.0.aar/7cae271ecde47dbd12176bd2225015c8/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-vector-drawable:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-28.0.0.aar/b0c450ebe98c76c0b90e060b5626a6c2/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-vector-drawable:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-28.0.0.aar/b0c450ebe98c76c0b90e060b5626a6c2/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/support-media-compat-28.0.0.aar/ad958fcccf299334b6732f0e0d009590/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/support-media-compat-28.0.0.aar/ad958fcccf299334b6732f0e0d009590/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:loader:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/loader-28.0.0.aar/4e19f712c3b7a8b008a273c99dc368a4/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:loader:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/loader-28.0.0.aar/4e19f712c3b7a8b008a273c99dc368a4/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:viewpager:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/viewpager-28.0.0.aar/f6780214a52c0b343792fb7c44b4ecb1/AndroidManifest.xml:20:5-44
@@ -213,8 +229,6 @@ MERGED from [com.android.support:swiperefreshlayout:28.0.0] /Users/daisy/.gradle
 MERGED from [com.android.support:swiperefreshlayout:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/swiperefreshlayout-28.0.0.aar/b1cf5c3fd7d8731a1fc5e5bef383d13b/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:asynclayoutinflater:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/asynclayoutinflater-28.0.0.aar/325a9eec47d61f739831cc7c4c284df4/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:asynclayoutinflater:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/asynclayoutinflater-28.0.0.aar/325a9eec47d61f739831cc7c4c284df4/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-media-compat:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/support-media-compat-28.0.0.aar/ad958fcccf299334b6732f0e0d009590/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-media-compat:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/support-media-compat-28.0.0.aar/ad958fcccf299334b6732f0e0d009590/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-compat:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/00bb65cf0dbe87ef098a28cbd630cc1e/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-compat:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/00bb65cf0dbe87ef098a28cbd630cc1e/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:versionedparcelable:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/versionedparcelable-28.0.0.aar/de411835670c3acaa7115460e5317af9/AndroidManifest.xml:20:5-44
@@ -231,14 +245,14 @@ MERGED from [com.android.support:print:28.0.0] /Users/daisy/.gradle/caches/trans
 MERGED from [com.android.support:print:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/print-28.0.0.aar/b5cdbfbcf1533a53f0c4f5afa3dc8f90/AndroidManifest.xml:20:5-44
 MERGED from [android.arch.lifecycle:viewmodel:1.1.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.1.aar/1b9e01d7cc1ab304b95cd196e9717edf/AndroidManifest.xml:20:5-44
 MERGED from [android.arch.lifecycle:viewmodel:1.1.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.1.aar/1b9e01d7cc1ab304b95cd196e9717edf/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:interpolator:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/interpolator-28.0.0.aar/7872616d4c695726ebf08ec00afb330d/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:interpolator:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/interpolator-28.0.0.aar/7872616d4c695726ebf08ec00afb330d/AndroidManifest.xml:20:5-44
 MERGED from [android.arch.lifecycle:livedata:1.1.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/livedata-1.1.1.aar/4de65696efa876e804b0a1d1aff78289/AndroidManifest.xml:20:5-44
 MERGED from [android.arch.lifecycle:livedata:1.1.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/livedata-1.1.1.aar/4de65696efa876e804b0a1d1aff78289/AndroidManifest.xml:20:5-44
 MERGED from [android.arch.lifecycle:livedata-core:1.1.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.1.aar/6e5d4406fd0ee11b1cb4aa9009fceacd/AndroidManifest.xml:20:5-44
 MERGED from [android.arch.lifecycle:livedata-core:1.1.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.1.aar/6e5d4406fd0ee11b1cb4aa9009fceacd/AndroidManifest.xml:20:5-44
 MERGED from [android.arch.core:runtime:1.1.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/a66d4736efe40ecf099d9e6aec1d5772/AndroidManifest.xml:20:5-44
 MERGED from [android.arch.core:runtime:1.1.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/a66d4736efe40ecf099d9e6aec1d5772/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:interpolator:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/interpolator-28.0.0.aar/7872616d4c695726ebf08ec00afb330d/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:interpolator:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/interpolator-28.0.0.aar/7872616d4c695726ebf08ec00afb330d/AndroidManifest.xml:20:5-44
 MERGED from [com.facebook.fresco:fresco:1.10.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/fresco-1.10.0.aar/2c510d9a8ec4b6d0e3fb742d6cd30717/AndroidManifest.xml:5:5-7:41
 MERGED from [com.facebook.fresco:fresco:1.10.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/fresco-1.10.0.aar/2c510d9a8ec4b6d0e3fb742d6cd30717/AndroidManifest.xml:5:5-7:41
 MERGED from [com.facebook.fresco:imagepipeline-okhttp3:1.10.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/imagepipeline-okhttp3-1.10.0.aar/762899de069b12c45b21778dbf090215/AndroidManifest.xml:5:5-7:41
@@ -273,14 +287,20 @@ uses-permission#android.permission.SYSTEM_ALERT_WINDOW
 ADDED from /Users/daisy/doan2018/android/app/src/debug/AndroidManifest.xml:5:5-77
 	android:name
 		ADDED from /Users/daisy/doan2018/android/app/src/debug/AndroidManifest.xml:5:22-75
+uses-permission#android.permission.WAKE_LOCK
+ADDED from [:react-native-firebase] /Users/daisy/doan2018/node_modules/react-native-firebase/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:12:5-68
+	android:name
+		ADDED from [:react-native-firebase] /Users/daisy/doan2018/node_modules/react-native-firebase/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:12:22-65
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from [:react-native-firebase] /Users/daisy/doan2018/node_modules/react-native-firebase/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:13:5-79
+MERGED from [com.google.android.gms:play-services-maps:11.8.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-maps-11.8.0.aar/d10072fbdfe27cd963ed5947290756e7/AndroidManifest.xml:23:5-79
+MERGED from [com.google.android.gms:play-services-maps:11.8.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-maps-11.8.0.aar/d10072fbdfe27cd963ed5947290756e7/AndroidManifest.xml:23:5-79
+	android:name
+		ADDED from [:react-native-firebase] /Users/daisy/doan2018/node_modules/react-native-firebase/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:13:22-76
 uses-permission#android.permission.ACCESS_COARSE_LOCATION
 ADDED from [:react-native-maps] /Users/daisy/doan2018/node_modules/react-native-maps/lib/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:10:5-81
 	android:name
 		ADDED from [:react-native-maps] /Users/daisy/doan2018/node_modules/react-native-maps/lib/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:10:22-78
-uses-permission#android.permission.ACCESS_NETWORK_STATE
-ADDED from [com.google.android.gms:play-services-maps:11.8.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-maps-11.8.0.aar/d10072fbdfe27cd963ed5947290756e7/AndroidManifest.xml:23:5-79
-	android:name
-		ADDED from [com.google.android.gms:play-services-maps:11.8.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-maps-11.8.0.aar/d10072fbdfe27cd963ed5947290756e7/AndroidManifest.xml:23:22-76
 uses-feature#0x00020000
 ADDED from [com.google.android.gms:play-services-maps:11.8.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-maps-11.8.0.aar/d10072fbdfe27cd963ed5947290756e7/AndroidManifest.xml:26:5-28:35
 	android:glEsVersion
@@ -296,10 +316,10 @@ ADDED from [com.google.android.gms:play-services-base:11.8.0] /Users/daisy/.grad
 	android:name
 		ADDED from [com.google.android.gms:play-services-base:11.8.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-base-11.8.0.aar/e188c834c3f546e8f0f629773b5dda27/AndroidManifest.xml:24:13-79
 meta-data#com.google.android.gms.version
-ADDED from [com.google.maps.android:android-maps-utils:0.5] /Users/daisy/.gradle/caches/transforms-1/files-1.1/android-maps-utils-0.5.aar/85ee30087008c5d4579be5fc52be8170/AndroidManifest.xml:8:9-10:69
-MERGED from [com.google.android.gms:play-services-basement:11.8.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-basement-11.8.0.aar/f16ffa0f9b3730026201e36bd86d2cd3/AndroidManifest.xml:23:9-25:69
-MERGED from [com.google.android.gms:play-services-basement:11.8.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-basement-11.8.0.aar/f16ffa0f9b3730026201e36bd86d2cd3/AndroidManifest.xml:23:9-25:69
+ADDED from [com.google.android.gms:play-services-basement:11.8.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-basement-11.8.0.aar/f16ffa0f9b3730026201e36bd86d2cd3/AndroidManifest.xml:23:9-25:69
+MERGED from [com.google.maps.android:android-maps-utils:0.5] /Users/daisy/.gradle/caches/transforms-1/files-1.1/android-maps-utils-0.5.aar/85ee30087008c5d4579be5fc52be8170/AndroidManifest.xml:8:9-10:69
+MERGED from [com.google.maps.android:android-maps-utils:0.5] /Users/daisy/.gradle/caches/transforms-1/files-1.1/android-maps-utils-0.5.aar/85ee30087008c5d4579be5fc52be8170/AndroidManifest.xml:8:9-10:69
 	android:value
-		ADDED from [com.google.maps.android:android-maps-utils:0.5] /Users/daisy/.gradle/caches/transforms-1/files-1.1/android-maps-utils-0.5.aar/85ee30087008c5d4579be5fc52be8170/AndroidManifest.xml:10:13-66
+		ADDED from [com.google.android.gms:play-services-basement:11.8.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-basement-11.8.0.aar/f16ffa0f9b3730026201e36bd86d2cd3/AndroidManifest.xml:25:13-66
 	android:name
-		ADDED from [com.google.maps.android:android-maps-utils:0.5] /Users/daisy/.gradle/caches/transforms-1/files-1.1/android-maps-utils-0.5.aar/85ee30087008c5d4579be5fc52be8170/AndroidManifest.xml:9:13-58
+		ADDED from [com.google.android.gms:play-services-basement:11.8.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-basement-11.8.0.aar/f16ffa0f9b3730026201e36bd86d2cd3/AndroidManifest.xml:24:13-58

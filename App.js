@@ -1,49 +1,24 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow
- */
-
 import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View } from 'react-native';
-import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 
+import Map from './src/component/home/Map';
+import MyGroup from './src/component/group/MyGroup';
 
-export default class App extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <MapView
-          provider={MapView.PROVIDER_GOOGLE}
-          style={styles.map}
-          region={{
-            latitude: 37.78825,
-            longitude: -122.4324,
-            latitudeDelta: 0.015,
-            longitudeDelta: 0.0121,
-          }}
-        >
-        </MapView>
-      </View>
-    );
+import { StackNavigator, createStackNavigator, createAppContainer } from 'react-navigation';
+const MainStack = createStackNavigator(
+  {
+    MyGroup: {
+      screen: MyGroup,
+    },
+    Map: {
+      screen: Map,
+    },
+  }, {
+    headerMode: 'none',
+    navigationOptions: {
+      headerVisible: false,
+    }
   }
-}
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  map: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    ...StyleSheet.absoluteFillObject
-}
-});
+);
+
+export default createAppContainer(MainStack)

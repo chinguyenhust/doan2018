@@ -2,6 +2,7 @@ dependencies: /Users/daisy/doan2018/ios/doan2018/AppDelegate.m \
   /Users/daisy/doan2018/ios/doan2018/AppDelegate.h \
   /Users/daisy/doan2018/ios/build/doan2018/Build/Products/Debug-iphonesimulator/include/React/RCTBridgeDelegate.h \
   /Users/daisy/doan2018/ios/build/doan2018/Build/Products/Debug-iphonesimulator/include/React/RCTJavaScriptLoader.h \
+  /Users/daisy/doan2018/ios/Pods/Firebase/CoreOnly/Sources/module.modulemap \
   /Users/daisy/doan2018/ios/build/doan2018/Build/Products/Debug-iphonesimulator/include/React/RCTDefines.h \
   /Users/daisy/doan2018/ios/build/doan2018/Build/Products/Debug-iphonesimulator/include/React/RCTBridge.h \
   /Users/daisy/doan2018/ios/build/doan2018/Build/Products/Debug-iphonesimulator/include/React/RCTBridgeModule.h \
