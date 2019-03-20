@@ -1,0 +1,37 @@
+dependencies: \
+  /Users/daisy/doan2018/ios/Pods/FirebaseFirestore/Firestore/Protos/objc/firestore/local/Target.pbobjc.m \
+  /Users/daisy/doan2018/ios/Pods/Headers/Private/Protobuf/GPBProtocolBuffers_RuntimeSupport.h \
+  /Users/daisy/doan2018/ios/Pods/Headers/Private/Protobuf/GPBBootstrap.h \
+  /Users/daisy/doan2018/ios/Pods/Headers/Private/Protobuf/GPBDescriptor_PackagePrivate.h \
+  /Users/daisy/doan2018/ios/Pods/Headers/Private/Protobuf/GPBDescriptor.h \
+  /Users/daisy/doan2018/ios/Pods/Headers/Private/Protobuf/GPBRuntimeTypes.h \
+  /Users/daisy/doan2018/ios/Pods/Headers/Private/Protobuf/GPBWireFormat.h \
+  /Users/daisy/doan2018/ios/Pods/Headers/Private/Protobuf/GPBExtensionInternals.h \
+  /Users/daisy/doan2018/ios/Pods/Headers/Private/Protobuf/GPBMessage_PackagePrivate.h \
+  /Users/daisy/doan2018/ios/Pods/Headers/Private/Protobuf/GPBMessage.h \
+  /Users/daisy/doan2018/ios/Pods/Headers/Private/Protobuf/GPBRootObject_PackagePrivate.h \
+  /Users/daisy/doan2018/ios/Pods/Headers/Private/Protobuf/GPBRootObject.h \
+  /Users/daisy/doan2018/ios/Pods/Headers/Private/Protobuf/GPBUtilities_PackagePrivate.h \
+  /Users/daisy/doan2018/ios/Pods/Headers/Private/Protobuf/GPBUtilities.h \
+  /Users/daisy/doan2018/ios/Pods/Headers/Private/Protobuf/GPBArray.h \
+  /Users/daisy/doan2018/ios/Pods/Headers/Private/Protobuf/Timestamp.pbobjc.h \
+  /Users/daisy/doan2018/ios/Pods/FirebaseFirestore/Firestore/Protos/objc/firestore/local/Target.pbobjc.h \
+  /Users/daisy/doan2018/ios/Pods/Headers/Private/Protobuf/GPBProtocolBuffers.h \
+  /Users/daisy/doan2018/ios/Pods/Headers/Private/Protobuf/GPBCodedInputStream.h \
+  /Users/daisy/doan2018/ios/Pods/Headers/Private/Protobuf/GPBCodedOutputStream.h \
+  /Users/daisy/doan2018/ios/Pods/Headers/Private/Protobuf/GPBDictionary.h \
+  /Users/daisy/doan2018/ios/Pods/Headers/Private/Protobuf/GPBExtensionRegistry.h \
+  /Users/daisy/doan2018/ios/Pods/Headers/Private/Protobuf/GPBUnknownField.h \
+  /Users/daisy/doan2018/ios/Pods/Headers/Private/Protobuf/GPBUnknownFieldSet.h \
+  /Users/daisy/doan2018/ios/Pods/Headers/Private/Protobuf/GPBWellKnownTypes.h \
+  /Users/daisy/doan2018/ios/Pods/Headers/Private/Protobuf/Any.pbobjc.h \
+  /Users/daisy/doan2018/ios/Pods/Headers/Private/Protobuf/Duration.pbobjc.h \
+  /Users/daisy/doan2018/ios/Pods/Headers/Private/Protobuf/Api.pbobjc.h \
+  /Users/daisy/doan2018/ios/Pods/Headers/Private/Protobuf/Empty.pbobjc.h \
+  /Users/daisy/doan2018/ios/Pods/Headers/Private/Protobuf/FieldMask.pbobjc.h \
+  /Users/daisy/doan2018/ios/Pods/Headers/Private/Protobuf/SourceContext.pbobjc.h \
+  /Users/daisy/doan2018/ios/Pods/Headers/Private/Protobuf/Struct.pbobjc.h \
+  /Users/daisy/doan2018/ios/Pods/Headers/Private/Protobuf/Type.pbobjc.h \
+  /Users/daisy/doan2018/ios/Pods/Headers/Private/Protobuf/Wrappers.pbobjc.h \
+  /Users/daisy/doan2018/ios/Pods/FirebaseFirestore/Firestore/Protos/objc/google/firestore/v1beta1/Firestore.pbobjc.h \
+  /Users/daisy/doan2018/ios/Pods/FirebaseFirestore/Firestore/Protos/objc/google/api/Annotations.pbobjc.h

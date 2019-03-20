@@ -1,0 +1,35 @@
+dependencies: \
+  /Users/daisy/doan2018/ios/Pods/FirebaseFirestore/Firestore/core/src/firebase/firestore/auth/firebase_credentials_provider_apple.mm \
+  /Users/daisy/doan2018/ios/Pods/FirebaseFirestore/Firestore/core/src/firebase/firestore/auth/firebase_credentials_provider_apple.h \
+  /Users/daisy/doan2018/ios/Pods/FirebaseFirestore/Firestore/core/src/firebase/firestore/auth/credentials_provider.h \
+  /Users/daisy/doan2018/ios/Pods/FirebaseFirestore/Firestore/core/include/firebase/firestore/firestore_errors.h \
+  /Users/daisy/doan2018/ios/Pods/FirebaseFirestore/Firestore/core/src/firebase/firestore/auth/token.h \
+  /Users/daisy/doan2018/ios/Pods/FirebaseFirestore/Firestore/core/src/firebase/firestore/auth/user.h \
+  /Users/daisy/doan2018/ios/Pods/FirebaseFirestore/Firestore/core/src/firebase/firestore/util/string_apple.h \
+  /Users/daisy/doan2018/ios/Pods/FirebaseFirestore/Firestore/third_party/abseil-cpp/absl/strings/string_view.h \
+  /Users/daisy/doan2018/ios/Pods/FirebaseFirestore/Firestore/third_party/abseil-cpp/absl/base/config.h \
+  /Users/daisy/doan2018/ios/Pods/FirebaseFirestore/Firestore/third_party/abseil-cpp/absl/base/policy_checks.h \
+  /Users/daisy/doan2018/ios/Pods/FirebaseFirestore/Firestore/third_party/abseil-cpp/absl/base/internal/throw_delegate.h \
+  /Users/daisy/doan2018/ios/Pods/FirebaseFirestore/Firestore/third_party/abseil-cpp/absl/base/macros.h \
+  /Users/daisy/doan2018/ios/Pods/FirebaseFirestore/Firestore/third_party/abseil-cpp/absl/base/port.h \
+  /Users/daisy/doan2018/ios/Pods/FirebaseFirestore/Firestore/third_party/abseil-cpp/absl/base/attributes.h \
+  /Users/daisy/doan2018/ios/Pods/FirebaseFirestore/Firestore/third_party/abseil-cpp/absl/base/optimization.h \
+  /Users/daisy/doan2018/ios/Pods/FirebaseFirestore/Firestore/core/src/firebase/firestore/util/hard_assert.h \
+  /Users/daisy/doan2018/ios/Pods/FirebaseFirestore/Firestore/core/src/firebase/firestore/util/string_format.h \
+  /Users/daisy/doan2018/ios/Pods/FirebaseFirestore/Firestore/core/src/firebase/firestore/util/type_traits.h \
+  /Users/daisy/doan2018/ios/Pods/FirebaseFirestore/Firestore/third_party/abseil-cpp/absl/strings/str_cat.h \
+  /Users/daisy/doan2018/ios/Pods/FirebaseFirestore/Firestore/third_party/abseil-cpp/absl/strings/numbers.h \
+  /Users/daisy/doan2018/ios/Pods/FirebaseFirestore/Firestore/third_party/abseil-cpp/absl/numeric/int128.h \
+  /Users/daisy/doan2018/ios/Pods/FirebaseFirestore/Firestore/third_party/abseil-cpp/absl/numeric/int128_have_intrinsic.inc \
+  /Users/daisy/doan2018/ios/Pods/FirebaseFirestore/Firestore/core/src/firebase/firestore/util/statusor.h \
+  /Users/daisy/doan2018/ios/Pods/FirebaseFirestore/Firestore/core/src/firebase/firestore/util/status.h \
+  /Users/daisy/doan2018/ios/Pods/FirebaseFirestore/Firestore/core/src/firebase/firestore/util/statusor_internals.h \
+  /Users/daisy/doan2018/ios/Pods/Headers/Private/FirebaseAuthInterop/FIRAuthInterop.h \
+  /Users/daisy/doan2018/ios/Pods/Headers/Private/FirebaseCore/FIRApp.h \
+  /Users/daisy/doan2018/ios/Pods/Headers/Private/FirebaseCore/FIRAppInternal.h \
+  /Users/daisy/doan2018/ios/Pods/Headers/Private/FirebaseCore/FIRErrors.h \
+  /Users/daisy/doan2018/ios/Pods/Headers/Private/FirebaseCore/FIRErrorCode.h \
+  /Users/daisy/doan2018/ios/Pods/Headers/Private/FirebaseCore/FIRComponentContainer.h \
+  /Users/daisy/doan2018/ios/Pods/Headers/Private/FirebaseCore/FIRComponentType.h \
+  /Users/daisy/doan2018/ios/Pods/Headers/Private/FirebaseCore/FIROptionsInternal.h \
+  /Users/daisy/doan2018/ios/Pods/Headers/Private/FirebaseCore/FIROptions.h

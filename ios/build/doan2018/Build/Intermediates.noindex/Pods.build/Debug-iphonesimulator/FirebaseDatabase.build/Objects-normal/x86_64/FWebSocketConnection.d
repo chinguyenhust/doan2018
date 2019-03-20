@@ -1,0 +1,21 @@
+dependencies: \
+  /Users/daisy/doan2018/ios/Pods/FirebaseDatabase/Firebase/Database/Realtime/FWebSocketConnection.m \
+  /Users/daisy/doan2018/ios/Pods/Headers/Private/FirebaseCore/FIRLogger.h \
+  /Users/daisy/doan2018/ios/Pods/Headers/Private/FirebaseCore/FIRLoggerLevel.h \
+  /Users/daisy/doan2018/ios/Pods/FirebaseDatabase/Firebase/Database/Realtime/FWebSocketConnection.h \
+  /Users/daisy/doan2018/ios/Pods/FirebaseDatabase/Firebase/Database/third_party/SocketRocket/FSRWebSocket.h \
+  /Users/daisy/doan2018/ios/Pods/FirebaseDatabase/Firebase/Database/Utilities/FUtilities.h \
+  /Users/daisy/doan2018/ios/Pods/FirebaseDatabase/Firebase/Database/Utilities/FParsedUrl.h \
+  /Users/daisy/doan2018/ios/Pods/FirebaseDatabase/Firebase/Database/Core/FRepoInfo.h \
+  /Users/daisy/doan2018/ios/Pods/FirebaseDatabase/Firebase/Database/Core/Utilities/FPath.h \
+  /Users/daisy/doan2018/ios/Pods/FirebaseDatabase/Firebase/Database/Constants/FConstants.h \
+  /Users/daisy/doan2018/ios/Pods/FirebaseDatabase/Firebase/Database/Public/FIRDatabaseReference.h \
+  /Users/daisy/doan2018/ios/Pods/FirebaseDatabase/Firebase/Database/Public/FIRDatabaseQuery.h \
+  /Users/daisy/doan2018/ios/Pods/FirebaseDatabase/Firebase/Database/Public/FIRDataEventType.h \
+  /Users/daisy/doan2018/ios/Pods/FirebaseDatabase/Firebase/Database/Public/FIRDataSnapshot.h \
+  /Users/daisy/doan2018/ios/Pods/FirebaseDatabase/Firebase/Database/Public/FIRDatabase.h \
+  /Users/daisy/doan2018/ios/Pods/FirebaseDatabase/Firebase/Database/Public/FIRMutableData.h \
+  /Users/daisy/doan2018/ios/Pods/FirebaseDatabase/Firebase/Database/Public/FIRTransactionResult.h \
+  /Users/daisy/doan2018/ios/Pods/FirebaseDatabase/Firebase/Database/Public/FIRServerValue.h \
+  /Users/daisy/doan2018/ios/Pods/FirebaseDatabase/Firebase/Database/Utilities/FStringUtilities.h \
+  /Users/daisy/doan2018/ios/Pods/FirebaseDatabase/Firebase/Database/Api/Private/FIRDatabase_Private.h

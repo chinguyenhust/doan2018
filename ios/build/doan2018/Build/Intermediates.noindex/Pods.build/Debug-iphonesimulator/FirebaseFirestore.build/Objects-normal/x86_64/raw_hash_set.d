@@ -1,0 +1,33 @@
+dependencies: \
+  /Users/daisy/doan2018/ios/Pods/FirebaseFirestore/Firestore/third_party/abseil-cpp/absl/container/internal/raw_hash_set.cc \
+  /Users/daisy/doan2018/ios/Pods/FirebaseFirestore/Firestore/third_party/abseil-cpp/absl/container/internal/raw_hash_set.h \
+  /Users/daisy/doan2018/ios/Pods/FirebaseFirestore/Firestore/third_party/abseil-cpp/absl/base/internal/bits.h \
+  /Users/daisy/doan2018/ios/Pods/FirebaseFirestore/Firestore/third_party/abseil-cpp/absl/base/attributes.h \
+  /Users/daisy/doan2018/ios/Pods/FirebaseFirestore/Firestore/third_party/abseil-cpp/absl/base/internal/endian.h \
+  /Users/daisy/doan2018/ios/Pods/FirebaseFirestore/Firestore/third_party/abseil-cpp/absl/base/config.h \
+  /Users/daisy/doan2018/ios/Pods/FirebaseFirestore/Firestore/third_party/abseil-cpp/absl/base/policy_checks.h \
+  /Users/daisy/doan2018/ios/Pods/FirebaseFirestore/Firestore/third_party/abseil-cpp/absl/base/internal/unaligned_access.h \
+  /Users/daisy/doan2018/ios/Pods/FirebaseFirestore/Firestore/third_party/abseil-cpp/absl/base/port.h \
+  /Users/daisy/doan2018/ios/Pods/FirebaseFirestore/Firestore/third_party/abseil-cpp/absl/base/optimization.h \
+  /Users/daisy/doan2018/ios/Pods/FirebaseFirestore/Firestore/third_party/abseil-cpp/absl/container/internal/compressed_tuple.h \
+  /Users/daisy/doan2018/ios/Pods/FirebaseFirestore/Firestore/third_party/abseil-cpp/absl/utility/utility.h \
+  /Users/daisy/doan2018/ios/Pods/FirebaseFirestore/Firestore/third_party/abseil-cpp/absl/base/internal/inline_variable.h \
+  /Users/daisy/doan2018/ios/Pods/FirebaseFirestore/Firestore/third_party/abseil-cpp/absl/base/internal/identity.h \
+  /Users/daisy/doan2018/ios/Pods/FirebaseFirestore/Firestore/third_party/abseil-cpp/absl/base/internal/invoke.h \
+  /Users/daisy/doan2018/ios/Pods/FirebaseFirestore/Firestore/third_party/abseil-cpp/absl/meta/type_traits.h \
+  /Users/daisy/doan2018/ios/Pods/FirebaseFirestore/Firestore/third_party/abseil-cpp/absl/container/internal/container_memory.h \
+  /Users/daisy/doan2018/ios/Pods/FirebaseFirestore/Firestore/third_party/abseil-cpp/absl/memory/memory.h \
+  /Users/daisy/doan2018/ios/Pods/FirebaseFirestore/Firestore/third_party/abseil-cpp/absl/base/macros.h \
+  /Users/daisy/doan2018/ios/Pods/FirebaseFirestore/Firestore/third_party/abseil-cpp/absl/container/internal/hash_policy_traits.h \
+  /Users/daisy/doan2018/ios/Pods/FirebaseFirestore/Firestore/third_party/abseil-cpp/absl/container/internal/hashtable_debug_hooks.h \
+  /Users/daisy/doan2018/ios/Pods/FirebaseFirestore/Firestore/third_party/abseil-cpp/absl/container/internal/layout.h \
+  /Users/daisy/doan2018/ios/Pods/FirebaseFirestore/Firestore/third_party/abseil-cpp/absl/strings/str_cat.h \
+  /Users/daisy/doan2018/ios/Pods/FirebaseFirestore/Firestore/third_party/abseil-cpp/absl/strings/numbers.h \
+  /Users/daisy/doan2018/ios/Pods/FirebaseFirestore/Firestore/third_party/abseil-cpp/absl/numeric/int128.h \
+  /Users/daisy/doan2018/ios/Pods/FirebaseFirestore/Firestore/third_party/abseil-cpp/absl/numeric/int128_have_intrinsic.inc \
+  /Users/daisy/doan2018/ios/Pods/FirebaseFirestore/Firestore/third_party/abseil-cpp/absl/strings/string_view.h \
+  /Users/daisy/doan2018/ios/Pods/FirebaseFirestore/Firestore/third_party/abseil-cpp/absl/base/internal/throw_delegate.h \
+  /Users/daisy/doan2018/ios/Pods/FirebaseFirestore/Firestore/third_party/abseil-cpp/absl/types/span.h \
+  /Users/daisy/doan2018/ios/Pods/FirebaseFirestore/Firestore/third_party/abseil-cpp/absl/algorithm/algorithm.h \
+  /Users/daisy/doan2018/ios/Pods/FirebaseFirestore/Firestore/third_party/abseil-cpp/absl/types/optional.h \
+  /Users/daisy/doan2018/ios/Pods/FirebaseFirestore/Firestore/third_party/abseil-cpp/absl/types/bad_optional_access.h
