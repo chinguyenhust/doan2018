@@ -10,9 +10,17 @@ import DetailEvent from './src/component/group/DetailEvent';
 import DetailSurvey from './src/component/group/DetailSurvey';
 import InfoGroup from './src/component/group/InfoGroup';
 
+import Main from './src/component/login/Main';
+import Loading from './src/component/login/Loading'
+import Login from './src/component/login/Login'
+import SignUp from './src/component/login/SignUp'
+
 import { StackNavigator, createStackNavigator, createAppContainer } from 'react-navigation';
 const MainStack = createStackNavigator(
   {
+    Loading: {
+      screen: Loading
+    },
     MyGroup: {
       screen: MyGroup,
     },
@@ -39,6 +47,15 @@ const MainStack = createStackNavigator(
     },
     InfoGroup: {
       screen: InfoGroup,
+    },
+    Login: {
+      screen: Login
+    },
+    SignUp: {
+      screen: SignUp
+    },
+    Main: {
+      screen: Main
     },
   }, {
     headerMode: 'none',

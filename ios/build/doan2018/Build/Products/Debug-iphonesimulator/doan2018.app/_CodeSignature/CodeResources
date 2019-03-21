@@ -10,7 +10,7 @@
 		</data>
 		<key>Base.lproj/LaunchScreen.nib</key>
 		<data>
-		1XdqrsI+mZRGDQFgxmsZWKnu8H0=
+		SqvyoTKT61b1zPylRwX7ESG6sS8=
 		</data>
 		<key>Entypo.ttf</key>
 		<data>
@@ -743,6 +743,10 @@
 		<data>
 		Kj6ixJMHtndv37xT7AFZAQBgKic=
 		</data>
+		<key>GoogleService-Info.plist</key>
+		<data>
+		1VUAt8tS6ibpjRJFVcss5BHepDI=
+		</data>
 		<key>Info.plist</key>
 		<data>
 		wZ0GRrG7dmFJXdNK7aj43lnHxUM=
@@ -785,7 +789,7 @@
 		</data>
 		<key>PlugIns/doan2018Tests.xctest/doan2018Tests</key>
 		<data>
-		OzYbiVyCQkN9x3iKx2HOByaPTvw=
+		fHWexS/IK8JaptBgGNF6K8rPuQU=
 		</data>
 		<key>SimpleLineIcons.ttf</key>
 		<data>
@@ -841,11 +845,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			1XdqrsI+mZRGDQFgxmsZWKnu8H0=
+			SqvyoTKT61b1zPylRwX7ESG6sS8=
 			</data>
 			<key>hash2</key>
 			<data>
-			bw7nvZ78UzgVRRW4WBp+XGH5bIPYwFNimyXs3g2XS/c=
+			57gany09+0iI+z039dK0VdYQ7k2XFhOwuM/KMgTvAjo=
 			</data>
 		</dict>
 		<key>Entypo.ttf</key>
@@ -2306,6 +2310,17 @@
 			DXQ4sOleVe+NnnezsCMWzD636T2Fz10D/+kZS6n5w8M=
 			</data>
 		</dict>
+		<key>GoogleService-Info.plist</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			1VUAt8tS6ibpjRJFVcss5BHepDI=
+			</data>
+			<key>hash2</key>
+			<data>
+			RxkPMH8oJubGDeVRN/opbk5Bsv6GyC9rpD1ffI8aulI=
+			</data>
+		</dict>
 		<key>Ionicons.ttf</key>
 		<dict>
 			<key>hash</key>
@@ -2398,11 +2413,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			OzYbiVyCQkN9x3iKx2HOByaPTvw=
+			fHWexS/IK8JaptBgGNF6K8rPuQU=
 			</data>
 			<key>hash2</key>
 			<data>
-			BfTjTNUEFuKfNojhOh1EKu7HVVSgLUBk0W0dYrCKQ+M=
+			ZaYplO8jAkC1mvE1UL4RkhtL27wmpcbI2dXQ2YXtf24=
 			</data>
 		</dict>
 		<key>SimpleLineIcons.ttf</key>

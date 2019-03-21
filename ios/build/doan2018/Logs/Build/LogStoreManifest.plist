@@ -6,6 +6,35 @@
 	<integer>9</integer>
 	<key>logs</key>
 	<dict>
+		<key>0993F219-F0D7-4F67-85FC-66AC6D2C5138</key>
+		<dict>
+			<key>className</key>
+			<string>IDECommandLineBuildLog</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>0993F219-F0D7-4F67-85FC-66AC6D2C5138.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>W</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>doan2018 project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>doan2018</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Building workspace doan2018 with scheme doan2018 and configuration Debug</string>
+			<key>timeStartedRecording</key>
+			<real>574851847.60933399</real>
+			<key>timeStoppedRecording</key>
+			<real>574851867.80559003</real>
+			<key>title</key>
+			<string>Building workspace doan2018 with scheme doan2018 and configuration Debug</string>
+			<key>uniqueIdentifier</key>
+			<string>0993F219-F0D7-4F67-85FC-66AC6D2C5138</string>
+		</dict>
 		<key>5CBFDAC5-83E9-4915-8EF8-5AE98A98F5AB</key>
 		<dict>
 			<key>className</key>
@@ -34,35 +63,6 @@
 			<string>Building workspace doan2018 with scheme doan2018 and configuration Debug</string>
 			<key>uniqueIdentifier</key>
 			<string>5CBFDAC5-83E9-4915-8EF8-5AE98A98F5AB</string>
-		</dict>
-		<key>73D1D5A2-C4EC-4636-9DEA-C62ADCE8CB31</key>
-		<dict>
-			<key>className</key>
-			<string>IDECommandLineBuildLog</string>
-			<key>documentTypeString</key>
-			<string>&lt;nil&gt;</string>
-			<key>domainType</key>
-			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
-			<key>fileName</key>
-			<string>73D1D5A2-C4EC-4636-9DEA-C62ADCE8CB31.xcactivitylog</string>
-			<key>highLevelStatus</key>
-			<string>W</string>
-			<key>schemeIdentifier-containerName</key>
-			<string>doan2018 project</string>
-			<key>schemeIdentifier-schemeName</key>
-			<string>doan2018</string>
-			<key>schemeIdentifier-sharedScheme</key>
-			<integer>1</integer>
-			<key>signature</key>
-			<string>Building workspace doan2018 with scheme doan2018 and configuration Debug</string>
-			<key>timeStartedRecording</key>
-			<real>574814028.75369298</real>
-			<key>timeStoppedRecording</key>
-			<real>574814032.58898795</real>
-			<key>title</key>
-			<string>Building workspace doan2018 with scheme doan2018 and configuration Debug</string>
-			<key>uniqueIdentifier</key>
-			<string>73D1D5A2-C4EC-4636-9DEA-C62ADCE8CB31</string>
 		</dict>
 	</dict>
 </dict>
