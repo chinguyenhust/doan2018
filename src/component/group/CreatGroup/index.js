@@ -33,7 +33,7 @@ export default class CreatGroup extends Component {
   }
 
   _handleCreatGroup = () => {
-    var { name, schedule, avatar} = this.state;
+    var { name, schedule, avatar } = this.state;
     Data.ref("groups").push(
       {
         name: name,
@@ -92,6 +92,9 @@ export default class CreatGroup extends Component {
           avatar: source,
           isLoad: true,
         });
+        this.itemRef.ref('AlbumImg/').push({
+          uri: source
+        })
       }
     });
   };
@@ -99,6 +102,20 @@ export default class CreatGroup extends Component {
   onSelectedItemsChange = selectedItems => {
     this.setState({ selectedItems });
   };
+  uploadImage = async uri => {
+    try {
+      const response = await fetch(uri);
+      const blob = await response.blob();
+      const ref = firebase.storage().ref('avatar').child(uuid.v4());
+      const task = ref.put(blob);
+      return new Promise((resolve, reject) => {
+        task.on('state_changed', () => { }, reject,
+          () => resolve(task.snapshot.downloadURL));
+      });
+    } catch (err) {
+      console.log('uploadImage error: ' + err.message);
+    }
+  }
 
   render() {
     const { selectedItems, items } = this.state;

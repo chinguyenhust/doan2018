@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Platform, StyleSheet, Text, View, Button, TouchableOpacity, TextInput, Image, ScrollView} from 'react-native';
 import styles from './InfoGroupStyle';
 import Icon from 'react-native-vector-icons/Ionicons';
-import IconLocation from 'react-native-vector-icons/Entypo';
 import ImagePicker from 'react-native-image-picker';
 import IconAdd from 'react-native-vector-icons/MaterialIcons';
 import MultiSelect from 'react-native-multiple-select';

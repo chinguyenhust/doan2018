@@ -42,6 +42,7 @@ export default class DetailGroup extends Component {
   
   render() {
     const { navigate } = this.props.navigation;
+    const name = "Chi";
 
     return (
       <View style={styles.container}>
@@ -67,7 +68,7 @@ export default class DetailGroup extends Component {
         </View>
 
         <View style={{ flex: 15 }}>
-         {(this.state.isChat) && <Chat/>}
+          {(this.state.isChat) && <Chat name={name} />}
           {(this.state.isMap) && <Map />}
           {(this.state.isEvent) && <Event navigate={navigate}/>}
         </View>

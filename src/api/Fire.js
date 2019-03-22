@@ -1,5 +1,6 @@
 import firebase from 'firebase'; // 4.8.1
 
+
 class Fire {
   constructor() {
     this.observeAuth();
@@ -19,6 +20,7 @@ class Fire {
   };
 
   get uid() {
+    console.log("current user", firebase.auth().currentUser)
     return (firebase.auth().currentUser || {}).uid;
   }
 
@@ -28,6 +30,7 @@ class Fire {
 
   parse = snapshot => {
     const { timestamp: numberStamp, text, user } = snapshot.val();
+    console.log("snap short  ", snapshot.val())
     const { key: _id } = snapshot;
     const timestamp = new Date(numberStamp);
     const message = {
