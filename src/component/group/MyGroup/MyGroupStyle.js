@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
         alignSelf: "stretch",
         flexDirection: 'column',
         height: 40,
-        marginTop: 35,
+        marginTop: 30,
         alignItems: "center",
     },
     list: {

@@ -2,15 +2,11 @@ import { StyleSheet } from 'react-native'
 const styles = StyleSheet.create({
     container: {
         alignSelf: "stretch",
-        paddingLeft: 20,
-        paddingRight: 20,
-        paddingTop: 40,
+        paddingTop: 30,
         flexDirection: 'column',
         backgroundColor: "#fff",
-        paddingBottom: 20,
-        position: "absolute",
         left: 0,
-        right: 0
+        right: 0,
     },
     inputName: {
         height: 40, 
@@ -31,12 +27,9 @@ const styles = StyleSheet.create({
         borderRadius: 5,
     },
     button: {
-        bottom: 0, 
         alignItems: 'center', 
         backgroundColor:"green", 
-        alignSelf: "stretch",
         height:40, 
-        width: "100%", 
         justifyContent: "center",
         borderRadius: 7
     }

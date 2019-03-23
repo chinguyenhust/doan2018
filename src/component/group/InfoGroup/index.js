@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View, Button, TouchableOpacity, TextInput, Image, ScrollView} from 'react-native';
+import { Platform, StyleSheet, Text, View, Button, TouchableOpacity, TextInput, Image, ScrollView } from 'react-native';
 import styles from './InfoGroupStyle';
 import Icon from 'react-native-vector-icons/Ionicons';
 import ImagePicker from 'react-native-image-picker';
@@ -89,47 +89,46 @@ export default class InfoGroup extends Component {
       <View style={styles.container}>
 
         <View style={{ flexDirection: "column" }}>
-          <TouchableOpacity style={{ height: 30, flexDirection: "row" }}>
+          <TouchableOpacity style={{ height: 30, flexDirection: "row" ,paddingLeft: 20}}>
             <Icon name="ios-arrow-round-back" size={34} style={{ width: "15%" }} onPress={() => { this.props.navigation.goBack() }} />
           </TouchableOpacity>
         </View>
+        <ScrollView style={{ paddingLeft: 20, paddingRight: 20, marginBottom: 40 }}>
+          <TouchableOpacity style={{ alignItems: 'center' }} onPress={this.chooseFile.bind(this)}>
+            {(!this.state.isLoad) ?
+              <IconAdd name="add-circle" size={120} style={{ color: "gray", }} /> :
+              <Image
+                source={{ uri: this.state.filePath.uri }}
+                style={{ width: 100, height: 100, borderRadius: 50, marginTop: 10 }}
+              />
+            }
+          </TouchableOpacity>
 
-        <TouchableOpacity style={{ alignItems: 'center' }} onPress={this.chooseFile.bind(this)}>
-          {(!this.state.isLoad) ?
-            <IconAdd name="add-circle" size={150} style={{ color: "gray", marginTop: 10 }} /> :
-            <Image
-              source={{ uri: this.state.filePath.uri }}
-              style={{ width: 130, height: 130, borderRadius: 65, marginTop: 20 }}
+          <View style={{ flexDirection: "column" }}>
+            <Text style={{ fontSize: 16 }}>Tên nhóm</Text>
+            <TextInput
+              placeholder="Đặt tên nhóm"
+              style={styles.inputName}
+              onChangeText={(name) => {
+                this.setState({ name });
+              }}
+              value={this.state.name}
             />
-          }
-        </TouchableOpacity>
+          </View>
+          <View style={{ flexDirection: "column", marginTop: 20 }}>
+            <Text style={{ fontSize: 16 }}>Kế hoạch cho chuyến đi</Text>
+            <TextInput
+              placeholder="Nhập kế hoạch"
+              style={styles.inputSchedule}
+              onChangeText={(schedule) => {
+                this.setState({ schedule });
+              }}
+              value={this.state.schedule}
+              numberOfLines={4}
+              multiline={true}
+            />
+          </View>
 
-        <View style={{ flexDirection: "column", marginTop: 20 }}>
-          <Text style={{ fontSize: 16 }}>Tên nhóm</Text>
-          <TextInput
-            placeholder="Đặt tên nhóm"
-            style={styles.inputName}
-            onChangeText={(name) => {
-              this.setState({ name });
-            }}
-            value={this.state.name}
-          />
-        </View>
-        <View style={{ flexDirection: "column", marginTop: 20 }}>
-          <Text style={{ fontSize: 16 }}>Kế hoạch cho chuyến đi</Text>
-          <TextInput
-            placeholder="Nhập kế hoạch"
-            style={styles.inputSchedule}
-            onChangeText={(schedule) => {
-              this.setState({ schedule });
-            }}
-            value={this.state.schedule}
-            numberOfLines={4}
-            multiline={true}
-          />
-        </View>
-
-        <ScrollView style={{ marginTop: 20 , height: 250}}>
           <MultiSelect
             hideTags
             items={items}
@@ -148,7 +147,7 @@ export default class InfoGroup extends Component {
             selectedItemIconColor="#CCC"
             itemTextColor="#000"
             displayKey="name"
-            searchInputStyle={{ color: '#CCC' ,height:40}}
+            searchInputStyle={{ color: '#CCC', height: 40 }}
             submitButtonColor="#CCC"
             submitButtonText="Submit"
             fontSize={16}
@@ -156,12 +155,11 @@ export default class InfoGroup extends Component {
           <View>
             {this.multiSelect && this.multiSelect.getSelectedItemsExt(selectedItems)}
           </View>
+
+          <TouchableOpacity style={styles.button} onPress={() => navigate("DetailGroup")}>
+            <Text style={{ color: "#fff", fontSize: 20 }}>Tạo nhóm</Text>
+          </TouchableOpacity>
         </ScrollView>
-
-        <TouchableOpacity style={styles.button} onPress={()=>navigate("DetailGroup")}>
-          <Text style={{color: "#fff", fontSize: 20}}>Tạo nhóm</Text>
-        </TouchableOpacity>
-
       </View>
     );
   }

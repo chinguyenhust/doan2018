@@ -92,9 +92,9 @@ export default class CreatGroup extends Component {
           avatar: source,
           isLoad: true,
         });
-        this.itemRef.ref('AlbumImg/').push({
-          uri: source
-        })
+        // Data.ref('AlbumImg/').push({
+        //   uri: source
+        // })
       }
     });
   };
@@ -124,49 +124,49 @@ export default class CreatGroup extends Component {
       <View style={styles.container}>
 
         <View style={{ flexDirection: "column" }}>
-          <TouchableOpacity style={{ height: 30, flexDirection: "row" }}>
+          <TouchableOpacity style={{ height: 30, flexDirection: "row", paddingLeft: 20 }}>
             <Icon name="ios-arrow-round-back" size={34} style={{ width: "15%" }} onPress={() => { this.props.navigation.goBack() }} />
             <Text style={{ fontSize: 24 }}>Tạo nhóm mới</Text>
           </TouchableOpacity>
           <View style={{ backgroundColor: "#000", height: 1, marginTop: 5 }}></View>
         </View>
+        <ScrollView style={{ paddingLeft: 20, paddingRight: 20, marginBottom: 40 }}>
+          <TouchableOpacity style={{ alignItems: 'center' }} onPress={this.chooseFile.bind(this)}>
+            {(!this.state.isLoad) ?
+              <IconAdd name="add-circle" size={120} style={{ color: "gray" }} /> :
+              <Image
+                source={this.state.avatar}
+                style={{ width: 100, height: 100, borderRadius: 50, marginTop: 10 }}
+              />
+            }
+          </TouchableOpacity>
 
-        <TouchableOpacity style={{ alignItems: 'center' }} onPress={this.chooseFile.bind(this)}>
-          {(!this.state.isLoad) ?
-            <IconAdd name="add-circle" size={150} style={{ color: "gray", marginTop: 10 }} /> :
-            <Image
-              source={this.state.avatar}
-              style={{ width: 130, height: 130, borderRadius: 65, marginTop: 20 }}
+          <View style={{ flexDirection: "column" }}>
+            <Text style={{ fontSize: 16 }}>Tên nhóm</Text>
+            <TextInput
+              placeholder="Đặt tên nhóm"
+              style={styles.inputName}
+              onChangeText={(name) => {
+                this.setState({ name });
+              }}
+              value={this.state.name}
             />
-          }
-        </TouchableOpacity>
+          </View>
+          <View style={{ flexDirection: "column", marginTop: 20 }}>
+            <Text style={{ fontSize: 16 }}>Kế hoạch cho chuyến đi</Text>
+            <TextInput
+              placeholder="Nhập kế hoạch"
+              style={styles.inputSchedule}
+              onChangeText={(schedule) => {
+                this.setState({ schedule });
+              }}
+              value={this.state.schedule}
+              numberOfLines={4}
+              multiline={true}
+            />
+          </View>
 
-        <View style={{ flexDirection: "column", marginTop: 20 }}>
-          <Text style={{ fontSize: 16 }}>Tên nhóm</Text>
-          <TextInput
-            placeholder="Đặt tên nhóm"
-            style={styles.inputName}
-            onChangeText={(name) => {
-              this.setState({ name });
-            }}
-            value={this.state.name}
-          />
-        </View>
-        <View style={{ flexDirection: "column", marginTop: 20 }}>
-          <Text style={{ fontSize: 16 }}>Kế hoạch cho chuyến đi</Text>
-          <TextInput
-            placeholder="Nhập kế hoạch"
-            style={styles.inputSchedule}
-            onChangeText={(schedule) => {
-              this.setState({ schedule });
-            }}
-            value={this.state.schedule}
-            numberOfLines={4}
-            multiline={true}
-          />
-        </View>
 
-        <ScrollView style={{ marginTop: 20, height: 250 }}>
           <MultiSelect
             hideTags
             items={items}
@@ -193,12 +193,11 @@ export default class CreatGroup extends Component {
           <View>
             {this.multiSelect && this.multiSelect.getSelectedItemsExt(selectedItems)}
           </View>
+
+          <TouchableOpacity style={styles.button} onPress={this._handleCreatGroup}>
+            <Text style={{ color: "#fff", fontSize: 20 }}>Tạo nhóm</Text>
+          </TouchableOpacity>
         </ScrollView>
-
-        <TouchableOpacity style={styles.button} onPress={this._handleCreatGroup}>
-          <Text style={{ color: "#fff", fontSize: 20 }}>Tạo nhóm</Text>
-        </TouchableOpacity>
-
       </View>
     );
   }
