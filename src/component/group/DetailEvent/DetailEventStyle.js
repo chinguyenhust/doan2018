@@ -3,18 +3,18 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         alignSelf: "stretch",
-        paddingTop: 40,
+        paddingTop: 30,
         flexDirection: 'column',
     },
     tapbar: {
-        flex: 1,
+        height: 40,
         flexDirection:"column",
     },
     tap: {
         flex:1,
         flexDirection: "row", 
         paddingLeft: 20, 
-        paddingTop: 10, 
+        paddingTop: 5, 
         alignSelf: "stretch" 
     },
     input: {

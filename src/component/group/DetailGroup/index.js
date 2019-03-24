@@ -42,11 +42,12 @@ export default class DetailGroup extends Component {
   
   render() {
     const { navigate } = this.props.navigation;
+    const name = "Chi";
 
     return (
       <View style={styles.container}>
 
-        <TouchableOpacity style={{ flex: 1, flexDirection: "row", paddingLeft: 20 , paddingTop: 10,  alignSelf: "stretch"}}>
+        <TouchableOpacity style={{ height:40, flexDirection: "row", paddingLeft: 20 ,  alignSelf: "stretch"}}>
           <Icon name="ios-arrow-round-back" size={34} style={{ width: "15%" }} onPress={() => { this.props.navigation.goBack() }} />
           <Text style={{ fontSize: 24,width:"70%"}}>Tên nhóm</Text>
           <IconInfo name="ios-information-circle-outline" size={30} style={{ width: "10%"}} onPress={() => { navigate("InfoGroup") }} />
@@ -67,7 +68,7 @@ export default class DetailGroup extends Component {
         </View>
 
         <View style={{ flex: 15 }}>
-         {(this.state.isChat) && <Chat/>}
+          {(this.state.isChat) && <Chat name={name} />}
           {(this.state.isMap) && <Map />}
           {(this.state.isEvent) && <Event navigate={navigate}/>}
         </View>

@@ -5,7 +5,7 @@ const styles = StyleSheet.create({
         flex: 1,
         paddingTop: 10,
         flexDirection: 'column',
-        backgroundColor: "#fff"
+        backgroundColor: "#fff",
     },
     item: {
         height: 55,
@@ -37,7 +37,9 @@ const styles = StyleSheet.create({
         borderRadius: 8, 
         marginBottom: 20, 
         paddingLeft: 15,
-        backgroundColor:"#F5F5F5"
+        backgroundColor:"#F5F5F5",
+        marginLeft:20,
+        marginRight: 20,
     }
 
 });

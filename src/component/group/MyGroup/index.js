@@ -47,7 +47,7 @@ export default class MyGroup extends Component {
       <View style={styles.container}>
 
         <View style={styles.header}>
-          <View style={{ height: 39, paddingTop: 10 }}>
+          <View style={{ height: 39}}>
             <Text style={{ fontSize: 20 }}>Nhóm của tôi</Text>
           </View>
           <View style={{ height: 1, backgroundColor: "#000", alignSelf: "stretch" }}></View>
