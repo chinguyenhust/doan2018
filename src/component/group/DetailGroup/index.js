@@ -49,7 +49,7 @@ export default class DetailGroup extends Component {
 
         <TouchableOpacity style={{ height:40, flexDirection: "row", paddingLeft: 20 ,  alignSelf: "stretch"}}>
           <Icon name="ios-arrow-round-back" size={34} style={{ width: "15%" }} onPress={() => { this.props.navigation.goBack() }} />
-          <Text style={{ fontSize: 24,width:"70%"}}>Tên nhóm</Text>
+          <Text style={{ fontSize: 24,width:"70%"}}>{this.props.navigation.state.params.name}</Text>
           <IconInfo name="ios-information-circle-outline" size={30} style={{ width: "10%"}} onPress={() => { navigate("InfoGroup") }} />
         </TouchableOpacity>
 

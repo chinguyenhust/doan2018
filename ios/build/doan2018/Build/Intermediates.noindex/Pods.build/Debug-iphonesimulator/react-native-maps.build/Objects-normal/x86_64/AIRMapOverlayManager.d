@@ -5,6 +5,8 @@ dependencies: \
   /Users/daisy/doan2018/ios/Pods/Headers/Public/React/React/RCTViewManager.h \
   /Users/daisy/doan2018/ios/Pods/Headers/Public/React/React/RCTBridgeModule.h \
   /Users/daisy/doan2018/ios/Pods/Headers/Public/React/React/RCTDefines.h \
+  /Users/daisy/doan2018/ios/Pods/Headers/Private/React/RCTInspectorDevServerHelper.h \
+  /Users/daisy/doan2018/ios/Pods/Headers/Private/React/RCTPackagerConnection.h \
   /Users/daisy/doan2018/ios/Pods/Headers/Public/React/React/RCTConvert.h \
   /Users/daisy/doan2018/ios/Pods/Headers/Public/React/React/RCTAnimationType.h \
   /Users/daisy/doan2018/ios/Pods/Headers/Public/React/React/RCTBorderStyle.h \

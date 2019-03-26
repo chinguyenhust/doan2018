@@ -4,8 +4,9 @@ import styles from './CreatGroupStyle';
 import Icon from 'react-native-vector-icons/Ionicons';
 import ImagePicker from 'react-native-image-picker';
 import IconAdd from 'react-native-vector-icons/MaterialIcons';
-import MultiSelect from 'react-native-multiple-select';
+import MultiSelect from '../../home/MultiSelect';
 import { Data } from "../../../api/Data";
+import * as firebase from 'firebase';
 
 let users = Data.ref('/users');
 
@@ -24,45 +25,47 @@ export default class CreatGroup extends Component {
   }
 
   componentDidMount() {
-    users.on('value', (snapshot) => {
+    var items = []
+    users.on('child_added', (snapshot) => {
       let data = snapshot.val();
-      let items = Object.values(data);
+      items.push({
+        id: snapshot.key,
+        name: data.userName,
+      })
       this.setState({ items: items });
+    });
+
+    var storageRef = firebase.storage().ref('avatar/1553505996129.jpg');
+    console.log("11111 ", storageRef)
+    storageRef.getDownloadURL().then(function (url) {
+      console.log("url   ", url);
+    }, function (error) {
+      console.log(error);
     });
 
   }
 
   _handleCreatGroup = () => {
     var { name, schedule, avatar } = this.state;
+    var user = firebase.auth().currentUser;
     Data.ref("groups").push(
       {
         name: name,
         schedule: schedule,
-        avatar: avatar
+        avatar: "",
+        createdByUserId: user.uid,
+        created_at: firebase.database.ServerValue.TIMESTAMP
       }
     ).then(() => {
       console.log("Success !");
     }).catch((error) => {
       console.log(error);
     });
-    this.props.navigation.navigate("DetailGroup")
+    this.props.navigation.navigate("DetailGroup", { name: name })
 
   }
 
-  // componentWillMount() {
-  //   Data.ref("users/001").set(
-  //     {
-  //       name: "chi",
-  //       age: 23
-  //     }
-  //   ).then(() => {
-  //     console.log("Success !");
-  //   }).catch((error) => {
-  //     console.log(error);
-  //   });
-
-  // }
-  chooseFile = () => {
+  chooseFile = async () => {
     var options = {
       title: 'Select Image',
       customButtons: [
@@ -92,9 +95,7 @@ export default class CreatGroup extends Component {
           avatar: source,
           isLoad: true,
         });
-        // Data.ref('AlbumImg/').push({
-        //   uri: source
-        // })
+        this.uploadImage(response.uri)
       }
     });
   };
@@ -102,15 +103,19 @@ export default class CreatGroup extends Component {
   onSelectedItemsChange = selectedItems => {
     this.setState({ selectedItems });
   };
+
   uploadImage = async uri => {
     try {
       const response = await fetch(uri);
       const blob = await response.blob();
-      const ref = firebase.storage().ref('avatar').child(uuid.v4());
+      const ref = firebase.storage().ref('avatar').child(new Date().getTime() + "");
       const task = ref.put(blob);
       return new Promise((resolve, reject) => {
         task.on('state_changed', () => { }, reject,
-          () => resolve(task.snapshot.downloadURL));
+          () => {
+            resolve(task.snapshot.downloadURL);
+
+          });
       });
     } catch (err) {
       console.log('uploadImage error: ' + err.message);
@@ -178,15 +183,15 @@ export default class CreatGroup extends Component {
             searchInputPlaceholderText="Tìm kiếm thành viên"
             onChangeInput={(text) => console.log(text)}
             altFontFamily="Cochin"
-            tagRemoveIconColor="#CCC"
-            tagBorderColor="#CCC"
-            tagTextColor="#CCC"
-            selectedItemTextColor="#CCC"
-            selectedItemIconColor="#CCC"
+            tagRemoveIconColor="#007aff"
+            tagBorderColor="#007aff"
+            tagTextColor="#007aff"
+            selectedItemTextColor="#000"
+            selectedItemIconColor="#000"
             itemTextColor="#000"
-            displayKey="userName"
-            searchInputStyle={{ color: '#CCC', height: 40 }}
-            submitButtonColor="#CCC"
+            displayKey="name"
+            searchInputStyle={{ color: '#CCC', height: 40, fontSize: 16}}
+            submitButtonColor="#007aff"
             submitButtonText="Submit"
             fontSize={16}
           />

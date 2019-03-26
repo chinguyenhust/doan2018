@@ -6,6 +6,8 @@ dependencies: \
   /Users/daisy/doan2018/ios/build/doan2018/Build/Products/Debug-iphonesimulator/include/yoga/YGValue.h \
   /Users/daisy/doan2018/node_modules/react-native/React/Base/RCTAssert.h \
   /Users/daisy/doan2018/node_modules/react-native/React/Base/RCTDefines.h \
+  /Users/daisy/doan2018/node_modules/react-native/React/DevSupport/RCTInspectorDevServerHelper.h \
+  /Users/daisy/doan2018/node_modules/react-native/React/DevSupport/RCTPackagerConnection.h \
   /Users/daisy/doan2018/node_modules/react-native/React/Views/RCTShadowView+Layout.h \
   /Users/daisy/doan2018/node_modules/react-native/React/Views/RCTShadowView.h \
   /Users/daisy/doan2018/node_modules/react-native/React/Views/RCTComponent.h \

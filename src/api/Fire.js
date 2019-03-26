@@ -20,7 +20,6 @@ class Fire {
   };
 
   get uid() {
-    console.log("current user", firebase.auth().currentUser)
     return (firebase.auth().currentUser || {}).uid;
   }
 
@@ -29,8 +28,7 @@ class Fire {
   }
 
   parse = snapshot => {
-    const { timestamp: numberStamp, text, user } = snapshot.val();
-    console.log("snap short  ", snapshot.val())
+    const { timestamp: numberStamp, text, user, groupId} = snapshot.val();
     const { key: _id } = snapshot;
     const timestamp = new Date(numberStamp);
     const message = {
@@ -38,6 +36,7 @@ class Fire {
       timestamp,
       text,
       user,
+      groupId
     };
     return message;
   };
@@ -53,10 +52,11 @@ class Fire {
   // send the message to the Backend
   send = messages => {
     for (let i = 0; i < messages.length; i++) {
-      const { text, user } = messages[i];
+      const { text, user, groupId } = messages[i];
       const message = {
         text,
         user,
+        groupId,
         timestamp: this.timestamp,
       };
       this.append(message);

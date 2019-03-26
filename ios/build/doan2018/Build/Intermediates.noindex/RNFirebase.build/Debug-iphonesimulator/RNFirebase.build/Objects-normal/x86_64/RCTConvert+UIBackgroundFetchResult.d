@@ -5,6 +5,8 @@ dependencies: \
   /Users/daisy/doan2018/ios/build/doan2018/Build/Products/Debug-iphonesimulator/include/React/RCTAnimationType.h \
   /Users/daisy/doan2018/ios/build/doan2018/Build/Products/Debug-iphonesimulator/include/React/RCTBorderStyle.h \
   /Users/daisy/doan2018/ios/build/doan2018/Build/Products/Debug-iphonesimulator/include/React/RCTDefines.h \
+  ../../../ios/Pods/Headers/Public/React/RCTInspectorDevServerHelper.h \
+  ../../../ios/Pods/Headers/Public/React/RCTPackagerConnection.h \
   /Users/daisy/doan2018/ios/build/doan2018/Build/Products/Debug-iphonesimulator/include/React/RCTLog.h \
   /Users/daisy/doan2018/ios/build/doan2018/Build/Products/Debug-iphonesimulator/include/React/RCTAssert.h \
   /Users/daisy/doan2018/ios/build/doan2018/Build/Products/Debug-iphonesimulator/include/React/RCTUtils.h \

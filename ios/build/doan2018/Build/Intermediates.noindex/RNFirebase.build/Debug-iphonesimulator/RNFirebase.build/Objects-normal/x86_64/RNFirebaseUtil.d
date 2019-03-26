@@ -6,6 +6,8 @@ dependencies: \
   /Users/daisy/doan2018/ios/build/doan2018/Build/Products/Debug-iphonesimulator/include/React/RCTBridgeDelegate.h \
   /Users/daisy/doan2018/ios/build/doan2018/Build/Products/Debug-iphonesimulator/include/React/RCTJavaScriptLoader.h \
   /Users/daisy/doan2018/ios/build/doan2018/Build/Products/Debug-iphonesimulator/include/React/RCTDefines.h \
+  ../../../ios/Pods/Headers/Public/React/RCTInspectorDevServerHelper.h \
+  ../../../ios/Pods/Headers/Public/React/RCTPackagerConnection.h \
   /Users/daisy/doan2018/ios/build/doan2018/Build/Products/Debug-iphonesimulator/include/React/RCTBridgeModule.h \
   /Users/daisy/doan2018/ios/build/doan2018/Build/Products/Debug-iphonesimulator/include/React/RCTFrameUpdate.h \
   /Users/daisy/doan2018/ios/build/doan2018/Build/Products/Debug-iphonesimulator/include/React/RCTInvalidating.h \
@@ -16,13 +18,13 @@ dependencies: \
   ../../../ios/Pods/Headers/Public/FirebaseCore/FIRConfiguration.h \
   ../../../ios/Pods/Headers/Public/FirebaseCore/FIRLoggerLevel.h \
   ../../../ios/Pods/Headers/Public/FirebaseCore/FIROptions.h \
+  /Users/daisy/doan2018/ios/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FirebaseAnalytics.h \
   /Users/daisy/doan2018/ios/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Modules/module.modulemap \
   /Users/daisy/doan2018/ios/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRUserPropertyNames.h \
   /Users/daisy/doan2018/ios/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRParameterNames.h \
   /Users/daisy/doan2018/ios/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIREventNames.h \
   /Users/daisy/doan2018/ios/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRAnalytics.h \
   /Users/daisy/doan2018/ios/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRAnalytics+AppDelegate.h \
-  /Users/daisy/doan2018/ios/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FirebaseAnalytics.h \
   ../../../ios/Pods/Headers/Public/FirebaseAuth/FirebaseAuth.h \
   ../../../ios/Pods/Headers/Public/FirebaseAuth/FIRActionCodeSettings.h \
   ../../../ios/Pods/Headers/Public/FirebaseAuth/FIRAdditionalUserInfo.h \
@@ -75,6 +77,6 @@ dependencies: \
   ../../../ios/Pods/Headers/Public/FirebaseFirestore/FIRTimestamp.h \
   ../../../ios/Pods/Headers/Public/FirebaseFirestore/FIRTransaction.h \
   ../../../ios/Pods/Headers/Public/FirebaseFirestore/FIRWriteBatch.h \
+  /Users/daisy/doan2018/ios/Pods/FirebaseInstanceID/Frameworks/FirebaseInstanceID.framework/Headers/FirebaseInstanceID.h \
   /Users/daisy/doan2018/ios/Pods/FirebaseInstanceID/Frameworks/FirebaseInstanceID.framework/Modules/module.modulemap \
-  /Users/daisy/doan2018/ios/Pods/FirebaseInstanceID/Frameworks/FirebaseInstanceID.framework/Headers/FIRInstanceID.h \
-  /Users/daisy/doan2018/ios/Pods/FirebaseInstanceID/Frameworks/FirebaseInstanceID.framework/Headers/FirebaseInstanceID.h
+  /Users/daisy/doan2018/ios/Pods/FirebaseInstanceID/Frameworks/FirebaseInstanceID.framework/Headers/FIRInstanceID.h

@@ -5,8 +5,9 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import IconAdd from 'react-native-vector-icons/MaterialIcons';
 import { SearchableFlatList } from "react-native-searchable-list";
 import { Data } from "../../../api/Data";
+import * as firebase from 'firebase';
 
-let citys = Data.ref('/citys');
+let groups = Data.ref('/groups');
 
 export default class MyGroup extends Component {
   constructor(props) {
@@ -17,27 +18,31 @@ export default class MyGroup extends Component {
       ignoreCase: true,
       items: [],
       user: null,
+
     }
   }
 
-  _handleClickItem = (name) => {
-    this.props.navigation.navigate('DetailGroup')
+  _handleClickItem = (name, groupId) => {
+    this.props.navigation.navigate('DetailGroup', { name: name, groupId: groupId })
   }
 
   componentWillMount() {
-    citys.on('value', (snapshot) => {
+    var items = []
+    groups.on('child_added', (snapshot) => {
       let data = snapshot.val();
-      let items = Object.values(data);
+      // if (data.createdByUserId === firebase.auth().currentUser.uid) {
+        items.push({
+          id: snapshot.key,
+          name: data.name,
+          chedule: data.schedule,
+          userId: data.createdByUserId,
+          created_at: data.created_at,
+          avatar: data.avatar
+        })
+      // }
       this.setState({ items: items });
     });
   }
-
-//   componentDidMount() {
-//     const { user } = firebase.auth()
-//     this.setState({ 
-//       user:user
-//      })
-// }
 
   render() {
     const { navigate } = this.props.navigation;
@@ -47,7 +52,7 @@ export default class MyGroup extends Component {
       <View style={styles.container}>
 
         <View style={styles.header}>
-          <View style={{ height: 39}}>
+          <View style={{ height: 39 }}>
             <Text style={{ fontSize: 20 }}>Nhóm của tôi</Text>
           </View>
           <View style={{ height: 1, backgroundColor: "#000", alignSelf: "stretch" }}></View>
@@ -69,14 +74,14 @@ export default class MyGroup extends Component {
             searchAttribute={searchAttribute}
             renderItem={
               ({ item }) => <View style={{ flexDirection: "column", paddingTop: 10 }}>
-                <TouchableOpacity style={styles.item} onPress={() => this._handleClickItem(item.name)} >
+                <TouchableOpacity style={styles.item} onPress={() => this._handleClickItem(item.name, item.id)} >
                   <Image
                     style={{ width: 50, height: 50, borderRadius: 25 }}
                     source={{ uri: 'https://facebook.github.io/react-native/docs/assets/favicon.png' }}
                   />
                   <View style={{ paddingLeft: 20, paddingTop: 7 }}>
                     <Text style={{ fontSize: 18 }}>{item.name}</Text>
-                    <Text style={{ fontSize: 14 }}>{item.description}</Text>
+                    <Text style={{ fontSize: 14 }}>{item.created_at}</Text>
                   </View>
                 </TouchableOpacity>
                 <View ></View>
@@ -87,7 +92,7 @@ export default class MyGroup extends Component {
         </ScrollView>
 
 
-        <TouchableOpacity style={{ zIndex: 1000, bottom: 60, justifyContent: 'flex-end', marginLeft: "80%", position: 'absolute' }} onPress={()=>navigate("CreatGroup")}>
+        <TouchableOpacity style={{ zIndex: 1000, bottom: 60, justifyContent: 'flex-end', marginLeft: "80%", position: 'absolute' }} onPress={() => navigate("CreatGroup")}>
           <IconAdd name="add-circle" size={60} style={{ color: "green" }} />
         </TouchableOpacity>
       </View>

@@ -2,6 +2,8 @@ dependencies: \
   /Users/daisy/doan2018/node_modules/react-native/React/CxxBridge/RCTObjcExecutor.mm \
   /Users/daisy/doan2018/node_modules/react-native/React/CxxBridge/RCTObjcExecutor.h \
   /Users/daisy/doan2018/node_modules/react-native/React/Base/RCTDefines.h \
+  /Users/daisy/doan2018/node_modules/react-native/React/DevSupport/RCTInspectorDevServerHelper.h \
+  /Users/daisy/doan2018/node_modules/react-native/React/DevSupport/RCTPackagerConnection.h \
   /Users/daisy/doan2018/node_modules/react-native/React/Base/RCTJavaScriptExecutor.h \
   /Users/daisy/doan2018/node_modules/react-native/React/Base/RCTBridgeModule.h \
   /Users/daisy/doan2018/node_modules/react-native/React/Base/RCTInvalidating.h \

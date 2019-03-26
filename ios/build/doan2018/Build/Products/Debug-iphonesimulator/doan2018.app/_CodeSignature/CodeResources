@@ -10,7 +10,7 @@
 		</data>
 		<key>Base.lproj/LaunchScreen.nib</key>
 		<data>
-		jd2RQ2VirZ2q8d1F22bmN7p6+fo=
+		UvA3oRmGLVolyuWtPP5kbGaQ/E4=
 		</data>
 		<key>Entypo.ttf</key>
 		<data>
@@ -44,17 +44,49 @@
 		<data>
 		SyvObHkkk6SlcWtv7C2+/olJLD8=
 		</data>
+		<key>Frameworks/XCTAutomationSupport.framework/Info.plist</key>
+		<data>
+		SqKfGyapsH1WaXYQ+Jifa0Tli8A=
+		</data>
+		<key>Frameworks/XCTAutomationSupport.framework/XCTAutomationSupport</key>
+		<data>
+		xvftdY2BN5PECGZPoZEC6JY47yc=
+		</data>
+		<key>Frameworks/XCTAutomationSupport.framework/XPCServices/LogArchiveCollector.xpc/Info.plist</key>
+		<data>
+		Yp/TvU30o0PlNVj/9J1+2VFXFUc=
+		</data>
+		<key>Frameworks/XCTAutomationSupport.framework/XPCServices/LogArchiveCollector.xpc/LogArchiveCollector</key>
+		<data>
+		vQ6mXGOhpLgODWoH8tYcemJ1pY4=
+		</data>
+		<key>Frameworks/XCTAutomationSupport.framework/XPCServices/LogArchiveCollector.xpc/_CodeSignature/CodeResources</key>
+		<data>
+		zlWeSQFBjpa/6DZvFHpVIuHqxvw=
+		</data>
+		<key>Frameworks/XCTAutomationSupport.framework/XPCServices/LogArchiveCollector.xpc/version.plist</key>
+		<data>
+		vcpFmLkqVnTt+3F5Kaxg7R/W1oY=
+		</data>
+		<key>Frameworks/XCTAutomationSupport.framework/_CodeSignature/CodeResources</key>
+		<data>
+		PKWWSI/Vs8PD6Ji5yClye/uQT90=
+		</data>
+		<key>Frameworks/XCTAutomationSupport.framework/version.plist</key>
+		<data>
+		YAAro+giuRFoRY4I/GJl9fZtGKU=
+		</data>
 		<key>Frameworks/XCTest.framework/Info.plist</key>
 		<data>
-		DQ4GPJ7FuM6H+FaCC/2wxhPSGCQ=
+		pREucHbrpXwNpqwK/2GGYDYUEgk=
 		</data>
 		<key>Frameworks/XCTest.framework/XCTest</key>
 		<data>
-		HK6asLJ70IK7E4e83e8R1gxACHo=
+		D+RdyQXvAJNWR4ZS/WcfvAwsSfQ=
 		</data>
 		<key>Frameworks/XCTest.framework/_CodeSignature/CodeResources</key>
 		<data>
-		/8LQToTPOL9FsEsYDaACQ21Day0=
+		wlOE/VepH8GWXDFtBqvcsqY+nZ0=
 		</data>
 		<key>Frameworks/XCTest.framework/en.lproj/InfoPlist.strings</key>
 		<dict>
@@ -67,11 +99,11 @@
 		</dict>
 		<key>Frameworks/XCTest.framework/version.plist</key>
 		<data>
-		P6P66kW7+LvLIo4WHjXGltpT8CA=
+		YAAro+giuRFoRY4I/GJl9fZtGKU=
 		</data>
 		<key>Frameworks/libXCTestBundleInject.dylib</key>
 		<data>
-		xKX69bDGMJa2TcU/BC9ypZ06rsI=
+		no2V+L990CqA7SYiuPU2YMyW47w=
 		</data>
 		<key>GoogleMaps.bundle/GMSCacheStorage.momd/Storage.mom</key>
 		<data>
@@ -749,7 +781,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		wZ0GRrG7dmFJXdNK7aj43lnHxUM=
+		c3NFs/v04IwRohVsk/ol5MVd39w=
 		</data>
 		<key>Ionicons.ttf</key>
 		<data>
@@ -777,19 +809,19 @@
 		</data>
 		<key>PlugIns/doan2018Tests.xctest.dSYM/Contents/Resources/DWARF/doan2018Tests</key>
 		<data>
-		qHEgeKufbY4bxPXWWYxvolyNtUw=
+		imILLEZqr+AAEeNRBPC9SenNEuE=
 		</data>
 		<key>PlugIns/doan2018Tests.xctest/Info.plist</key>
 		<data>
-		jmlsKLnZ7wGlx+J/FPF7UOsqHtM=
+		EDUaRNyqssRcNH0ZIxqeHqasdZw=
 		</data>
 		<key>PlugIns/doan2018Tests.xctest/_CodeSignature/CodeResources</key>
 		<data>
-		t29W1qvy/0f8Xs9kgy4LUtf1R7I=
+		uI2UnfD78G5AYQcoqwlBv9Lz+eM=
 		</data>
 		<key>PlugIns/doan2018Tests.xctest/doan2018Tests</key>
 		<data>
-		fHWexS/IK8JaptBgGNF6K8rPuQU=
+		Q3RysDesyoDdre8zdzk7nYSnXVo=
 		</data>
 		<key>SimpleLineIcons.ttf</key>
 		<data>
@@ -801,11 +833,11 @@
 		</data>
 		<key>gRPCCertificates-Firestore.bundle/Info.plist</key>
 		<data>
-		h1HRYsBy1SYiSoEaCU1UnHKCapE=
+		Kr7Xg+OsrjpMCTSvP+n48LyzTcE=
 		</data>
 		<key>gRPCCertificates-Firestore.bundle/_CodeSignature/CodeDirectory</key>
 		<data>
-		eMGXW8V0gk+Rx6VvBzmgd8r9xtU=
+		zZlSZFX5+LuOeYPIzId4CRhWLN0=
 		</data>
 		<key>gRPCCertificates-Firestore.bundle/_CodeSignature/CodeRequirements</key>
 		<data>
@@ -813,7 +845,7 @@
 		</data>
 		<key>gRPCCertificates-Firestore.bundle/_CodeSignature/CodeRequirements-1</key>
 		<data>
-		b1EnsRYzm8mft0XeWGj+yrSDKsk=
+		kXN9gXe+//8ktz0UrdVnLDCgFjI=
 		</data>
 		<key>gRPCCertificates-Firestore.bundle/_CodeSignature/CodeResources</key>
 		<data>
@@ -845,11 +877,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			jd2RQ2VirZ2q8d1F22bmN7p6+fo=
+			UvA3oRmGLVolyuWtPP5kbGaQ/E4=
 			</data>
 			<key>hash2</key>
 			<data>
-			0e53lmccYp8bswJFKUGHTpQfJRRLxSFf3jjkGL/Omh0=
+			9LsYasOxRUSn2YsaTVf4g5jCnGYy+SsifBXaOlP3xVs=
 			</data>
 		</dict>
 		<key>Entypo.ttf</key>
@@ -940,37 +972,125 @@
 			fh3QPdTOkLZYBSVUzXRZ3xZxZxc4mlUvpMbVal+JM+Y=
 			</data>
 		</dict>
+		<key>Frameworks/XCTAutomationSupport.framework/Info.plist</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			SqKfGyapsH1WaXYQ+Jifa0Tli8A=
+			</data>
+			<key>hash2</key>
+			<data>
+			g8bPu8Yt/v23q8e+oTs64yqfCRBDp7cMllLd70a+5yc=
+			</data>
+		</dict>
+		<key>Frameworks/XCTAutomationSupport.framework/XCTAutomationSupport</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			xvftdY2BN5PECGZPoZEC6JY47yc=
+			</data>
+			<key>hash2</key>
+			<data>
+			/dRlyMRnLj5sbJu7ftUa7B8po6Awkh99iMFsBtq+sp4=
+			</data>
+		</dict>
+		<key>Frameworks/XCTAutomationSupport.framework/XPCServices/LogArchiveCollector.xpc/Info.plist</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			Yp/TvU30o0PlNVj/9J1+2VFXFUc=
+			</data>
+			<key>hash2</key>
+			<data>
+			IwZ52okuueFNfTBVNW2oV3wrBWiwTF+cbUP+8DARWk8=
+			</data>
+		</dict>
+		<key>Frameworks/XCTAutomationSupport.framework/XPCServices/LogArchiveCollector.xpc/LogArchiveCollector</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			vQ6mXGOhpLgODWoH8tYcemJ1pY4=
+			</data>
+			<key>hash2</key>
+			<data>
+			E9qEfzknI9w5oYVo8FYuhBE5iuwllvNEWHR3urB4N6Q=
+			</data>
+		</dict>
+		<key>Frameworks/XCTAutomationSupport.framework/XPCServices/LogArchiveCollector.xpc/_CodeSignature/CodeResources</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			zlWeSQFBjpa/6DZvFHpVIuHqxvw=
+			</data>
+			<key>hash2</key>
+			<data>
+			mjQtd+4cn3WgpatLPgjD5882ztRPCQLPuD2fgd11Hlo=
+			</data>
+		</dict>
+		<key>Frameworks/XCTAutomationSupport.framework/XPCServices/LogArchiveCollector.xpc/version.plist</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			vcpFmLkqVnTt+3F5Kaxg7R/W1oY=
+			</data>
+			<key>hash2</key>
+			<data>
+			UbpbCovp9P/1OQ9QOlE+2cHqRrw8l7PN9EWKkWiu33E=
+			</data>
+		</dict>
+		<key>Frameworks/XCTAutomationSupport.framework/_CodeSignature/CodeResources</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			PKWWSI/Vs8PD6Ji5yClye/uQT90=
+			</data>
+			<key>hash2</key>
+			<data>
+			JhVWEdAnH4K2Ppo48tGHd7TAXJUr4QiTisIA7xPnOck=
+			</data>
+		</dict>
+		<key>Frameworks/XCTAutomationSupport.framework/version.plist</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			YAAro+giuRFoRY4I/GJl9fZtGKU=
+			</data>
+			<key>hash2</key>
+			<data>
+			OywY+mjk+myZhUktMIxCaxQWkLwu37agAz+y7rbyOt4=
+			</data>
+		</dict>
 		<key>Frameworks/XCTest.framework/Info.plist</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			DQ4GPJ7FuM6H+FaCC/2wxhPSGCQ=
+			pREucHbrpXwNpqwK/2GGYDYUEgk=
 			</data>
 			<key>hash2</key>
 			<data>
-			VfVpYXVjG5OK2j8J39CP2mIMg1P5eFaYkRIJ/Hb2RSQ=
+			X4449UIgiUsTjHK8FWYkgD5h6mesTi0zwoizR+4XOJM=
 			</data>
 		</dict>
 		<key>Frameworks/XCTest.framework/XCTest</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			HK6asLJ70IK7E4e83e8R1gxACHo=
+			D+RdyQXvAJNWR4ZS/WcfvAwsSfQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			olgg9NXiZ2M1ifvjBR8uTJxtXlM5EacLdDrNxfmImoY=
+			3bnodFuH7cKN1lIlPQ29Zv+jn+tJAb2ILxxs0lofjsU=
 			</data>
 		</dict>
 		<key>Frameworks/XCTest.framework/_CodeSignature/CodeResources</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			/8LQToTPOL9FsEsYDaACQ21Day0=
+			wlOE/VepH8GWXDFtBqvcsqY+nZ0=
 			</data>
 			<key>hash2</key>
 			<data>
-			C7sJpbu4qpi8/rH5JYpdQYncotP69JQ9Fiu8jrHXYvU=
+			fToDNBlwYmlXzonCvyofbf1K8OaNfypfORy171B4IT0=
 			</data>
 		</dict>
 		<key>Frameworks/XCTest.framework/en.lproj/InfoPlist.strings</key>
@@ -990,22 +1110,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			P6P66kW7+LvLIo4WHjXGltpT8CA=
+			YAAro+giuRFoRY4I/GJl9fZtGKU=
 			</data>
 			<key>hash2</key>
 			<data>
-			2BV684CZjHtMZHxSiwC5qc/DGXv9WIOWUc9dEU/Q1pw=
+			OywY+mjk+myZhUktMIxCaxQWkLwu37agAz+y7rbyOt4=
 			</data>
 		</dict>
 		<key>Frameworks/libXCTestBundleInject.dylib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			xKX69bDGMJa2TcU/BC9ypZ06rsI=
+			no2V+L990CqA7SYiuPU2YMyW47w=
 			</data>
 			<key>hash2</key>
 			<data>
-			jJ/zKe1SwWk9KkZ4MXV01NPW4QiHpU1aZhpfTDknkp0=
+			gI4WnkFhB/fAk/cKiE1cqcVpo/iwxL+xuuPY0kk7JAM=
 			</data>
 		</dict>
 		<key>GoogleMaps.bundle/GMSCacheStorage.momd/Storage.mom</key>
@@ -2380,44 +2500,44 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			qHEgeKufbY4bxPXWWYxvolyNtUw=
+			imILLEZqr+AAEeNRBPC9SenNEuE=
 			</data>
 			<key>hash2</key>
 			<data>
-			ldPfBK13VI+nLVKyKOt0M49YYB9arLteBFbkJs/KWaM=
+			qWMZC92c+tSO+FJ5wKAVgFNVcvEMo4QgBwx6CsNs+kc=
 			</data>
 		</dict>
 		<key>PlugIns/doan2018Tests.xctest/Info.plist</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			jmlsKLnZ7wGlx+J/FPF7UOsqHtM=
+			EDUaRNyqssRcNH0ZIxqeHqasdZw=
 			</data>
 			<key>hash2</key>
 			<data>
-			8OlhNY/xXoXuTd8YHjdU1jy7crpYXR1Nv1fTrHFrdew=
+			cd0dBpXKXj7ydllPITsxCMbS9Bnfn2J/KslxGO3Wo9A=
 			</data>
 		</dict>
 		<key>PlugIns/doan2018Tests.xctest/_CodeSignature/CodeResources</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			t29W1qvy/0f8Xs9kgy4LUtf1R7I=
+			uI2UnfD78G5AYQcoqwlBv9Lz+eM=
 			</data>
 			<key>hash2</key>
 			<data>
-			VElIHJ6RkASwvkkDiOV9D+V1DzNMWzo8j6gzavfobNU=
+			5xAUQEMD+cVm+K/QQTl5VAeRKsovgDuevQwW00NWgZE=
 			</data>
 		</dict>
 		<key>PlugIns/doan2018Tests.xctest/doan2018Tests</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			fHWexS/IK8JaptBgGNF6K8rPuQU=
+			Q3RysDesyoDdre8zdzk7nYSnXVo=
 			</data>
 			<key>hash2</key>
 			<data>
-			ZaYplO8jAkC1mvE1UL4RkhtL27wmpcbI2dXQ2YXtf24=
+			zFa6GS5oDW57SGhKA390jdlYsistTDcEl/XKVPJuIZI=
 			</data>
 		</dict>
 		<key>SimpleLineIcons.ttf</key>
@@ -2446,22 +2566,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			h1HRYsBy1SYiSoEaCU1UnHKCapE=
+			Kr7Xg+OsrjpMCTSvP+n48LyzTcE=
 			</data>
 			<key>hash2</key>
 			<data>
-			YmBGxFUWiIB5gH5rWDVnE1CVKw+6DCHgCn6kBCpxbB0=
+			jsZgMFq7VmUSNlq5N4c5uYLOiAR1uBQi9484yEWEfGs=
 			</data>
 		</dict>
 		<key>gRPCCertificates-Firestore.bundle/_CodeSignature/CodeDirectory</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			eMGXW8V0gk+Rx6VvBzmgd8r9xtU=
+			zZlSZFX5+LuOeYPIzId4CRhWLN0=
 			</data>
 			<key>hash2</key>
 			<data>
-			j7MXQFWzEJ1ceeww6DE5J6z2EVcWsdWIhIXZgy5AmF0=
+			OeZAgZ2U7DexjTXjO3J57UNnWYpCiGbSF3wfRdPS/T8=
 			</data>
 		</dict>
 		<key>gRPCCertificates-Firestore.bundle/_CodeSignature/CodeRequirements</key>
@@ -2479,11 +2599,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			b1EnsRYzm8mft0XeWGj+yrSDKsk=
+			kXN9gXe+//8ktz0UrdVnLDCgFjI=
 			</data>
 			<key>hash2</key>
 			<data>
-			y4YcdZGObGbxMpWHTpUJvjfll/nXLDBLTRvp12PGwCE=
+			E3Xl21xdg0IRf1sxj8KLAlUS6RA3pantwxinSh4A9wI=
 			</data>
 		</dict>
 		<key>gRPCCertificates-Firestore.bundle/_CodeSignature/CodeResources</key>
