@@ -3,7 +3,9 @@ import { Platform, StyleSheet, Text, View, Button, TouchableOpacity, TextInput }
 import Icon from 'react-native-vector-icons/Ionicons';
 import IconAdd from 'react-native-vector-icons/Ionicons';
 import styles from './CreatSurveyStyle';
-import { CheckBox } from 'react-native-elements'
+import { CheckBox } from 'react-native-elements';
+import { Data } from "../../../api/Data";
+import * as firebase from 'firebase';
 
 export default class CreatSurvey extends Component {
   constructor(props) {
@@ -37,6 +39,25 @@ export default class CreatSurvey extends Component {
       })
   }
 
+  _handleCreatSurvey = () =>{
+    var { question, options } = this.state;
+    var user = firebase.auth().currentUser;
+    Data.ref("surveys").push(
+      {
+        question: question,
+        options: options,
+        createdByUserId: user.uid,
+        groupId: this.props.navigation.state.params.groupId,
+        created_at: firebase.database.ServerValue.TIMESTAMP
+      }
+    ).then(() => {
+      console.log("Success !");
+    }).catch((error) => {
+      console.log(error);
+    });
+    this.props.navigation.navigate("DetailGroup", { name: this.props.nameGroup })
+  }
+
   render() {
     const { navigate } = this.props.navigation;
     const { options } = this.state;
@@ -58,10 +79,10 @@ export default class CreatSurvey extends Component {
             <TextInput
               placeholder="Nhập câu hỏi khảo sát"
               style={styles.inputQuestion}
-              onChangeText={(nameEvent) => {
-                this.setState({ nameEvent });
+              onChangeText={(question) => {
+                this.setState({ question });
               }}
-              value={this.state.nameEvent}
+              value={this.state.question}
             />
           </View>
 
@@ -91,7 +112,7 @@ export default class CreatSurvey extends Component {
             />
           </View>
 
-          <TouchableOpacity style={styles.buttonCreat} onPress={() => navigate('DetailGroup')}>
+          <TouchableOpacity style={styles.buttonCreat} onPress={this._handleCreatSurvey}>
             <Text style={{ color: "#fff", fontSize: 20 }}>Tạo ngay</Text>
           </TouchableOpacity>
         </View>

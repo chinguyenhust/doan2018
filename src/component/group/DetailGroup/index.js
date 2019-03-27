@@ -49,7 +49,8 @@ export default class DetailGroup extends Component {
   render() {
     const { navigate } = this.props.navigation;
     const name = "Chi";
-    const groupId = this.props.navigation.state.params.id;
+    const groupId = this.props.navigation.state.params.groupId;
+    console.log("group id", groupId)
 
     return (
       <View style={styles.container}>
@@ -83,7 +84,11 @@ export default class DetailGroup extends Component {
         <View style={{ flex: 15 }}>
           {(this.state.isChat) && <Chat name={name} groupId={groupId} />}
           {(this.state.isMap) && <Map />}
-          {(this.state.isEvent) && <Event navigate={navigate} />}
+          {(this.state.isEvent) && <Event 
+          navigate={navigate} 
+          groupId={groupId} 
+          nameGroup={this.props.navigation.state.params.name}
+          />}
         </View>
       </View>
     );

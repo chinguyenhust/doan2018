@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import { Platform, StyleSheet, Text, View, Button, TouchableOpacity, TextInput } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import styles from './CreatEventStyle';
-import DatePicker from 'react-native-datepicker'
+import DatePicker from 'react-native-datepicker';
+import { Data } from "../../../api/Data";
+import * as firebase from 'firebase';
 
 export default class CreatEvent extends Component {
   constructor(props) {
@@ -14,8 +16,34 @@ export default class CreatEvent extends Component {
 
     }
   }
+
+  componentWillMount(){
+
+  }
+
+  _handleCreatEvent = () =>{
+    var { nameEvent, date, address } = this.state;
+    var user = firebase.auth().currentUser;
+    Data.ref("events").push(
+      {
+        name: nameEvent,
+        time: date,
+        address: address,
+        createdByUserId: user.uid,
+        groupId: this.props.navigation.state.params.groupId,
+        created_at: firebase.database.ServerValue.TIMESTAMP
+      }
+    ).then(() => {
+      console.log("Success !");
+    }).catch((error) => {
+      console.log(error);
+    });
+    this.props.navigation.navigate("DetailGroup", { name: this.props.nameGroup })
+  }
+
   render() {
     const { navigate } = this.props.navigation;
+    console.log("group  event ", this.props.navigation.state.params.groupId)
 
     return (
       <View style={styles.container} >
@@ -46,9 +74,10 @@ export default class CreatEvent extends Component {
             date={this.state.date}
             mode="datetime"
             placeholder="Chọn thời gian"
-            format="YYYY-MM-DD hh:mm AM/PM"
+            format="YYYY-MM-DD hh:mm a"
             confirmBtnText="Confirm"
             cancelBtnText="Cancel"
+            is24Hour = {true}
             customStyles={{
               dateIcon: {
                 position: 'absolute',
@@ -79,7 +108,7 @@ export default class CreatEvent extends Component {
             />
           </View>
 
-          <TouchableOpacity style={styles.buttonCreat} onPress={() => navigate('DetailGroup')}>
+          <TouchableOpacity style={styles.buttonCreat} onPress={this._handleCreatEvent}>
             <Text style={{ color: "#fff", fontSize: 20 }}>Tạo ngay</Text>
           </TouchableOpacity>
         </View>

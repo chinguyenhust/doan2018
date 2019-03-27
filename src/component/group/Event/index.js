@@ -33,6 +33,7 @@ export default class Event extends Component {
   render() {
 
     const { navigate } = {...this.props};
+    const groupId = this.props.groupId;
     return (
       <View style={styles.container}>
         <View style={styles.tapbar}>
@@ -46,12 +47,21 @@ export default class Event extends Component {
           </TouchableOpacity>
         </View>
         <View style={{flex: 11}}>
-            {(this.state.isEvent) && <ListEvent navigate={navigate}/>}
-            {(this.state.isSurvey) && <ListSurvey navigate={navigate}/>}
+            {(this.state.isEvent) && <ListEvent 
+            navigate={navigate}
+            groupId={groupId}
+            />}
+            {(this.state.isSurvey) && <ListSurvey 
+            navigate={navigate}
+            groupId={groupId}
+            />}
         </View>
 
         <TouchableOpacity style={{ zIndex: 1000, bottom: 60, justifyContent: 'flex-end', marginLeft: "80%", position: 'absolute' }} 
-        onPress={()=>{(this.state.isEvent)? navigate("CreatEvent") : navigate("CreatSurvey")}}>
+        onPress={()=>{
+          (this.state.isEvent)? 
+          navigate("CreatEvent",{groupId: groupId}) : 
+          navigate("CreatSurvey", {groupId: groupId})}}>
           <IconAdd name="add-circle" size={60} style={{ color: "green" }} />
         </TouchableOpacity>
       </View>
