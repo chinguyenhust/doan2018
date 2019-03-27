@@ -5,6 +5,71 @@
 	<key>logFormatVersion</key>
 	<integer>10</integer>
 	<key>logs</key>
-	<dict/>
+	<dict>
+		<key>7DF72764-4429-4A49-84AC-DEC86A1DBBD9</key>
+		<dict>
+			<key>className</key>
+			<string>IDECommandLineBuildLog</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>7DF72764-4429-4A49-84AC-DEC86A1DBBD9.xcactivitylog</string>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>doan2018 project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>doan2018</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Building workspace doan2018 with scheme doan2018 and configuration Debug</string>
+			<key>timeStartedRecording</key>
+			<real>575316752.33246601</real>
+			<key>timeStoppedRecording</key>
+			<real>575316757.923702</real>
+			<key>title</key>
+			<string>Building workspace doan2018 with scheme doan2018 and configuration Debug</string>
+			<key>uniqueIdentifier</key>
+			<string>7DF72764-4429-4A49-84AC-DEC86A1DBBD9</string>
+		</dict>
+		<key>D056D69C-8208-4F10-9352-D61E0DC1F9D0</key>
+		<dict>
+			<key>className</key>
+			<string>IDECommandLineBuildLog</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>D056D69C-8208-4F10-9352-D61E0DC1F9D0.xcactivitylog</string>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>doan2018 project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>doan2018</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Building workspace doan2018 with scheme doan2018 and configuration Debug</string>
+			<key>timeStartedRecording</key>
+			<real>575372681.05657494</real>
+			<key>timeStoppedRecording</key>
+			<real>575372691.84760296</real>
+			<key>title</key>
+			<string>Building workspace doan2018 with scheme doan2018 and configuration Debug</string>
+			<key>uniqueIdentifier</key>
+			<string>D056D69C-8208-4F10-9352-D61E0DC1F9D0</string>
+		</dict>
+	</dict>
 </dict>
 </plist>

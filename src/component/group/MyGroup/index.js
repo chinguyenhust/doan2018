@@ -75,10 +75,17 @@ export default class MyGroup extends Component {
             renderItem={
               ({ item }) => <View style={{ flexDirection: "column", paddingTop: 10 }}>
                 <TouchableOpacity style={styles.item} onPress={() => this._handleClickItem(item.name, item.id)} >
+                  {(item.avatar === "") ?
                   <Image
                     style={{ width: 50, height: 50, borderRadius: 25 }}
                     source={{ uri: 'https://facebook.github.io/react-native/docs/assets/favicon.png' }}
-                  />
+                  /> 
+                  : 
+                  <Image
+                    style={{ width: 50, height: 50, borderRadius: 25 }}
+                    source={{uri: item.avatar}}
+                  /> 
+            }
                   <View style={{ paddingLeft: 20, paddingTop: 7 }}>
                     <Text style={{ fontSize: 18 }}>{item.name}</Text>
                     <Text style={{ fontSize: 14 }}>{item.created_at}</Text>

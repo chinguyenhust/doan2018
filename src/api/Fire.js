@@ -52,11 +52,10 @@ class Fire {
   // send the message to the Backend
   send = messages => {
     for (let i = 0; i < messages.length; i++) {
-      const { text, user, groupId } = messages[i];
+      const { text, user} = messages[i];
       const message = {
         text,
         user,
-        groupId,
         timestamp: this.timestamp,
       };
       this.append(message);

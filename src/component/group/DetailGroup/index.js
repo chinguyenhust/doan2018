@@ -6,6 +6,8 @@ import styles from "./DetailGroupStyle";
 import Map from '../../home/Map';
 import Event from '../Event';
 import Chat from '../Chat';
+import Data from '../../../api/Data';
+import firebase from 'firebase'; // 4.8.1
 
 export default class DetailGroup extends Component {
   constructor(props) {
@@ -39,18 +41,29 @@ export default class DetailGroup extends Component {
       isEvent: true
     })
   }
-  
+
+  componentDidMount(){
+    const groupId = this.props.navigation.state.params.id;
+  }
+
   render() {
     const { navigate } = this.props.navigation;
     const name = "Chi";
+    const groupId = this.props.navigation.state.params.id;
 
     return (
       <View style={styles.container}>
 
-        <TouchableOpacity style={{ height:40, flexDirection: "row", paddingLeft: 20 ,  alignSelf: "stretch"}}>
-          <Icon name="ios-arrow-round-back" size={34} style={{ width: "15%" }} onPress={() => { this.props.navigation.goBack() }} />
-          <Text style={{ fontSize: 24,width:"70%"}}>{this.props.navigation.state.params.name}</Text>
-          <IconInfo name="ios-information-circle-outline" size={30} style={{ width: "10%"}} onPress={() => { navigate("InfoGroup") }} />
+        <TouchableOpacity style={{ height: 40, flexDirection: "row", paddingLeft: 20, alignSelf: "stretch" }}>
+          <Icon name="ios-arrow-round-back"
+            size={34}
+            style={{ width: "15%" }}
+            onPress={() => { this.props.navigation.goBack() }} />
+          <Text style={{ fontSize: 24, width: "70%" }}>{this.props.navigation.state.params.name}</Text>
+          <IconInfo name="ios-information-circle-outline"
+            size={30}
+            style={{ width: "10%" }}
+            onPress={() => { navigate("InfoGroup"), {id: groupId}}} />
         </TouchableOpacity>
 
 
@@ -68,12 +81,10 @@ export default class DetailGroup extends Component {
         </View>
 
         <View style={{ flex: 15 }}>
-          {(this.state.isChat) && <Chat name={name} />}
+          {(this.state.isChat) && <Chat name={name} groupId={groupId} />}
           {(this.state.isMap) && <Map />}
-          {(this.state.isEvent) && <Event navigate={navigate}/>}
+          {(this.state.isEvent) && <Event navigate={navigate} />}
         </View>
-
-
       </View>
     );
   }

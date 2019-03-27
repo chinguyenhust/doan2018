@@ -1,11 +1,11 @@
 // @flow
 import React from 'react';
 import { GiftedChat } from 'react-native-gifted-chat'; // 0.3.0
-import{View} from 'react-native'
+import { View } from 'react-native'
 import Fire from '../../../api/Fire';
 
 
-class Chat extends React.Component{
+class Chat extends React.Component {
 
   state = {
     messages: [],
@@ -13,20 +13,23 @@ class Chat extends React.Component{
 
   get user() {
     return ({
-      name:this.props.name,
+      name: this.props.name,
       _id: Fire.shared.uid,
       avatar: ""
-      
+
     });
   }
 
   render() {
-      console.log(this.user)
+    const groupId = this.props.groupId;
+
+    console.log(this.user)
     return (
       <GiftedChat
         messages={this.state.messages}
         onSend={Fire.shared.send}
         user={this.user}
+        
       />
     );
   }
