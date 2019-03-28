@@ -26,7 +26,7 @@ export default class MyGroup extends Component {
     this.props.navigation.navigate('DetailGroup', { name: name, groupId: groupId })
   }
 
-  componentWillMount() {
+  componentDidMount() {
     var items = []
     groups.on('child_added', (snapshot) => {
       let data = snapshot.val();

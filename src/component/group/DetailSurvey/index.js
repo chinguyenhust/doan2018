@@ -3,7 +3,8 @@ import { Platform, StyleSheet, Text, View, Button, TouchableOpacity, TextInput }
 import Icon from 'react-native-vector-icons/Ionicons';
 import IconAdd from 'react-native-vector-icons/Ionicons';
 import styles from './DetailSurveyStyle';
-import { CheckBox } from 'react-native-elements'
+import { CheckBox } from 'react-native-elements';
+import { Data } from "../../../api/Data";
 
 export default class DetailSurvey extends Component {
   constructor(props) {
@@ -11,30 +12,30 @@ export default class DetailSurvey extends Component {
     this.state = {
       question: "",
       isAdd: false,
-      options: [
-        {
-          value: "Có",
-          vote: 0
-        },
-        {
-          value: "Không",
-          vote: 1
-        },
-        {
-          value: "Tuỳ",
-          vote: 2
-        },
-      ],
+      options: [],
       optionValue: "",
       checked: false
     }
   }
 
+  componentDidMount() {
+    const surveyId = this.props.navigation.state.params.id;
+    var survey = Data.ref("surveys");
+    survey.child(surveyId).on("value", (snapshot) => {
+      var data = snapshot.val();
+      this.setState({
+        question: data.question,
+        options: data.options
+      })
+    })
+  }
+
+
   _handleAddOption = () => {
     var { options, optionValue } = this.state;
-    if(optionValue === ""){
+    if (optionValue === "") {
       alert("Nhập giá trị của tuỳ chọn")
-    }else{
+    } else {
       options.push({ value: optionValue, vote: 0 });
     }
 
@@ -45,6 +46,7 @@ export default class DetailSurvey extends Component {
     })
   }
 
+
   _handleChecked = () => {
     this.setState({
       checked: true,
@@ -53,7 +55,7 @@ export default class DetailSurvey extends Component {
 
   render() {
     const { navigate } = this.props.navigation;
-    const { options } = this.state;
+    const { options, question } = this.state;
 
     return (
       <View style={styles.container} >
@@ -68,7 +70,7 @@ export default class DetailSurvey extends Component {
 
           <View style={{ flexDirection: "row", marginTop: 20 }}>
             <Text style={{ fontSize: 16 }}>Câu hỏi: </Text>
-            <Text style={{ fontSize: 20, color: "red", marginLeft: 20}}> Đi chơi không sdsdfd dfdf ? </Text>
+            <Text style={{ fontSize: 16, color: "red", marginLeft: 20 }}> {question} </Text>
           </View>
 
           {(options.length > 0) &&
@@ -80,10 +82,10 @@ export default class DetailSurvey extends Component {
                   checkedIcon='dot-circle-o'
                   uncheckedIcon='circle-o'
                   checked={this.state.checked}
-                  containerStyle={{ borderWidth: 0, backgroundColor: "#fff", width: "80%", alignItems:"flex-start"}}
+                  containerStyle={{ borderWidth: 0, backgroundColor: "#fff", width: "80%", alignItems: "flex-start" }}
                 // onPress={this._handleChecked}
                 />
-                <Text style={{fontSize: 16, marginTop: 10}}>{option.vote} vote</Text>
+                <Text style={{ fontSize: 16, marginTop: 10 }}>{option.vote} vote</Text>
               </View>
             )}
 

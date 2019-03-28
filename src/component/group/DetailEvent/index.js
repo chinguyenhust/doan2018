@@ -4,14 +4,15 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import styles from './DetailEventStyle';
 import DatePicker from 'react-native-datepicker';
 import RadioGroup from 'react-native-radio-buttons-group';
+import { Data } from "../../../api/Data";
 
 export default class DetailEvent extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      nameEvent: "Về ăn cơm",
-      date: "2019-03-14 00:00",
-      address: "KTX Bách Khoa",
+      nameEvent: "",
+      date: "",
+      address: "",
       data: [
         {
           label: 'Có tham gia',
@@ -23,6 +24,20 @@ export default class DetailEvent extends Component {
         },
       ],
     }
+  }
+
+  componentDidMount() {
+    const eventId = this.props.navigation.state.params.id;
+    var event = Data.ref("events");
+    event.child(eventId).on("value", (snapshot) => {
+      var data = snapshot.val();
+      this.setState({
+        nameEvent: data.name,
+        date: data.time,
+        address: data.address
+      })
+      console.log("iems  ", data)
+    })
   }
 
   onPress = data => this.setState({ data });
@@ -44,7 +59,7 @@ export default class DetailEvent extends Component {
         <View style={{ flex: 16, paddingLeft: 20, paddingRight: 20, flexDirection: "column" }}>
 
           <View style={{ flexDirection: "row", marginTop: 20 }}>
-            <Text style={{ fontSize: 16, marginTop: 10 }}>Tên kế hoach:</Text>
+            <Text style={{ fontSize: 16, marginTop: 10 }}>Tên kế hoạch:</Text>
             <TextInput
               style={styles.input}
               onChangeText={(nameEvent) => {
@@ -69,7 +84,7 @@ export default class DetailEvent extends Component {
             style={{ marginTop: 10, width: "100%" }}
             date={this.state.date}
             mode="datetime"
-            format="YYYY-MM-DD hh:mm AM/PM"
+            format="YYYY-MM-DD hh:mm a"
             confirmBtnText="Confirm"
             cancelBtnText="Cancel"
             customStyles={{
@@ -100,7 +115,6 @@ export default class DetailEvent extends Component {
               />
             </View>
           </View>
-
 
           <TouchableOpacity style={styles.buttonCreat} onPress={() => navigate('DetailGroup')}>
             <Text style={{ color: "#fff", fontSize: 20 }}>Cập nhật</Text>

@@ -36,7 +36,6 @@ export default class InfoGroup extends Component {
       })
       this.setState({ items: items });
     });
-
     var group = Data.ref("groups")
   }
 

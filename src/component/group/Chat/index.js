@@ -23,7 +23,6 @@ class Chat extends React.Component {
   render() {
     const groupId = this.props.groupId;
 
-    console.log(this.user)
     return (
       <GiftedChat
         messages={this.state.messages}
