@@ -36,7 +36,7 @@ export default class DetailEvent extends Component {
         date: data.time,
         address: data.address
       })
-      console.log("iems  ", data)
+      // console.log("iems  ", data)
     })
   }
 

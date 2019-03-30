@@ -50,7 +50,6 @@ export default class DetailGroup extends Component {
     const { navigate } = this.props.navigation;
     const name = "Chi";
     const groupId = this.props.navigation.state.params.groupId;
-    console.log("group id", groupId)
 
     return (
       <View style={styles.container}>

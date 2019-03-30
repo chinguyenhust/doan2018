@@ -24,7 +24,10 @@ export default class CreatSurvey extends Component {
     if(optionValue === ""){
       alert("Nhập giá trị của tuỳ chọn")
     }else{
-      options.push({ value: optionValue, vote: 0 });
+      options.push({ 
+        value: optionValue, 
+        members: [] 
+      });
     }
     this.setState({
       options: options,
@@ -50,11 +53,26 @@ export default class CreatSurvey extends Component {
         groupId: this.props.navigation.state.params.groupId,
         created_at: firebase.database.ServerValue.TIMESTAMP
       }
-    ).then(() => {
-      console.log("Success !");
+    ).then((snapshot) => {
+        if(options){
+          options.map((item) => {
+            Data.ref("answers").push(
+              {
+                survey_id: snapshot.key,
+                value: item.value,
+                members: item.members
+              }
+            ).then(() => {
+              console.log("Success !");
+            }).catch((error) => {
+              console.log(error);
+            });
+          })
+        }
     }).catch((error) => {
       console.log(error);
     });
+
     this.props.navigation.navigate("DetailGroup", { name: this.props.nameGroup })
   }
 
