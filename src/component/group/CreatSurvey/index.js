@@ -15,7 +15,8 @@ export default class CreatSurvey extends Component {
       isAdd: false,
       options: [],
       optionValue: "",
-      checked: false
+      checked: [],
+      vote: [],
     }
   }
 

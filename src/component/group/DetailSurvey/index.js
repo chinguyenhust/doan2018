@@ -51,8 +51,14 @@ export default class DetailSurvey extends Component {
           checked.push( true);
         } else {
           checked.push( false);
-        }
-        vote.push(data.members.length);
+        } 
+        var i = 0;
+        data.members.map((item) =>{
+          if(item){
+            i += 1;
+          }
+        });
+        vote.push(i);
       }else{
         checked.push( false);
         vote.push(0);
@@ -86,20 +92,6 @@ export default class DetailSurvey extends Component {
       options: options,
       isAdd: true,
       optionValue: ""
-    })
-  }
-
-  _handeSend() {
-    var user = firebase.auth().currentUser;
-    var check = this.state.checked;
-    const surveyId = this.props.navigation.state.params.id;
-    var survey = Data.ref("surveys");
-    survey.child(surveyId).on("value", (snapshot) => {
-      var data = snapshot.val();
-      this.setState({
-        question: data.question,
-        options: data.options
-      })
     })
   }
 
@@ -142,7 +134,8 @@ export default class DetailSurvey extends Component {
                         var indexOf = option.members.indexOf(user.uid)
                         answers.child(option.key).child("members").child(indexOf).remove();
                       } else {
-                        var arr = option.members.push(user.uid);
+                        var arr = (option.members ? option.members : []);
+                        arr.push(user.uid);
                         answers.child(option.key).update({
                           members: arr
                         })
