@@ -50,7 +50,7 @@ export default class CreatSurvey extends Component {
         question: question,
         options: options,
         createdByUserId: user.uid,
-        groupId: this.props.navigation.state.params.groupId,
+        groupId: this.props.navigation.state.params.groupId, 
         created_at: firebase.database.ServerValue.TIMESTAMP
       }
     ).then((snapshot) => {

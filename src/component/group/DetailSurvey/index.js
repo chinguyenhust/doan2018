@@ -18,7 +18,8 @@ export default class DetailSurvey extends Component {
       isAdd: false,
       options: [],
       optionValue: "",
-      checked: []
+      checked: [],
+      vote: [],
     }
   }
 
@@ -26,7 +27,7 @@ export default class DetailSurvey extends Component {
     const surveyId = this.props.navigation.state.params.id;
     var user = firebase.auth().currentUser;
     var checked = this.state.checked;
-    const options = this.state.options;
+    const vote = this.state.vote;
     survey.child(surveyId).on("value", (snapshot) => {
       var data = snapshot.val();
       this.setState({
@@ -35,7 +36,7 @@ export default class DetailSurvey extends Component {
     })
 
     const arrSurvey = [];
-    answers.orderByChild("survey_id").equalTo(surveyId).on("child_added", (snapshot, index) => {
+    answers.orderByChild("survey_id").equalTo(surveyId).on("child_added", (snapshot) => {
       var data = snapshot.val();
       arrSurvey.push({
         key: snapshot.key,
@@ -45,31 +46,40 @@ export default class DetailSurvey extends Component {
       this.setState({
         options: arrSurvey
       });
-    });
-
-    if (options) {
-      options.map((item, index) => {
-        var arrMember = item.members;
-        if (arrMember) {
-          if (arrMember.includes(user.uid)) {
-            checked[index] = true;
-          } else {
-            checked[index] = false;
-          }
-        }else{
-          checked[index] = false;
+      if (data.members) {
+        if (data.members.includes(user.uid)) {
+          checked.push( true);
+        } else {
+          checked.push( false);
         }
-      });
-      console.log(checked);
-    }
+        vote.push(data.members.length);
+      }else{
+        checked.push( false);
+        vote.push(0);
+      }
+
+      this.setState({
+        checked: checked,
+        vote: vote
+      })
+    });
+ 
   }
 
   _handleAddOption = () => {
-    var { options, optionValue } = this.state;
+    var { options, optionValue, checked } = this.state;
+    const surveyId = this.props.navigation.state.params.id;
+    var user = firebase.auth().currentUser;
     if (optionValue === "") {
       alert("Nhập giá trị của tuỳ chọn")
     } else {
-      options.push({ value: optionValue, members: [] });
+      var members = [];
+      members.push(user.uid)
+      answers.push({
+        survey_id: surveyId,
+        value: optionValue,
+        members: members
+      })
     }
 
     this.setState({
@@ -82,8 +92,6 @@ export default class DetailSurvey extends Component {
   _handeSend() {
     var user = firebase.auth().currentUser;
     var check = this.state.checked;
-    check.map((item, index) => {
-    })
     const surveyId = this.props.navigation.state.params.id;
     var survey = Data.ref("surveys");
     survey.child(surveyId).on("value", (snapshot) => {
@@ -97,28 +105,10 @@ export default class DetailSurvey extends Component {
 
   render() {
     const { navigate } = this.props.navigation;
-    const { options, question, checked } = this.state;
+    const { options, question, checked, vote} = this.state;
     const surveyId = this.props.navigation.state.params.id;
     var user = firebase.auth().currentUser;
-
-    if (options) {
-      options.map((item, index) => {
-        var arrMember = item.members;
-        if (arrMember) {
-          if (arrMember.includes(user.uid)) {
-            checked[index] = true;
-          } else {
-            checked[index] = false;
-          }
-        }else{
-          checked[index] = false;
-        }
-      });
-      console.log(checked);
-    }
-    this.setState({
-      checked: checked
-    });
+    console.log(vote);
 
     return (
       <View style={styles.container} >
@@ -151,14 +141,11 @@ export default class DetailSurvey extends Component {
                       if (option.members.includes(user.uid)) {
                         var indexOf = option.members.indexOf(user.uid)
                         answers.child(option.key).child("members").child(indexOf).remove();
-                        // checked[index] = !checked[index];
                       } else {
                         var arr = option.members.push(user.uid);
                         answers.child(option.key).update({
                           members: arr
                         })
-                        // checked[index] = !checked[index];
-                        // (checked[index]) ? checked[index] : ((option.members) ? option.members.includes(user.uid): false)
                       }
                     } else {
                       var arr = (option.members ? option.members : []);
@@ -166,26 +153,20 @@ export default class DetailSurvey extends Component {
                       answers.child(option.key).update({
                         members: arr
                       });
-                      // checked[index] = !checked[index];
                     }
                     checked[index] = !checked[index];
+                    if(checked[index] === true){
+                      vote[index] += 1;
+                    }else{
+                      vote[index] -= 1;
+                    }
                     this.setState({
-                      checked: checked
+                      checked: checked,
+                      vote: vote
                     })
-                    // if (checked[index] === true) {
-                    //   var arr = (option.members ? option.members : []);
-                    //   arr.push(user.uid);
-                    //   answers.child(option.key).update({
-                    //     members: arr
-                    //   })
-                    // } else {
-                    //   answers.child(option.key).child("members").child(user.uid).on("value",(snap) => {
-                    //     console.log(snap.val())
-                    //     })
-                    // }
                   }}
                 />
-                <Text style={{ fontSize: 16, marginTop: 10 }}> 0 vote</Text>
+                <Text style={{ fontSize: 16, marginTop: 10 }}> {vote[index]} vote</Text>
               </View>
             )}
 
