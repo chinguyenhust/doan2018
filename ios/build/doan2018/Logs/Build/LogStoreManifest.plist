@@ -38,7 +38,7 @@
 			<key>uniqueIdentifier</key>
 			<string>06D07634-2540-4C56-8838-3B35057A51D0</string>
 		</dict>
-		<key>3AC00927-C041-47B1-BAFC-D3D230F2C385</key>
+		<key>D83FDF12-04F4-4526-80EB-99E5BC360381</key>
 		<dict>
 			<key>className</key>
 			<string>IDECommandLineBuildLog</string>
@@ -47,7 +47,7 @@
 			<key>domainType</key>
 			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
 			<key>fileName</key>
-			<string>3AC00927-C041-47B1-BAFC-D3D230F2C385.xcactivitylog</string>
+			<string>D83FDF12-04F4-4526-80EB-99E5BC360381.xcactivitylog</string>
 			<key>primaryObservable</key>
 			<dict>
 				<key>highLevelStatus</key>
@@ -62,13 +62,13 @@
 			<key>signature</key>
 			<string>Building workspace doan2018 with scheme doan2018 and configuration Debug</string>
 			<key>timeStartedRecording</key>
-			<real>575589836.58597505</real>
+			<real>575922658.95471704</real>
 			<key>timeStoppedRecording</key>
-			<real>575589869.60058403</real>
+			<real>575922667.84002602</real>
 			<key>title</key>
 			<string>Building workspace doan2018 with scheme doan2018 and configuration Debug</string>
 			<key>uniqueIdentifier</key>
-			<string>3AC00927-C041-47B1-BAFC-D3D230F2C385</string>
+			<string>D83FDF12-04F4-4526-80EB-99E5BC360381</string>
 		</dict>
 	</dict>
 </dict>

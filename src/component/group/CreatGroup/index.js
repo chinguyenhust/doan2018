@@ -47,11 +47,25 @@ export default class CreatGroup extends Component {
         schedule: schedule,
         avatar: image,
         createdByUserId: user.uid,
-        members: selectedItems,
+        // members: selectedItems,
         created_at: firebase.database.ServerValue.TIMESTAMP
       }
-    ).then(() => {
-      console.log("Success !");
+    ).then((snapshot) => {
+      if(selectedItems){
+        console.log(selectedItems)
+        selectedItems.map((item) => {
+          Data.ref("group_users").push(
+            {
+              group_id: snapshot.key,
+              user_id: item
+            }
+          ).then(() => {
+            console.log("Success !");
+          }).catch((error) => {
+            console.log(error);
+          });
+        })
+      }
     }).catch((error) => {
       console.log(error);
     });

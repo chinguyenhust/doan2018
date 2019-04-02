@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
     },
     info: {
         flexDirection: "column",
-        width: "90%",
+        width: "73%",
         paddingLeft:10,
     },
     textName: {

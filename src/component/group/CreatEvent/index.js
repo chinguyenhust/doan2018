@@ -43,7 +43,6 @@ export default class CreatEvent extends Component {
 
   render() {
     const { navigate } = this.props.navigation;
-    console.log("group  event ", this.props.navigation.state.params.groupId)
 
     return (
       <View style={styles.container} >

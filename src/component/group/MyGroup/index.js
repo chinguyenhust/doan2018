@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View, Button, TouchableOpacity, TextInput, Image, ScrollView } from 'react-native';
+import { Text, View, TouchableOpacity, TextInput, Image, ScrollView } from 'react-native';
 import styles from './MyGroupStyle';
 import Icon from 'react-native-vector-icons/Ionicons';
 import IconAdd from 'react-native-vector-icons/MaterialIcons';
@@ -8,6 +8,8 @@ import { Data } from "../../../api/Data";
 import * as firebase from 'firebase';
 
 let groups = Data.ref('/groups');
+let group_user = Data.ref('/group_users');
+let users = Data.ref('/users');
 
 export default class MyGroup extends Component {
   constructor(props) {
@@ -27,21 +29,28 @@ export default class MyGroup extends Component {
   }
 
   componentDidMount() {
-    var items = []
-    groups.on('child_added', (snapshot) => {
-      let data = snapshot.val();
-      // if (data.createdByUserId === firebase.auth().currentUser.uid) {
-        items.push({
-          id: snapshot.key,
-          name: data.name,
-          chedule: data.schedule,
-          userId: data.createdByUserId,
-          created_at: data.created_at,
-          avatar: data.avatar
-        })
-      // }
-      this.setState({ items: items });
-    });
+    var items = [];
+    var email = this.props.navigation.state.params.email;
+
+    users.orderByChild("email").equalTo(email).on("child_added", (snapshot) => {
+      group_user.orderByChild("user_id").equalTo(snapshot.key).on("child_added", (snapshot) => {
+        let data = snapshot.val();
+        groups.on('child_added', (snapshot) => {
+          if (snapshot.key === data.group_id) {
+            let data = snapshot.val();
+            items.push({
+              id: snapshot.key,
+              name: data.name,
+              chedule: data.schedule,
+              userId: data.createdByUserId,
+              created_at: data.created_at,
+              avatar: data.avatar
+            })
+            this.setState({ items: items });
+          }
+        });
+      });
+    })
   }
 
   render() {
@@ -76,16 +85,16 @@ export default class MyGroup extends Component {
               ({ item }) => <View style={{ flexDirection: "column", paddingTop: 10 }}>
                 <TouchableOpacity style={styles.item} onPress={() => this._handleClickItem(item.name, item.id)} >
                   {(item.avatar === "") ?
-                  <Image
-                    style={{ width: 50, height: 50, borderRadius: 25 }}
-                    source={{ uri: 'https://facebook.github.io/react-native/docs/assets/favicon.png' }}
-                  /> 
-                  : 
-                  <Image
-                    style={{ width: 50, height: 50, borderRadius: 25 }}
-                    source={{uri: item.avatar}}
-                  /> 
-            }
+                    <Image
+                      style={{ width: 50, height: 50, borderRadius: 25 }}
+                      source={{ uri: 'https://facebook.github.io/react-native/docs/assets/favicon.png' }}
+                    />
+                    :
+                    <Image
+                      style={{ width: 50, height: 50, borderRadius: 25 }}
+                      source={{ uri: item.avatar }}
+                    />
+                  }
                   <View style={{ paddingLeft: 20, paddingTop: 7 }}>
                     <Text style={{ fontSize: 18 }}>{item.name}</Text>
                     <Text style={{ fontSize: 14 }}>{item.created_at}</Text>
@@ -98,7 +107,6 @@ export default class MyGroup extends Component {
           />
         </ScrollView>
 
-
         <TouchableOpacity style={{ zIndex: 1000, bottom: 60, justifyContent: 'flex-end', marginLeft: "80%", position: 'absolute' }} onPress={() => navigate("CreatGroup")}>
           <IconAdd name="add-circle" size={60} style={{ color: "green" }} />
         </TouchableOpacity>
@@ -106,5 +114,3 @@ export default class MyGroup extends Component {
     );
   }
 }
-
-

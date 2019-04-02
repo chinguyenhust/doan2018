@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View, Button, TouchableOpacity, TextInput, FlatList } from 'react-native';
+import { Image, Text, View, TouchableOpacity, TextInput, FlatList } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import styles from './DetailEventStyle';
 import DatePicker from 'react-native-datepicker';
 import RadioGroup from 'react-native-radio-buttons-group';
 import { Data } from "../../../api/Data";
+import * as firebase from 'firebase';
 
 export default class DetailEvent extends Component {
   constructor(props) {
@@ -16,13 +17,16 @@ export default class DetailEvent extends Component {
       data: [
         {
           label: 'Có tham gia',
-          value: 1
+          value: 1,
+          color: "#007aff"
         },
         {
           label: 'Không tham gia',
-          value: 0,
+          value: 2,
+          color: "#007aff"
         },
       ],
+      members: []
     }
   }
 
@@ -40,19 +44,34 @@ export default class DetailEvent extends Component {
     })
   }
 
-  onPress = data => this.setState({ data });
+  onPress = (data) => {
+    const eventId = this.props.navigation.state.params.id;
+    const members = this.state.members;
+    var user = firebase.auth().currentUser;
+    data.map((item) => {
+      console.log(item.selected);
+      if(item.selected === true){
+        members.push(user.uid)
+        Data.ref("participations").push({
+          event_id : eventId,
+          members: members,
+        })
+      }
+    })
+    this.setState({ data });
+  };
 
   render() {
     const { navigate } = this.props.navigation;
     let selectedButton = this.state.data.find(e => e.selected == true);
-    selectedButton = selectedButton ? selectedButton.value : this.state.data[0].label;
+    selectedButton = selectedButton ? selectedButton.value : this.state.data[0].value;
 
     return (
       <View style={styles.container} >
         <View style={styles.tapbar}>
           <TouchableOpacity style={styles.tap}>
             <Icon name="ios-arrow-round-back" size={34} style={{ width: "15%" }} onPress={() => { this.props.navigation.goBack() }} />
-            <Text style={{ fontSize: 24, width: "70%" }}>kế hoạch</Text>
+            <Text style={{ fontSize: 24, width: "70%" }}>Kế hoạch</Text>
           </TouchableOpacity>
           <View style={{ height: 1, backgroundColor: "#000", alignSelf: "stretch" }}></View>
         </View>
@@ -98,7 +117,11 @@ export default class DetailEvent extends Component {
                 marginLeft: 36
               }
             }}
-            onDateChange={(date) => { this.setState({ date: date }) }}
+            onDateChange={(date) => {
+              this.setState({
+                date: date
+              })
+            }}
           />
 
           <View style={{ flexDirection: "column", marginTop: 20 }}>
@@ -106,12 +129,20 @@ export default class DetailEvent extends Component {
             <FlatList
               horizontal={true}
               data={[{ key: 'a' }, { key: 'b' }, { key: 'a' }, { key: 'b' }, { key: 'a' }, { key: 'b' }]}
-              renderItem={({ item }) => <View style={{ width: 60, height: 60, borderRadius: 30, backgroundColor: "red", marginLeft: 15, marginTop: 20 }}></View>}
+              renderItem={({ item }) =>
+                <View style={{ marginLeft: 15, marginTop: 20 }}>
+                  <Image
+                    style={{ width: 60, height: 60, borderRadius: 30 }}
+                    source={{ uri: 'https://facebook.github.io/react-native/docs/assets/favicon.png' }}
+                  />
+                </View>
+              }
             />
             <View style={{ marginTop: 20, alignItems: "flex-start", }}>
               <RadioGroup
                 radioButtons={this.state.data}
                 onPress={this.onPress}
+                color="#007aff"
               />
             </View>
           </View>
