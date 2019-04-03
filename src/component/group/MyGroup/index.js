@@ -73,7 +73,7 @@ export default class MyGroup extends Component {
     this.watchID = navigator.geolocation.watchPosition((position) => {
       var lat = parseFloat(position.coords.latitude);
       var long = parseFloat(position.coords.longitude);
-      console.log(lat + "    " + long)
+      // console.log(lat + "    " + long)
 
       users.orderByChild("email").equalTo(email).on("child_added", (snapshot) => {
         users.child(snapshot.key).update({

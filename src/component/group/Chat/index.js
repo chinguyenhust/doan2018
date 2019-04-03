@@ -1,7 +1,6 @@
 import React from 'react';
 import { GiftedChat } from 'react-native-gifted-chat'; // 0.3.0
 import { View } from 'react-native'
-import Fire from '../../../api/Fire';
 import firebase from 'firebase';
 
 class Chat extends React.Component {

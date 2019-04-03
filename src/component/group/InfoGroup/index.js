@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View, Button, TouchableOpacity, TextInput, Image, ScrollView } from 'react-native';
+import {Text, View,TouchableOpacity, TextInput, Image, ScrollView } from 'react-native';
 import styles from './InfoGroupStyle';
 import Icon from 'react-native-vector-icons/Ionicons';
 import ImagePicker from 'react-native-image-picker';
@@ -21,7 +21,8 @@ export default class InfoGroup extends Component {
       items: [],
       created_at: "",
       avatar: null,
-      image: null
+      image: null,
+      leader: "",
     };
     this.uploadImage = this.uploadImage.bind(this);
   }
@@ -36,7 +37,30 @@ export default class InfoGroup extends Component {
       })
       this.setState({ items: items });
     });
-    var group = Data.ref("groups")
+
+    const groupId = this.props.navigation.state.params.groupId;
+    Data.ref("groups").child(groupId).on("child_added", (snapshot) => {
+      var data = snapshot.val();
+      console.log(data)
+      this.setState({
+        name: data.name,
+        schedule: data.schedule,
+        avatar: data.avatar
+      })
+    })
+  }
+
+  componentDidMount(){
+    const groupId = this.props.navigation.state.params.groupId;
+    Data.ref("groups").child(groupId).on("value", (snapshot) => {
+      var data = snapshot.val();
+      console.log(data)
+      this.setState({
+        name: data.name,
+        schedule: data.schedule,
+        avatar: data.avatar
+      })
+    })
   }
 
   _handleCreatGroup = () => {
@@ -133,7 +157,7 @@ export default class InfoGroup extends Component {
   };
 
   render() {
-    const { selectedItems, items, avatar } = this.state;
+    const { selectedItems, items, avatar, name, schedule } = this.state;
     const { navigate } = this.props.navigation;
     return (
       <View style={styles.container}>
@@ -146,7 +170,7 @@ export default class InfoGroup extends Component {
 
         <ScrollView style={{ paddingLeft: 20, paddingRight: 20, marginBottom: 40 }}>
           <TouchableOpacity style={{ alignItems: 'center' }} onPress={this.chooseFile.bind(this)}>
-            {(!this.state.isLoad) ?
+            {(avatar === null) ?
               <IconAdd name="add-circle" size={120} style={{ color: "gray" }} /> :
               <Image
                 source={{ uri: avatar }}
@@ -158,7 +182,6 @@ export default class InfoGroup extends Component {
           <View style={{ flexDirection: "column" }}>
             <Text style={{ fontSize: 16 }}>Tên nhóm</Text>
             <TextInput
-              placeholder="Đặt tên nhóm"
               style={styles.inputName}
               onChangeText={(name) => {
                 this.setState({ name });
@@ -170,7 +193,6 @@ export default class InfoGroup extends Component {
           <View style={{ flexDirection: "column", marginTop: 20 }}>
             <Text style={{ fontSize: 16 }}>Kế hoạch cho chuyến đi</Text>
             <TextInput
-              placeholder="Nhập kế hoạch"
               style={styles.inputSchedule}
               onChangeText={(schedule) => {
                 this.setState({ schedule });

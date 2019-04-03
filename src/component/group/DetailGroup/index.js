@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View, Button, TouchableOpacity } from 'react-native';
+import {Text, View, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import IconInfo from 'react-native-vector-icons/Ionicons';
 import styles from "./DetailGroupStyle";
 import Map from '../../home/Map';
 import Event from '../Event';
 import Chat from '../Chat';
-import Data from '../../../api/Data';
-import firebase from 'firebase'; // 4.8.1
 
 export default class DetailGroup extends Component {
   constructor(props) {
@@ -59,7 +57,7 @@ export default class DetailGroup extends Component {
           <IconInfo name="ios-information-circle-outline"
             size={30}
             style={{ width: "10%" }}
-            onPress={() => { navigate("InfoGroup"), {id: groupId}}} />
+            onPress={() => { navigate("InfoGroup", {groupId: groupId})}} />
         </TouchableOpacity>
 
 

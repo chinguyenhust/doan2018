@@ -48,18 +48,34 @@ export default class DetailEvent extends Component {
     const eventId = this.props.navigation.state.params.id;
     const members = this.state.members;
     var user = firebase.auth().currentUser;
+
     data.map((item) => {
       console.log(item.selected);
-      if(item.selected === true){
+      if (item.selected === true) {
         members.push(user.uid)
         Data.ref("participations").push({
-          event_id : eventId,
+          event_id: eventId,
           members: members,
         })
       }
     })
+    console.log(data[0]);
     this.setState({ data });
   };
+
+  _handleUpDate = () => {
+    const {nameEvent, date, address} = this.state;
+    const eventId = this.props.navigation.state.params.id;
+    var event = Data.ref("events");
+    event.child(eventId).update({
+      name: nameEvent,
+      time: date,
+      address: address,
+      user_update: firebase.auth().currentUser.uid,
+      time_update: firebase.database.ServerValue.TIMESTAMP
+    });
+    this.props.navigation.navigate('DetailGroup');
+  }
 
   render() {
     const { navigate } = this.props.navigation;
@@ -147,7 +163,7 @@ export default class DetailEvent extends Component {
             </View>
           </View>
 
-          <TouchableOpacity style={styles.buttonCreat} onPress={() => navigate('DetailGroup')}>
+          <TouchableOpacity style={styles.buttonCreat} onPress={this._handleUpDate}>
             <Text style={{ color: "#fff", fontSize: 20 }}>Cập nhật</Text>
           </TouchableOpacity>
         </View>
