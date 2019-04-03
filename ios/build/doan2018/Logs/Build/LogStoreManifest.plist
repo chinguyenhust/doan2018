@@ -6,7 +6,7 @@
 	<integer>10</integer>
 	<key>logs</key>
 	<dict>
-		<key>06D07634-2540-4C56-8838-3B35057A51D0</key>
+		<key>72B5C8AF-5692-4A8E-9C56-819D6EF7A196</key>
 		<dict>
 			<key>className</key>
 			<string>IDECommandLineBuildLog</string>
@@ -15,7 +15,7 @@
 			<key>domainType</key>
 			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
 			<key>fileName</key>
-			<string>06D07634-2540-4C56-8838-3B35057A51D0.xcactivitylog</string>
+			<string>72B5C8AF-5692-4A8E-9C56-819D6EF7A196.xcactivitylog</string>
 			<key>primaryObservable</key>
 			<dict>
 				<key>highLevelStatus</key>
@@ -30,15 +30,15 @@
 			<key>signature</key>
 			<string>Building workspace doan2018 with scheme doan2018 and configuration Debug</string>
 			<key>timeStartedRecording</key>
-			<real>575797848.43710005</real>
+			<real>575976458.11259496</real>
 			<key>timeStoppedRecording</key>
-			<real>575797888.95856297</real>
+			<real>575976483.77317202</real>
 			<key>title</key>
 			<string>Building workspace doan2018 with scheme doan2018 and configuration Debug</string>
 			<key>uniqueIdentifier</key>
-			<string>06D07634-2540-4C56-8838-3B35057A51D0</string>
+			<string>72B5C8AF-5692-4A8E-9C56-819D6EF7A196</string>
 		</dict>
-		<key>D83FDF12-04F4-4526-80EB-99E5BC360381</key>
+		<key>9EB6C048-67BB-4668-B1B2-C5A2B3DBFD0E</key>
 		<dict>
 			<key>className</key>
 			<string>IDECommandLineBuildLog</string>
@@ -47,7 +47,7 @@
 			<key>domainType</key>
 			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
 			<key>fileName</key>
-			<string>D83FDF12-04F4-4526-80EB-99E5BC360381.xcactivitylog</string>
+			<string>9EB6C048-67BB-4668-B1B2-C5A2B3DBFD0E.xcactivitylog</string>
 			<key>primaryObservable</key>
 			<dict>
 				<key>highLevelStatus</key>
@@ -62,13 +62,13 @@
 			<key>signature</key>
 			<string>Building workspace doan2018 with scheme doan2018 and configuration Debug</string>
 			<key>timeStartedRecording</key>
-			<real>575922658.95471704</real>
+			<real>575983676.48249102</real>
 			<key>timeStoppedRecording</key>
-			<real>575922667.84002602</real>
+			<real>575983713.94092906</real>
 			<key>title</key>
 			<string>Building workspace doan2018 with scheme doan2018 and configuration Debug</string>
 			<key>uniqueIdentifier</key>
-			<string>D83FDF12-04F4-4526-80EB-99E5BC360381</string>
+			<string>9EB6C048-67BB-4668-B1B2-C5A2B3DBFD0E</string>
 		</dict>
 	</dict>
 </dict>

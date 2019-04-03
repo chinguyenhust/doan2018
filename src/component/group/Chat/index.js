@@ -15,7 +15,7 @@ class Chat extends React.Component {
     return ({
       name: this.props.name,
       _id: Fire.shared.uid,
-      avatar: ""
+      avatar: null
 
     });
   }

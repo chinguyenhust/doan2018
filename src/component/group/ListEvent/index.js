@@ -34,7 +34,25 @@ export default class ListEvent extends Component {
     });
   }
 
-  compare = (a,b) => {
+  componentWillReceiveProps() {
+    var items = [];
+    const groupId = this.props.groupId;
+    events.orderByChild("groupId").equalTo(groupId).on('child_added', (snapshot) => {
+      let data = snapshot.val();
+      items.push({
+        id: snapshot.key,
+        name: data.name,
+        address: data.address,
+        userId: data.createdByUserId,
+        created_at: data.created_at,
+        groupId: data.groupId,
+        time: data.time
+      })
+      this.setState({ items: items.sort(this.compare) });
+    });
+  }
+
+  compare = (a, b) => {
     var time1 = new Date(a.created_at).getTime();
     var time2 = new Date(b.created_at).getTime();
     if (time2 < time1)
@@ -43,7 +61,7 @@ export default class ListEvent extends Component {
       return 1;
     return 0;
   }
-  
+
 
   render() {
     const { navigate } = { ...this.props };

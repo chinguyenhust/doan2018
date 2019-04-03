@@ -33,6 +33,23 @@ export default class ListSurvey extends Component {
     });
 
   }
+  
+  componentWillReceiveProps(){
+    var items = [];
+    const groupId = this.props.groupId;
+    surveys.orderByChild("groupId").equalTo(groupId).on('child_added', (snapshot) => {
+      let data = snapshot.val();
+      items.push({
+        id: snapshot.key,
+        question: data.question,
+        userId: data.createdByUserId,
+        created_at: data.created_at,
+        groupId: data.groupId,
+        options: data.options
+      })
+      this.setState({ items: items.sort(this.compare) });
+    });
+  }
 
   compare = (a, b) => {
     var time1 = new Date(a.created_at).getTime();

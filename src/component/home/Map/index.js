@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View, TouchableOpacity, Dimensions, AppRegistry } from 'react-native';
+import { StyleSheet, Text, View, Dimensions} from 'react-native';
 import MapView from "react-native-maps";
 import { Marker } from 'react-native-maps';
 
@@ -72,13 +72,7 @@ export default class Map extends Component {
   render() {
     return (
       <View style={styles.container}>
-        {/* <View style={{ flexDirection: "column" }}>
-          <TouchableOpacity style={{ height: 30, marginTop: 40, flexDirection: "row" }}>
-            <Icon name="ios-arrow-round-back" size={34} style={{ width: "15%" }} onPress={() => navigate('Home')} />
-
-          </TouchableOpacity>
-          <View style={{ backgroundColor: "#000", height: 1, marginTop: 5 }}></View>
-        </View> */}
+        
         <MapView
           provider={MapView.PROVIDER_GOOGLE}
           style={styles.map}

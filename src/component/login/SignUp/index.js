@@ -23,7 +23,9 @@ export default class SignUp extends React.Component {
           userName: userName,
           phone: phone,
           email: email,
-          password: password
+          password: password,
+          latitude: null,
+          longitude: null
         })
         this.props.navigation.navigate('Login');
         ref.childByAutoId().setValue(data)

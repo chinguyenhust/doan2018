@@ -1,15 +1,24 @@
 import React, { Component } from 'react';
-import { Text, View, TouchableOpacity, TextInput, Image, ScrollView } from 'react-native';
+import { Text, View, TouchableOpacity, TextInput, Image, ScrollView, Dimensions } from 'react-native';
 import styles from './MyGroupStyle';
 import Icon from 'react-native-vector-icons/Ionicons';
 import IconAdd from 'react-native-vector-icons/MaterialIcons';
+import IconUser from 'react-native-vector-icons/FontAwesome5';
+import IconNotifi from 'react-native-vector-icons/Ionicons';
 import { SearchableFlatList } from "react-native-searchable-list";
 import { Data } from "../../../api/Data";
 import * as firebase from 'firebase';
 
+const { width, height } = Dimensions.get('window')
+const SCREEN_HEIGHT = height;
+const SCREEN_WIDTH = width;
+const ASPECT_RATIO = width / height;
+const LATTITUDE_DETA = 0.0922;
+const LONGTITUDE_DETA = LATTITUDE_DETA * ASPECT_RATIO;
+
 let groups = Data.ref('/groups');
 let group_user = Data.ref('/group_users');
-let users = Data.ref('/users');
+let users = Data.ref('users');
 
 export default class MyGroup extends Component {
   constructor(props) {
@@ -20,7 +29,16 @@ export default class MyGroup extends Component {
       ignoreCase: true,
       items: [],
       user: null,
-
+      initialPosition: {
+        latitude: 21.026339,
+        longitude: 105.832758,
+        latitudeDelta: 0.0922,
+        longitudeDelta: 0.0421,
+      },
+      markerPosition: {
+        latitude: 0,
+        longtitude: 0
+      },
     }
   }
 
@@ -28,9 +46,52 @@ export default class MyGroup extends Component {
     this.props.navigation.navigate('DetailGroup', { name: name, groupId: groupId })
   }
 
+  watchID: ?number = null;
+
   componentDidMount() {
     var items = [];
     var email = this.props.navigation.state.params.email;
+
+    navigator.geolocation.getCurrentPosition((position) => {
+      var lat = parseFloat(position.coords.latitude);
+      var long = parseFloat(position.coords.longitude);
+
+      var initalRegion = {
+        latitude: lat,
+        longitude: long,
+        latitudeDelta: LATTITUDE_DETA,
+        longitudeDelta: LONGTITUDE_DETA,
+      }
+
+      this.setState({ initialPosition: initalRegion });
+      this.setState({ markerPosition: initalRegion });
+    },
+      (error) => alert(JSON.stringify(error)),
+      { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 })
+
+    this.watchID = navigator.geolocation.watchPosition((position) => {
+      var lat = parseFloat(position.coords.latitude);
+      var long = parseFloat(position.coords.longitude);
+      console.log(lat + "    " + long)
+
+      users.orderByChild("email").equalTo(email).on("child_added", (snapshot) => {
+        users.child(snapshot.key).update({
+          latitude: lat,
+          longitude: long
+        })
+      })
+
+      var lastRegion = {
+        latitude: lat,
+        longitude: long,
+        latitudeDelta: LATTITUDE_DETA,
+        longitudeDelta: LONGTITUDE_DETA
+      }
+      this.setState({ initialPosition: lastRegion });
+      this.setState({ markerPosition: lastRegion });
+
+    })
+
 
     users.orderByChild("email").equalTo(email).on("child_added", (snapshot) => {
       group_user.orderByChild("user_id").equalTo(snapshot.key).on("child_added", (snapshot) => {
@@ -53,6 +114,10 @@ export default class MyGroup extends Component {
     })
   }
 
+  componentWillUnmount() {
+    navigator.geolocation.clearWatch(this.watchID)
+  }
+
   render() {
     const { navigate } = this.props.navigation;
     const { items, searchTerm, searchAttribute, ignoreCase } = this.state;
@@ -61,8 +126,12 @@ export default class MyGroup extends Component {
       <View style={styles.container}>
 
         <View style={styles.header}>
-          <View style={{ height: 39 }}>
-            <Text style={{ fontSize: 20 }}>Nhóm của tôi</Text>
+          <View style={{ height: 39, flexDirection: "row" }}>
+            <View style={{flex:8, alignItems: "center"}}>
+              <Text style={{ fontSize: 20 }}>Nhóm của tôi</Text>
+            </View>
+            <IconNotifi name="ios-notifications" style={{ fontSize: 24, flex: 1 }} />
+            <IconUser name="user-circle" style={{ fontSize: 24, flex: 1 }}/>
           </View>
           <View style={{ height: 1, backgroundColor: "#000", alignSelf: "stretch" }}></View>
         </View>

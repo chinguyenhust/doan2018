@@ -52,7 +52,6 @@ export default class CreatGroup extends Component {
       }
     ).then((snapshot) => {
       if(selectedItems){
-        console.log(selectedItems)
         selectedItems.map((item) => {
           Data.ref("group_users").push(
             {
