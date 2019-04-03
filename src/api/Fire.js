@@ -41,7 +41,7 @@ class Fire {
     return message;
   };
 
-  on = callback =>
+  on = (callback) =>
     this.ref
       .limitToLast(20)
       .on('child_added', snapshot => callback(this.parse(snapshot)));

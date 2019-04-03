@@ -29,6 +29,7 @@ export default class MyGroup extends Component {
       ignoreCase: true,
       items: [],
       user: null,
+      userName: "",
       initialPosition: {
         latitude: 21.026339,
         longitude: 105.832758,
@@ -43,7 +44,7 @@ export default class MyGroup extends Component {
   }
 
   _handleClickItem = (name, groupId) => {
-    this.props.navigation.navigate('DetailGroup', { name: name, groupId: groupId })
+    this.props.navigation.navigate('DetailGroup', { name: name, groupId: groupId, userName: this.state.userName })
   }
 
   watchID: ?number = null;
@@ -94,6 +95,9 @@ export default class MyGroup extends Component {
 
 
     users.orderByChild("email").equalTo(email).on("child_added", (snapshot) => {
+      this.setState({
+        userName: snapshot.val().userName
+      })
       group_user.orderByChild("user_id").equalTo(snapshot.key).on("child_added", (snapshot) => {
         let data = snapshot.val();
         groups.on('child_added', (snapshot) => {

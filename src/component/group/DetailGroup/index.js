@@ -16,7 +16,7 @@ export default class DetailGroup extends Component {
       isChat: true,
       isMap: false,
       isEvent: false,
-
+      name: ""
     }
   }
 
@@ -42,13 +42,9 @@ export default class DetailGroup extends Component {
     })
   }
 
-  componentDidMount(){
-    const groupId = this.props.navigation.state.params.id;
-  }
-
   render() {
     const { navigate } = this.props.navigation;
-    const name = "Chi";
+    const name = this.props.navigation.state.params.userName;
     const groupId = this.props.navigation.state.params.groupId;
 
     return (
