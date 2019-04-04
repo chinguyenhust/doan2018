@@ -33,6 +33,11 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         borderRadius: 7,
         marginTop: 20
+    },
+    tab:{
+        height: 30, 
+        flexDirection: "row", 
+        paddingLeft: 20, 
     }
     
 });

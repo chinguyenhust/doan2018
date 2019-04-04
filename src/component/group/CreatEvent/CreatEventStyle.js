@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
         flexDirection: "row", 
         paddingLeft: 20, 
         paddingTop: 5, 
-        alignSelf: "stretch" 
+        alignSelf: "stretch",
     },
     input: {
         height: 40, 

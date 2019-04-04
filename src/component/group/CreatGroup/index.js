@@ -51,7 +51,7 @@ export default class CreatGroup extends Component {
         created_at: firebase.database.ServerValue.TIMESTAMP
       }
     ).then((snapshot) => {
-      if(selectedItems){
+      if (selectedItems) {
         selectedItems.map((item) => {
           Data.ref("group_users").push(
             {
@@ -77,7 +77,7 @@ export default class CreatGroup extends Component {
       const blob = await response.blob();
       const ref = firebase.storage().ref('avatar').child(new Date().getTime() + "");
       const task = ref.put(blob);
-      
+
       task.on('state_changed', (snapshot) => {
         // Observe state change events such as progress, pause, and resume
         // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
@@ -91,12 +91,12 @@ export default class CreatGroup extends Component {
             console.log('Upload is running');
             break;
         }
-      }, (error) =>{
+      }, (error) => {
         // Handle unsuccessful uploads
-      }, ()=> {
+      }, () => {
         // Handle successful uploads on complete
         // For instance, get the download URL: https://firebasestorage.googleapis.com/...
-        task.snapshot.ref.getDownloadURL().then((downloadURL) =>{
+        task.snapshot.ref.getDownloadURL().then((downloadURL) => {
           console.log('File available at', downloadURL);
           this.setState({
             image: downloadURL,
@@ -151,9 +151,13 @@ export default class CreatGroup extends Component {
       <View style={styles.container}>
 
         <View style={{ flexDirection: "column" }}>
-          <TouchableOpacity style={{ height: 30, flexDirection: "row", paddingLeft: 20 }}>
-            <Icon name="ios-arrow-round-back" size={34} style={{ width: "15%" }} onPress={() => { this.props.navigation.goBack() }} />
-            <Text style={{ fontSize: 24 }}>Tạo nhóm mới</Text>
+          <TouchableOpacity style={styles.tab}>
+            <Icon name="ios-arrow-round-back" size={34}
+              style={{ width: "15%" }}
+              onPress={() => { this.props.navigation.goBack() }} />
+            <View style={{width: "75%",justifyContent: "center", }}>
+              <Text style={{ fontSize: 24 }}>Tạo nhóm mới</Text>
+            </View>
           </TouchableOpacity>
           <View style={{ backgroundColor: "#000", height: 1, marginTop: 5 }}></View>
         </View>

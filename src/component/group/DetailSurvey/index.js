@@ -48,19 +48,19 @@ export default class DetailSurvey extends Component {
       });
       if (data.members) {
         if (data.members.includes(user.uid)) {
-          checked.push( true);
+          checked.push(true);
         } else {
-          checked.push( false);
-        } 
+          checked.push(false);
+        }
         var i = 0;
-        data.members.map((item) =>{
-          if(item){
+        data.members.map((item) => {
+          if (item) {
             i += 1;
           }
         });
         vote.push(i);
-      }else{
-        checked.push( false);
+      } else {
+        checked.push(false);
         vote.push(0);
       }
 
@@ -69,7 +69,7 @@ export default class DetailSurvey extends Component {
         vote: vote
       })
     });
- 
+
   }
 
   _handleAddOption = () => {
@@ -97,7 +97,7 @@ export default class DetailSurvey extends Component {
 
   render() {
     const { navigate } = this.props.navigation;
-    const { options, question, checked, vote} = this.state;
+    const { options, question, checked, vote } = this.state;
     const surveyId = this.props.navigation.state.params.id;
     var user = firebase.auth().currentUser;
     console.log(vote);
@@ -106,8 +106,13 @@ export default class DetailSurvey extends Component {
       <View style={styles.container} >
         <View style={styles.tapbar}>
           <TouchableOpacity style={styles.tap}>
-            <Icon name="ios-arrow-round-back" size={34} style={{ width: "15%" }} onPress={() => { this.props.navigation.goBack() }} />
-            <Text style={{ fontSize: 24, width: "70%" }}>Khảo sát ý kiến</Text>
+            <Icon name="ios-arrow-round-back" size={34}
+              style={{ width: "15%" }}
+              onPress={() => { this.props.navigation.goBack() }}
+            />
+            <View style={{ width: "75%", justifyContent: "center", }}>
+              <Text style={{ fontSize: 24, width: "70%" }}>Khảo sát ý kiến</Text>
+            </View>
           </TouchableOpacity>
           <View style={{ height: 1, backgroundColor: "#000", alignSelf: "stretch" }}></View>
         </View>
@@ -148,9 +153,9 @@ export default class DetailSurvey extends Component {
                       });
                     }
                     checked[index] = !checked[index];
-                    if(checked[index] === true){
+                    if (checked[index] === true) {
                       vote[index] += 1;
-                    }else{
+                    } else {
                       vote[index] -= 1;
                     }
                     this.setState({

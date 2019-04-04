@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Text, View, TouchableOpacity } from 'react-native';
+import { Text, View, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import IconInfo from 'react-native-vector-icons/Ionicons';
 import styles from "./DetailGroupStyle";
@@ -48,7 +48,8 @@ export default class DetailGroup extends Component {
     return (
       <View style={styles.container}>
 
-        <TouchableOpacity style={{ height: 40, flexDirection: "row", paddingLeft: 20, alignSelf: "stretch" }}>
+        <TouchableOpacity
+          style={{ height: 40, flexDirection: "row", paddingLeft: 20, alignSelf: "stretch", justifyContent: "center", alignItems: "center" }}>
           <Icon name="ios-arrow-round-back"
             size={34}
             style={{ width: "15%" }}
@@ -57,7 +58,7 @@ export default class DetailGroup extends Component {
           <IconInfo name="ios-information-circle-outline"
             size={30}
             style={{ width: "10%" }}
-            onPress={() => { navigate("InfoGroup", {groupId: groupId})}} />
+            onPress={() => { navigate("InfoGroup", { groupId: groupId }) }} />
         </TouchableOpacity>
 
 
@@ -77,10 +78,10 @@ export default class DetailGroup extends Component {
         <View style={{ flex: 15 }}>
           {(this.state.isChat) && <Chat name={name} groupId={groupId} />}
           {(this.state.isMap) && <Map />}
-          {(this.state.isEvent) && <Event 
-          navigate={navigate} 
-          groupId={groupId} 
-          nameGroup={this.props.navigation.state.params.name}
+          {(this.state.isEvent) && <Event
+            navigate={navigate}
+            groupId={groupId}
+            nameGroup={this.props.navigation.state.params.name}
           />}
         </View>
       </View>

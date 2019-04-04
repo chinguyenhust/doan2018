@@ -86,8 +86,13 @@ export default class DetailEvent extends Component {
       <View style={styles.container} >
         <View style={styles.tapbar}>
           <TouchableOpacity style={styles.tap}>
-            <Icon name="ios-arrow-round-back" size={34} style={{ width: "15%" }} onPress={() => { this.props.navigation.goBack() }} />
+            <Icon name="ios-arrow-round-back" size={34} 
+            style={{ width: "15%" }} 
+            onPress={() => { this.props.navigation.goBack() }} 
+            />
+            <View style={{ width: "75%", justifyContent: "center", }}>
             <Text style={{ fontSize: 24, width: "70%" }}>Kế hoạch</Text>
+            </View>
           </TouchableOpacity>
           <View style={{ height: 1, backgroundColor: "#000", alignSelf: "stretch" }}></View>
         </View>

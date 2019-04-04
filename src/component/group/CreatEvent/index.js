@@ -17,11 +17,11 @@ export default class CreatEvent extends Component {
     }
   }
 
-  componentWillMount(){
+  componentWillMount() {
 
   }
 
-  _handleCreatEvent = () =>{
+  _handleCreatEvent = () => {
     var { nameEvent, date, address } = this.state;
     var user = firebase.auth().currentUser;
     Data.ref("events").push(
@@ -48,8 +48,12 @@ export default class CreatEvent extends Component {
       <View style={styles.container} >
         <View style={styles.tapbar}>
           <TouchableOpacity style={styles.tap}>
-            <Icon name="ios-arrow-round-back" size={34} style={{ width: "15%" }} onPress={() => { this.props.navigation.goBack() }} />
-            <Text style={{ fontSize: 24, width: "70%" }}>Tạo kế hoạch</Text>
+            <Icon name="ios-arrow-round-back" size={34}
+              style={{ width: "15%" }}
+              onPress={() => { this.props.navigation.goBack() }} />
+            <View style={{ width: "75%", justifyContent: "center", }}>
+              <Text style={{ fontSize: 24, width: "70%" }}>Tạo kế hoạch</Text>
+            </View>
           </TouchableOpacity>
           <View style={{ height: 1, backgroundColor: "#000", alignSelf: "stretch" }}></View>
         </View>
@@ -76,7 +80,7 @@ export default class CreatEvent extends Component {
             format="YYYY-MM-DD hh:mm a"
             confirmBtnText="Confirm"
             cancelBtnText="Cancel"
-            is24Hour = {true}
+            is24Hour={true}
             customStyles={{
               dateIcon: {
                 position: 'absolute',

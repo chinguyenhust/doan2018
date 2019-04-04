@@ -38,6 +38,38 @@
 			<key>uniqueIdentifier</key>
 			<string>8D68601A-71AD-431E-9926-5AD64A73B74A</string>
 		</dict>
+		<key>D64D878F-68FD-4B56-B5CE-B26B51B94810</key>
+		<dict>
+			<key>className</key>
+			<string>IDECommandLineBuildLog</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>D64D878F-68FD-4B56-B5CE-B26B51B94810.xcactivitylog</string>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>doan2018 project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>doan2018</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Building workspace doan2018 with scheme doan2018 and configuration Debug</string>
+			<key>timeStartedRecording</key>
+			<real>576083213.28958499</real>
+			<key>timeStoppedRecording</key>
+			<real>576083265.22272897</real>
+			<key>title</key>
+			<string>Building workspace doan2018 with scheme doan2018 and configuration Debug</string>
+			<key>uniqueIdentifier</key>
+			<string>D64D878F-68FD-4B56-B5CE-B26B51B94810</string>
+		</dict>
 	</dict>
 </dict>
 </plist>

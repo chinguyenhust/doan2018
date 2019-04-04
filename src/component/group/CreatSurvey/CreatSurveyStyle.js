@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         paddingLeft: 20,
         paddingTop: 5,
-        alignSelf: "stretch"
+        alignItems: "stretch"
     },
     inputQuestion: {
         height: 40,

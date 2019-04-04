@@ -22,12 +22,12 @@ export default class CreatSurvey extends Component {
 
   _handleAddOption = () => {
     var { options, optionValue } = this.state;
-    if(optionValue === ""){
+    if (optionValue === "") {
       alert("Nhập giá trị của tuỳ chọn")
-    }else{
-      options.push({ 
-        value: optionValue, 
-        members: [] 
+    } else {
+      options.push({
+        value: optionValue,
+        members: []
       });
     }
     this.setState({
@@ -40,10 +40,10 @@ export default class CreatSurvey extends Component {
   _handleChecked = () => {
     this.setState({
       checked: true,
-      })
+    })
   }
 
-  _handleCreatSurvey = () =>{
+  _handleCreatSurvey = () => {
     var { question, options } = this.state;
     var user = firebase.auth().currentUser;
     Data.ref("surveys").push(
@@ -51,25 +51,25 @@ export default class CreatSurvey extends Component {
         question: question,
         options: options,
         createdByUserId: user.uid,
-        groupId: this.props.navigation.state.params.groupId, 
+        groupId: this.props.navigation.state.params.groupId,
         created_at: firebase.database.ServerValue.TIMESTAMP
       }
     ).then((snapshot) => {
-        if(options){
-          options.map((item) => {
-            Data.ref("answers").push(
-              {
-                survey_id: snapshot.key,
-                value: item.value,
-                members: item.members
-              }
-            ).then(() => {
-              console.log("Success !");
-            }).catch((error) => {
-              console.log(error);
-            });
-          })
-        }
+      if (options) {
+        options.map((item) => {
+          Data.ref("answers").push(
+            {
+              survey_id: snapshot.key,
+              value: item.value,
+              members: item.members
+            }
+          ).then(() => {
+            console.log("Success !");
+          }).catch((error) => {
+            console.log(error);
+          });
+        })
+      }
     }).catch((error) => {
       console.log(error);
     });
@@ -86,8 +86,13 @@ export default class CreatSurvey extends Component {
       <View style={styles.container} >
         <View style={styles.tapbar}>
           <TouchableOpacity style={styles.tap}>
-            <Icon name="ios-arrow-round-back" size={34} style={{ width: "15%" }} onPress={() => { this.props.navigation.goBack() }} />
-            <Text style={{ fontSize: 24, width: "70%" }}>Khảo sát ý kiến</Text>
+            <Icon name="ios-arrow-round-back" size={34}
+              style={{ width: "15%" }}
+              onPress={() => { this.props.navigation.goBack() }}
+            />
+            <View style={{ width: "75%", justifyContent: "center", }}>
+              <Text style={{ fontSize: 24, width: "70%" }}>Khảo sát ý kiến</Text>
+            </View>
           </TouchableOpacity>
           <View style={{ height: 1, backgroundColor: "#000", alignSelf: "stretch" }}></View>
         </View>
@@ -114,8 +119,8 @@ export default class CreatSurvey extends Component {
                   checkedIcon='dot-circle-o'
                   uncheckedIcon='circle-o'
                   checked={this.state.checked}
-                  containerStyle={{borderWidth: 0,backgroundColor: "#fff"}}
-                  // onPress={this._handleChecked}
+                  containerStyle={{ borderWidth: 0, backgroundColor: "#fff" }}
+                // onPress={this._handleChecked}
                 />
               </View>
             )}

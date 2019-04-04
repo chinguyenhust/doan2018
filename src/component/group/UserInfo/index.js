@@ -44,7 +44,12 @@ export default class UserInfo extends Component {
   }
 
   _handleEdit = () => {
-    
+    this.props.navigation.navigate('EditUser',{
+      "name" : this.state.name,
+      "phone": this.state.phone,
+      "email": this.state.email,
+      "avatar": this.state.avatar
+    });
   }
 
   render() {
@@ -63,7 +68,10 @@ export default class UserInfo extends Component {
               <Text style={{ fontSize: 20 }}>Thông tin tài khoản</Text>
             </View>
             <View style={{ width: "15%", alignItems: "center" }}>
-              <IconEdit name="edit" style={{ fontSize: 24, color: "#007aff" }} />
+              <IconEdit name="edit" 
+              style={{ fontSize: 24, color: "#007aff" }} 
+              onPress={this._handleEdit}
+              />
             </View>
           </View>
           <View style={{ height: 1, backgroundColor: "#bcbcbc", alignSelf: "stretch" }}></View>
@@ -75,7 +83,7 @@ export default class UserInfo extends Component {
               <IconUser name="user-circle" size={150} style={{ color: "#bcbcbc" }} /> :
               <Image
                 source={{ uri: avatar }}
-                style={{ width: 130, height: 130, borderRadius: 55, marginTop: 10 }}
+                style={{ width: 130, height: 130, borderRadius: 65, marginTop: 10 }}
               />
             }
           </View>
