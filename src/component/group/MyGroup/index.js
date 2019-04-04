@@ -44,7 +44,11 @@ export default class MyGroup extends Component {
   }
 
   _handleClickItem = (name, groupId) => {
-    this.props.navigation.navigate('DetailGroup', { name: name, groupId: groupId, userName: this.state.userName })
+    this.props.navigation.navigate('DetailGroup', { 
+      name: name, 
+      groupId: groupId, 
+      userName: this.state.userName 
+    })
   }
 
   watchID: ?number = null;
@@ -130,12 +134,17 @@ export default class MyGroup extends Component {
       <View style={styles.container}>
 
         <View style={styles.header}>
-          <View style={{ height: 39, flexDirection: "row" }}>
-            <View style={{flex:8, alignItems: "center"}}>
+          <View style={{ height: 39, flexDirection: "row", justifyContent: "center", alignItems: "center"}}>
+            <View style={{ flex: 8, alignItems: "center" }}>
               <Text style={{ fontSize: 20 }}>Nhóm của tôi</Text>
             </View>
-            <IconNotifi name="ios-notifications" style={{ fontSize: 24, flex: 1 }} />
-            <IconUser name="user-circle" style={{ fontSize: 24, flex: 1 }}/>
+            <IconNotifi name="ios-notifications"
+              style={{ fontSize: 24, flex: 1 , color: "#007aff"}}
+            />
+            <IconUser name="user-circle"
+              style={{ fontSize: 24, flex: 1, color: "#007aff" }}
+              onPress={() => navigate("UserInfo", {"email":this.props.navigation.state.params.email})}
+            />
           </View>
           <View style={{ height: 1, backgroundColor: "#000", alignSelf: "stretch" }}></View>
         </View>

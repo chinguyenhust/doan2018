@@ -10,6 +10,7 @@ import DetailEvent from './src/component/group/DetailEvent';
 import DetailSurvey from './src/component/group/DetailSurvey';
 import InfoGroup from './src/component/group/InfoGroup';
 import Chat from './src/component/group/Chat';
+import UserInfo from "./src/component/group/UserInfo";
 
 import Main from './src/component/login/Main';
 import Loading from './src/component/login/Loading'
@@ -61,6 +62,9 @@ const MainStack = createStackNavigator(
     Chat:{
       screen: Chat,
     },
+    UserInfo: {
+      screen: UserInfo
+    }
   }, {
     headerMode: 'none',
     navigationOptions: {
