@@ -64,17 +64,18 @@ export default class InfoGroup extends Component {
     })
   }
 
-  _handleCreatGroup = () => {
+  _handleEdit = () => {
+    const groupId = this.props.navigation.state.params.groupId;
     var { name, schedule, image, selectedItems } = this.state;
     var user = firebase.auth().currentUser;
-    Data.ref("groups").push(
+    Data.ref("groups").child(groupId).update(
       {
         name: name,
         schedule: schedule,
         avatar: image,
-        createdByUserId: user.uid,
-        members: selectedItems,
-        created_at: firebase.database.ServerValue.TIMESTAMP
+        // members: selectedItems,
+        created_update: firebase.database.ServerValue.TIMESTAMP,
+        userUpdate: user.uid
       }
     ).then(() => {
       console.log("Success !");
@@ -237,8 +238,8 @@ export default class InfoGroup extends Component {
             {this.multiSelect && this.multiSelect.getSelectedItemsExt(selectedItems)}
           </View>
 
-          <TouchableOpacity style={styles.button} onPress={this._handleCreatGroup}>
-            <Text style={{ color: "#fff", fontSize: 20 }}>Tạo nhóm</Text>
+          <TouchableOpacity style={styles.button} onPress={this._handleEdit}>
+            <Text style={{ color: "#fff", fontSize: 20 }}>Cap nhat</Text>
           </TouchableOpacity>
 
         </ScrollView>

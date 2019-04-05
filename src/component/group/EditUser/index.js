@@ -9,6 +9,7 @@ import IconPhone from 'react-native-vector-icons/FontAwesome5';
 import ImagePicker from 'react-native-image-picker';
 import * as firebase from 'firebase';
 import ImageResizer from 'react-native-image-resizer';
+import { Data } from "../../../api/Data";
 
 export default class EditUser extends Component {
   constructor(props) {
@@ -18,6 +19,7 @@ export default class EditUser extends Component {
       email: this.props.navigation.state.params.email,
       phone: this.props.navigation.state.params.phone,
       avatar: this.props.navigation.state.params.avatar,
+      image: ""
     }
   }
 
@@ -95,6 +97,20 @@ export default class EditUser extends Component {
     });
   };
 
+  _handleUpDate = () => {
+    const {name, phone, avatar, email, image} = this.state;
+    const userId = this.props.navigation.state.params.userId;
+    console.log(userId)
+    var user = Data.ref("users");
+    user.child(userId).update({
+      userName: name,
+      phone: phone,
+      avatar: image,
+      email: email,
+    });
+    this.props.navigation.navigate('MyGroup');
+  }
+
   render() {
     const { name, phone, avatar, email } = this.state;
 
@@ -133,7 +149,7 @@ export default class EditUser extends Component {
               <TextInput
                 //   style={styles.inputName}
                 onChangeText={(name) => {
-                  this.setState({ name });
+                  this.setState({ name : name});
                 }}
                 value={this.state.name}
               />
@@ -170,7 +186,7 @@ export default class EditUser extends Component {
           <View style={styles.line}></View>
 
 
-          <TouchableOpacity style={styles.button} onPress={this._handleCreatGroup}>
+          <TouchableOpacity style={styles.button} onPress={this._handleUpDate}>
             <Text style={{ color: "#fff", fontSize: 20 }}>Cập nhật</Text>
           </TouchableOpacity>
 

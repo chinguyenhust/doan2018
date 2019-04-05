@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, TouchableOpacity, TextInput, Image, ScrollView, Dimensions } from 'react-native';
+import { Text, View, TouchableOpacity, TextInput, Image, ScrollView, Dimensions,  } from 'react-native';
 import styles from './MyGroupStyle';
 import Icon from 'react-native-vector-icons/Ionicons';
 import IconAdd from 'react-native-vector-icons/MaterialIcons';
@@ -30,6 +30,7 @@ export default class MyGroup extends Component {
       items: [],
       user: null,
       userName: "",
+      userId: "",
       initialPosition: {
         latitude: 21.026339,
         longitude: 105.832758,
@@ -100,10 +101,11 @@ export default class MyGroup extends Component {
 
     users.orderByChild("email").equalTo(email).on("child_added", (snapshot) => {
       this.setState({
-        userName: snapshot.val().userName
+        userName: snapshot.val().userName,
+        userId: snapshot.key
       })
       group_user.orderByChild("user_id").equalTo(snapshot.key).on("child_added", (snapshot) => {
-        let data = snapshot.val();
+        var data = snapshot.val();
         groups.on('child_added', (snapshot) => {
           if (snapshot.key === data.group_id) {
             let data = snapshot.val();
@@ -143,7 +145,10 @@ export default class MyGroup extends Component {
             />
             <IconUser name="user-circle"
               style={{ fontSize: 24, flex: 1, color: "#007aff" }}
-              onPress={() => navigate("UserInfo", {"email":this.props.navigation.state.params.email})}
+              onPress={() => navigate("UserInfo", {
+                "email":this.props.navigation.state.params.email,
+                "userId": this.state.userId
+              })}
             />
           </View>
           <View style={{ height: 1, backgroundColor: "#000", alignSelf: "stretch" }}></View>

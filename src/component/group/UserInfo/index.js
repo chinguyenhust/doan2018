@@ -48,7 +48,8 @@ export default class UserInfo extends Component {
       "name" : this.state.name,
       "phone": this.state.phone,
       "email": this.state.email,
-      "avatar": this.state.avatar
+      "avatar": this.state.avatar,
+      "userId": this.props.navigation.state.params.userId
     });
   }
 
