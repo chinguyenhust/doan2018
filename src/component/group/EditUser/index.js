@@ -8,6 +8,7 @@ import IconUser from 'react-native-vector-icons/FontAwesome5';
 import IconPhone from 'react-native-vector-icons/FontAwesome5';
 import ImagePicker from 'react-native-image-picker';
 import * as firebase from 'firebase';
+import ImageResizer from 'react-native-image-resizer';
 
 export default class EditUser extends Component {
   constructor(props) {
@@ -26,9 +27,9 @@ export default class EditUser extends Component {
       const blob = await response.blob();
       const ref = firebase.storage().ref('avatar').child(new Date().getTime() + "");
       const task = ref.put(blob);
-      
+
       task.on('state_changed', (snapshot) => {
-       
+
         var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
         console.log('Upload is ' + progress + '% done');
         switch (snapshot.state) {
@@ -39,12 +40,12 @@ export default class EditUser extends Component {
             console.log('Upload is running');
             break;
         }
-      }, (error) =>{
+      }, (error) => {
         // Handle unsuccessful uploads
-      }, ()=> {
+      }, () => {
         // Handle successful uploads on complete
         // For instance, get the download URL: https://firebasestorage.googleapis.com/...
-        task.snapshot.ref.getDownloadURL().then((downloadURL) =>{
+        task.snapshot.ref.getDownloadURL().then((downloadURL) => {
           console.log('File available at', downloadURL);
           this.setState({
             image: downloadURL,
@@ -79,11 +80,17 @@ export default class EditUser extends Component {
         alert(response.customButton);
       } else {
         let source = response.uri;
+        ImageResizer.createResizedImage(response.uri, 500, 500, "JPEG", 50)
+          .then((response) => {
+            this.uploadImage(response.uri);
+          })
+          .catch(err => {
+            console.log(err);
+          });
         this.setState({
           avatar: source,
           isLoad: true,
         });
-        this.uploadImage(response.uri);
       }
     });
   };

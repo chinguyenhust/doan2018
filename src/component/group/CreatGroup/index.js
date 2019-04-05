@@ -7,6 +7,7 @@ import IconAdd from 'react-native-vector-icons/MaterialIcons';
 import MultiSelect from '../../home/MultiSelect';
 import { Data } from "../../../api/Data";
 import * as firebase from 'firebase';
+import ImageResizer from 'react-native-image-resizer';
 
 let users = Data.ref('/users');
 
@@ -131,11 +132,17 @@ export default class CreatGroup extends Component {
         alert(response.customButton);
       } else {
         let source = response.uri;
+        ImageResizer.createResizedImage(response.uri, 500, 500, "JPEG", 50)
+          .then((response) => {
+            this.uploadImage(response.uri);
+          })
+          .catch(err => {
+            console.log(err);
+          });
         this.setState({
           avatar: source,
           isLoad: true,
         });
-        this.uploadImage(response.uri);
       }
     });
   };
@@ -155,7 +162,7 @@ export default class CreatGroup extends Component {
             <Icon name="ios-arrow-round-back" size={34}
               style={{ width: "15%" }}
               onPress={() => { this.props.navigation.goBack() }} />
-            <View style={{width: "75%",justifyContent: "center", }}>
+            <View style={{ width: "75%", justifyContent: "center", }}>
               <Text style={{ fontSize: 24 }}>Tạo nhóm mới</Text>
             </View>
           </TouchableOpacity>

@@ -7,6 +7,7 @@ import IconAdd from 'react-native-vector-icons/MaterialIcons';
 import MultiSelect from '../../home/MultiSelect';
 import { Data } from "../../../api/Data";
 import * as firebase from 'firebase';
+import ImageResizer from 'react-native-image-resizer';
 
 let users = Data.ref('/users');
 
@@ -143,11 +144,17 @@ export default class InfoGroup extends Component {
         alert(response.customButton);
       } else {
         let source = response.uri;
+        ImageResizer.createResizedImage(response.uri, 500, 500, "JPEG", 50)
+          .then((response) => {
+            this.uploadImage(response.uri);
+          })
+          .catch(err => {
+            console.log(err);
+          });
         this.setState({
           avatar: source,
           isLoad: true,
         });
-        this.uploadImage(response.uri);
       }
     });
   };
