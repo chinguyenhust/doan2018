@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, TouchableOpacity, TextInput, Image, ScrollView, Dimensions,  } from 'react-native';
+import { Text, View, TouchableOpacity, TextInput, Image, ScrollView, Dimensions, } from 'react-native';
 import styles from './MyGroupStyle';
 import Icon from 'react-native-vector-icons/Ionicons';
 import IconAdd from 'react-native-vector-icons/MaterialIcons';
@@ -8,6 +8,7 @@ import IconNotifi from 'react-native-vector-icons/Ionicons';
 import { SearchableFlatList } from "react-native-searchable-list";
 import { Data } from "../../../api/Data";
 import * as firebase from 'firebase';
+import { ProgressDialog } from 'react-native-simple-dialogs';
 
 const { width, height } = Dimensions.get('window')
 const SCREEN_HEIGHT = height;
@@ -41,14 +42,15 @@ export default class MyGroup extends Component {
         latitude: 0,
         longtitude: 0
       },
+      progressVisible: true
     }
   }
 
   _handleClickItem = (name, groupId) => {
-    this.props.navigation.navigate('DetailGroup', { 
-      name: name, 
-      groupId: groupId, 
-      userName: this.state.userName 
+    this.props.navigation.navigate('DetailGroup', {
+      name: name,
+      groupId: groupId,
+      userName: this.state.userName
     })
   }
 
@@ -120,6 +122,9 @@ export default class MyGroup extends Component {
             this.setState({ items: items });
           }
         });
+        this.setState({
+          progressVisible: false
+        })
       });
     })
   }
@@ -136,17 +141,17 @@ export default class MyGroup extends Component {
       <View style={styles.container}>
 
         <View style={styles.header}>
-          <View style={{ height: 39, flexDirection: "row", justifyContent: "center", alignItems: "center"}}>
+          <View style={{ height: 39, flexDirection: "row", justifyContent: "center", alignItems: "center" }}>
             <View style={{ flex: 8, alignItems: "center" }}>
               <Text style={{ fontSize: 20 }}>Nhóm của tôi</Text>
             </View>
             <IconNotifi name="ios-notifications"
-              style={{ fontSize: 24, flex: 1 , color: "#007aff"}}
+              style={{ fontSize: 24, flex: 1, color: "#007aff" }}
             />
             <IconUser name="user-circle"
               style={{ fontSize: 24, flex: 1, color: "#007aff" }}
               onPress={() => navigate("UserInfo", {
-                "email":this.props.navigation.state.params.email,
+                "email": this.props.navigation.state.params.email,
                 "userId": this.state.userId
               })}
             />
@@ -162,6 +167,16 @@ export default class MyGroup extends Component {
             <Icon name="ios-search" style={{ fontSize: 24, color: "#a9a9a9", width: "6%", marginTop: 5, }} />
           </TouchableOpacity>
         </View>
+
+        <ProgressDialog
+          visible={this.state.progressVisible}
+          title="Loading"
+          activityIndicatorColor = "#00ff00"
+          activityIndicatorSize = "large"
+          message="Please, wait..."
+          activityIndicatorStyle = {{justifyContent: "center"}}
+        />
+
         <ScrollView style={{}}>
           <SearchableFlatList
             data={items}
