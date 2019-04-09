@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 
 import Map from './src/component/home/Map';
+import DatePicker from './src/component/home/DatePicker';
+
 import MyGroup from './src/component/group/MyGroup';
 import CreatGroup from './src/component/group/CreatGroup';
 import DetailGroup from './src/component/group/DetailGroup';
@@ -68,6 +70,9 @@ const MainStack = createStackNavigator(
     },
     EditUser : {
       screen: EditUser,
+    },
+    DatePicker : {
+      screen: DatePicker,
     }
   }, {
     headerMode: 'none',

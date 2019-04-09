@@ -1,17 +1,19 @@
 import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View, Button, TouchableOpacity, TextInput } from 'react-native';
+import { Alert, Text, View, TouchableOpacity, TextInput } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import IconAdd from 'react-native-vector-icons/Ionicons';
 import styles from './CreatSurveyStyle';
 import { CheckBox } from 'react-native-elements';
 import { Data } from "../../../api/Data";
 import * as firebase from 'firebase';
+import { required } from '../../../util/validate';
 
 export default class CreatSurvey extends Component {
   constructor(props) {
     super(props);
     this.state = {
       question: "",
+      errQuestion: "",
       isAdd: false,
       options: [],
       optionValue: "",
@@ -46,6 +48,8 @@ export default class CreatSurvey extends Component {
   _handleCreatSurvey = () => {
     var { question, options } = this.state;
     var user = firebase.auth().currentUser;
+    var check = this._handleCheck;
+    if(check){
     Data.ref("surveys").push(
       {
         question: question,
@@ -73,9 +77,34 @@ export default class CreatSurvey extends Component {
     }).catch((error) => {
       console.log(error);
     });
-
-    this.props.navigation.navigate("DetailGroup", { name: this.props.nameGroup })
+    this.props.navigation.navigate("DetailGroup", { name: this.props.nameGroup });
+  }else{
+    Alert.alert(
+      'Thông báo',
+      'Vui lòng điền đầy đủ thông tin!',
+      [
+          { text: 'OK', onPress: () => console.log('OK Pressed') },
+      ],
+      { cancelable: false },
+  );
   }
+  }
+
+  _handleChangeQuestionName = (text) => {
+    var errQuestion = required(text);
+    this.setState({
+      question: text,
+      errQuestion: errGroupName
+    })
+  }
+
+  _handleCheck() {
+    const { question, errQuestion, } = this.state;
+    if (question && !errQuestion)
+      return true;
+    return false;
+  }
+
 
   render() {
     const { navigate } = this.props.navigation;
@@ -91,23 +120,21 @@ export default class CreatSurvey extends Component {
               onPress={() => { this.props.navigation.goBack() }}
             />
             <View style={{ width: "75%", justifyContent: "center", }}>
-              <Text style={{ fontSize: 24, width: "70%" }}>Khảo sát ý kiến</Text>
+              <Text style={{ fontSize: 24, width: "70%", fontWeight: "600" }}>Khảo sát ý kiến</Text>
             </View>
           </TouchableOpacity>
           <View style={{ height: 1, backgroundColor: "#000", alignSelf: "stretch" }}></View>
         </View>
         <View style={{ flex: 16, paddingLeft: 20, paddingRight: 20, flexDirection: "column" }}>
 
-          <View style={{ flexDirection: "column", marginTop: 20 }}>
-            <Text style={{ fontSize: 16 }}>Câu hỏi</Text>
-            <TextInput
+          <View style={styles.viewInput}>
+            <Text style={styles.titleBold}>Câu hỏi (*)</Text>
+            <TextInput style={styles.textInput}
               placeholder="Nhập câu hỏi khảo sát"
-              style={styles.inputQuestion}
-              onChangeText={(question) => {
-                this.setState({ question });
-              }}
               value={this.state.question}
-            />
+              blurOnSubmit={false}
+              onChangeText={this._handleChangeQuestionName} />
+            {this.state.errQuestion ? <Text style={styles.textError}>{this.state.errQuestion}</Text> : null}
           </View>
 
           {(options.length > 0) &&

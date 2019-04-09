@@ -42,6 +42,7 @@ const styles = StyleSheet.create({
         marginTop: 20,
         height: 40,
         flexDirection: "row",
+        paddingLeft: 12
     },
     icon: {
         width: "15%",
@@ -58,7 +59,26 @@ const styles = StyleSheet.create({
     checkbox: {
         height:55,
         alignItems: "flex-start",
-       
+    },
+    titleBold: {
+        fontSize: 18,
+        fontWeight: "600"
+    },
+    textInput: {
+        fontSize: 16,
+        fontWeight: "300",
+        paddingHorizontal: 10,
+        height: 45,
+        borderWidth: 0.5,
+        borderRadius: 4,
+        borderColor: "#bcbcbc",
+        marginVertical: 8
+    },
+    viewInput: {
+        marginTop: 15,
+    },
+    textError: {
+        color: "red"
     }
 
 });

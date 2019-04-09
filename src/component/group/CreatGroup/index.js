@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View, Button, TouchableOpacity, TextInput, Image, ScrollView } from 'react-native';
+import { Alert, Text, View, TouchableOpacity, TextInput, Image, ScrollView } from 'react-native';
 import styles from './CreatGroupStyle';
 import Icon from 'react-native-vector-icons/Ionicons';
 import ImagePicker from 'react-native-image-picker';
@@ -8,6 +8,7 @@ import MultiSelect from '../../home/MultiSelect';
 import { Data } from "../../../api/Data";
 import * as firebase from 'firebase';
 import ImageResizer from 'react-native-image-resizer';
+import { required } from '../../../util/validate';
 
 let users = Data.ref('/users');
 
@@ -22,7 +23,9 @@ export default class CreatGroup extends Component {
       items: [],
       created_at: "",
       avatar: null,
-      image: null
+      image: null,
+      description: "",
+      errGroupName: "",
     };
     this.uploadImage = this.uploadImage.bind(this);
   }
@@ -42,34 +45,46 @@ export default class CreatGroup extends Component {
   _handleCreatGroup = () => {
     var { name, schedule, image, selectedItems } = this.state;
     var user = firebase.auth().currentUser;
-    Data.ref("groups").push(
-      {
-        name: name,
-        schedule: schedule,
-        avatar: image,
-        createdByUserId: user.uid,
-        // members: selectedItems,
-        created_at: firebase.database.ServerValue.TIMESTAMP
-      }
-    ).then((snapshot) => {
-      if (selectedItems) {
-        selectedItems.map((item) => {
-          Data.ref("group_users").push(
-            {
-              group_id: snapshot.key,
-              user_id: item
-            }
-          ).then(() => {
-            console.log("Success !");
-          }).catch((error) => {
-            console.log(error);
-          });
-        })
-      }
-    }).catch((error) => {
-      console.log(error);
-    });
-    this.props.navigation.navigate("DetailGroup", { name: name })
+    var check = this._handleCheck;
+    if (check) {
+      Data.ref("groups").push(
+        {
+          name: name,
+          schedule: schedule,
+          avatar: image,
+          createdByUserId: user.uid,
+          // members: selectedItems,
+          created_at: firebase.database.ServerValue.TIMESTAMP
+        }
+      ).then((snapshot) => {
+        if (selectedItems) {
+          selectedItems.map((item) => {
+            Data.ref("group_users").push(
+              {
+                group_id: snapshot.key,
+                user_id: item
+              }
+            ).then(() => {
+              console.log("Success !");
+            }).catch((error) => {
+              console.log(error);
+            });
+          })
+        }
+      }).catch((error) => {
+        console.log(error);
+      });
+      this.props.navigation.navigate("DetailGroup", { name: name })
+    } else {
+      Alert.alert(
+        'Thông báo',
+        'Vui lòng điền đầy đủ thông tin!',
+        [
+          { text: 'OK', onPress: () => console.log('OK Pressed') },
+        ],
+        { cancelable: false },
+      );
+    }
   }
 
   uploadImage = async uri => {
@@ -151,19 +166,37 @@ export default class CreatGroup extends Component {
     this.setState({ selectedItems });
   };
 
+  _handleChangeGroupName = (text) => {
+    var errGroupName = required(text);
+    this.setState({
+      name: text,
+      errGroupName: errGroupName
+    })
+  }
+
+  _handleCheck() {
+    const { name, errGroupName, } = this.state;
+    if (name && !errGroupName)
+      return true;
+    return false;
+  }
+
   render() {
     const { selectedItems, items, avatar } = this.state;
     const { navigate } = this.props.navigation;
+    const startDate = this.props.navigation.getParam("startDate", null);
+    const untilDate = this.props.navigation.getParam("untilDate", null);
+
     return (
       <View style={styles.container}>
 
         <View style={{ flexDirection: "column" }}>
           <TouchableOpacity style={styles.tab}>
-            <Icon name="ios-arrow-round-back" size={34}
-              style={{ width: "15%" }}
-              onPress={() => { this.props.navigation.goBack() }} />
+            <TouchableOpacity style={{ width: "15%" }} onPress={() => { this.props.navigation.goBack() }}>
+              <Icon name="ios-arrow-round-back" size={34} />
+            </TouchableOpacity>
             <View style={{ width: "75%", justifyContent: "center", }}>
-              <Text style={{ fontSize: 24 }}>Tạo nhóm mới</Text>
+              <Text style={{ fontSize: 24, fontWeight: "600" }}>Tạo nhóm mới</Text>
             </View>
           </TouchableOpacity>
           <View style={{ backgroundColor: "#000", height: 1, marginTop: 5 }}></View>
@@ -180,20 +213,51 @@ export default class CreatGroup extends Component {
             }
           </TouchableOpacity>
 
-          <View style={{ flexDirection: "column" }}>
-            <Text style={{ fontSize: 16 }}>Tên nhóm</Text>
-            <TextInput
-              placeholder="Đặt tên nhóm"
-              style={styles.inputName}
-              onChangeText={(name) => {
-                this.setState({ name });
-              }}
+          <View style={styles.viewInput}>
+            <Text style={styles.titleBold}>Tên nhóm (*)</Text>
+            <TextInput style={styles.textInput}
+              placeholder="Nhập tên nhóm"
               value={this.state.name}
+              blurOnSubmit={false}
+              onSubmitEditing={() => { this.descriptionInput.focus(); }}
+              onChangeText={this._handleChangeGroupName} />
+            {this.state.errGroupName ? <Text style={styles.textError}>{this.state.errGroupName}</Text> : null}
+          </View>
+
+          <View style={styles.viewInput}>
+            <Text style={styles.titleBold}>Mô tả</Text>
+            <TextInput
+              ref={(input) => { this.descriptionInput = input; }}
+              placeholder="Mô tả nhóm"
+              style={styles.textInput}
+              onChangeText={(description) => {
+                this.setState({ description });
+              }}
+              value={this.state.description}
             />
           </View>
 
-          <View style={{ flexDirection: "column", marginTop: 20 }}>
-            <Text style={{ fontSize: 16 }}>Kế hoạch cho chuyến đi</Text>
+          <View style={styles.dateTime}>
+            <TouchableOpacity style={styles.date} onPress={() => navigate('DatePicker')}>
+              <Text style={styles.titleBold}>Ngày đi</Text>
+              {(startDate === null || startDate === "Invalid date") ?
+                <Text style={{ color: "#A9A9A9", paddingTop: 5, fontSize: 16 }}>Chọn ngày đến</Text> :
+                <Text style={{ color: "#000", paddingTop: 5, fontSize: 16 }}>{startDate}</Text>
+              }
+            </TouchableOpacity>
+            <View style={styles.line}>
+            </View>
+            <TouchableOpacity style={styles.time} onPress={() => navigate('DatePicker')}>
+              <Text style={styles.titleBold}>Ngày về</Text>
+              {(untilDate === null || untilDate === "Invalid date") ?
+                <Text style={{ color: "#A9A9A9", paddingTop: 5, fontSize: 16 }}>Chọn ngày về</Text> :
+                <Text style={{ color: "#000", paddingTop: 5, fontSize: 16 }}>{untilDate}</Text>
+              }
+            </TouchableOpacity>
+          </View>
+
+          <View style={styles.viewInput}>
+            <Text style={styles.titleBold}>Kế hoạch cho chuyến đi</Text>
             <TextInput
               placeholder="Nhập kế hoạch"
               style={styles.inputSchedule}

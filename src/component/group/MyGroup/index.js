@@ -7,7 +7,6 @@ import IconUser from 'react-native-vector-icons/FontAwesome5';
 import IconNotifi from 'react-native-vector-icons/Ionicons';
 import { SearchableFlatList } from "react-native-searchable-list";
 import { Data } from "../../../api/Data";
-import * as firebase from 'firebase';
 import { ProgressDialog } from 'react-native-simple-dialogs';
 
 const { width, height } = Dimensions.get('window')
@@ -100,12 +99,11 @@ export default class MyGroup extends Component {
 
     })
 
-
     users.orderByChild("email").equalTo(email).on("child_added", (snapshot) => {
       this.setState({
         userName: snapshot.val().userName,
         userId: snapshot.key
-      })
+      });
       group_user.orderByChild("user_id").equalTo(snapshot.key).on("child_added", (snapshot) => {
         var data = snapshot.val();
         groups.on('child_added', (snapshot) => {
@@ -126,6 +124,9 @@ export default class MyGroup extends Component {
           progressVisible: false
         })
       });
+      this.setState({
+        progressVisible: false
+      })
     })
   }
 
@@ -143,7 +144,7 @@ export default class MyGroup extends Component {
         <View style={styles.header}>
           <View style={{ height: 39, flexDirection: "row", justifyContent: "center", alignItems: "center" }}>
             <View style={{ flex: 8, alignItems: "center" }}>
-              <Text style={{ fontSize: 20 }}>Nhóm của tôi</Text>
+              <Text style={{ fontSize: 20, fontWeight: "600"}}>Nhóm của tôi</Text>
             </View>
             <IconNotifi name="ios-notifications"
               style={{ fontSize: 24, flex: 1, color: "#007aff" }}
