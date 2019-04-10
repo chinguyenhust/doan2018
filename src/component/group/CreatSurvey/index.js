@@ -48,7 +48,7 @@ export default class CreatSurvey extends Component {
   _handleCreatSurvey = () => {
     var { question, options } = this.state;
     var user = firebase.auth().currentUser;
-    var check = this._handleCheck;
+    var check = this._handleCheck();
     if(check){
     Data.ref("surveys").push(
       {

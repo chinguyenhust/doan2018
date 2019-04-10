@@ -45,7 +45,7 @@ export default class CreatGroup extends Component {
   _handleCreatGroup = () => {
     var { name, schedule, image, selectedItems } = this.state;
     var user = firebase.auth().currentUser;
-    var check = this._handleCheck;
+    var check = this._handleCheck();
     if (check) {
       Data.ref("groups").push(
         {
