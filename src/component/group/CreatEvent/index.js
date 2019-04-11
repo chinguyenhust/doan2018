@@ -26,13 +26,14 @@ export default class CreatEvent extends Component {
 
   _handleCreatEvent = () => {
     var check = this._handleCheck();
-    var { nameEvent, date, address } = this.state;
+    var { nameEvent, date, address, description } = this.state;
     var user = firebase.auth().currentUser;
     if (check) {
       Data.ref("events").push(
         {
           name: nameEvent,
           time: date,
+          description: description,
           address: address,
           createdByUserId: user.uid,
           groupId: this.props.navigation.state.params.groupId,
@@ -106,7 +107,9 @@ export default class CreatEvent extends Component {
               placeholder="Mô tả"
               style={styles.textInput}
               onChangeText={(description) => {
-                this.setState({ description });
+                this.setState({ 
+                  description: description 
+                });
               }}
               value={this.state.description}
             />

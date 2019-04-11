@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
     },
     info: {
         flexDirection: "column",
-        width: "73%",
+        width: "70%",
     },
     textName: {
         height: 25,
@@ -42,8 +42,8 @@ const styles = StyleSheet.create({
         marginBottom: 20,
         paddingLeft: 10,
         backgroundColor: "#F5F5F5",
-        marginLeft: 20,
-        marginRight: 20,
+        marginLeft: 10,
+        marginRight: 10,
     },
     calendar: {
         backgroundColor: "#ffffff",

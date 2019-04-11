@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import { Text, View, FlatList, TouchableOpacity } from 'react-native';
 import styles from "./ListEventStyle";
 import IconDelete from 'react-native-vector-icons/MaterialIcons';
-import IconEvent from 'react-native-vector-icons/MaterialIcons';
-import IconStatus from 'react-native-vector-icons/Ionicons';
 import IconClock from 'react-native-vector-icons/EvilIcons';
 import IconLocation from 'react-native-vector-icons/EvilIcons';
 import { Data } from "../../../api/Data";
@@ -27,6 +25,7 @@ export default class ListEvent extends Component {
         id: snapshot.key,
         name: data.name,
         address: data.address,
+        description: data.description,
         userId: data.createdByUserId,
         created_at: data.created_at,
         groupId: data.groupId,
@@ -64,6 +63,26 @@ export default class ListEvent extends Component {
     return 0;
   }
 
+  getTime = (time) => {
+    var a = new Date(time.replace(/-/g, '/')).getTime();
+    var b = new Date().getTime();
+    if(a>b){
+      var phut = (a-b)/1000/60;
+      if(phut>=60){
+        var gio = phut/60;
+        if(gio >=24){
+          var ngay = gio/24;
+          return "Con " + Math.round(ngay)+ " ngay";
+        }else{
+          return  "Con " + Math.round(gio) + " gio";
+        }
+      }else{
+        return  "Con" + Math.round(phut) + "phut";
+      }
+    }else{
+      return "Ke hoach da ket thuc"
+    }
+  }
 
   render() {
     const { navigate } = { ...this.props };
@@ -80,49 +99,43 @@ export default class ListEvent extends Component {
                   <View style={{ flexDirection: "column", justifyContent: "center" }}>
                     <View style={styles.calendar}>
                       <View style={styles.year}>
-                        <Text style={{ color: '#000', fontWeight: "500" }}>{new Date(item.time).getFullYear()}</Text>
+                        <Text style={{ color: '#000', fontWeight: "500" }}>{new Date((item.time).replace(/-/g, '/')).getFullYear()}</Text>
                       </View>
                       <View style={styles.day}>
-                        <Text>{new Date(item.time).getDate()}</Text>
+                        <Text>{new Date((item.time).replace(/-/g, '/')).getDate()}</Text>
                         <View style={styles.line}></View>
                       </View>
                       <View style={styles.month}>
-                        <Text>{(new Date(item.time).getMonth() + 1)}</Text>
+                        <Text>{(new Date((item.time).replace(/-/g, '/')).getMonth() + 1)}</Text>
                       </View>
                     </View>
-                    {(new Date(item.time).getTime()) > new Date().getTime() ?
+                    {(new Date((item.time).replace(/-/g, '/')).getTime()) > new Date().getTime() ?
                     <Text style={{ fontSize: 16, color: "green", fontWeight: "600", marginTop: 20 }}>ACTIVE</Text> :
                     <Text style={{ fontSize: 16, color: "red", fontWeight: "600", marginTop: 20 }}>FINISH</Text>
                     }
                   </View>
-                  {/* <IconEvent name="event" size={30} style={{ width: "10%", paddingTop: 5, color: "red", }} /> */}
+
                   <View style={styles.info}>
                     <Text style={styles.textName}>{item.name}</Text>
-                    <Text style={styles.textView}>Mo ta</Text>
+                    <Text style={styles.textView}>{item.description}</Text>
                     <View style={{ flexDirection: "row" }}>
-                      <IconClock name="clock" size={20} style={{ color: "#000" }} />
-                      <Text style={styles.textView}>{item.time}</Text>
+                      <IconClock name="clock" size={20} style={{ color: "#007aff", marginRight:8}} />
+                      <Text style={styles.textView}>{(item.time).substr(11, (item.time).length)}</Text>
                     </View>
                     <View style={{ flexDirection: "row" }}>
-                      <IconClock name="location" size={20} style={{ color: "#000" }} />
-                      <Text style={styles.textView}>Bach Khoa Ha Noi</Text>
+                      <IconLocation name="location" size={20} style={{ color: "#007aff", marginRight:8 }} />
+                      <Text style={styles.textView}>{item.address}</Text>
                     </View>
-                    <Text style={styles.textView}>Khoang 1h toi</Text>
+                    <Text style={styles.textView}>{this.getTime(item.time)}</Text>
                   </View>
-                  {/* {(new Date(item.time).getTime()) > new Date().getTime() &&
-                    <IconStatus name="md-radio-button-on" size={20}
-                      style={{ width: "7%", paddingTop: 10, color: "green", }} />
-                  } */}
+              
                   <View style={{ width: "10%", justifyContent: "center", }}>
                     <IconDelete name="delete" size={24}
                       style={{ color: "gray"}} />
                   </View>
-
                 </TouchableOpacity>
-
               </View>
           }
-
         />
       </View>
     );

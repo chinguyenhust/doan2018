@@ -9,6 +9,7 @@ import { Data } from "../../../api/Data";
 import * as firebase from 'firebase';
 import ImageResizer from 'react-native-image-resizer';
 import { required } from '../../../util/validate';
+import { exportAllDeclaration } from '@babel/types';
 
 let users = Data.ref('/users');
 
@@ -26,6 +27,7 @@ export default class CreatGroup extends Component {
       image: null,
       description: "",
       errGroupName: "",
+      group_id: null,
     };
     this.uploadImage = this.uploadImage.bind(this);
   }
@@ -43,8 +45,11 @@ export default class CreatGroup extends Component {
   }
 
   _handleCreatGroup = () => {
-    var { name, schedule, image, selectedItems } = this.state;
+    var { name, schedule, image, selectedItems, description } = this.state;
     var user = firebase.auth().currentUser;
+    var uid = this.props.navigation.state.params.uid;
+    const startDate = this.props.navigation.getParam("startDate", null);
+    const untilDate = this.props.navigation.getParam("untilDate", null);
     var check = this._handleCheck();
     if (check) {
       Data.ref("groups").push(
@@ -52,11 +57,16 @@ export default class CreatGroup extends Component {
           name: name,
           schedule: schedule,
           avatar: image,
-          createdByUserId: user.uid,
-          // members: selectedItems,
+          createdByUserId: uid,
+          startDate: startDate,
+          untilDate: untilDate,
+          description: description,
           created_at: firebase.database.ServerValue.TIMESTAMP
         }
       ).then((snapshot) => {
+        this.setState({
+          group_id: snapshot.key,
+        })
         if (selectedItems) {
           selectedItems.map((item) => {
             Data.ref("group_users").push(
@@ -74,7 +84,7 @@ export default class CreatGroup extends Component {
       }).catch((error) => {
         console.log(error);
       });
-      this.props.navigation.navigate("DetailGroup", { name: name })
+      this.props.navigation.navigate("DetailGroup", { name: name, groupId: this.state.group_id})
     } else {
       Alert.alert(
         'Thông báo',
@@ -132,11 +142,13 @@ export default class CreatGroup extends Component {
       ],
       storageOptions: {
         skipBackup: true,
+        // cameraRoll: true,
         path: 'images',
       },
     };
 
     ImagePicker.showImagePicker(options, response => {
+      console.log("options  ", options.takePhotoButtonTitle)
       console.log('Response = ', response);
       if (response.didCancel) {
         console.log('User cancelled image picker');

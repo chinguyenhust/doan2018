@@ -8,6 +8,7 @@ import IconNotifi from 'react-native-vector-icons/Ionicons';
 import { SearchableFlatList } from "react-native-searchable-list";
 import { Data } from "../../../api/Data";
 import { ProgressDialog } from 'react-native-simple-dialogs';
+import * as firebase from 'firebase';
 
 const { width, height } = Dimensions.get('window')
 const SCREEN_HEIGHT = height;
@@ -49,7 +50,7 @@ export default class MyGroup extends Component {
     this.props.navigation.navigate('DetailGroup', {
       name: name,
       groupId: groupId,
-      userName: this.state.userName
+      userName: this.state.userName,
     })
   }
 
@@ -137,7 +138,8 @@ export default class MyGroup extends Component {
   render() {
     const { navigate } = this.props.navigation;
     const { items, searchTerm, searchAttribute, ignoreCase } = this.state;
-
+    var uid = this.props.navigation.state.params.uid;
+    
     return (
       <View style={styles.container}>
 
@@ -210,7 +212,9 @@ export default class MyGroup extends Component {
           />
         </ScrollView>
 
-        <TouchableOpacity style={{ zIndex: 1000, bottom: 60, justifyContent: 'flex-end', marginLeft: "80%", position: 'absolute' }} onPress={() => navigate("CreatGroup")}>
+        <TouchableOpacity 
+        style={{ zIndex: 1000, bottom: 60, justifyContent: 'flex-end', marginLeft: "80%", position: 'absolute' }} 
+        onPress={() => navigate("CreatGroup", {uid:uid})}>
           <IconAdd name="add-circle" size={60} style={{ color: "green" }} />
         </TouchableOpacity>
       </View>

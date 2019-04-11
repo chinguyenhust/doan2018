@@ -107,6 +107,13 @@ class Chat extends React.Component {
       }))
     );
   }
+  // componentWillReceiveProps(){
+  //   this.on(message =>
+  //     this.setState(previousState => ({
+  //       messages: GiftedChat.append(previousState.messages, message),
+  //     }))
+  //   );
+  // }
   componentWillUnmount() {
     this.off();
   }

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Text, View, FlatList, TouchableOpacity } from 'react-native';
 import styles from "./ListSurveyStyle";
-import Icon from 'react-native-vector-icons/Ionicons';
+import IconDelete from 'react-native-vector-icons/MaterialIcons';
 import IconNote from 'react-native-vector-icons/Foundation';
 import { Data } from "../../../api/Data";
 
@@ -33,8 +33,8 @@ export default class ListSurvey extends Component {
     });
 
   }
-  
-  componentWillReceiveProps(){
+
+  componentWillReceiveProps() {
     var items = [];
     const groupId = this.props.groupId;
     surveys.orderByChild("groupId").equalTo(groupId).on('child_added', (snapshot) => {
@@ -61,6 +61,28 @@ export default class ListSurvey extends Component {
     return 0;
   }
 
+  getTime = (a) => {
+    var b = new Date().getTime();
+    var phut = (b-a) / 1000 / 60;
+    if (phut >= 60) {
+      var gio = phut / 60;
+      if (gio >= 24) {
+        var ngay = gio / 24;
+        if(ngay >= 7){
+          tuan = ngay/7;
+          return  Math.round(tuan) + " tuan truoc";
+        }else{
+          return  Math.round(ngay) + " ngay truoc";
+        }
+      } else {
+        return  Math.round(gio) + " gio truoc";
+      }
+    } else {
+      return Math.round(phut) + "phut truoc";
+    }
+
+  }
+
   render() {
     const { items } = this.state;
     const { navigate } = { ...this.props };
@@ -72,9 +94,16 @@ export default class ListSurvey extends Component {
             ({ item }) =>
               <View style={styles.itemStyle}>
                 <TouchableOpacity style={styles.item} onPress={() => navigate("DetailSurvey", { id: item.id })}>
-                  <IconNote name="clipboard-notes" size={30} style={{ width: "10%", color: "red", }} />
+                  <View style={{ width: "10%", justifyContent: "center", }}>
+                    <IconNote name="clipboard-notes" size={30} style={{ color: "red", }} />
+                  </View>
                   <View style={styles.info}>
                     <Text style={styles.textName}>{item.question}</Text>
+                    <Text style={styles.textView}>Created: {this.getTime(item.created_at)}</Text>
+                  </View>
+                  <View style={{ width: "10%", justifyContent: "center", }}>
+                    <IconDelete name="delete" size={24}
+                      style={{ color: "gray" }} />
                   </View>
                 </TouchableOpacity>
               </View>

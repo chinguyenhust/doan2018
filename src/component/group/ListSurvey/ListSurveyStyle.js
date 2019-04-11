@@ -8,18 +8,22 @@ const styles = StyleSheet.create({
         backgroundColor: "#fff",
     },
     item: {
-        height: 40,
         flexDirection: "row",
     },
     info: {
         flexDirection: "column",
-        width: "90%",
-        paddingLeft:10,
-        paddingTop: 5
+        width: "80%",
+        paddingLeft: 8,
+        justifyContent: "center"
     },
     textName: {
-        height:25,
-        fontSize:16,
+        height: 25,
+        fontSize: 20,
+        fontWeight: "500"
+    },
+    textView: {
+        height: 25,
+        fontSize: 14,
     },
     textDescription: {
         height:25,
@@ -31,8 +35,8 @@ const styles = StyleSheet.create({
         backgroundColor:"#000",
     }, 
     itemStyle: {
+        height: 70,
         flexDirection: "column", 
-        paddingTop: 10, 
         borderColor: "#F5F5F5", 
         borderWidth: 1 , 
         borderRadius: 8, 
@@ -40,7 +44,8 @@ const styles = StyleSheet.create({
         paddingLeft: 15,
         marginLeft:20,
         marginRight: 20,
-        backgroundColor:"#F5F5F5"
+        backgroundColor:"#F5F5F5",
+        justifyContent: "center"
     }
 
 });
