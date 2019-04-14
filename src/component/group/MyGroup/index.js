@@ -8,7 +8,6 @@ import IconNotifi from 'react-native-vector-icons/Ionicons';
 import { SearchableFlatList } from "react-native-searchable-list";
 import { Data } from "../../../api/Data";
 import { ProgressDialog } from 'react-native-simple-dialogs';
-import * as firebase from 'firebase';
 
 const { width, height } = Dimensions.get('window')
 const SCREEN_HEIGHT = height;
@@ -42,7 +41,8 @@ export default class MyGroup extends Component {
         latitude: 0,
         longtitude: 0
       },
-      progressVisible: true
+      progressVisible: true,
+      // message: ""
     }
   }
 
@@ -110,13 +110,24 @@ export default class MyGroup extends Component {
         groups.on('child_added', (snapshot) => {
           if (snapshot.key === data.group_id) {
             let data = snapshot.val();
+            Data.ref("messages")
+              .orderByChild("groupId")
+              .equalTo(snapshot.key)
+              .limitToLast(1)
+              .on("child_added", (snapshot) => {
+                console.log(snapshot.val().timestamp);
+                // this.setState({
+                //   message: snapshot.val().text,
+                // })
+              });
             items.push({
               id: snapshot.key,
               name: data.name,
               chedule: data.schedule,
               userId: data.createdByUserId,
               created_at: data.created_at,
-              avatar: data.avatar
+              avatar: data.avatar,
+              // message: message
             })
             this.setState({ items: items });
           }
@@ -139,14 +150,14 @@ export default class MyGroup extends Component {
     const { navigate } = this.props.navigation;
     const { items, searchTerm, searchAttribute, ignoreCase } = this.state;
     var uid = this.props.navigation.state.params.uid;
-    
+
     return (
       <View style={styles.container}>
 
         <View style={styles.header}>
           <View style={{ height: 39, flexDirection: "row", justifyContent: "center", alignItems: "center" }}>
             <View style={{ flex: 8, alignItems: "center" }}>
-              <Text style={{ fontSize: 20, fontWeight: "600"}}>Nhóm của tôi</Text>
+              <Text style={{ fontSize: 20, fontWeight: "600" }}>Nhóm của tôi</Text>
             </View>
             <IconNotifi name="ios-notifications"
               style={{ fontSize: 24, flex: 1, color: "#007aff" }}
@@ -174,10 +185,10 @@ export default class MyGroup extends Component {
         <ProgressDialog
           visible={this.state.progressVisible}
           title="Loading"
-          activityIndicatorColor = "#00ff00"
-          activityIndicatorSize = "large"
+          activityIndicatorColor="#00ff00"
+          activityIndicatorSize="large"
           message="Please, wait..."
-          activityIndicatorStyle = {{justifyContent: "center"}}
+          activityIndicatorStyle={{ justifyContent: "center" }}
         />
 
         <ScrollView style={{}}>
@@ -201,7 +212,7 @@ export default class MyGroup extends Component {
                     />
                   }
                   <View style={{ paddingLeft: 20, paddingTop: 7 }}>
-                    <Text style={{ fontSize: 18 }}>{item.name}</Text>
+                    <Text style={{ fontSize: 18, fontWeight: "600" }}>{item.name}</Text>
                     <Text style={{ fontSize: 14 }}>{item.created_at}</Text>
                   </View>
                 </TouchableOpacity>
@@ -212,9 +223,9 @@ export default class MyGroup extends Component {
           />
         </ScrollView>
 
-        <TouchableOpacity 
-        style={{ zIndex: 1000, bottom: 60, justifyContent: 'flex-end', marginLeft: "80%", position: 'absolute' }} 
-        onPress={() => navigate("CreatGroup", {uid:uid})}>
+        <TouchableOpacity
+          style={{ zIndex: 1000, bottom: 60, justifyContent: 'flex-end', marginLeft: "80%", position: 'absolute' }}
+          onPress={() => navigate("CreatGroup", { uid: uid })}>
           <IconAdd name="add-circle" size={60} style={{ color: "green" }} />
         </TouchableOpacity>
       </View>

@@ -49,45 +49,45 @@ export default class CreatSurvey extends Component {
     var { question, options } = this.state;
     var user = firebase.auth().currentUser;
     var check = this._handleCheck();
-    if(check){
-    Data.ref("surveys").push(
-      {
-        question: question,
-        options: options,
-        createdByUserId: user.uid,
-        groupId: this.props.navigation.state.params.groupId,
-        created_at: firebase.database.ServerValue.TIMESTAMP
-      }
-    ).then((snapshot) => {
-      if (options) {
-        options.map((item) => {
-          Data.ref("answers").push(
-            {
-              survey_id: snapshot.key,
-              value: item.value,
-              members: item.members
-            }
-          ).then(() => {
-            console.log("Success !");
-          }).catch((error) => {
-            console.log(error);
-          });
-        })
-      }
-    }).catch((error) => {
-      console.log(error);
-    });
-    this.props.navigation.navigate("DetailGroup", { name: this.props.nameGroup });
-  }else{
-    Alert.alert(
-      'Thông báo',
-      'Vui lòng điền đầy đủ thông tin!',
-      [
+    if (check) {
+      Data.ref("surveys").push(
+        {
+          question: question,
+          options: options,
+          createdByUserId: user.uid,
+          groupId: this.props.navigation.state.params.groupId,
+          created_at: firebase.database.ServerValue.TIMESTAMP
+        }
+      ).then((snapshot) => {
+        if (options) {
+          options.map((item) => {
+            Data.ref("answers").push(
+              {
+                survey_id: snapshot.key,
+                value: item.value,
+                members: item.members
+              }
+            ).then(() => {
+              console.log("Success !");
+            }).catch((error) => {
+              console.log(error);
+            });
+          })
+        }
+      }).catch((error) => {
+        console.log(error);
+      });
+      this.props.navigation.navigate("DetailGroup", { name: this.props.nameGroup });
+    } else {
+      Alert.alert(
+        'Thông báo',
+        'Vui lòng điền đầy đủ thông tin!',
+        [
           { text: 'OK', onPress: () => console.log('OK Pressed') },
-      ],
-      { cancelable: false },
-  );
-  }
+        ],
+        { cancelable: false },
+      );
+    }
   }
 
   _handleChangeQuestionName = (text) => {
@@ -115,10 +115,10 @@ export default class CreatSurvey extends Component {
       <View style={styles.container} >
         <View style={styles.tapbar}>
           <TouchableOpacity style={styles.tap}>
-            <Icon name="ios-arrow-round-back" size={34}
-              style={{ width: "15%" }}
-              onPress={() => { this.props.navigation.goBack() }}
-            />
+            <TouchableOpacity style={{ width: "15%" }}
+              onPress={() => { this.props.navigation.goBack() }}>
+              <Icon name="ios-arrow-round-back" size={34} />
+            </TouchableOpacity>
             <View style={{ width: "75%", justifyContent: "center", }}>
               <Text style={{ fontSize: 24, width: "70%", fontWeight: "600" }}>Khảo sát ý kiến</Text>
             </View>

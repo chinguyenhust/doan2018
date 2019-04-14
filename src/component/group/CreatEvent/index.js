@@ -78,9 +78,10 @@ export default class CreatEvent extends Component {
       <View style={styles.container} >
         <View style={styles.tapbar}>
           <TouchableOpacity style={styles.tap}>
-            <Icon name="ios-arrow-round-back" size={34}
-              style={{ width: "15%" }}
-              onPress={() => { this.props.navigation.goBack() }} />
+          <TouchableOpacity style={{ width: "15%" }}
+              onPress={() => { this.props.navigation.goBack() }} >
+            <Icon name="ios-arrow-round-back" size={34}/>
+              </TouchableOpacity>
             <View style={{ width: "75%", justifyContent: "center", }}>
               <Text style={{ fontSize: 24, width: "70%", fontWeight: "600" }}>Tạo kế hoạch</Text>
             </View>
