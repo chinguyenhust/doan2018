@@ -47,4 +47,6 @@ dependencies: \
   /Users/daisy/doan2018/node_modules/react-native-maps/lib/ios/AirMaps/AIRMapCoordinate.h \
   /Users/daisy/doan2018/ios/Pods/Headers/Public/React/React/RCTUtils.h \
   /Users/daisy/doan2018/ios/Pods/Headers/Public/React/React/RCTAssert.h \
-  /Users/daisy/doan2018/ios/Pods/Headers/Public/React/React/RCTDefines.h
+  /Users/daisy/doan2018/ios/Pods/Headers/Public/React/React/RCTDefines.h \
+  /Users/daisy/doan2018/ios/Pods/Headers/Private/React/RCTInspectorDevServerHelper.h \
+  /Users/daisy/doan2018/ios/Pods/Headers/Private/React/RCTPackagerConnection.h

@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
         flexDirection: "row", 
         paddingLeft: 20, 
         paddingTop: 5, 
-        alignSelf: "stretch" 
+        alignSelf: "stretch",
     },
     input: {
         height: 40, 
@@ -38,6 +38,26 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         marginTop: 50
     },
+    titleBold: {
+        fontSize: 18,
+        fontWeight: "600"
+    },
+    textInput: {
+        fontSize: 16,
+        fontWeight: "300",
+        paddingHorizontal: 10,
+        height: 45,
+        borderWidth: 0.5,
+        borderRadius: 4,
+        borderColor: "#bcbcbc",
+        marginVertical: 8
+    },
+    viewInput: {
+        marginTop: 15,
+    },
+    textError: {
+        color: "red"
+    }
     
 });
 

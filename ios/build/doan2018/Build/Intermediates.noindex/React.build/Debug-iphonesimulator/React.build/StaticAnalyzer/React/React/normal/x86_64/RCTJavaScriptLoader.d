@@ -2,6 +2,8 @@ dependencies: \
   /Users/daisy/doan2018/node_modules/react-native/React/Base/RCTJavaScriptLoader.mm \
   /Users/daisy/doan2018/node_modules/react-native/React/Base/RCTJavaScriptLoader.h \
   /Users/daisy/doan2018/node_modules/react-native/React/Base/RCTDefines.h \
+  /Users/daisy/doan2018/node_modules/react-native/React/DevSupport/RCTInspectorDevServerHelper.h \
+  /Users/daisy/doan2018/node_modules/react-native/React/DevSupport/RCTPackagerConnection.h \
   /Users/daisy/doan2018/ios/build/doan2018/Build/Products/Debug-iphonesimulator/include/cxxreact/JSBundleType.h \
   /Users/daisy/doan2018/node_modules/react-native/third-party/folly-2018.10.22.00/folly/Portability.h \
   /Users/daisy/doan2018/node_modules/react-native/third-party/folly-2018.10.22.00/folly/portability/Config.h \

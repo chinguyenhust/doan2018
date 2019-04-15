@@ -1,50 +1,105 @@
 import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View, Button, TouchableOpacity, TextInput, FlatList } from 'react-native';
+import { Image, Text, View, TouchableOpacity, TextInput, FlatList } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import styles from './DetailEventStyle';
 import DatePicker from 'react-native-datepicker';
 import RadioGroup from 'react-native-radio-buttons-group';
+import { Data } from "../../../api/Data";
+import * as firebase from 'firebase';
 
 export default class DetailEvent extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      nameEvent: "Về ăn cơm",
-      date: "2019-03-14 00:00",
-      address: "KTX Bách Khoa",
+      nameEvent: "",
+      date: "",
+      address: "",
       data: [
         {
           label: 'Có tham gia',
-          value: 1
+          value: 1,
+          color: "#007aff"
         },
         {
           label: 'Không tham gia',
-          value: 0,
+          value: 2,
+          color: "#007aff"
         },
       ],
+      members: []
     }
   }
 
-  onPress = data => this.setState({ data });
+  componentDidMount() {
+    const eventId = this.props.navigation.state.params.id;
+    var event = Data.ref("events");
+    event.child(eventId).on("value", (snapshot) => {
+      var data = snapshot.val();
+      this.setState({
+        nameEvent: data.name,
+        date: data.time,
+        address: data.address
+      })
+      // console.log("iems  ", data)
+    })
+  }
+
+  onPress = (data) => {
+    const eventId = this.props.navigation.state.params.id;
+    const members = this.state.members;
+    var user = firebase.auth().currentUser;
+
+    data.map((item) => {
+      console.log(item.selected);
+      if (item.selected === true) {
+        members.push(user.uid)
+        Data.ref("participations").push({
+          event_id: eventId,
+          members: members,
+        })
+      }
+    })
+    console.log(data[0]);
+    this.setState({ data });
+  };
+
+  _handleUpDate = () => {
+    const { nameEvent, date, address } = this.state;
+    const eventId = this.props.navigation.state.params.id;
+    var event = Data.ref("events");
+    event.child(eventId).update({
+      name: nameEvent,
+      time: date,
+      address: address,
+      user_update: firebase.auth().currentUser.uid,
+      time_update: firebase.database.ServerValue.TIMESTAMP
+    });
+    this.props.navigation.navigate('DetailGroup');
+  }
 
   render() {
     const { navigate } = this.props.navigation;
     let selectedButton = this.state.data.find(e => e.selected == true);
-    selectedButton = selectedButton ? selectedButton.value : this.state.data[0].label;
+    selectedButton = selectedButton ? selectedButton.value : this.state.data[0].value;
 
     return (
       <View style={styles.container} >
         <View style={styles.tapbar}>
           <TouchableOpacity style={styles.tap}>
-            <Icon name="ios-arrow-round-back" size={34} style={{ width: "15%" }} onPress={() => { this.props.navigation.goBack() }} />
-            <Text style={{ fontSize: 24, width: "70%" }}>kế hoạch</Text>
+            <TouchableOpacity style={{ width: "15%" }}
+              onPress={() => { this.props.navigation.goBack() }} >
+              <Icon name="ios-arrow-round-back" size={34} />
+            </TouchableOpacity>
+            <View style={{ width: "75%", justifyContent: "center", }}>
+              <Text style={{ fontSize: 24, width: "70%", fontWeight: "600" }}>Kế hoạch</Text>
+            </View>
           </TouchableOpacity>
           <View style={{ height: 1, backgroundColor: "#000", alignSelf: "stretch" }}></View>
         </View>
         <View style={{ flex: 16, paddingLeft: 20, paddingRight: 20, flexDirection: "column" }}>
 
           <View style={{ flexDirection: "row", marginTop: 20 }}>
-            <Text style={{ fontSize: 16, marginTop: 10 }}>Tên kế hoach:</Text>
+            <Text style={{ fontSize: 16, marginTop: 10 }}>Tên kế hoạch:</Text>
             <TextInput
               style={styles.input}
               onChangeText={(nameEvent) => {
@@ -69,7 +124,7 @@ export default class DetailEvent extends Component {
             style={{ marginTop: 10, width: "100%" }}
             date={this.state.date}
             mode="datetime"
-            format="YYYY-MM-DD hh:mm AM/PM"
+            format="YYYY-MM-DD hh:mm a"
             confirmBtnText="Confirm"
             cancelBtnText="Cancel"
             customStyles={{
@@ -83,7 +138,11 @@ export default class DetailEvent extends Component {
                 marginLeft: 36
               }
             }}
-            onDateChange={(date) => { this.setState({ date: date }) }}
+            onDateChange={(date) => {
+              this.setState({
+                date: date
+              })
+            }}
           />
 
           <View style={{ flexDirection: "column", marginTop: 20 }}>
@@ -91,18 +150,25 @@ export default class DetailEvent extends Component {
             <FlatList
               horizontal={true}
               data={[{ key: 'a' }, { key: 'b' }, { key: 'a' }, { key: 'b' }, { key: 'a' }, { key: 'b' }]}
-              renderItem={({ item }) => <View style={{ width: 60, height: 60, borderRadius: 30, backgroundColor: "red", marginLeft: 15, marginTop: 20 }}></View>}
+              renderItem={({ item }) =>
+                <View style={{ marginLeft: 15, marginTop: 20 }}>
+                  <Image
+                    style={{ width: 60, height: 60, borderRadius: 30 }}
+                    source={{ uri: 'https://facebook.github.io/react-native/docs/assets/favicon.png' }}
+                  />
+                </View>
+              }
             />
             <View style={{ marginTop: 20, alignItems: "flex-start", }}>
               <RadioGroup
                 radioButtons={this.state.data}
                 onPress={this.onPress}
+                color="#007aff"
               />
             </View>
           </View>
 
-
-          <TouchableOpacity style={styles.buttonCreat} onPress={() => navigate('DetailGroup')}>
+          <TouchableOpacity style={styles.buttonCreat} onPress={this._handleUpDate}>
             <Text style={{ color: "#fff", fontSize: 20 }}>Cập nhật</Text>
           </TouchableOpacity>
         </View>

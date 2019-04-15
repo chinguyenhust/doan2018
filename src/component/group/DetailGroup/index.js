@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View, Button, TouchableOpacity } from 'react-native';
+import { Text, View, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import IconInfo from 'react-native-vector-icons/Ionicons';
 import styles from "./DetailGroupStyle";
@@ -14,7 +14,7 @@ export default class DetailGroup extends Component {
       isChat: true,
       isMap: false,
       isEvent: false,
-
+      name: ""
     }
   }
 
@@ -39,18 +39,26 @@ export default class DetailGroup extends Component {
       isEvent: true
     })
   }
-  
+
   render() {
     const { navigate } = this.props.navigation;
-    const name = "Chi";
+    const name = this.props.navigation.state.params.userName;
+    const groupId = this.props.navigation.state.params.groupId;
 
     return (
       <View style={styles.container}>
 
-        <TouchableOpacity style={{ height:40, flexDirection: "row", paddingLeft: 20 ,  alignSelf: "stretch"}}>
-          <Icon name="ios-arrow-round-back" size={34} style={{ width: "15%" }} onPress={() => { this.props.navigation.goBack() }} />
-          <Text style={{ fontSize: 24,width:"70%"}}>Tên nhóm</Text>
-          <IconInfo name="ios-information-circle-outline" size={30} style={{ width: "10%"}} onPress={() => { navigate("InfoGroup") }} />
+        <TouchableOpacity
+          style={{ height: 40, flexDirection: "row", paddingLeft: 20, alignSelf: "stretch", justifyContent: "center", alignItems: "center" }}>
+          <Icon name="ios-arrow-round-back"
+            size={34}
+            style={{ width: "15%" }}
+            onPress={() => { this.props.navigation.goBack() }} />
+          <Text style={{ fontSize: 24, width: "70%", fontWeight: "600" }}>{this.props.navigation.state.params.name}</Text>
+          <IconInfo name="ios-information-circle-outline"
+            size={30}
+            style={{ width: "10%" }}
+            onPress={() => { navigate("InfoGroup", { groupId: groupId }) }} />
         </TouchableOpacity>
 
 
@@ -68,12 +76,14 @@ export default class DetailGroup extends Component {
         </View>
 
         <View style={{ flex: 15 }}>
-          {(this.state.isChat) && <Chat name={name} />}
+          {(this.state.isChat) && <Chat name={name} groupId={groupId} />}
           {(this.state.isMap) && <Map />}
-          {(this.state.isEvent) && <Event navigate={navigate}/>}
+          {(this.state.isEvent) && <Event
+            navigate={navigate}
+            groupId={groupId}
+            nameGroup={this.props.navigation.state.params.name}
+          />}
         </View>
-
-
       </View>
     );
   }

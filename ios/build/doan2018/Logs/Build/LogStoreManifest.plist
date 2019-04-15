@@ -3,8 +3,41 @@
 <plist version="1.0">
 <dict>
 	<key>logFormatVersion</key>
-	<integer>9</integer>
+	<integer>10</integer>
 	<key>logs</key>
-	<dict/>
+	<dict>
+		<key>AFB20FC3-58DD-48DE-AEA9-477EA2C8CA6F</key>
+		<dict>
+			<key>className</key>
+			<string>IDECommandLineBuildLog</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>AFB20FC3-58DD-48DE-AEA9-477EA2C8CA6F.xcactivitylog</string>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>doan2018 project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>doan2018</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Building workspace doan2018 with scheme doan2018 and configuration Debug</string>
+			<key>timeStartedRecording</key>
+			<real>576787495.44748795</real>
+			<key>timeStoppedRecording</key>
+			<real>576787534.53585601</real>
+			<key>title</key>
+			<string>Building workspace doan2018 with scheme doan2018 and configuration Debug</string>
+			<key>uniqueIdentifier</key>
+			<string>AFB20FC3-58DD-48DE-AEA9-477EA2C8CA6F</string>
+		</dict>
+	</dict>
 </dict>
 </plist>

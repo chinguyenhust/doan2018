@@ -48,6 +48,8 @@ dependencies: \
   /Users/daisy/doan2018/ios/Pods/Headers/Public/React/React/RCTBridgeDelegate.h \
   /Users/daisy/doan2018/ios/Pods/Headers/Public/React/React/RCTJavaScriptLoader.h \
   /Users/daisy/doan2018/ios/Pods/Headers/Public/React/React/RCTDefines.h \
+  /Users/daisy/doan2018/ios/Pods/Headers/Private/React/RCTInspectorDevServerHelper.h \
+  /Users/daisy/doan2018/ios/Pods/Headers/Private/React/RCTPackagerConnection.h \
   /Users/daisy/doan2018/ios/Pods/Headers/Public/React/React/RCTBridgeModule.h \
   /Users/daisy/doan2018/ios/Pods/Headers/Public/React/React/RCTFrameUpdate.h \
   /Users/daisy/doan2018/ios/Pods/Headers/Public/React/React/RCTInvalidating.h \

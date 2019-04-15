@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 
 import Map from './src/component/home/Map';
+import DatePicker from './src/component/home/DatePicker';
+
 import MyGroup from './src/component/group/MyGroup';
 import CreatGroup from './src/component/group/CreatGroup';
 import DetailGroup from './src/component/group/DetailGroup';
@@ -10,6 +12,8 @@ import DetailEvent from './src/component/group/DetailEvent';
 import DetailSurvey from './src/component/group/DetailSurvey';
 import InfoGroup from './src/component/group/InfoGroup';
 import Chat from './src/component/group/Chat';
+import UserInfo from "./src/component/group/UserInfo";
+import EditUser from './src/component/group/EditUser';
 
 import Main from './src/component/login/Main';
 import Loading from './src/component/login/Loading'
@@ -61,6 +65,15 @@ const MainStack = createStackNavigator(
     Chat:{
       screen: Chat,
     },
+    UserInfo: {
+      screen: UserInfo
+    },
+    EditUser : {
+      screen: EditUser,
+    },
+    DatePicker : {
+      screen: DatePicker,
+    }
   }, {
     headerMode: 'none',
     navigationOptions: {

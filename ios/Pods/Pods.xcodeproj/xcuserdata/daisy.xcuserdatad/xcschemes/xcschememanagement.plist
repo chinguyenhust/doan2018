@@ -200,6 +200,11 @@
 			<key>orderHint</key>
 			<integer>24</integer>
 		</dict>
+		<key>react-native-fetch-blob.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>34</integer>
+		</dict>
 		<key>react-native-google-maps.xcscheme</key>
 		<dict>
 			<key>isShown</key>
