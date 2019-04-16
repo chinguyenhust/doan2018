@@ -175,7 +175,7 @@ export default class MyGroup extends Component {
 
         <View style={{ flexDirection: "column" }}>
           <TouchableOpacity style={styles.search}>
-            <TextInput style={{ fontSize: 18, width: "84%", }} placeholder="Tìm kiếm"
+            <TextInput style={{ fontSize: 16, width: "84%", }} placeholder="Tìm kiếm"
               onChangeText={searchTerm => this.setState({ searchTerm })}
             ></TextInput>
             <Icon name="ios-search" style={{ fontSize: 24, color: "#a9a9a9", width: "6%", marginTop: 5, }} />

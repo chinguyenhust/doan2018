@@ -3680,13 +3680,22 @@ public final class R {
     public static final int common_open_on_phone=0x7f0c0050;
     public static final int common_signin_button_text=0x7f0c0051;
     public static final int common_signin_button_text_long=0x7f0c0052;
-    public static final int header_description=0x7f0c0053;
-    public static final int image_button_description=0x7f0c0054;
-    public static final int image_description=0x7f0c0055;
-    public static final int link_description=0x7f0c0056;
-    public static final int search_description=0x7f0c0057;
-    public static final int search_menu_title=0x7f0c0058;
-    public static final int status_bar_notification_info_overflow=0x7f0c0059;
+    public static final int default_web_client_id=0x7f0c0053;
+    public static final int fcm_fallback_notification_channel_label=0x7f0c0054;
+    public static final int firebase_database_url=0x7f0c0055;
+    public static final int gcm_defaultSenderId=0x7f0c0056;
+    public static final int google_api_key=0x7f0c0057;
+    public static final int google_app_id=0x7f0c0058;
+    public static final int google_crash_reporting_api_key=0x7f0c0059;
+    public static final int google_storage_bucket=0x7f0c005a;
+    public static final int header_description=0x7f0c005b;
+    public static final int image_button_description=0x7f0c005c;
+    public static final int image_description=0x7f0c005d;
+    public static final int link_description=0x7f0c005e;
+    public static final int project_id=0x7f0c005f;
+    public static final int search_description=0x7f0c0060;
+    public static final int search_menu_title=0x7f0c0061;
+    public static final int status_bar_notification_info_overflow=0x7f0c0062;
   }
   public static final class style {
     public static final int AlertDialog_AppCompat=0x7f0d0000;

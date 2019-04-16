@@ -227,7 +227,7 @@
     <integer name="abc_config_activityShortDur">150</integer>
     <integer name="cancel_button_image_alpha">127</integer>
     <integer name="config_tooltipAnimTime">150</integer>
-    <integer name="google_play_services_version">11910000</integer>
+    <integer name="google_play_services_version">12451000</integer>
     <integer name="status_bar_notification_info_maxnum">999</integer>
     <string name="abc_action_bar_home_description">Navigate home</string>
     <string name="abc_action_bar_up_description">Navigate up</string>
@@ -312,10 +312,19 @@
     <string name="common_open_on_phone">Open on phone</string>
     <string name="common_signin_button_text">Sign in</string>
     <string name="common_signin_button_text_long">Sign in with Google</string>
+    <string name="default_web_client_id" translatable="false">21934368463-vjhakb54dupnasa69msllurqocpbmfg8.apps.googleusercontent.com</string>
+    <string name="fcm_fallback_notification_channel_label">Miscellaneous</string>
+    <string name="firebase_database_url" translatable="false">https://doan-2b247.firebaseio.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">21934368463</string>
+    <string name="google_api_key" translatable="false">AIzaSyBFkMv8Q_px9-wO8pN4B5TEnRe-FCfwC-o</string>
+    <string name="google_app_id" translatable="false">1:21934368463:android:0367aaa320dfae1d</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyBFkMv8Q_px9-wO8pN4B5TEnRe-FCfwC-o</string>
+    <string name="google_storage_bucket" translatable="false">doan-2b247.appspot.com</string>
     <string name="header_description" translatable="false">Heading</string>
     <string name="image_button_description" translatable="false">Button, Image</string>
     <string name="image_description" translatable="false">Image</string>
     <string name="link_description" translatable="false">Link</string>
+    <string name="project_id" translatable="false">doan-2b247</string>
     <string name="search_description" translatable="false">Search Field</string>
     <string name="search_menu_title">Search</string>
     <string name="status_bar_notification_info_overflow">999+</string>

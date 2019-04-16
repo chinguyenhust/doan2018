@@ -5,57 +5,71 @@ INJECTED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml:1:1
 INJECTED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml:1:1-31:12
 INJECTED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml:1:1-31:12
 MERGED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml:1:1-31:12
-MERGED from [:react-native-vector-icons] /Users/daisy/doan2018/node_modules/react-native-vector-icons/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
 MERGED from [:react-native-image-picker] /Users/daisy/doan2018/node_modules/react-native-image-picker/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-23:12
-MERGED from [:react-native-firebase] /Users/daisy/doan2018/node_modules/react-native-firebase/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-15:12
 MERGED from [:react-native-gesture-handler] /Users/daisy/doan2018/node_modules/react-native-gesture-handler/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
 MERGED from [:react-native-maps] /Users/daisy/doan2018/node_modules/react-native-maps/lib/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-12:12
-MERGED from [com.facebook.react:react-native:0.59.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/react-native-0.59.1.aar/9e7532d549f6de008c60fe8fbad2a367/AndroidManifest.xml:2:1-13:12
-MERGED from [com.android.support:appcompat-v7:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/eebf510df22f50bead323a32e018f0a6/AndroidManifest.xml:17:1-22:12
-MERGED from [com.google.android.gms:play-services-maps:11.8.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-maps-11.8.0.aar/d10072fbdfe27cd963ed5947290756e7/AndroidManifest.xml:17:1-32:12
-MERGED from [com.google.android.gms:play-services-base:11.8.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-base-11.8.0.aar/e188c834c3f546e8f0f629773b5dda27/AndroidManifest.xml:17:1-29:12
-MERGED from [com.google.android.gms:play-services-tasks:11.8.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-tasks-11.8.0.aar/cec77e1e3d2122e7a6a6fcfa78e448f0/AndroidManifest.xml:2:1-9:12
-MERGED from [com.google.android.gms:play-services-basement:11.8.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-basement-11.8.0.aar/f16ffa0f9b3730026201e36bd86d2cd3/AndroidManifest.xml:17:1-28:12
-MERGED from [com.android.support:support-v4:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/support-v4-28.0.0.aar/d428f91973d671262c9b961ad15869bc/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:multidex:1.0.2] /Users/daisy/.gradle/caches/transforms-1/files-1.1/multidex-1.0.2.aar/595a59983669585ee971112f4c386f4c/AndroidManifest.xml:17:1-22:12
-MERGED from [com.google.maps.android:android-maps-utils:0.5] /Users/daisy/.gradle/caches/transforms-1/files-1.1/android-maps-utils-0.5.aar/85ee30087008c5d4579be5fc52be8170/AndroidManifest.xml:2:1-13:12
-MERGED from [com.android.support:support-fragment:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/support-fragment-28.0.0.aar/a138bf0b62423756ccbfd1a50c7cf32c/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:animated-vector-drawable:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-28.0.0.aar/670f28cb9c3a8f2f46bf2d66f99eb80b/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-core-ui:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/support-core-ui-28.0.0.aar/e4cae4da7ceacfa961ccc9b4a1a660a0/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-core-utils:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/support-core-utils-28.0.0.aar/7cae271ecde47dbd12176bd2225015c8/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-vector-drawable:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-28.0.0.aar/b0c450ebe98c76c0b90e060b5626a6c2/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-media-compat:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/support-media-compat-28.0.0.aar/ad958fcccf299334b6732f0e0d009590/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:loader:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/loader-28.0.0.aar/4e19f712c3b7a8b008a273c99dc368a4/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:viewpager:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/viewpager-28.0.0.aar/f6780214a52c0b343792fb7c44b4ecb1/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:coordinatorlayout:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/coordinatorlayout-28.0.0.aar/aa4e96b69dfb7a6873206d7a489ea5f1/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:drawerlayout:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/drawerlayout-28.0.0.aar/3b080a76b64418ea96cc5ccda5c8f5e8/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:slidingpanelayout:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/slidingpanelayout-28.0.0.aar/c809e6c049b4369f4941a7902f7ca4fe/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:customview:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/customview-28.0.0.aar/31d820877862b3a6c3371b6e282901bd/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:swiperefreshlayout:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/swiperefreshlayout-28.0.0.aar/b1cf5c3fd7d8731a1fc5e5bef383d13b/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:asynclayoutinflater:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/asynclayoutinflater-28.0.0.aar/325a9eec47d61f739831cc7c4c284df4/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-compat:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/00bb65cf0dbe87ef098a28cbd630cc1e/AndroidManifest.xml:17:1-24:12
-MERGED from [com.android.support:versionedparcelable:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/versionedparcelable-28.0.0.aar/de411835670c3acaa7115460e5317af9/AndroidManifest.xml:17:1-25:12
-MERGED from [com.android.support:cursoradapter:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/cursoradapter-28.0.0.aar/048cde08bb8bdbe72d5de80159b4fcc1/AndroidManifest.xml:17:1-22:12
-MERGED from [android.arch.lifecycle:runtime:1.1.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/194ba8967b418cc742db8de7fbc22f17/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:documentfile:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/documentfile-28.0.0.aar/18e1fd94a485f9da4f84df8468b8c293/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:localbroadcastmanager:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/localbroadcastmanager-28.0.0.aar/eaa2402acc34bedb7cdc625aac3f27f4/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:print:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/print-28.0.0.aar/b5cdbfbcf1533a53f0c4f5afa3dc8f90/AndroidManifest.xml:17:1-22:12
-MERGED from [android.arch.lifecycle:viewmodel:1.1.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.1.aar/1b9e01d7cc1ab304b95cd196e9717edf/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:interpolator:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/interpolator-28.0.0.aar/7872616d4c695726ebf08ec00afb330d/AndroidManifest.xml:17:1-22:12
-MERGED from [android.arch.lifecycle:livedata:1.1.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/livedata-1.1.1.aar/4de65696efa876e804b0a1d1aff78289/AndroidManifest.xml:17:1-22:12
-MERGED from [android.arch.lifecycle:livedata-core:1.1.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.1.aar/6e5d4406fd0ee11b1cb4aa9009fceacd/AndroidManifest.xml:17:1-22:12
-MERGED from [android.arch.core:runtime:1.1.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/a66d4736efe40ecf099d9e6aec1d5772/AndroidManifest.xml:17:1-22:12
-MERGED from [com.facebook.fresco:fresco:1.10.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/fresco-1.10.0.aar/2c510d9a8ec4b6d0e3fb742d6cd30717/AndroidManifest.xml:2:1-9:12
-MERGED from [com.facebook.fresco:imagepipeline-okhttp3:1.10.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/imagepipeline-okhttp3-1.10.0.aar/762899de069b12c45b21778dbf090215/AndroidManifest.xml:2:1-9:12
-MERGED from [com.facebook.fresco:drawee:1.10.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/drawee-1.10.0.aar/969f81f1c1ca146065a6d1069236d372/AndroidManifest.xml:2:1-9:12
-MERGED from [com.facebook.fresco:imagepipeline:1.10.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/imagepipeline-1.10.0.aar/df0ade1d42da0454e1065555931ec1f8/AndroidManifest.xml:2:1-9:12
-MERGED from [com.facebook.fresco:imagepipeline-base:1.10.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/imagepipeline-base-1.10.0.aar/25489d6b6e8eef91dd64b9875f9339ea/AndroidManifest.xml:2:1-9:12
-MERGED from [com.facebook.soloader:soloader:0.6.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/soloader-0.6.0.aar/f09d483677431aeed68678e9e81b9b86/AndroidManifest.xml:2:1-13:12
-MERGED from [com.google.android.gms:play-services-base-license:11.8.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-base-license-11.8.0.aar/5b77ab87cf01af57f33fb94fc79ecdc9/AndroidManifest.xml:2:1-6:12
-MERGED from [com.google.android.gms:play-services-maps-license:11.8.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-maps-license-11.8.0.aar/8075a2da47d8f1dc61b186aa38402e50/AndroidManifest.xml:2:1-6:12
-MERGED from [com.facebook.fresco:fbcore:1.10.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/fbcore-1.10.0.aar/5aeb3272f805e5bcade44da0b24f1793/AndroidManifest.xml:2:1-9:12
-MERGED from [com.google.android.gms:play-services-basement-license:11.8.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-basement-license-11.8.0.aar/a829c40c43bd569bdac37157b6895b71/AndroidManifest.xml:2:1-6:12
-MERGED from [com.google.android.gms:play-services-tasks-license:11.8.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-tasks-license-11.8.0.aar/25cc105bc0df3c95f3c703664a1cd743/AndroidManifest.xml:2:1-6:12
+MERGED from [:react-native-vector-icons] /Users/daisy/doan2018/node_modules/react-native-vector-icons/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
+MERGED from [com.facebook.react:react-native:0.59.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/react-native-0.59.1.aar/4c4e7b7c943910b1093fc6113e52f09d/AndroidManifest.xml:2:1-13:12
+MERGED from [com.android.support:appcompat-v7:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/5f5c5ceb9b026974e79e5249890ec540/AndroidManifest.xml:17:1-22:12
+MERGED from [:react-native-image-resizer] /Users/daisy/doan2018/node_modules/react-native-image-resizer/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
+MERGED from [com.google.android.gms:play-services-maps:15.0.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-maps-15.0.1.aar/641c20c22f6f675b71e13a1a4ceccdb6/AndroidManifest.xml:17:1-32:12
+MERGED from [com.google.firebase:firebase-auth:16.2.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/firebase-auth-16.2.1.aar/ead90470aeaa06f813606837e2c5e10b/AndroidManifest.xml:17:1-42:12
+MERGED from [com.google.android.gms:play-services-flags:16.0.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-flags-16.0.1.aar/eacbbb6aaf7272491502c9c2376ecc75/AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.firebase:firebase-auth-interop:16.0.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/firebase-auth-interop-16.0.1.aar/2fb7ec2e4cf4ec9e2af6506760bf4b95/AndroidManifest.xml:2:1-10:12
+MERGED from [com.google.firebase:firebase-messaging:17.6.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/firebase-messaging-17.6.0.aar/f27237bb3b13abb0853299df2b13a3d1/AndroidManifest.xml:17:1-37:12
+MERGED from [com.google.firebase:firebase-core:16.0.8] /Users/daisy/.gradle/caches/transforms-1/files-1.1/firebase-core-16.0.8.aar/a8b6807f3cb78a0cc8a5b41a7c7e30be/AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.firebase:firebase-analytics:16.4.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/firebase-analytics-16.4.0.aar/bb8d74bcfc90ee582124e607b3c18b3e/AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.android.gms:play-services-measurement-api:16.4.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-measurement-api-16.4.0.aar/28e539691c702361445d74d7624fb866/AndroidManifest.xml:17:1-36:12
+MERGED from [com.google.firebase:firebase-iid:17.1.2] /Users/daisy/.gradle/caches/transforms-1/files-1.1/firebase-iid-17.1.2.aar/2db1c4f94f1679cc9e64f25140eb4cbe/AndroidManifest.xml:17:1-59:12
+MERGED from [com.google.firebase:firebase-iid-interop:16.0.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/firebase-iid-interop-16.0.1.aar/e47fad6c2632f05ba91e0ca8c55020fa/AndroidManifest.xml:2:1-10:12
+MERGED from [com.google.android.gms:play-services-base:16.0.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-base-16.0.1.aar/8c69c08195ffff6ec7aa2978dc5a7c37/AndroidManifest.xml:17:1-29:12
+MERGED from [:react-native-firebase] /Users/daisy/doan2018/node_modules/react-native-firebase/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-15:12
+MERGED from [com.google.maps.android:android-maps-utils:0.5] /Users/daisy/.gradle/caches/transforms-1/files-1.1/android-maps-utils-0.5.aar/057298c65f2dd4fc4adb58db76afe3bd/AndroidManifest.xml:2:1-13:12
+MERGED from [com.google.firebase:firebase-common:16.1.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/firebase-common-16.1.0.aar/924f6b679e38869b53887f2cf243ab1c/AndroidManifest.xml:2:1-19:12
+MERGED from [com.google.android.gms:play-services-tasks:16.0.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-tasks-16.0.1.aar/5a24fda82d6ed1728b9ad9e8bb40d54f/AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.firebase:firebase-measurement-connector:17.0.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/firebase-measurement-connector-17.0.1.aar/7a5633f7eccece95cf0684bdebc612d2/AndroidManifest.xml:17:1-25:12
+MERGED from [com.google.android.gms:play-services-measurement:16.4.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-measurement-16.4.0.aar/10c257eff46c748d1c56fae83b4d9fb9/AndroidManifest.xml:17:1-55:12
+MERGED from [com.google.android.gms:play-services-measurement-sdk:16.4.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-measurement-sdk-16.4.0.aar/f3bec8856030ba4a10ca2deda864f6ca/AndroidManifest.xml:17:1-25:12
+MERGED from [com.google.android.gms:play-services-measurement-impl:16.4.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-measurement-impl-16.4.0.aar/5a9ae803275a291020007b767c73fe06/AndroidManifest.xml:17:1-40:12
+MERGED from [com.google.android.gms:play-services-stats:16.0.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-stats-16.0.1.aar/5ede8dc36b87fde92031391588a662f1/AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.android.gms:play-services-measurement-sdk-api:16.4.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-measurement-sdk-api-16.4.0.aar/759f66806a917eb94225b4fae287ce33/AndroidManifest.xml:17:1-30:12
+MERGED from [com.google.android.gms:play-services-measurement-base:16.4.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-measurement-base-16.4.0.aar/c71d6d65ab4628fe84f46097ab1fc2f8/AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.android.gms:play-services-ads-identifier:16.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-ads-identifier-16.0.0.aar/dcada6a1615ee43082230d18ac3fdcc6/AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.gms:play-services-basement:16.2.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-basement-16.2.0.aar/135c6966dc8f88eefe159db3f8bce0f8/AndroidManifest.xml:17:1-28:12
+MERGED from [com.android.support:support-v4:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/support-v4-28.0.0.aar/550acc4dfea193c592be4410f9287b94/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-fragment:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/support-fragment-28.0.0.aar/22c255a01755c13361ce17d166520255/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:animated-vector-drawable:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-28.0.0.aar/10d025d4451494228c844f4dfbbcb7a8/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-ui:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/support-core-ui-28.0.0.aar/506abe518c5ad1f9db3aa3e74904b32e/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-utils:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/support-core-utils-28.0.0.aar/e2f678f4f6421907862d20d97c1d1994/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-vector-drawable:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-28.0.0.aar/33d5c620b36dba1c801f9bcfca8449fd/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:loader:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/loader-28.0.0.aar/6c7ebc982b59302574526e66994dd7ce/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:viewpager:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/viewpager-28.0.0.aar/f3107f9972d5eae15cde7911ec0e5eeb/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:coordinatorlayout:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/coordinatorlayout-28.0.0.aar/01a847edea2e0b1d4c1e517c10c80593/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:drawerlayout:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/drawerlayout-28.0.0.aar/8eddf5801bbf49e4ee001edb739fa153/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:slidingpanelayout:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/slidingpanelayout-28.0.0.aar/dd782e15ceaf077843b84492a283c8cb/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:customview:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/customview-28.0.0.aar/2bcf53393e0688b106f4f3ad5eec2767/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:swiperefreshlayout:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/swiperefreshlayout-28.0.0.aar/b64b5a0a062697c8898d49f7572c2f89/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:asynclayoutinflater:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/asynclayoutinflater-28.0.0.aar/e82591d23e3875115df1b2246811bf28/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-media-compat:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/support-media-compat-28.0.0.aar/b5cefe0dceacff5240e4eb85339bc37d/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-compat:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/263519865f0b049d02593185af0cd171/AndroidManifest.xml:17:1-24:12
+MERGED from [com.android.support:versionedparcelable:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/versionedparcelable-28.0.0.aar/b5a929073017ecd46d42fdf41b8488bd/AndroidManifest.xml:17:1-25:12
+MERGED from [com.android.support:cursoradapter:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/cursoradapter-28.0.0.aar/eac13c7b3f2868251a271b897b81403d/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:runtime:1.1.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/1f5a423862d6c8d28cb0e58def681b35/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:documentfile:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/documentfile-28.0.0.aar/f4c4b2d2631d3c4e280777751d310ced/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:localbroadcastmanager:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/localbroadcastmanager-28.0.0.aar/e8155a60fd2217d6d0fa9952090482d4/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:print:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/print-28.0.0.aar/2a6668129db16e75c77430c1799522a8/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.1.aar/f749e9d6757539485a45638221e67e17/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:livedata:1.1.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/livedata-1.1.1.aar/915b9e5feb5c57f22f3c20e76aaff0a3/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.1.aar/3caeebbab61924e291f2410a4e390a4b/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.core:runtime:1.1.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/c41f6eb6bb136751fa7900b71dec181e/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:interpolator:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/interpolator-28.0.0.aar/236192a55f99dbc37b383f6a769637bd/AndroidManifest.xml:17:1-22:12
+MERGED from [com.facebook.fresco:fresco:1.10.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/fresco-1.10.0.aar/a9d79316d3a325f6e7a07553d51bfd15/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:imagepipeline-okhttp3:1.10.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/imagepipeline-okhttp3-1.10.0.aar/686c79ebf0f68244bdce8c1946fb6b87/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:drawee:1.10.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/drawee-1.10.0.aar/9b03520a240e4eddf4f5d25fa22d51ef/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:imagepipeline:1.10.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/imagepipeline-1.10.0.aar/e669c538c0fceb04b91a0d2fded8b8dd/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:imagepipeline-base:1.10.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/imagepipeline-base-1.10.0.aar/a85ceb81f76ac1f4647f8cd93410f2c1/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.soloader:soloader:0.6.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/soloader-0.6.0.aar/8b807c7ad07f0a6665ed8d7942b003d4/AndroidManifest.xml:2:1-13:12
+MERGED from [com.facebook.fresco:fbcore:1.10.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/fbcore-1.10.0.aar/e278dec8e5139af51e9cdaa62a900cb9/AndroidManifest.xml:2:1-9:12
 INJECTED from /Users/daisy/doan2018/android/app/src/debug/AndroidManifest.xml:2:1-8:12
 INJECTED from /Users/daisy/doan2018/android/app/src/debug/AndroidManifest.xml:2:1-8:12
 INJECTED from /Users/daisy/doan2018/android/app/src/debug/AndroidManifest.xml:2:1-8:12
@@ -78,12 +92,22 @@ INJECTED from /Users/daisy/doan2018/android/app/src/debug/AndroidManifest.xml:2:
 		ADDED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml:1:11-69
 uses-permission#android.permission.INTERNET
 ADDED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml:4:5-67
-MERGED from [:react-native-firebase] /Users/daisy/doan2018/node_modules/react-native-firebase/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:11:5-67
-MERGED from [:react-native-firebase] /Users/daisy/doan2018/node_modules/react-native-firebase/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:11:5-67
 MERGED from [:react-native-maps] /Users/daisy/doan2018/node_modules/react-native-maps/lib/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:9:5-67
 MERGED from [:react-native-maps] /Users/daisy/doan2018/node_modules/react-native-maps/lib/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:9:5-67
-MERGED from [com.google.android.gms:play-services-maps:11.8.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-maps-11.8.0.aar/d10072fbdfe27cd963ed5947290756e7/AndroidManifest.xml:24:5-67
-MERGED from [com.google.android.gms:play-services-maps:11.8.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-maps-11.8.0.aar/d10072fbdfe27cd963ed5947290756e7/AndroidManifest.xml:24:5-67
+MERGED from [com.google.android.gms:play-services-maps:15.0.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-maps-15.0.1.aar/641c20c22f6f675b71e13a1a4ceccdb6/AndroidManifest.xml:24:5-67
+MERGED from [com.google.android.gms:play-services-maps:15.0.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-maps-15.0.1.aar/641c20c22f6f675b71e13a1a4ceccdb6/AndroidManifest.xml:24:5-67
+MERGED from [com.google.android.gms:play-services-measurement-api:16.4.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-measurement-api-16.4.0.aar/28e539691c702361445d74d7624fb866/AndroidManifest.xml:22:5-67
+MERGED from [com.google.android.gms:play-services-measurement-api:16.4.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-measurement-api-16.4.0.aar/28e539691c702361445d74d7624fb866/AndroidManifest.xml:22:5-67
+MERGED from [com.google.firebase:firebase-iid:17.1.2] /Users/daisy/.gradle/caches/transforms-1/files-1.1/firebase-iid-17.1.2.aar/2db1c4f94f1679cc9e64f25140eb4cbe/AndroidManifest.xml:23:5-67
+MERGED from [com.google.firebase:firebase-iid:17.1.2] /Users/daisy/.gradle/caches/transforms-1/files-1.1/firebase-iid-17.1.2.aar/2db1c4f94f1679cc9e64f25140eb4cbe/AndroidManifest.xml:23:5-67
+MERGED from [:react-native-firebase] /Users/daisy/doan2018/node_modules/react-native-firebase/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:11:5-67
+MERGED from [:react-native-firebase] /Users/daisy/doan2018/node_modules/react-native-firebase/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:11:5-67
+MERGED from [com.google.android.gms:play-services-measurement:16.4.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-measurement-16.4.0.aar/10c257eff46c748d1c56fae83b4d9fb9/AndroidManifest.xml:23:5-67
+MERGED from [com.google.android.gms:play-services-measurement:16.4.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-measurement-16.4.0.aar/10c257eff46c748d1c56fae83b4d9fb9/AndroidManifest.xml:23:5-67
+MERGED from [com.google.android.gms:play-services-measurement-impl:16.4.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-measurement-impl-16.4.0.aar/5a9ae803275a291020007b767c73fe06/AndroidManifest.xml:23:5-67
+MERGED from [com.google.android.gms:play-services-measurement-impl:16.4.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-measurement-impl-16.4.0.aar/5a9ae803275a291020007b767c73fe06/AndroidManifest.xml:23:5-67
+MERGED from [com.google.android.gms:play-services-measurement-sdk-api:16.4.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-measurement-sdk-api-16.4.0.aar/759f66806a917eb94225b4fae287ce33/AndroidManifest.xml:23:5-67
+MERGED from [com.google.android.gms:play-services-measurement-sdk-api:16.4.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-measurement-sdk-api-16.4.0.aar/759f66806a917eb94225b4fae287ce33/AndroidManifest.xml:23:5-67
 	android:name
 		ADDED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml:4:22-64
 uses-permission#android.permission.CAMERA
@@ -100,34 +124,60 @@ MERGED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml:8:5-2
 MERGED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml:8:5-29:19
 MERGED from [:react-native-image-picker] /Users/daisy/doan2018/node_modules/react-native-image-picker/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:11:5-21:19
 MERGED from [:react-native-image-picker] /Users/daisy/doan2018/node_modules/react-native-image-picker/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:11:5-21:19
-MERGED from [com.facebook.react:react-native:0.59.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/react-native-0.59.1.aar/9e7532d549f6de008c60fe8fbad2a367/AndroidManifest.xml:11:5-20
-MERGED from [com.facebook.react:react-native:0.59.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/react-native-0.59.1.aar/9e7532d549f6de008c60fe8fbad2a367/AndroidManifest.xml:11:5-20
-MERGED from [com.google.android.gms:play-services-maps:11.8.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-maps-11.8.0.aar/d10072fbdfe27cd963ed5947290756e7/AndroidManifest.xml:30:5-20
-MERGED from [com.google.android.gms:play-services-maps:11.8.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-maps-11.8.0.aar/d10072fbdfe27cd963ed5947290756e7/AndroidManifest.xml:30:5-20
-MERGED from [com.google.android.gms:play-services-base:11.8.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-base-11.8.0.aar/e188c834c3f546e8f0f629773b5dda27/AndroidManifest.xml:22:5-27:19
-MERGED from [com.google.android.gms:play-services-base:11.8.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-base-11.8.0.aar/e188c834c3f546e8f0f629773b5dda27/AndroidManifest.xml:22:5-27:19
-MERGED from [com.google.android.gms:play-services-tasks:11.8.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-tasks-11.8.0.aar/cec77e1e3d2122e7a6a6fcfa78e448f0/AndroidManifest.xml:7:5-20
-MERGED from [com.google.android.gms:play-services-tasks:11.8.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-tasks-11.8.0.aar/cec77e1e3d2122e7a6a6fcfa78e448f0/AndroidManifest.xml:7:5-20
-MERGED from [com.google.android.gms:play-services-basement:11.8.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-basement-11.8.0.aar/f16ffa0f9b3730026201e36bd86d2cd3/AndroidManifest.xml:22:5-26:19
-MERGED from [com.google.android.gms:play-services-basement:11.8.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-basement-11.8.0.aar/f16ffa0f9b3730026201e36bd86d2cd3/AndroidManifest.xml:22:5-26:19
-MERGED from [com.google.maps.android:android-maps-utils:0.5] /Users/daisy/.gradle/caches/transforms-1/files-1.1/android-maps-utils-0.5.aar/85ee30087008c5d4579be5fc52be8170/AndroidManifest.xml:7:5-11:19
-MERGED from [com.google.maps.android:android-maps-utils:0.5] /Users/daisy/.gradle/caches/transforms-1/files-1.1/android-maps-utils-0.5.aar/85ee30087008c5d4579be5fc52be8170/AndroidManifest.xml:7:5-11:19
-MERGED from [com.android.support:support-compat:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/00bb65cf0dbe87ef098a28cbd630cc1e/AndroidManifest.xml:22:5-94
-MERGED from [com.android.support:support-compat:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/00bb65cf0dbe87ef098a28cbd630cc1e/AndroidManifest.xml:22:5-94
-MERGED from [com.android.support:versionedparcelable:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/versionedparcelable-28.0.0.aar/de411835670c3acaa7115460e5317af9/AndroidManifest.xml:22:5-23:19
-MERGED from [com.android.support:versionedparcelable:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/versionedparcelable-28.0.0.aar/de411835670c3acaa7115460e5317af9/AndroidManifest.xml:22:5-23:19
-MERGED from [com.facebook.soloader:soloader:0.6.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/soloader-0.6.0.aar/f09d483677431aeed68678e9e81b9b86/AndroidManifest.xml:11:5-20
-MERGED from [com.facebook.soloader:soloader:0.6.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/soloader-0.6.0.aar/f09d483677431aeed68678e9e81b9b86/AndroidManifest.xml:11:5-20
-MERGED from [com.google.android.gms:play-services-base-license:11.8.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-base-license-11.8.0.aar/5b77ab87cf01af57f33fb94fc79ecdc9/AndroidManifest.xml:5:5-20
-MERGED from [com.google.android.gms:play-services-base-license:11.8.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-base-license-11.8.0.aar/5b77ab87cf01af57f33fb94fc79ecdc9/AndroidManifest.xml:5:5-20
-MERGED from [com.google.android.gms:play-services-maps-license:11.8.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-maps-license-11.8.0.aar/8075a2da47d8f1dc61b186aa38402e50/AndroidManifest.xml:5:5-20
-MERGED from [com.google.android.gms:play-services-maps-license:11.8.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-maps-license-11.8.0.aar/8075a2da47d8f1dc61b186aa38402e50/AndroidManifest.xml:5:5-20
-MERGED from [com.google.android.gms:play-services-basement-license:11.8.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-basement-license-11.8.0.aar/a829c40c43bd569bdac37157b6895b71/AndroidManifest.xml:5:5-20
-MERGED from [com.google.android.gms:play-services-basement-license:11.8.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-basement-license-11.8.0.aar/a829c40c43bd569bdac37157b6895b71/AndroidManifest.xml:5:5-20
-MERGED from [com.google.android.gms:play-services-tasks-license:11.8.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-tasks-license-11.8.0.aar/25cc105bc0df3c95f3c703664a1cd743/AndroidManifest.xml:5:5-20
-MERGED from [com.google.android.gms:play-services-tasks-license:11.8.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-tasks-license-11.8.0.aar/25cc105bc0df3c95f3c703664a1cd743/AndroidManifest.xml:5:5-20
+MERGED from [com.facebook.react:react-native:0.59.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/react-native-0.59.1.aar/4c4e7b7c943910b1093fc6113e52f09d/AndroidManifest.xml:11:5-20
+MERGED from [com.facebook.react:react-native:0.59.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/react-native-0.59.1.aar/4c4e7b7c943910b1093fc6113e52f09d/AndroidManifest.xml:11:5-20
+MERGED from [com.google.android.gms:play-services-maps:15.0.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-maps-15.0.1.aar/641c20c22f6f675b71e13a1a4ceccdb6/AndroidManifest.xml:30:5-20
+MERGED from [com.google.android.gms:play-services-maps:15.0.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-maps-15.0.1.aar/641c20c22f6f675b71e13a1a4ceccdb6/AndroidManifest.xml:30:5-20
+MERGED from [com.google.firebase:firebase-auth:16.2.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/firebase-auth-16.2.1.aar/ead90470aeaa06f813606837e2c5e10b/AndroidManifest.xml:23:5-40:19
+MERGED from [com.google.firebase:firebase-auth:16.2.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/firebase-auth-16.2.1.aar/ead90470aeaa06f813606837e2c5e10b/AndroidManifest.xml:23:5-40:19
+MERGED from [com.google.firebase:firebase-auth-interop:16.0.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/firebase-auth-interop-16.0.1.aar/2fb7ec2e4cf4ec9e2af6506760bf4b95/AndroidManifest.xml:7:5-8:19
+MERGED from [com.google.firebase:firebase-auth-interop:16.0.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/firebase-auth-interop-16.0.1.aar/2fb7ec2e4cf4ec9e2af6506760bf4b95/AndroidManifest.xml:7:5-8:19
+MERGED from [com.google.firebase:firebase-messaging:17.6.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/firebase-messaging-17.6.0.aar/f27237bb3b13abb0853299df2b13a3d1/AndroidManifest.xml:22:5-35:19
+MERGED from [com.google.firebase:firebase-messaging:17.6.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/firebase-messaging-17.6.0.aar/f27237bb3b13abb0853299df2b13a3d1/AndroidManifest.xml:22:5-35:19
+MERGED from [com.google.firebase:firebase-core:16.0.8] /Users/daisy/.gradle/caches/transforms-1/files-1.1/firebase-core-16.0.8.aar/a8b6807f3cb78a0cc8a5b41a7c7e30be/AndroidManifest.xml:7:5-20
+MERGED from [com.google.firebase:firebase-core:16.0.8] /Users/daisy/.gradle/caches/transforms-1/files-1.1/firebase-core-16.0.8.aar/a8b6807f3cb78a0cc8a5b41a7c7e30be/AndroidManifest.xml:7:5-20
+MERGED from [com.google.firebase:firebase-analytics:16.4.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/firebase-analytics-16.4.0.aar/bb8d74bcfc90ee582124e607b3c18b3e/AndroidManifest.xml:7:5-20
+MERGED from [com.google.firebase:firebase-analytics:16.4.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/firebase-analytics-16.4.0.aar/bb8d74bcfc90ee582124e607b3c18b3e/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-measurement-api:16.4.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-measurement-api-16.4.0.aar/28e539691c702361445d74d7624fb866/AndroidManifest.xml:26:5-34:19
+MERGED from [com.google.android.gms:play-services-measurement-api:16.4.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-measurement-api-16.4.0.aar/28e539691c702361445d74d7624fb866/AndroidManifest.xml:26:5-34:19
+MERGED from [com.google.firebase:firebase-iid:17.1.2] /Users/daisy/.gradle/caches/transforms-1/files-1.1/firebase-iid-17.1.2.aar/2db1c4f94f1679cc9e64f25140eb4cbe/AndroidManifest.xml:28:5-57:19
+MERGED from [com.google.firebase:firebase-iid:17.1.2] /Users/daisy/.gradle/caches/transforms-1/files-1.1/firebase-iid-17.1.2.aar/2db1c4f94f1679cc9e64f25140eb4cbe/AndroidManifest.xml:28:5-57:19
+MERGED from [com.google.firebase:firebase-iid-interop:16.0.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/firebase-iid-interop-16.0.1.aar/e47fad6c2632f05ba91e0ca8c55020fa/AndroidManifest.xml:7:5-8:19
+MERGED from [com.google.firebase:firebase-iid-interop:16.0.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/firebase-iid-interop-16.0.1.aar/e47fad6c2632f05ba91e0ca8c55020fa/AndroidManifest.xml:7:5-8:19
+MERGED from [com.google.android.gms:play-services-base:16.0.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-base-16.0.1.aar/8c69c08195ffff6ec7aa2978dc5a7c37/AndroidManifest.xml:22:5-27:19
+MERGED from [com.google.android.gms:play-services-base:16.0.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-base-16.0.1.aar/8c69c08195ffff6ec7aa2978dc5a7c37/AndroidManifest.xml:22:5-27:19
+MERGED from [com.google.maps.android:android-maps-utils:0.5] /Users/daisy/.gradle/caches/transforms-1/files-1.1/android-maps-utils-0.5.aar/057298c65f2dd4fc4adb58db76afe3bd/AndroidManifest.xml:7:5-11:19
+MERGED from [com.google.maps.android:android-maps-utils:0.5] /Users/daisy/.gradle/caches/transforms-1/files-1.1/android-maps-utils-0.5.aar/057298c65f2dd4fc4adb58db76afe3bd/AndroidManifest.xml:7:5-11:19
+MERGED from [com.google.firebase:firebase-common:16.1.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/firebase-common-16.1.0.aar/924f6b679e38869b53887f2cf243ab1c/AndroidManifest.xml:11:5-17:19
+MERGED from [com.google.firebase:firebase-common:16.1.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/firebase-common-16.1.0.aar/924f6b679e38869b53887f2cf243ab1c/AndroidManifest.xml:11:5-17:19
+MERGED from [com.google.android.gms:play-services-tasks:16.0.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-tasks-16.0.1.aar/5a24fda82d6ed1728b9ad9e8bb40d54f/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-tasks:16.0.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-tasks-16.0.1.aar/5a24fda82d6ed1728b9ad9e8bb40d54f/AndroidManifest.xml:7:5-20
+MERGED from [com.google.firebase:firebase-measurement-connector:17.0.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/firebase-measurement-connector-17.0.1.aar/7a5633f7eccece95cf0684bdebc612d2/AndroidManifest.xml:22:5-23:19
+MERGED from [com.google.firebase:firebase-measurement-connector:17.0.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/firebase-measurement-connector-17.0.1.aar/7a5633f7eccece95cf0684bdebc612d2/AndroidManifest.xml:22:5-23:19
+MERGED from [com.google.android.gms:play-services-measurement:16.4.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-measurement-16.4.0.aar/10c257eff46c748d1c56fae83b4d9fb9/AndroidManifest.xml:28:5-53:19
+MERGED from [com.google.android.gms:play-services-measurement:16.4.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-measurement-16.4.0.aar/10c257eff46c748d1c56fae83b4d9fb9/AndroidManifest.xml:28:5-53:19
+MERGED from [com.google.android.gms:play-services-measurement-sdk:16.4.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-measurement-sdk-16.4.0.aar/f3bec8856030ba4a10ca2deda864f6ca/AndroidManifest.xml:22:5-23:19
+MERGED from [com.google.android.gms:play-services-measurement-sdk:16.4.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-measurement-sdk-16.4.0.aar/f3bec8856030ba4a10ca2deda864f6ca/AndroidManifest.xml:22:5-23:19
+MERGED from [com.google.android.gms:play-services-measurement-impl:16.4.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-measurement-impl-16.4.0.aar/5a9ae803275a291020007b767c73fe06/AndroidManifest.xml:28:5-38:19
+MERGED from [com.google.android.gms:play-services-measurement-impl:16.4.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-measurement-impl-16.4.0.aar/5a9ae803275a291020007b767c73fe06/AndroidManifest.xml:28:5-38:19
+MERGED from [com.google.android.gms:play-services-stats:16.0.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-stats-16.0.1.aar/5ede8dc36b87fde92031391588a662f1/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-stats:16.0.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-stats-16.0.1.aar/5ede8dc36b87fde92031391588a662f1/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-measurement-sdk-api:16.4.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-measurement-sdk-api-16.4.0.aar/759f66806a917eb94225b4fae287ce33/AndroidManifest.xml:27:5-28:19
+MERGED from [com.google.android.gms:play-services-measurement-sdk-api:16.4.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-measurement-sdk-api-16.4.0.aar/759f66806a917eb94225b4fae287ce33/AndroidManifest.xml:27:5-28:19
+MERGED from [com.google.android.gms:play-services-measurement-base:16.4.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-measurement-base-16.4.0.aar/c71d6d65ab4628fe84f46097ab1fc2f8/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-measurement-base:16.4.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-measurement-base-16.4.0.aar/c71d6d65ab4628fe84f46097ab1fc2f8/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-ads-identifier:16.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-ads-identifier-16.0.0.aar/dcada6a1615ee43082230d18ac3fdcc6/AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-ads-identifier:16.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-ads-identifier-16.0.0.aar/dcada6a1615ee43082230d18ac3fdcc6/AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-basement:16.2.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-basement-16.2.0.aar/135c6966dc8f88eefe159db3f8bce0f8/AndroidManifest.xml:22:5-26:19
+MERGED from [com.google.android.gms:play-services-basement:16.2.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-basement-16.2.0.aar/135c6966dc8f88eefe159db3f8bce0f8/AndroidManifest.xml:22:5-26:19
+MERGED from [com.android.support:support-compat:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/263519865f0b049d02593185af0cd171/AndroidManifest.xml:22:5-94
+MERGED from [com.android.support:support-compat:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/263519865f0b049d02593185af0cd171/AndroidManifest.xml:22:5-94
+MERGED from [com.android.support:versionedparcelable:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/versionedparcelable-28.0.0.aar/b5a929073017ecd46d42fdf41b8488bd/AndroidManifest.xml:22:5-23:19
+MERGED from [com.android.support:versionedparcelable:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/versionedparcelable-28.0.0.aar/b5a929073017ecd46d42fdf41b8488bd/AndroidManifest.xml:22:5-23:19
+MERGED from [com.facebook.soloader:soloader:0.6.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/soloader-0.6.0.aar/8b807c7ad07f0a6665ed8d7942b003d4/AndroidManifest.xml:11:5-20
+MERGED from [com.facebook.soloader:soloader:0.6.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/soloader-0.6.0.aar/8b807c7ad07f0a6665ed8d7942b003d4/AndroidManifest.xml:11:5-20
 	android:appComponentFactory
-		ADDED from [com.android.support:support-compat:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/00bb65cf0dbe87ef098a28cbd630cc1e/AndroidManifest.xml:22:18-91
+		ADDED from [com.android.support:support-compat:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/263519865f0b049d02593185af0cd171/AndroidManifest.xml:22:18-91
 	android:label
 		ADDED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml:10:7-39
 		ADDED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml:10:7-39
@@ -186,108 +236,136 @@ uses-sdk
 INJECTED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml
 INJECTED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml
-MERGED from [:react-native-vector-icons] /Users/daisy/doan2018/node_modules/react-native-vector-icons/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
-MERGED from [:react-native-vector-icons] /Users/daisy/doan2018/node_modules/react-native-vector-icons/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [:react-native-image-picker] /Users/daisy/doan2018/node_modules/react-native-image-picker/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [:react-native-image-picker] /Users/daisy/doan2018/node_modules/react-native-image-picker/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
-MERGED from [:react-native-firebase] /Users/daisy/doan2018/node_modules/react-native-firebase/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
-MERGED from [:react-native-firebase] /Users/daisy/doan2018/node_modules/react-native-firebase/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [:react-native-gesture-handler] /Users/daisy/doan2018/node_modules/react-native-gesture-handler/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [:react-native-gesture-handler] /Users/daisy/doan2018/node_modules/react-native-gesture-handler/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [:react-native-maps] /Users/daisy/doan2018/node_modules/react-native-maps/lib/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-7:41
 MERGED from [:react-native-maps] /Users/daisy/doan2018/node_modules/react-native-maps/lib/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.react:react-native:0.59.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/react-native-0.59.1.aar/9e7532d549f6de008c60fe8fbad2a367/AndroidManifest.xml:7:5-9:41
-MERGED from [com.facebook.react:react-native:0.59.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/react-native-0.59.1.aar/9e7532d549f6de008c60fe8fbad2a367/AndroidManifest.xml:7:5-9:41
-MERGED from [com.android.support:appcompat-v7:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/eebf510df22f50bead323a32e018f0a6/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:appcompat-v7:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/eebf510df22f50bead323a32e018f0a6/AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-maps:11.8.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-maps-11.8.0.aar/d10072fbdfe27cd963ed5947290756e7/AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-maps:11.8.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-maps-11.8.0.aar/d10072fbdfe27cd963ed5947290756e7/AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-base:11.8.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-base-11.8.0.aar/e188c834c3f546e8f0f629773b5dda27/AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-base:11.8.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-base-11.8.0.aar/e188c834c3f546e8f0f629773b5dda27/AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-tasks:11.8.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-tasks-11.8.0.aar/cec77e1e3d2122e7a6a6fcfa78e448f0/AndroidManifest.xml:5:5-44
-MERGED from [com.google.android.gms:play-services-tasks:11.8.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-tasks-11.8.0.aar/cec77e1e3d2122e7a6a6fcfa78e448f0/AndroidManifest.xml:5:5-44
-MERGED from [com.google.android.gms:play-services-basement:11.8.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-basement-11.8.0.aar/f16ffa0f9b3730026201e36bd86d2cd3/AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-basement:11.8.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-basement-11.8.0.aar/f16ffa0f9b3730026201e36bd86d2cd3/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-v4:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/support-v4-28.0.0.aar/d428f91973d671262c9b961ad15869bc/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-v4:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/support-v4-28.0.0.aar/d428f91973d671262c9b961ad15869bc/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:multidex:1.0.2] /Users/daisy/.gradle/caches/transforms-1/files-1.1/multidex-1.0.2.aar/595a59983669585ee971112f4c386f4c/AndroidManifest.xml:20:5-43
-MERGED from [com.android.support:multidex:1.0.2] /Users/daisy/.gradle/caches/transforms-1/files-1.1/multidex-1.0.2.aar/595a59983669585ee971112f4c386f4c/AndroidManifest.xml:20:5-43
-MERGED from [com.google.maps.android:android-maps-utils:0.5] /Users/daisy/.gradle/caches/transforms-1/files-1.1/android-maps-utils-0.5.aar/85ee30087008c5d4579be5fc52be8170/AndroidManifest.xml:5:5-43
-MERGED from [com.google.maps.android:android-maps-utils:0.5] /Users/daisy/.gradle/caches/transforms-1/files-1.1/android-maps-utils-0.5.aar/85ee30087008c5d4579be5fc52be8170/AndroidManifest.xml:5:5-43
-MERGED from [com.android.support:support-fragment:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/support-fragment-28.0.0.aar/a138bf0b62423756ccbfd1a50c7cf32c/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-fragment:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/support-fragment-28.0.0.aar/a138bf0b62423756ccbfd1a50c7cf32c/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:animated-vector-drawable:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-28.0.0.aar/670f28cb9c3a8f2f46bf2d66f99eb80b/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:animated-vector-drawable:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-28.0.0.aar/670f28cb9c3a8f2f46bf2d66f99eb80b/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-core-ui:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/support-core-ui-28.0.0.aar/e4cae4da7ceacfa961ccc9b4a1a660a0/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-core-ui:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/support-core-ui-28.0.0.aar/e4cae4da7ceacfa961ccc9b4a1a660a0/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-core-utils:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/support-core-utils-28.0.0.aar/7cae271ecde47dbd12176bd2225015c8/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-core-utils:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/support-core-utils-28.0.0.aar/7cae271ecde47dbd12176bd2225015c8/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-vector-drawable:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-28.0.0.aar/b0c450ebe98c76c0b90e060b5626a6c2/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-vector-drawable:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-28.0.0.aar/b0c450ebe98c76c0b90e060b5626a6c2/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-media-compat:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/support-media-compat-28.0.0.aar/ad958fcccf299334b6732f0e0d009590/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-media-compat:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/support-media-compat-28.0.0.aar/ad958fcccf299334b6732f0e0d009590/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:loader:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/loader-28.0.0.aar/4e19f712c3b7a8b008a273c99dc368a4/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:loader:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/loader-28.0.0.aar/4e19f712c3b7a8b008a273c99dc368a4/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:viewpager:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/viewpager-28.0.0.aar/f6780214a52c0b343792fb7c44b4ecb1/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:viewpager:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/viewpager-28.0.0.aar/f6780214a52c0b343792fb7c44b4ecb1/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:coordinatorlayout:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/coordinatorlayout-28.0.0.aar/aa4e96b69dfb7a6873206d7a489ea5f1/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:coordinatorlayout:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/coordinatorlayout-28.0.0.aar/aa4e96b69dfb7a6873206d7a489ea5f1/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:drawerlayout:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/drawerlayout-28.0.0.aar/3b080a76b64418ea96cc5ccda5c8f5e8/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:drawerlayout:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/drawerlayout-28.0.0.aar/3b080a76b64418ea96cc5ccda5c8f5e8/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:slidingpanelayout:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/slidingpanelayout-28.0.0.aar/c809e6c049b4369f4941a7902f7ca4fe/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:slidingpanelayout:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/slidingpanelayout-28.0.0.aar/c809e6c049b4369f4941a7902f7ca4fe/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:customview:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/customview-28.0.0.aar/31d820877862b3a6c3371b6e282901bd/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:customview:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/customview-28.0.0.aar/31d820877862b3a6c3371b6e282901bd/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:swiperefreshlayout:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/swiperefreshlayout-28.0.0.aar/b1cf5c3fd7d8731a1fc5e5bef383d13b/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:swiperefreshlayout:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/swiperefreshlayout-28.0.0.aar/b1cf5c3fd7d8731a1fc5e5bef383d13b/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:asynclayoutinflater:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/asynclayoutinflater-28.0.0.aar/325a9eec47d61f739831cc7c4c284df4/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:asynclayoutinflater:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/asynclayoutinflater-28.0.0.aar/325a9eec47d61f739831cc7c4c284df4/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-compat:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/00bb65cf0dbe87ef098a28cbd630cc1e/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-compat:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/00bb65cf0dbe87ef098a28cbd630cc1e/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:versionedparcelable:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/versionedparcelable-28.0.0.aar/de411835670c3acaa7115460e5317af9/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:versionedparcelable:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/versionedparcelable-28.0.0.aar/de411835670c3acaa7115460e5317af9/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:cursoradapter:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/cursoradapter-28.0.0.aar/048cde08bb8bdbe72d5de80159b4fcc1/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:cursoradapter:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/cursoradapter-28.0.0.aar/048cde08bb8bdbe72d5de80159b4fcc1/AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:runtime:1.1.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/194ba8967b418cc742db8de7fbc22f17/AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:runtime:1.1.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/194ba8967b418cc742db8de7fbc22f17/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:documentfile:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/documentfile-28.0.0.aar/18e1fd94a485f9da4f84df8468b8c293/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:documentfile:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/documentfile-28.0.0.aar/18e1fd94a485f9da4f84df8468b8c293/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:localbroadcastmanager:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/localbroadcastmanager-28.0.0.aar/eaa2402acc34bedb7cdc625aac3f27f4/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:localbroadcastmanager:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/localbroadcastmanager-28.0.0.aar/eaa2402acc34bedb7cdc625aac3f27f4/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:print:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/print-28.0.0.aar/b5cdbfbcf1533a53f0c4f5afa3dc8f90/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:print:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/print-28.0.0.aar/b5cdbfbcf1533a53f0c4f5afa3dc8f90/AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:viewmodel:1.1.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.1.aar/1b9e01d7cc1ab304b95cd196e9717edf/AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:viewmodel:1.1.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.1.aar/1b9e01d7cc1ab304b95cd196e9717edf/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:interpolator:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/interpolator-28.0.0.aar/7872616d4c695726ebf08ec00afb330d/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:interpolator:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/interpolator-28.0.0.aar/7872616d4c695726ebf08ec00afb330d/AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:livedata:1.1.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/livedata-1.1.1.aar/4de65696efa876e804b0a1d1aff78289/AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:livedata:1.1.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/livedata-1.1.1.aar/4de65696efa876e804b0a1d1aff78289/AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:livedata-core:1.1.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.1.aar/6e5d4406fd0ee11b1cb4aa9009fceacd/AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:livedata-core:1.1.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.1.aar/6e5d4406fd0ee11b1cb4aa9009fceacd/AndroidManifest.xml:20:5-44
-MERGED from [android.arch.core:runtime:1.1.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/a66d4736efe40ecf099d9e6aec1d5772/AndroidManifest.xml:20:5-44
-MERGED from [android.arch.core:runtime:1.1.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/a66d4736efe40ecf099d9e6aec1d5772/AndroidManifest.xml:20:5-44
-MERGED from [com.facebook.fresco:fresco:1.10.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/fresco-1.10.0.aar/2c510d9a8ec4b6d0e3fb742d6cd30717/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:fresco:1.10.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/fresco-1.10.0.aar/2c510d9a8ec4b6d0e3fb742d6cd30717/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:imagepipeline-okhttp3:1.10.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/imagepipeline-okhttp3-1.10.0.aar/762899de069b12c45b21778dbf090215/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:imagepipeline-okhttp3:1.10.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/imagepipeline-okhttp3-1.10.0.aar/762899de069b12c45b21778dbf090215/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:drawee:1.10.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/drawee-1.10.0.aar/969f81f1c1ca146065a6d1069236d372/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:drawee:1.10.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/drawee-1.10.0.aar/969f81f1c1ca146065a6d1069236d372/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:imagepipeline:1.10.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/imagepipeline-1.10.0.aar/df0ade1d42da0454e1065555931ec1f8/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:imagepipeline:1.10.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/imagepipeline-1.10.0.aar/df0ade1d42da0454e1065555931ec1f8/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:imagepipeline-base:1.10.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/imagepipeline-base-1.10.0.aar/25489d6b6e8eef91dd64b9875f9339ea/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:imagepipeline-base:1.10.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/imagepipeline-base-1.10.0.aar/25489d6b6e8eef91dd64b9875f9339ea/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.soloader:soloader:0.6.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/soloader-0.6.0.aar/f09d483677431aeed68678e9e81b9b86/AndroidManifest.xml:7:5-9:41
-MERGED from [com.facebook.soloader:soloader:0.6.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/soloader-0.6.0.aar/f09d483677431aeed68678e9e81b9b86/AndroidManifest.xml:7:5-9:41
-MERGED from [com.google.android.gms:play-services-base-license:11.8.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-base-license-11.8.0.aar/5b77ab87cf01af57f33fb94fc79ecdc9/AndroidManifest.xml:4:5-43
-MERGED from [com.google.android.gms:play-services-base-license:11.8.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-base-license-11.8.0.aar/5b77ab87cf01af57f33fb94fc79ecdc9/AndroidManifest.xml:4:5-43
-MERGED from [com.google.android.gms:play-services-maps-license:11.8.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-maps-license-11.8.0.aar/8075a2da47d8f1dc61b186aa38402e50/AndroidManifest.xml:4:5-43
-MERGED from [com.google.android.gms:play-services-maps-license:11.8.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-maps-license-11.8.0.aar/8075a2da47d8f1dc61b186aa38402e50/AndroidManifest.xml:4:5-43
-MERGED from [com.facebook.fresco:fbcore:1.10.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/fbcore-1.10.0.aar/5aeb3272f805e5bcade44da0b24f1793/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:fbcore:1.10.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/fbcore-1.10.0.aar/5aeb3272f805e5bcade44da0b24f1793/AndroidManifest.xml:5:5-7:41
-MERGED from [com.google.android.gms:play-services-basement-license:11.8.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-basement-license-11.8.0.aar/a829c40c43bd569bdac37157b6895b71/AndroidManifest.xml:4:5-43
-MERGED from [com.google.android.gms:play-services-basement-license:11.8.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-basement-license-11.8.0.aar/a829c40c43bd569bdac37157b6895b71/AndroidManifest.xml:4:5-43
-MERGED from [com.google.android.gms:play-services-tasks-license:11.8.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-tasks-license-11.8.0.aar/25cc105bc0df3c95f3c703664a1cd743/AndroidManifest.xml:4:5-43
-MERGED from [com.google.android.gms:play-services-tasks-license:11.8.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-tasks-license-11.8.0.aar/25cc105bc0df3c95f3c703664a1cd743/AndroidManifest.xml:4:5-43
+MERGED from [:react-native-vector-icons] /Users/daisy/doan2018/node_modules/react-native-vector-icons/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-vector-icons] /Users/daisy/doan2018/node_modules/react-native-vector-icons/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.react:react-native:0.59.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/react-native-0.59.1.aar/4c4e7b7c943910b1093fc6113e52f09d/AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.react:react-native:0.59.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/react-native-0.59.1.aar/4c4e7b7c943910b1093fc6113e52f09d/AndroidManifest.xml:7:5-9:41
+MERGED from [com.android.support:appcompat-v7:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/5f5c5ceb9b026974e79e5249890ec540/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/5f5c5ceb9b026974e79e5249890ec540/AndroidManifest.xml:20:5-44
+MERGED from [:react-native-image-resizer] /Users/daisy/doan2018/node_modules/react-native-image-resizer/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-image-resizer] /Users/daisy/doan2018/node_modules/react-native-image-resizer/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [com.google.android.gms:play-services-maps:15.0.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-maps-15.0.1.aar/641c20c22f6f675b71e13a1a4ceccdb6/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-maps:15.0.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-maps-15.0.1.aar/641c20c22f6f675b71e13a1a4ceccdb6/AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-auth:16.2.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/firebase-auth-16.2.1.aar/ead90470aeaa06f813606837e2c5e10b/AndroidManifest.xml:21:5-44
+MERGED from [com.google.firebase:firebase-auth:16.2.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/firebase-auth-16.2.1.aar/ead90470aeaa06f813606837e2c5e10b/AndroidManifest.xml:21:5-44
+MERGED from [com.google.android.gms:play-services-flags:16.0.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-flags-16.0.1.aar/eacbbb6aaf7272491502c9c2376ecc75/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-flags:16.0.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-flags-16.0.1.aar/eacbbb6aaf7272491502c9c2376ecc75/AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-auth-interop:16.0.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/firebase-auth-interop-16.0.1.aar/2fb7ec2e4cf4ec9e2af6506760bf4b95/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-auth-interop:16.0.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/firebase-auth-interop-16.0.1.aar/2fb7ec2e4cf4ec9e2af6506760bf4b95/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-messaging:17.6.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/firebase-messaging-17.6.0.aar/f27237bb3b13abb0853299df2b13a3d1/AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-messaging:17.6.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/firebase-messaging-17.6.0.aar/f27237bb3b13abb0853299df2b13a3d1/AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-core:16.0.8] /Users/daisy/.gradle/caches/transforms-1/files-1.1/firebase-core-16.0.8.aar/a8b6807f3cb78a0cc8a5b41a7c7e30be/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-core:16.0.8] /Users/daisy/.gradle/caches/transforms-1/files-1.1/firebase-core-16.0.8.aar/a8b6807f3cb78a0cc8a5b41a7c7e30be/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-analytics:16.4.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/firebase-analytics-16.4.0.aar/bb8d74bcfc90ee582124e607b3c18b3e/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-analytics:16.4.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/firebase-analytics-16.4.0.aar/bb8d74bcfc90ee582124e607b3c18b3e/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-measurement-api:16.4.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-measurement-api-16.4.0.aar/28e539691c702361445d74d7624fb866/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-measurement-api:16.4.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-measurement-api-16.4.0.aar/28e539691c702361445d74d7624fb866/AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-iid:17.1.2] /Users/daisy/.gradle/caches/transforms-1/files-1.1/firebase-iid-17.1.2.aar/2db1c4f94f1679cc9e64f25140eb4cbe/AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-iid:17.1.2] /Users/daisy/.gradle/caches/transforms-1/files-1.1/firebase-iid-17.1.2.aar/2db1c4f94f1679cc9e64f25140eb4cbe/AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-iid-interop:16.0.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/firebase-iid-interop-16.0.1.aar/e47fad6c2632f05ba91e0ca8c55020fa/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-iid-interop:16.0.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/firebase-iid-interop-16.0.1.aar/e47fad6c2632f05ba91e0ca8c55020fa/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-base:16.0.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-base-16.0.1.aar/8c69c08195ffff6ec7aa2978dc5a7c37/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-base:16.0.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-base-16.0.1.aar/8c69c08195ffff6ec7aa2978dc5a7c37/AndroidManifest.xml:20:5-44
+MERGED from [:react-native-firebase] /Users/daisy/doan2018/node_modules/react-native-firebase/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-firebase] /Users/daisy/doan2018/node_modules/react-native-firebase/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [com.google.maps.android:android-maps-utils:0.5] /Users/daisy/.gradle/caches/transforms-1/files-1.1/android-maps-utils-0.5.aar/057298c65f2dd4fc4adb58db76afe3bd/AndroidManifest.xml:5:5-43
+MERGED from [com.google.maps.android:android-maps-utils:0.5] /Users/daisy/.gradle/caches/transforms-1/files-1.1/android-maps-utils-0.5.aar/057298c65f2dd4fc4adb58db76afe3bd/AndroidManifest.xml:5:5-43
+MERGED from [com.google.firebase:firebase-common:16.1.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/firebase-common-16.1.0.aar/924f6b679e38869b53887f2cf243ab1c/AndroidManifest.xml:6:5-8:41
+MERGED from [com.google.firebase:firebase-common:16.1.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/firebase-common-16.1.0.aar/924f6b679e38869b53887f2cf243ab1c/AndroidManifest.xml:6:5-8:41
+MERGED from [com.google.android.gms:play-services-tasks:16.0.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-tasks-16.0.1.aar/5a24fda82d6ed1728b9ad9e8bb40d54f/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-tasks:16.0.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-tasks-16.0.1.aar/5a24fda82d6ed1728b9ad9e8bb40d54f/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-measurement-connector:17.0.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/firebase-measurement-connector-17.0.1.aar/7a5633f7eccece95cf0684bdebc612d2/AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-measurement-connector:17.0.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/firebase-measurement-connector-17.0.1.aar/7a5633f7eccece95cf0684bdebc612d2/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-measurement:16.4.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-measurement-16.4.0.aar/10c257eff46c748d1c56fae83b4d9fb9/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-measurement:16.4.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-measurement-16.4.0.aar/10c257eff46c748d1c56fae83b4d9fb9/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-measurement-sdk:16.4.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-measurement-sdk-16.4.0.aar/f3bec8856030ba4a10ca2deda864f6ca/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-measurement-sdk:16.4.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-measurement-sdk-16.4.0.aar/f3bec8856030ba4a10ca2deda864f6ca/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-measurement-impl:16.4.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-measurement-impl-16.4.0.aar/5a9ae803275a291020007b767c73fe06/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-measurement-impl:16.4.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-measurement-impl-16.4.0.aar/5a9ae803275a291020007b767c73fe06/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-stats:16.0.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-stats-16.0.1.aar/5ede8dc36b87fde92031391588a662f1/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-stats:16.0.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-stats-16.0.1.aar/5ede8dc36b87fde92031391588a662f1/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-measurement-sdk-api:16.4.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-measurement-sdk-api-16.4.0.aar/759f66806a917eb94225b4fae287ce33/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-measurement-sdk-api:16.4.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-measurement-sdk-api-16.4.0.aar/759f66806a917eb94225b4fae287ce33/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-measurement-base:16.4.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-measurement-base-16.4.0.aar/c71d6d65ab4628fe84f46097ab1fc2f8/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-measurement-base:16.4.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-measurement-base-16.4.0.aar/c71d6d65ab4628fe84f46097ab1fc2f8/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-ads-identifier:16.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-ads-identifier-16.0.0.aar/dcada6a1615ee43082230d18ac3fdcc6/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-ads-identifier:16.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-ads-identifier-16.0.0.aar/dcada6a1615ee43082230d18ac3fdcc6/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-basement:16.2.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-basement-16.2.0.aar/135c6966dc8f88eefe159db3f8bce0f8/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-basement:16.2.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-basement-16.2.0.aar/135c6966dc8f88eefe159db3f8bce0f8/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v4:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/support-v4-28.0.0.aar/550acc4dfea193c592be4410f9287b94/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v4:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/support-v4-28.0.0.aar/550acc4dfea193c592be4410f9287b94/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/support-fragment-28.0.0.aar/22c255a01755c13361ce17d166520255/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/support-fragment-28.0.0.aar/22c255a01755c13361ce17d166520255/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-28.0.0.aar/10d025d4451494228c844f4dfbbcb7a8/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-28.0.0.aar/10d025d4451494228c844f4dfbbcb7a8/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/support-core-ui-28.0.0.aar/506abe518c5ad1f9db3aa3e74904b32e/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/support-core-ui-28.0.0.aar/506abe518c5ad1f9db3aa3e74904b32e/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/support-core-utils-28.0.0.aar/e2f678f4f6421907862d20d97c1d1994/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/support-core-utils-28.0.0.aar/e2f678f4f6421907862d20d97c1d1994/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-28.0.0.aar/33d5c620b36dba1c801f9bcfca8449fd/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-28.0.0.aar/33d5c620b36dba1c801f9bcfca8449fd/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:loader:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/loader-28.0.0.aar/6c7ebc982b59302574526e66994dd7ce/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:loader:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/loader-28.0.0.aar/6c7ebc982b59302574526e66994dd7ce/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:viewpager:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/viewpager-28.0.0.aar/f3107f9972d5eae15cde7911ec0e5eeb/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:viewpager:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/viewpager-28.0.0.aar/f3107f9972d5eae15cde7911ec0e5eeb/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:coordinatorlayout:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/coordinatorlayout-28.0.0.aar/01a847edea2e0b1d4c1e517c10c80593/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:coordinatorlayout:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/coordinatorlayout-28.0.0.aar/01a847edea2e0b1d4c1e517c10c80593/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:drawerlayout:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/drawerlayout-28.0.0.aar/8eddf5801bbf49e4ee001edb739fa153/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:drawerlayout:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/drawerlayout-28.0.0.aar/8eddf5801bbf49e4ee001edb739fa153/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:slidingpanelayout:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/slidingpanelayout-28.0.0.aar/dd782e15ceaf077843b84492a283c8cb/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:slidingpanelayout:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/slidingpanelayout-28.0.0.aar/dd782e15ceaf077843b84492a283c8cb/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:customview:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/customview-28.0.0.aar/2bcf53393e0688b106f4f3ad5eec2767/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:customview:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/customview-28.0.0.aar/2bcf53393e0688b106f4f3ad5eec2767/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:swiperefreshlayout:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/swiperefreshlayout-28.0.0.aar/b64b5a0a062697c8898d49f7572c2f89/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:swiperefreshlayout:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/swiperefreshlayout-28.0.0.aar/b64b5a0a062697c8898d49f7572c2f89/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:asynclayoutinflater:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/asynclayoutinflater-28.0.0.aar/e82591d23e3875115df1b2246811bf28/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:asynclayoutinflater:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/asynclayoutinflater-28.0.0.aar/e82591d23e3875115df1b2246811bf28/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/support-media-compat-28.0.0.aar/b5cefe0dceacff5240e4eb85339bc37d/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/support-media-compat-28.0.0.aar/b5cefe0dceacff5240e4eb85339bc37d/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/263519865f0b049d02593185af0cd171/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/263519865f0b049d02593185af0cd171/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:versionedparcelable:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/versionedparcelable-28.0.0.aar/b5a929073017ecd46d42fdf41b8488bd/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:versionedparcelable:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/versionedparcelable-28.0.0.aar/b5a929073017ecd46d42fdf41b8488bd/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cursoradapter:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/cursoradapter-28.0.0.aar/eac13c7b3f2868251a271b897b81403d/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cursoradapter:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/cursoradapter-28.0.0.aar/eac13c7b3f2868251a271b897b81403d/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/1f5a423862d6c8d28cb0e58def681b35/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/1f5a423862d6c8d28cb0e58def681b35/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:documentfile:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/documentfile-28.0.0.aar/f4c4b2d2631d3c4e280777751d310ced/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:documentfile:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/documentfile-28.0.0.aar/f4c4b2d2631d3c4e280777751d310ced/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:localbroadcastmanager:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/localbroadcastmanager-28.0.0.aar/e8155a60fd2217d6d0fa9952090482d4/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:localbroadcastmanager:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/localbroadcastmanager-28.0.0.aar/e8155a60fd2217d6d0fa9952090482d4/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:print:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/print-28.0.0.aar/2a6668129db16e75c77430c1799522a8/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:print:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/print-28.0.0.aar/2a6668129db16e75c77430c1799522a8/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.1.aar/f749e9d6757539485a45638221e67e17/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.1.aar/f749e9d6757539485a45638221e67e17/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata:1.1.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/livedata-1.1.1.aar/915b9e5feb5c57f22f3c20e76aaff0a3/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata:1.1.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/livedata-1.1.1.aar/915b9e5feb5c57f22f3c20e76aaff0a3/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.1.aar/3caeebbab61924e291f2410a4e390a4b/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.1.aar/3caeebbab61924e291f2410a4e390a4b/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/c41f6eb6bb136751fa7900b71dec181e/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/c41f6eb6bb136751fa7900b71dec181e/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:interpolator:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/interpolator-28.0.0.aar/236192a55f99dbc37b383f6a769637bd/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:interpolator:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/interpolator-28.0.0.aar/236192a55f99dbc37b383f6a769637bd/AndroidManifest.xml:20:5-44
+MERGED from [com.facebook.fresco:fresco:1.10.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/fresco-1.10.0.aar/a9d79316d3a325f6e7a07553d51bfd15/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:fresco:1.10.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/fresco-1.10.0.aar/a9d79316d3a325f6e7a07553d51bfd15/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-okhttp3:1.10.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/imagepipeline-okhttp3-1.10.0.aar/686c79ebf0f68244bdce8c1946fb6b87/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-okhttp3:1.10.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/imagepipeline-okhttp3-1.10.0.aar/686c79ebf0f68244bdce8c1946fb6b87/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:drawee:1.10.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/drawee-1.10.0.aar/9b03520a240e4eddf4f5d25fa22d51ef/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:drawee:1.10.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/drawee-1.10.0.aar/9b03520a240e4eddf4f5d25fa22d51ef/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline:1.10.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/imagepipeline-1.10.0.aar/e669c538c0fceb04b91a0d2fded8b8dd/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline:1.10.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/imagepipeline-1.10.0.aar/e669c538c0fceb04b91a0d2fded8b8dd/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-base:1.10.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/imagepipeline-base-1.10.0.aar/a85ceb81f76ac1f4647f8cd93410f2c1/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-base:1.10.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/imagepipeline-base-1.10.0.aar/a85ceb81f76ac1f4647f8cd93410f2c1/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.soloader:soloader:0.6.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/soloader-0.6.0.aar/8b807c7ad07f0a6665ed8d7942b003d4/AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.soloader:soloader:0.6.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/soloader-0.6.0.aar/8b807c7ad07f0a6665ed8d7942b003d4/AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.fresco:fbcore:1.10.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/fbcore-1.10.0.aar/e278dec8e5139af51e9cdaa62a900cb9/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:fbcore:1.10.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/fbcore-1.10.0.aar/e278dec8e5139af51e9cdaa62a900cb9/AndroidManifest.xml:5:5-7:41
 INJECTED from /Users/daisy/doan2018/android/app/src/debug/AndroidManifest.xml
 INJECTED from /Users/daisy/doan2018/android/app/src/debug/AndroidManifest.xml
 	android:targetSdkVersion
@@ -316,39 +394,209 @@ ADDED from [:react-native-image-picker] /Users/daisy/doan2018/node_modules/react
 		ADDED from [:react-native-image-picker] /Users/daisy/doan2018/node_modules/react-native-image-picker/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:19:17-55
 	android:name
 		ADDED from [:react-native-image-picker] /Users/daisy/doan2018/node_modules/react-native-image-picker/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:18:17-67
-uses-permission#android.permission.WAKE_LOCK
-ADDED from [:react-native-firebase] /Users/daisy/doan2018/node_modules/react-native-firebase/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:12:5-68
-	android:name
-		ADDED from [:react-native-firebase] /Users/daisy/doan2018/node_modules/react-native-firebase/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:12:22-65
-uses-permission#android.permission.ACCESS_NETWORK_STATE
-ADDED from [:react-native-firebase] /Users/daisy/doan2018/node_modules/react-native-firebase/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:13:5-79
-MERGED from [com.google.android.gms:play-services-maps:11.8.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-maps-11.8.0.aar/d10072fbdfe27cd963ed5947290756e7/AndroidManifest.xml:23:5-79
-MERGED from [com.google.android.gms:play-services-maps:11.8.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-maps-11.8.0.aar/d10072fbdfe27cd963ed5947290756e7/AndroidManifest.xml:23:5-79
-	android:name
-		ADDED from [:react-native-firebase] /Users/daisy/doan2018/node_modules/react-native-firebase/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:13:22-76
 uses-permission#android.permission.ACCESS_COARSE_LOCATION
 ADDED from [:react-native-maps] /Users/daisy/doan2018/node_modules/react-native-maps/lib/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:10:5-81
 	android:name
 		ADDED from [:react-native-maps] /Users/daisy/doan2018/node_modules/react-native-maps/lib/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:10:22-78
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from [com.google.android.gms:play-services-maps:15.0.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-maps-15.0.1.aar/641c20c22f6f675b71e13a1a4ceccdb6/AndroidManifest.xml:23:5-79
+MERGED from [com.google.android.gms:play-services-measurement-api:16.4.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-measurement-api-16.4.0.aar/28e539691c702361445d74d7624fb866/AndroidManifest.xml:23:5-79
+MERGED from [com.google.android.gms:play-services-measurement-api:16.4.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-measurement-api-16.4.0.aar/28e539691c702361445d74d7624fb866/AndroidManifest.xml:23:5-79
+MERGED from [com.google.firebase:firebase-iid:17.1.2] /Users/daisy/.gradle/caches/transforms-1/files-1.1/firebase-iid-17.1.2.aar/2db1c4f94f1679cc9e64f25140eb4cbe/AndroidManifest.xml:22:5-79
+MERGED from [com.google.firebase:firebase-iid:17.1.2] /Users/daisy/.gradle/caches/transforms-1/files-1.1/firebase-iid-17.1.2.aar/2db1c4f94f1679cc9e64f25140eb4cbe/AndroidManifest.xml:22:5-79
+MERGED from [:react-native-firebase] /Users/daisy/doan2018/node_modules/react-native-firebase/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:13:5-79
+MERGED from [:react-native-firebase] /Users/daisy/doan2018/node_modules/react-native-firebase/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:13:5-79
+MERGED from [com.google.android.gms:play-services-measurement:16.4.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-measurement-16.4.0.aar/10c257eff46c748d1c56fae83b4d9fb9/AndroidManifest.xml:24:5-79
+MERGED from [com.google.android.gms:play-services-measurement:16.4.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-measurement-16.4.0.aar/10c257eff46c748d1c56fae83b4d9fb9/AndroidManifest.xml:24:5-79
+MERGED from [com.google.android.gms:play-services-measurement-impl:16.4.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-measurement-impl-16.4.0.aar/5a9ae803275a291020007b767c73fe06/AndroidManifest.xml:24:5-79
+MERGED from [com.google.android.gms:play-services-measurement-impl:16.4.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-measurement-impl-16.4.0.aar/5a9ae803275a291020007b767c73fe06/AndroidManifest.xml:24:5-79
+MERGED from [com.google.android.gms:play-services-measurement-sdk-api:16.4.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-measurement-sdk-api-16.4.0.aar/759f66806a917eb94225b4fae287ce33/AndroidManifest.xml:24:5-79
+MERGED from [com.google.android.gms:play-services-measurement-sdk-api:16.4.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-measurement-sdk-api-16.4.0.aar/759f66806a917eb94225b4fae287ce33/AndroidManifest.xml:24:5-79
+	android:name
+		ADDED from [com.google.android.gms:play-services-maps:15.0.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-maps-15.0.1.aar/641c20c22f6f675b71e13a1a4ceccdb6/AndroidManifest.xml:23:22-76
 uses-feature#0x00020000
-ADDED from [com.google.android.gms:play-services-maps:11.8.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-maps-11.8.0.aar/d10072fbdfe27cd963ed5947290756e7/AndroidManifest.xml:26:5-28:35
+ADDED from [com.google.android.gms:play-services-maps:15.0.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-maps-15.0.1.aar/641c20c22f6f675b71e13a1a4ceccdb6/AndroidManifest.xml:26:5-28:35
 	android:glEsVersion
-		ADDED from [com.google.android.gms:play-services-maps:11.8.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-maps-11.8.0.aar/d10072fbdfe27cd963ed5947290756e7/AndroidManifest.xml:27:9-41
+		ADDED from [com.google.android.gms:play-services-maps:15.0.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-maps-15.0.1.aar/641c20c22f6f675b71e13a1a4ceccdb6/AndroidManifest.xml:27:9-41
 	android:required
-		ADDED from [com.google.android.gms:play-services-maps:11.8.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-maps-11.8.0.aar/d10072fbdfe27cd963ed5947290756e7/AndroidManifest.xml:28:9-32
-activity#com.google.android.gms.common.api.GoogleApiActivity
-ADDED from [com.google.android.gms:play-services-base:11.8.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-base-11.8.0.aar/e188c834c3f546e8f0f629773b5dda27/AndroidManifest.xml:23:9-26:75
+		ADDED from [com.google.android.gms:play-services-maps:15.0.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-maps-15.0.1.aar/641c20c22f6f675b71e13a1a4ceccdb6/AndroidManifest.xml:28:9-32
+activity#com.google.firebase.auth.internal.FederatedSignInActivity
+ADDED from [com.google.firebase:firebase-auth:16.2.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/firebase-auth-16.2.1.aar/ead90470aeaa06f813606837e2c5e10b/AndroidManifest.xml:24:9-31:50
+	android:excludeFromRecents
+		ADDED from [com.google.firebase:firebase-auth:16.2.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/firebase-auth-16.2.1.aar/ead90470aeaa06f813606837e2c5e10b/AndroidManifest.xml:26:13-46
+	android:launchMode
+		ADDED from [com.google.firebase:firebase-auth:16.2.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/firebase-auth-16.2.1.aar/ead90470aeaa06f813606837e2c5e10b/AndroidManifest.xml:28:13-44
 	android:exported
-		ADDED from [com.google.android.gms:play-services-base:11.8.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-base-11.8.0.aar/e188c834c3f546e8f0f629773b5dda27/AndroidManifest.xml:25:13-37
+		ADDED from [com.google.firebase:firebase-auth:16.2.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/firebase-auth-16.2.1.aar/ead90470aeaa06f813606837e2c5e10b/AndroidManifest.xml:27:13-36
+	android:permission
+		ADDED from [com.google.firebase:firebase-auth:16.2.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/firebase-auth-16.2.1.aar/ead90470aeaa06f813606837e2c5e10b/AndroidManifest.xml:29:13-102
 	android:theme
-		ADDED from [com.google.android.gms:play-services-base:11.8.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-base-11.8.0.aar/e188c834c3f546e8f0f629773b5dda27/AndroidManifest.xml:26:13-72
+		ADDED from [com.google.firebase:firebase-auth:16.2.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/firebase-auth-16.2.1.aar/ead90470aeaa06f813606837e2c5e10b/AndroidManifest.xml:30:13-72
+	tools:replace
+		ADDED from [com.google.firebase:firebase-auth:16.2.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/firebase-auth-16.2.1.aar/ead90470aeaa06f813606837e2c5e10b/AndroidManifest.xml:31:13-47
 	android:name
-		ADDED from [com.google.android.gms:play-services-base:11.8.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-base-11.8.0.aar/e188c834c3f546e8f0f629773b5dda27/AndroidManifest.xml:24:13-79
-meta-data#com.google.android.gms.version
-ADDED from [com.google.android.gms:play-services-basement:11.8.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-basement-11.8.0.aar/f16ffa0f9b3730026201e36bd86d2cd3/AndroidManifest.xml:23:9-25:69
-MERGED from [com.google.maps.android:android-maps-utils:0.5] /Users/daisy/.gradle/caches/transforms-1/files-1.1/android-maps-utils-0.5.aar/85ee30087008c5d4579be5fc52be8170/AndroidManifest.xml:8:9-10:69
-MERGED from [com.google.maps.android:android-maps-utils:0.5] /Users/daisy/.gradle/caches/transforms-1/files-1.1/android-maps-utils-0.5.aar/85ee30087008c5d4579be5fc52be8170/AndroidManifest.xml:8:9-10:69
+		ADDED from [com.google.firebase:firebase-auth:16.2.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/firebase-auth-16.2.1.aar/ead90470aeaa06f813606837e2c5e10b/AndroidManifest.xml:25:13-85
+service#com.google.firebase.components.ComponentDiscoveryService
+ADDED from [com.google.firebase:firebase-auth:16.2.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/firebase-auth-16.2.1.aar/ead90470aeaa06f813606837e2c5e10b/AndroidManifest.xml:33:9-39:19
+MERGED from [com.google.android.gms:play-services-measurement-api:16.4.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-measurement-api-16.4.0.aar/28e539691c702361445d74d7624fb866/AndroidManifest.xml:27:9-33:19
+MERGED from [com.google.android.gms:play-services-measurement-api:16.4.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-measurement-api-16.4.0.aar/28e539691c702361445d74d7624fb866/AndroidManifest.xml:27:9-33:19
+MERGED from [com.google.firebase:firebase-iid:17.1.2] /Users/daisy/.gradle/caches/transforms-1/files-1.1/firebase-iid-17.1.2.aar/2db1c4f94f1679cc9e64f25140eb4cbe/AndroidManifest.xml:29:9-35:19
+MERGED from [com.google.firebase:firebase-iid:17.1.2] /Users/daisy/.gradle/caches/transforms-1/files-1.1/firebase-iid-17.1.2.aar/2db1c4f94f1679cc9e64f25140eb4cbe/AndroidManifest.xml:29:9-35:19
+	android:exported
+		ADDED from [com.google.firebase:firebase-auth:16.2.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/firebase-auth-16.2.1.aar/ead90470aeaa06f813606837e2c5e10b/AndroidManifest.xml:35:13-37
+	android:name
+		ADDED from [com.google.firebase:firebase-auth:16.2.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/firebase-auth-16.2.1.aar/ead90470aeaa06f813606837e2c5e10b/AndroidManifest.xml:34:13-84
+meta-data#com.google.firebase.components:com.google.firebase.auth.FirebaseAuthRegistrar
+ADDED from [com.google.firebase:firebase-auth:16.2.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/firebase-auth-16.2.1.aar/ead90470aeaa06f813606837e2c5e10b/AndroidManifest.xml:36:13-38:85
 	android:value
-		ADDED from [com.google.android.gms:play-services-basement:11.8.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-basement-11.8.0.aar/f16ffa0f9b3730026201e36bd86d2cd3/AndroidManifest.xml:25:13-66
+		ADDED from [com.google.firebase:firebase-auth:16.2.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/firebase-auth-16.2.1.aar/ead90470aeaa06f813606837e2c5e10b/AndroidManifest.xml:38:17-82
 	android:name
-		ADDED from [com.google.android.gms:play-services-basement:11.8.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-basement-11.8.0.aar/f16ffa0f9b3730026201e36bd86d2cd3/AndroidManifest.xml:24:13-58
+		ADDED from [com.google.firebase:firebase-auth:16.2.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/firebase-auth-16.2.1.aar/ead90470aeaa06f813606837e2c5e10b/AndroidManifest.xml:37:17-109
+service#com.google.firebase.messaging.FirebaseMessagingService
+ADDED from [com.google.firebase:firebase-messaging:17.6.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/firebase-messaging-17.6.0.aar/f27237bb3b13abb0853299df2b13a3d1/AndroidManifest.xml:28:9-34:19
+	android:exported
+		ADDED from [com.google.firebase:firebase-messaging:17.6.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/firebase-messaging-17.6.0.aar/f27237bb3b13abb0853299df2b13a3d1/AndroidManifest.xml:30:13-37
+	android:name
+		ADDED from [com.google.firebase:firebase-messaging:17.6.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/firebase-messaging-17.6.0.aar/f27237bb3b13abb0853299df2b13a3d1/AndroidManifest.xml:29:13-82
+intent-filter#action:name:com.google.firebase.MESSAGING_EVENT
+ADDED from [com.google.firebase:firebase-messaging:17.6.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/firebase-messaging-17.6.0.aar/f27237bb3b13abb0853299df2b13a3d1/AndroidManifest.xml:31:13-33:29
+	android:priority
+		ADDED from [com.google.firebase:firebase-messaging:17.6.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/firebase-messaging-17.6.0.aar/f27237bb3b13abb0853299df2b13a3d1/AndroidManifest.xml:31:28-51
+action#com.google.firebase.MESSAGING_EVENT
+ADDED from [com.google.firebase:firebase-messaging:17.6.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/firebase-messaging-17.6.0.aar/f27237bb3b13abb0853299df2b13a3d1/AndroidManifest.xml:32:17-78
+	android:name
+		ADDED from [com.google.firebase:firebase-messaging:17.6.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/firebase-messaging-17.6.0.aar/f27237bb3b13abb0853299df2b13a3d1/AndroidManifest.xml:32:25-75
+uses-permission#android.permission.WAKE_LOCK
+ADDED from [com.google.android.gms:play-services-measurement-api:16.4.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-measurement-api-16.4.0.aar/28e539691c702361445d74d7624fb866/AndroidManifest.xml:24:5-68
+MERGED from [com.google.firebase:firebase-iid:17.1.2] /Users/daisy/.gradle/caches/transforms-1/files-1.1/firebase-iid-17.1.2.aar/2db1c4f94f1679cc9e64f25140eb4cbe/AndroidManifest.xml:24:5-68
+MERGED from [com.google.firebase:firebase-iid:17.1.2] /Users/daisy/.gradle/caches/transforms-1/files-1.1/firebase-iid-17.1.2.aar/2db1c4f94f1679cc9e64f25140eb4cbe/AndroidManifest.xml:24:5-68
+MERGED from [:react-native-firebase] /Users/daisy/doan2018/node_modules/react-native-firebase/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:12:5-68
+MERGED from [:react-native-firebase] /Users/daisy/doan2018/node_modules/react-native-firebase/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:12:5-68
+MERGED from [com.google.android.gms:play-services-measurement:16.4.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-measurement-16.4.0.aar/10c257eff46c748d1c56fae83b4d9fb9/AndroidManifest.xml:25:5-68
+MERGED from [com.google.android.gms:play-services-measurement:16.4.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-measurement-16.4.0.aar/10c257eff46c748d1c56fae83b4d9fb9/AndroidManifest.xml:25:5-68
+MERGED from [com.google.android.gms:play-services-measurement-impl:16.4.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-measurement-impl-16.4.0.aar/5a9ae803275a291020007b767c73fe06/AndroidManifest.xml:25:5-68
+MERGED from [com.google.android.gms:play-services-measurement-impl:16.4.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-measurement-impl-16.4.0.aar/5a9ae803275a291020007b767c73fe06/AndroidManifest.xml:25:5-68
+MERGED from [com.google.android.gms:play-services-measurement-sdk-api:16.4.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-measurement-sdk-api-16.4.0.aar/759f66806a917eb94225b4fae287ce33/AndroidManifest.xml:25:5-68
+MERGED from [com.google.android.gms:play-services-measurement-sdk-api:16.4.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-measurement-sdk-api-16.4.0.aar/759f66806a917eb94225b4fae287ce33/AndroidManifest.xml:25:5-68
+	android:name
+		ADDED from [com.google.android.gms:play-services-measurement-api:16.4.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-measurement-api-16.4.0.aar/28e539691c702361445d74d7624fb866/AndroidManifest.xml:24:22-65
+meta-data#com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar
+ADDED from [com.google.android.gms:play-services-measurement-api:16.4.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-measurement-api-16.4.0.aar/28e539691c702361445d74d7624fb866/AndroidManifest.xml:30:13-32:85
+	android:value
+		ADDED from [com.google.android.gms:play-services-measurement-api:16.4.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-measurement-api-16.4.0.aar/28e539691c702361445d74d7624fb866/AndroidManifest.xml:32:17-82
+	android:name
+		ADDED from [com.google.android.gms:play-services-measurement-api:16.4.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-measurement-api-16.4.0.aar/28e539691c702361445d74d7624fb866/AndroidManifest.xml:31:17-139
+uses-permission#com.google.android.c2dm.permission.RECEIVE
+ADDED from [com.google.firebase:firebase-iid:17.1.2] /Users/daisy/.gradle/caches/transforms-1/files-1.1/firebase-iid-17.1.2.aar/2db1c4f94f1679cc9e64f25140eb4cbe/AndroidManifest.xml:26:5-82
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:17.1.2] /Users/daisy/.gradle/caches/transforms-1/files-1.1/firebase-iid-17.1.2.aar/2db1c4f94f1679cc9e64f25140eb4cbe/AndroidManifest.xml:26:22-79
+meta-data#com.google.firebase.components:com.google.firebase.iid.Registrar
+ADDED from [com.google.firebase:firebase-iid:17.1.2] /Users/daisy/.gradle/caches/transforms-1/files-1.1/firebase-iid-17.1.2.aar/2db1c4f94f1679cc9e64f25140eb4cbe/AndroidManifest.xml:32:13-34:85
+	android:value
+		ADDED from [com.google.firebase:firebase-iid:17.1.2] /Users/daisy/.gradle/caches/transforms-1/files-1.1/firebase-iid-17.1.2.aar/2db1c4f94f1679cc9e64f25140eb4cbe/AndroidManifest.xml:34:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:17.1.2] /Users/daisy/.gradle/caches/transforms-1/files-1.1/firebase-iid-17.1.2.aar/2db1c4f94f1679cc9e64f25140eb4cbe/AndroidManifest.xml:33:17-96
+receiver#com.google.firebase.iid.FirebaseInstanceIdReceiver
+ADDED from [com.google.firebase:firebase-iid:17.1.2] /Users/daisy/.gradle/caches/transforms-1/files-1.1/firebase-iid-17.1.2.aar/2db1c4f94f1679cc9e64f25140eb4cbe/AndroidManifest.xml:37:9-44:20
+	android:exported
+		ADDED from [com.google.firebase:firebase-iid:17.1.2] /Users/daisy/.gradle/caches/transforms-1/files-1.1/firebase-iid-17.1.2.aar/2db1c4f94f1679cc9e64f25140eb4cbe/AndroidManifest.xml:39:13-36
+	android:permission
+		ADDED from [com.google.firebase:firebase-iid:17.1.2] /Users/daisy/.gradle/caches/transforms-1/files-1.1/firebase-iid-17.1.2.aar/2db1c4f94f1679cc9e64f25140eb4cbe/AndroidManifest.xml:40:13-73
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:17.1.2] /Users/daisy/.gradle/caches/transforms-1/files-1.1/firebase-iid-17.1.2.aar/2db1c4f94f1679cc9e64f25140eb4cbe/AndroidManifest.xml:38:13-78
+intent-filter#action:name:com.google.android.c2dm.intent.RECEIVE
+ADDED from [com.google.firebase:firebase-iid:17.1.2] /Users/daisy/.gradle/caches/transforms-1/files-1.1/firebase-iid-17.1.2.aar/2db1c4f94f1679cc9e64f25140eb4cbe/AndroidManifest.xml:41:13-43:29
+action#com.google.android.c2dm.intent.RECEIVE
+ADDED from [com.google.firebase:firebase-iid:17.1.2] /Users/daisy/.gradle/caches/transforms-1/files-1.1/firebase-iid-17.1.2.aar/2db1c4f94f1679cc9e64f25140eb4cbe/AndroidManifest.xml:42:17-81
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:17.1.2] /Users/daisy/.gradle/caches/transforms-1/files-1.1/firebase-iid-17.1.2.aar/2db1c4f94f1679cc9e64f25140eb4cbe/AndroidManifest.xml:42:25-78
+service#com.google.firebase.iid.FirebaseInstanceIdService
+ADDED from [com.google.firebase:firebase-iid:17.1.2] /Users/daisy/.gradle/caches/transforms-1/files-1.1/firebase-iid-17.1.2.aar/2db1c4f94f1679cc9e64f25140eb4cbe/AndroidManifest.xml:50:9-56:19
+	android:exported
+		ADDED from [com.google.firebase:firebase-iid:17.1.2] /Users/daisy/.gradle/caches/transforms-1/files-1.1/firebase-iid-17.1.2.aar/2db1c4f94f1679cc9e64f25140eb4cbe/AndroidManifest.xml:52:13-36
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:17.1.2] /Users/daisy/.gradle/caches/transforms-1/files-1.1/firebase-iid-17.1.2.aar/2db1c4f94f1679cc9e64f25140eb4cbe/AndroidManifest.xml:51:13-77
+intent-filter#action:name:com.google.firebase.INSTANCE_ID_EVENT
+ADDED from [com.google.firebase:firebase-iid:17.1.2] /Users/daisy/.gradle/caches/transforms-1/files-1.1/firebase-iid-17.1.2.aar/2db1c4f94f1679cc9e64f25140eb4cbe/AndroidManifest.xml:53:13-55:29
+	android:priority
+		ADDED from [com.google.firebase:firebase-iid:17.1.2] /Users/daisy/.gradle/caches/transforms-1/files-1.1/firebase-iid-17.1.2.aar/2db1c4f94f1679cc9e64f25140eb4cbe/AndroidManifest.xml:53:28-51
+action#com.google.firebase.INSTANCE_ID_EVENT
+ADDED from [com.google.firebase:firebase-iid:17.1.2] /Users/daisy/.gradle/caches/transforms-1/files-1.1/firebase-iid-17.1.2.aar/2db1c4f94f1679cc9e64f25140eb4cbe/AndroidManifest.xml:54:17-80
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:17.1.2] /Users/daisy/.gradle/caches/transforms-1/files-1.1/firebase-iid-17.1.2.aar/2db1c4f94f1679cc9e64f25140eb4cbe/AndroidManifest.xml:54:25-77
+activity#com.google.android.gms.common.api.GoogleApiActivity
+ADDED from [com.google.android.gms:play-services-base:16.0.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-base-16.0.1.aar/8c69c08195ffff6ec7aa2978dc5a7c37/AndroidManifest.xml:23:9-26:75
+	android:exported
+		ADDED from [com.google.android.gms:play-services-base:16.0.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-base-16.0.1.aar/8c69c08195ffff6ec7aa2978dc5a7c37/AndroidManifest.xml:25:13-37
+	android:theme
+		ADDED from [com.google.android.gms:play-services-base:16.0.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-base-16.0.1.aar/8c69c08195ffff6ec7aa2978dc5a7c37/AndroidManifest.xml:26:13-72
+	android:name
+		ADDED from [com.google.android.gms:play-services-base:16.0.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-base-16.0.1.aar/8c69c08195ffff6ec7aa2978dc5a7c37/AndroidManifest.xml:24:13-79
+meta-data#com.google.android.gms.version
+ADDED from [com.google.maps.android:android-maps-utils:0.5] /Users/daisy/.gradle/caches/transforms-1/files-1.1/android-maps-utils-0.5.aar/057298c65f2dd4fc4adb58db76afe3bd/AndroidManifest.xml:8:9-10:69
+MERGED from [com.google.android.gms:play-services-basement:16.2.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-basement-16.2.0.aar/135c6966dc8f88eefe159db3f8bce0f8/AndroidManifest.xml:23:9-25:69
+MERGED from [com.google.android.gms:play-services-basement:16.2.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-basement-16.2.0.aar/135c6966dc8f88eefe159db3f8bce0f8/AndroidManifest.xml:23:9-25:69
+	android:value
+		ADDED from [com.google.maps.android:android-maps-utils:0.5] /Users/daisy/.gradle/caches/transforms-1/files-1.1/android-maps-utils-0.5.aar/057298c65f2dd4fc4adb58db76afe3bd/AndroidManifest.xml:10:13-66
+	android:name
+		ADDED from [com.google.maps.android:android-maps-utils:0.5] /Users/daisy/.gradle/caches/transforms-1/files-1.1/android-maps-utils-0.5.aar/057298c65f2dd4fc4adb58db76afe3bd/AndroidManifest.xml:9:13-58
+provider#com.google.firebase.provider.FirebaseInitProvider
+ADDED from [com.google.firebase:firebase-common:16.1.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/firebase-common-16.1.0.aar/924f6b679e38869b53887f2cf243ab1c/AndroidManifest.xml:12:9-16:39
+	android:authorities
+		ADDED from [com.google.firebase:firebase-common:16.1.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/firebase-common-16.1.0.aar/924f6b679e38869b53887f2cf243ab1c/AndroidManifest.xml:14:13-72
+	android:exported
+		ADDED from [com.google.firebase:firebase-common:16.1.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/firebase-common-16.1.0.aar/924f6b679e38869b53887f2cf243ab1c/AndroidManifest.xml:15:13-37
+	android:initOrder
+		ADDED from [com.google.firebase:firebase-common:16.1.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/firebase-common-16.1.0.aar/924f6b679e38869b53887f2cf243ab1c/AndroidManifest.xml:16:13-36
+	android:name
+		ADDED from [com.google.firebase:firebase-common:16.1.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/firebase-common-16.1.0.aar/924f6b679e38869b53887f2cf243ab1c/AndroidManifest.xml:13:13-77
+uses-permission#com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE
+ADDED from [com.google.android.gms:play-services-measurement:16.4.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-measurement-16.4.0.aar/10c257eff46c748d1c56fae83b4d9fb9/AndroidManifest.xml:26:5-110
+MERGED from [com.google.android.gms:play-services-measurement-impl:16.4.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-measurement-impl-16.4.0.aar/5a9ae803275a291020007b767c73fe06/AndroidManifest.xml:26:5-110
+MERGED from [com.google.android.gms:play-services-measurement-impl:16.4.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-measurement-impl-16.4.0.aar/5a9ae803275a291020007b767c73fe06/AndroidManifest.xml:26:5-110
+	android:name
+		ADDED from [com.google.android.gms:play-services-measurement:16.4.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-measurement-16.4.0.aar/10c257eff46c748d1c56fae83b4d9fb9/AndroidManifest.xml:26:22-107
+receiver#com.google.android.gms.measurement.AppMeasurementReceiver
+ADDED from [com.google.android.gms:play-services-measurement:16.4.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-measurement-16.4.0.aar/10c257eff46c748d1c56fae83b4d9fb9/AndroidManifest.xml:29:9-33:20
+	android:enabled
+		ADDED from [com.google.android.gms:play-services-measurement:16.4.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-measurement-16.4.0.aar/10c257eff46c748d1c56fae83b4d9fb9/AndroidManifest.xml:31:13-35
+	android:exported
+		ADDED from [com.google.android.gms:play-services-measurement:16.4.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-measurement-16.4.0.aar/10c257eff46c748d1c56fae83b4d9fb9/AndroidManifest.xml:32:13-37
+	android:name
+		ADDED from [com.google.android.gms:play-services-measurement:16.4.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-measurement-16.4.0.aar/10c257eff46c748d1c56fae83b4d9fb9/AndroidManifest.xml:30:13-85
+receiver#com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver
+ADDED from [com.google.android.gms:play-services-measurement:16.4.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-measurement-16.4.0.aar/10c257eff46c748d1c56fae83b4d9fb9/AndroidManifest.xml:34:9-42:20
+MERGED from [com.google.android.gms:play-services-measurement-impl:16.4.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-measurement-impl-16.4.0.aar/5a9ae803275a291020007b767c73fe06/AndroidManifest.xml:29:9-37:20
+MERGED from [com.google.android.gms:play-services-measurement-impl:16.4.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-measurement-impl-16.4.0.aar/5a9ae803275a291020007b767c73fe06/AndroidManifest.xml:29:9-37:20
+	android:enabled
+		ADDED from [com.google.android.gms:play-services-measurement:16.4.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-measurement-16.4.0.aar/10c257eff46c748d1c56fae83b4d9fb9/AndroidManifest.xml:36:13-35
+	android:exported
+		ADDED from [com.google.android.gms:play-services-measurement:16.4.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-measurement-16.4.0.aar/10c257eff46c748d1c56fae83b4d9fb9/AndroidManifest.xml:37:13-36
+	android:permission
+		ADDED from [com.google.android.gms:play-services-measurement:16.4.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-measurement-16.4.0.aar/10c257eff46c748d1c56fae83b4d9fb9/AndroidManifest.xml:38:13-69
+	android:name
+		ADDED from [com.google.android.gms:play-services-measurement:16.4.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-measurement-16.4.0.aar/10c257eff46c748d1c56fae83b4d9fb9/AndroidManifest.xml:35:13-100
+intent-filter#action:name:com.android.vending.INSTALL_REFERRER
+ADDED from [com.google.android.gms:play-services-measurement:16.4.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-measurement-16.4.0.aar/10c257eff46c748d1c56fae83b4d9fb9/AndroidManifest.xml:39:13-41:29
+action#com.android.vending.INSTALL_REFERRER
+ADDED from [com.google.android.gms:play-services-measurement:16.4.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-measurement-16.4.0.aar/10c257eff46c748d1c56fae83b4d9fb9/AndroidManifest.xml:40:17-79
+	android:name
+		ADDED from [com.google.android.gms:play-services-measurement:16.4.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-measurement-16.4.0.aar/10c257eff46c748d1c56fae83b4d9fb9/AndroidManifest.xml:40:25-76
+service#com.google.android.gms.measurement.AppMeasurementService
+ADDED from [com.google.android.gms:play-services-measurement:16.4.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-measurement-16.4.0.aar/10c257eff46c748d1c56fae83b4d9fb9/AndroidManifest.xml:44:9-47:40
+	android:enabled
+		ADDED from [com.google.android.gms:play-services-measurement:16.4.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-measurement-16.4.0.aar/10c257eff46c748d1c56fae83b4d9fb9/AndroidManifest.xml:46:13-35
+	android:exported
+		ADDED from [com.google.android.gms:play-services-measurement:16.4.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-measurement-16.4.0.aar/10c257eff46c748d1c56fae83b4d9fb9/AndroidManifest.xml:47:13-37
+	android:name
+		ADDED from [com.google.android.gms:play-services-measurement:16.4.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-measurement-16.4.0.aar/10c257eff46c748d1c56fae83b4d9fb9/AndroidManifest.xml:45:13-84
+service#com.google.android.gms.measurement.AppMeasurementJobService
+ADDED from [com.google.android.gms:play-services-measurement:16.4.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-measurement-16.4.0.aar/10c257eff46c748d1c56fae83b4d9fb9/AndroidManifest.xml:48:9-52:72
+	android:enabled
+		ADDED from [com.google.android.gms:play-services-measurement:16.4.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-measurement-16.4.0.aar/10c257eff46c748d1c56fae83b4d9fb9/AndroidManifest.xml:50:13-35
+	android:exported
+		ADDED from [com.google.android.gms:play-services-measurement:16.4.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-measurement-16.4.0.aar/10c257eff46c748d1c56fae83b4d9fb9/AndroidManifest.xml:51:13-37
+	android:permission
+		ADDED from [com.google.android.gms:play-services-measurement:16.4.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-measurement-16.4.0.aar/10c257eff46c748d1c56fae83b4d9fb9/AndroidManifest.xml:52:13-69
+	android:name
+		ADDED from [com.google.android.gms:play-services-measurement:16.4.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-measurement-16.4.0.aar/10c257eff46c748d1c56fae83b4d9fb9/AndroidManifest.xml:49:13-87
