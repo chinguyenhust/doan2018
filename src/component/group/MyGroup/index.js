@@ -135,6 +135,7 @@ export default class MyGroup extends Component {
         this.setState({
           progressVisible: false
         })
+        console.log("1111111")
       });
       this.setState({
         progressVisible: false
@@ -150,6 +151,7 @@ export default class MyGroup extends Component {
     const { navigate } = this.props.navigation;
     const { items, searchTerm, searchAttribute, ignoreCase } = this.state;
     var uid = this.props.navigation.state.params.uid;
+    
 
     return (
       <View style={styles.container}>
