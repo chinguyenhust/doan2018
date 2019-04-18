@@ -4,6 +4,9 @@ import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;
 import com.facebook.react.ReactRootView;
 import com.swmansion.gesturehandler.react.RNGestureHandlerEnabledRootView;
+import io.branch.rnbranch.*; // <-- add this
+import android.content.Intent; // <-- and this
+
 
 public class MainActivity extends ReactActivity {
 
@@ -15,6 +18,19 @@ public class MainActivity extends ReactActivity {
     protected String getMainComponentName() {
         return "doan2018";
     }
+    // Override onStart, onNewIntent:
+    @Override
+    protected void onStart() {
+        super.onStart();
+        RNBranchModule.initSession(getIntent().getData(), this);
+    }
+
+    @Override
+    public void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        setIntent(intent);
+    }
+    // ...
 
     @Override
     protected ReactActivityDelegate createReactActivityDelegate() {
