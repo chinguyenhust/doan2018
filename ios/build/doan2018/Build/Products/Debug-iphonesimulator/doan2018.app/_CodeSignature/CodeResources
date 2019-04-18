@@ -10,7 +10,7 @@
 		</data>
 		<key>Base.lproj/LaunchScreen.nib</key>
 		<data>
-		ZP1Q9Gs0NHfSXjfJwIiFLmJ/yRU=
+		Yi+ony9ADq4aq0uXCf/eqL3L2MU=
 		</data>
 		<key>Entypo.ttf</key>
 		<data>
@@ -821,7 +821,7 @@
 		</data>
 		<key>PlugIns/doan2018Tests.xctest/doan2018Tests</key>
 		<data>
-		MyHm/Ussl2Cz0cAfT7wk8sBJ0Pg=
+		LIlsQkgvpuhzy7DWfnR9MB57O4I=
 		</data>
 		<key>SimpleLineIcons.ttf</key>
 		<data>
@@ -830,6 +830,10 @@
 		<key>Zocial.ttf</key>
 		<data>
 		C9pZx7zT05J94EfgkYdaRCi/0as=
+		</data>
+		<key>branch.json</key>
+		<data>
+		u3OC6AZYqdg6Wcr8uQUjH0B2Q6U=
 		</data>
 		<key>gRPCCertificates-Firestore.bundle/Info.plist</key>
 		<data>
@@ -877,11 +881,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			ZP1Q9Gs0NHfSXjfJwIiFLmJ/yRU=
+			Yi+ony9ADq4aq0uXCf/eqL3L2MU=
 			</data>
 			<key>hash2</key>
 			<data>
-			DwOPQA4H53mqCRovw/5jZAD0kEgZATrXLpoE1a8SFw4=
+			UohaVxUbGn292NhfXf6yTzq6rdDUZyVnAAbN+smIH6I=
 			</data>
 		</dict>
 		<key>Entypo.ttf</key>
@@ -2533,11 +2537,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			MyHm/Ussl2Cz0cAfT7wk8sBJ0Pg=
+			LIlsQkgvpuhzy7DWfnR9MB57O4I=
 			</data>
 			<key>hash2</key>
 			<data>
-			6q3nDl1QIf80hwPnGCOeM/5zK2DVpyVVSvDxIrcfbG4=
+			mo3kJ66emaErsAe+E4JlFPjHzCEJQ/jCb83znKYzpGs=
 			</data>
 		</dict>
 		<key>SimpleLineIcons.ttf</key>
@@ -2560,6 +2564,17 @@
 			<key>hash2</key>
 			<data>
 			17EKHr4YMOWi8I9JA7moDiwZEsDdL3O5P88r+DIhZgI=
+			</data>
+		</dict>
+		<key>branch.json</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			u3OC6AZYqdg6Wcr8uQUjH0B2Q6U=
+			</data>
+			<key>hash2</key>
+			<data>
+			n+pwlvMjlsWZ47vkfdisiZs4RxuRho1BwF6UJlPHEvs=
 			</data>
 		</dict>
 		<key>gRPCCertificates-Firestore.bundle/Info.plist</key>

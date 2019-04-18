@@ -76,13 +76,23 @@ export default class DetailGroup extends Component {
         </View>
 
         <View style={{ flex: 15 }}>
-          {(this.state.isChat) && <Chat name={name} groupId={groupId} />}
-          {(this.state.isMap) && <Map />}
-          {(this.state.isEvent) && <Event
-            navigate={navigate}
-            groupId={groupId}
-            nameGroup={this.props.navigation.state.params.name}
-          />}
+          {(this.state.isChat) &&
+            <Chat
+              name={name}
+              groupId={groupId}
+            />
+          }
+          {(this.state.isMap) &&
+            <Map
+              groupId={groupId}
+            />
+          }
+          {(this.state.isEvent) &&
+            <Event
+              navigate={navigate}
+              groupId={groupId}
+              nameGroup={this.props.navigation.state.params.name}
+            />}
         </View>
       </View>
     );
