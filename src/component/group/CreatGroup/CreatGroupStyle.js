@@ -1,8 +1,8 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet, Platform} from 'react-native'
 const styles = StyleSheet.create({
     container: {
         alignSelf: "stretch",
-        paddingTop: 30,
+        paddingTop: Platform.OS === 'ios' ? 30 : 5,
         flexDirection: 'column',
         backgroundColor: "#fff",
         left: 0,

@@ -1,9 +1,9 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet, Platform} from 'react-native'
 const styles = StyleSheet.create({
     container: {
         flex: 1,
         alignSelf: "stretch",
-        paddingTop: 30,
+        paddingTop: Platform.OS === 'ios' ? 30 : 5,
         flexDirection: 'column',
     },
     tapbar: {

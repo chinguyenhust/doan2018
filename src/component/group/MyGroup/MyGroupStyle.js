@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native'
+import { Platform,StyleSheet } from 'react-native'
 const styles = StyleSheet.create({
     container: {
         alignSelf: "stretch",
@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
         alignSelf: "stretch",
         flexDirection: 'column',
         height: 40,
-        marginTop: 30,
+        marginTop: Platform.OS === 'ios' ? 30 : 5,
         alignItems: "center",
     },
     list: {
