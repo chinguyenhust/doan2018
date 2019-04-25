@@ -38,14 +38,15 @@
 		2DF0FFEE2056DD460020B375 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3EA31DF850E9000B6D8A /* libReact.a */; };
 		3C60DACF223B4956A0AC291A /* libRNFirebase.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D93C43F7EA3424EB7860E63 /* libRNFirebase.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
+		975BB839636C4FD9BBFBF8B9 /* branch.json in Resources */ = {isa = PBXBuildFile; fileRef = 35C4483BDCF04D71A1BA444A /* branch.json */; };
 		AB5945AD22429D8900710066 /* libRNVectorIcons.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AB5945AC22429D8900710066 /* libRNVectorIcons.a */; };
 		AB8E95C5224387C1005685C0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AB8E959D224387C1005685C0 /* GoogleService-Info.plist */; };
 		AB9A1CFA2257B021008D7004 /* libRCTImageResizer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AB9A1CDA2257AFBD008D7004 /* libRCTImageResizer.a */; };
+		ABF1C3BA2270FF9600EF74D1 /* libRNFIRMessaging.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ABF1C3B92270FF7C00EF74D1 /* libRNFIRMessaging.a */; };
 		ABFC14BA2242B8C200C1E335 /* libRNImagePicker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ABFC14B92242B8A500C1E335 /* libRNImagePicker.a */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
 		ED297163215061F000B7C4FE /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED297162215061F000B7C4FE /* JavaScriptCore.framework */; };
 		ED2971652150620600B7C4FE /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED2971642150620600B7C4FE /* JavaScriptCore.framework */; };
-		975BB839636C4FD9BBFBF8B9 /* branch.json in Resources */ = {isa = PBXBuildFile; fileRef = 35C4483BDCF04D71A1BA444A /* branch.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -329,6 +330,13 @@
 			remoteGlobalIDString = 5D72D2E81C16249000E22EC1;
 			remoteInfo = RCTImageResizer;
 		};
+		ABF1C3B82270FF7C00EF74D1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ABF1C3B42270FF7C00EF74D1 /* RNFIRMessaging.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 134814201AA4EA6300B7C361;
+			remoteInfo = RNFIRMessaging;
+		};
 		ABFC14B82242B8A500C1E335 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = ABFC148E2242B8A400C1E335 /* RNImagePicker.xcodeproj */;
@@ -370,6 +378,7 @@
 		2D02E47B1E0B4A5D006451C7 /* doan2018-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "doan2018-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* doan2018-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "doan2018-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D16E6891FA4F8E400B85C8A /* libReact.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libReact.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		35C4483BDCF04D71A1BA444A /* branch.json */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = branch.json; path = ../branch.json; sourceTree = "<group>"; };
 		4D2AF9C905544B44B4C520FB /* RNFirebase.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNFirebase.xcodeproj; path = "../node_modules/react-native-firebase/ios/RNFirebase.xcodeproj"; sourceTree = "<group>"; };
 		505335CD86821DAB47F8F1E0 /* Pods-doan2018.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-doan2018.debug.xcconfig"; path = "Target Support Files/Pods-doan2018/Pods-doan2018.debug.xcconfig"; sourceTree = "<group>"; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
@@ -379,11 +388,11 @@
 		AB5945AC22429D8900710066 /* libRNVectorIcons.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libRNVectorIcons.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB8E959D224387C1005685C0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AB9A1CCD2257AFBD008D7004 /* RCTImageResizer.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTImageResizer.xcodeproj; path = "../node_modules/react-native-image-resizer/ios/RCTImageResizer.xcodeproj"; sourceTree = "<group>"; };
+		ABF1C3B42270FF7C00EF74D1 /* RNFIRMessaging.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNFIRMessaging.xcodeproj; path = "../node_modules/react-native-fcm/ios/RNFIRMessaging.xcodeproj"; sourceTree = "<group>"; };
 		ABFC148E2242B8A400C1E335 /* RNImagePicker.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNImagePicker.xcodeproj; path = "../node_modules/react-native-image-picker/ios/RNImagePicker.xcodeproj"; sourceTree = "<group>"; };
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
-		35C4483BDCF04D71A1BA444A /* branch.json */ = {isa = PBXFileReference; name = "branch.json"; path = "../branch.json"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -399,6 +408,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ABF1C3BA2270FF9600EF74D1 /* libRNFIRMessaging.a in Frameworks */,
 				AB9A1CFA2257B021008D7004 /* libRCTImageResizer.a in Frameworks */,
 				ABFC14BA2242B8C200C1E335 /* libRNImagePicker.a in Frameworks */,
 				AB5945AD22429D8900710066 /* libRNVectorIcons.a in Frameworks */,
@@ -613,6 +623,7 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				ABF1C3B42270FF7C00EF74D1 /* RNFIRMessaging.xcodeproj */,
 				AB9A1CCD2257AFBD008D7004 /* RCTImageResizer.xcodeproj */,
 				5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */,
 				146833FF1AC3E56700842450 /* React.xcodeproj */,
@@ -690,6 +701,14 @@
 			isa = PBXGroup;
 			children = (
 				AB9A1CDA2257AFBD008D7004 /* libRCTImageResizer.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		ABF1C3B52270FF7C00EF74D1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				ABF1C3B92270FF7C00EF74D1 /* libRNFIRMessaging.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -884,6 +903,10 @@
 				{
 					ProductGroup = AB59458D224295D600710066 /* Products */;
 					ProjectRef = 4D2AF9C905544B44B4C520FB /* RNFirebase.xcodeproj */;
+				},
+				{
+					ProductGroup = ABF1C3B52270FF7C00EF74D1 /* Products */;
+					ProjectRef = ABF1C3B42270FF7C00EF74D1 /* RNFIRMessaging.xcodeproj */;
 				},
 				{
 					ProductGroup = ABFC148F2242B8A400C1E335 /* Products */;
@@ -1165,6 +1188,13 @@
 			fileType = archive.ar;
 			path = libRCTImageResizer.a;
 			remoteRef = AB9A1CD92257AFBD008D7004 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		ABF1C3B92270FF7C00EF74D1 /* libRNFIRMessaging.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNFIRMessaging.a;
+			remoteRef = ABF1C3B82270FF7C00EF74D1 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		ABFC14B92242B8A500C1E335 /* libRNImagePicker.a */ = {
@@ -1458,6 +1488,7 @@
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-firebase/ios/RNFirebase/**",
 					"$(SRCROOT)/../node_modules/react-native-image-resizer/ios",
+					"$(SRCROOT)/../node_modules/react-native-fcm/ios",
 				);
 				INFOPLIST_FILE = doan2018/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1483,6 +1514,7 @@
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-firebase/ios/RNFirebase/**",
 					"$(SRCROOT)/../node_modules/react-native-image-resizer/ios",
+					"$(SRCROOT)/../node_modules/react-native-fcm/ios",
 				);
 				INFOPLIST_FILE = doan2018/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

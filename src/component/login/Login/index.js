@@ -1,6 +1,12 @@
 import React from 'react'
-import { StyleSheet, Text, TextInput, View, Button, TouchableOpacity} from 'react-native';
-import firebase from 'react-native-firebase'
+import { StyleSheet, Text, TextInput, View, Button, TouchableOpacity } from 'react-native';
+import firebase from 'react-native-firebase';
+import { Data } from '../../../api/Data'
+
+import { YellowBox } from 'react-native';
+import FCM, { FCMEvent, RemoteNotificationResult, WillPresentNotificationResult, NotificationType } from "react-native-fcm";
+YellowBox.ignoreWarnings(['Warning: isMounted(...) is deprecated', 'Module RCTImageLoader']);
+console.ignoredYellowBox = ['Setting a timer'];
 
 export default class Login extends React.Component {
     state = { email: '', password: '', errorMessage: null }
@@ -10,14 +16,28 @@ export default class Login extends React.Component {
         firebase
             .auth()
             .signInWithEmailAndPassword(email, password)
-            .then(() => this.props.navigation.navigate('MyGroup', {"email":email}))
+            .then(() => {
+                Data.ref("users").orderByChild("email").equalTo(email)
+                    .on('value', ((snapshot) => {
+                        this.props.navigation.navigate('MyGroup', { "email": email });
+                        FCM.requestPermissions();
+
+                        FCM.getFCMToken().then(token => {
+                            console.log(token)
+                            Data.ref('tokenFCM').child(snapshot.key).set({ token: token })
+                        });
+
+                    })
+                    )
+            })
+
             .catch(error => this.setState({ errorMessage: error.message }))
     }
 
     render() {
         return (
             <View style={styles.container}>
-                <View style={{ justifyContent: 'center', alignItems: 'center',marginBottom: 30 }}>
+                <View style={{ justifyContent: 'center', alignItems: 'center', marginBottom: 30 }}>
                     <Text style={{ fontSize: 28, }}>Đăng nhập</Text>
                     {this.state.errorMessage &&
                         <Text style={{ color: 'red' }}>

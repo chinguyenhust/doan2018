@@ -18,7 +18,9 @@ import EditUser from './src/component/group/EditUser';
 import Main from './src/component/login/Main';
 import Loading from './src/component/login/Loading'
 import Login from './src/component/login/Login'
-import SignUp from './src/component/login/SignUp'
+import SignUp from './src/component/login/SignUp';
+
+import FCM from 'react-native-fcm';
 
 import { StackNavigator, createStackNavigator, createAppContainer } from 'react-navigation';
 const MainStack = createStackNavigator(
@@ -62,16 +64,16 @@ const MainStack = createStackNavigator(
     Main: {
       screen: Main
     },
-    Chat:{
+    Chat: {
       screen: Chat,
     },
     UserInfo: {
       screen: UserInfo
     },
-    EditUser : {
+    EditUser: {
       screen: EditUser,
     },
-    DatePicker : {
+    DatePicker: {
       screen: DatePicker,
     }
   }, {
@@ -83,4 +85,103 @@ const MainStack = createStackNavigator(
 
 );
 
-export default createAppContainer(MainStack)
+let Navigation = createAppContainer(MainStack)
+class AppComponent extends Component {
+  async componentDidMount() {
+    this.checkPermission();
+    this.createNotificationListeners();
+    FCM.subscribeToTopic("/topics/list")
+  }
+
+  //1
+  async checkPermission() {
+    const enabled = await firebase.messaging().hasPermission();
+    if (enabled) {
+      this.getToken();
+    } else {
+      this.requestPermission();
+    }
+  }
+
+  //3
+  async getToken() {
+    let fcmToken = await AsyncStorage.getItem('fcmToken', value);
+    if (!fcmToken) {
+      fcmToken = await firebase.messaging().getToken();
+      if (fcmToken) {
+        // user has a device token
+        await AsyncStorage.setItem('fcmToken', fcmToken);
+      }
+    }
+  }
+
+  //2
+  async requestPermission() {
+    try {
+      await firebase.messaging().requestPermission();
+      // User has authorised
+      this.getToken();
+    } catch (error) {
+      // User has rejected permissions
+      console.log('permission rejected');
+    }
+  }
+
+  ////////////////////// Add these methods //////////////////////
+
+  //Remove listeners allocated in createNotificationListeners()
+  componentWillUnmount() {
+    this.notificationListener();
+    this.notificationOpenedListener();
+  }
+
+  async createNotificationListeners() {
+    /*
+    * Triggered when a particular notification has been received in foreground
+    * */
+    this.notificationListener = firebase.notifications().onNotification((notification) => {
+      const { title, body } = notification;
+      this.showAlert(title, body);
+    });
+
+    /*
+    * If your app is in background, you can listen for when a notification is clicked / tapped / opened as follows:
+    * */
+    this.notificationOpenedListener = firebase.notifications().onNotificationOpened((notificationOpen) => {
+      const { title, body } = notificationOpen.notification;
+      this.showAlert(title, body);
+    });
+
+    /*
+    * If your app is closed, you can check if it was opened by a notification being clicked / tapped / opened as follows:
+    * */
+    const notificationOpen = await firebase.notifications().getInitialNotification();
+    if (notificationOpen) {
+      const { title, body } = notificationOpen.notification;
+      this.showAlert(title, body);
+    }
+    /*
+    * Triggered for data only payload in foreground
+    * */
+    this.messageListener = firebase.messaging().onMessage((message) => {
+      //process data message
+      console.log(JSON.stringify(message));
+    });
+  }
+
+  showAlert(title, body) {
+    Alert.alert(
+      title, body,
+      [
+        { text: 'OK', onPress: () => console.log('OK Pressed') },
+      ],
+      { cancelable: false },
+    );
+  }
+ render(){
+   return(
+     <Navigation/>
+   )
+ }
+}
+export default AppComponent;

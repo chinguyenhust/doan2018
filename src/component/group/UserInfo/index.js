@@ -41,6 +41,7 @@ export default class UserInfo extends Component {
     }).catch((error) =>{
       alert("Đã có lỗi xảy ra trong quá trình logout. Xin thử lại")
     });
+    FCM.unsubscribeFromTopic("test");
   }
 
   _handleEdit = () => {

@@ -930,6 +930,7 @@ layout select_dialog_singlechoice_material
 layout support_simple_spinner_dropdown_item
 mipmap ic_launcher
 mipmap ic_launcher_round
+mipmap ic_notif
 raw amu_ballon_gx_prefix
 raw amu_basic_folder
 raw amu_basic_placemark
