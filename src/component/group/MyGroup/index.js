@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, TouchableOpacity, TextInput, Image, ScrollView, Dimensions, } from 'react-native';
+import { Text, View, TouchableOpacity, TextInput, Image, ScrollView, Dimensions, StatusBar} from 'react-native';
 import styles from './MyGroupStyle';
 import Icon from 'react-native-vector-icons/Ionicons';
 import IconAdd from 'react-native-vector-icons/MaterialIcons';
@@ -155,24 +155,24 @@ export default class MyGroup extends Component {
 
     return (
       <View style={styles.container}>
-
+        <StatusBar backgroundColor="#089837" barStyle="light-content" />
         <View style={styles.header}>
-          <View style={{ height: 39, flexDirection: "row", justifyContent: "center", alignItems: "center" }}>
+          <View style={{ height: 56, flexDirection: "row", justifyContent: "center", alignItems: "center", backgroundColor: "#53ca64" }}>
             <View style={{ flex: 8, alignItems: "center" }}>
-              <Text style={{ fontSize: 20, fontWeight: "600" }}>Nhóm của tôi</Text>
+              <Text style={{ fontSize: 20, fontWeight: "600", color: "#ffffff" }}>Nhóm của tôi</Text>
             </View>
             <IconNotifi name="ios-notifications"
-              style={{ fontSize: 24, flex: 1, color: "#007aff" }}
+              style={{ fontSize: 24, flex: 1, color: "#ffffff" }}
             />
             <IconUser name="user-circle"
-              style={{ fontSize: 24, flex: 1, color: "#007aff" }}
+              style={{ fontSize: 24, flex: 1, color: "#ffffff" }}
               onPress={() => navigate("UserInfo", {
                 "email": this.props.navigation.state.params.email,
                 "userId": this.state.userId
               })}
             />
           </View>
-          <View style={{ height: 1, backgroundColor: "#000", alignSelf: "stretch" }}></View>
+          {/* <View style={{ height: 1, backgroundColor: "#000", alignSelf: "stretch" }}></View> */}
         </View>
 
         <View style={{ flexDirection: "column" }}>
@@ -226,9 +226,9 @@ export default class MyGroup extends Component {
         </ScrollView>
 
         <TouchableOpacity
-          style={{ zIndex: 1000, bottom: 60, justifyContent: 'flex-end', marginLeft: "80%", position: 'absolute' }}
+          style={{ zIndex: 1000, bottom: 30, justifyContent: 'flex-end', marginLeft: "80%", position: 'absolute' }}
           onPress={() => navigate("CreatGroup", { uid: uid })}>
-          <IconAdd name="add-circle" size={60} style={{ color: "green" }} />
+          <IconAdd name="add-circle" size={60} style={{ color: "#53ca64" }} />
         </TouchableOpacity>
       </View>
     );

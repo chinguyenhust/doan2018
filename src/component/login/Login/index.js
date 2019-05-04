@@ -63,10 +63,9 @@ export default class Login extends React.Component {
                     <Text style={{ color: "#fff", fontSize: 20 }}>Đăng Nhập</Text>
                 </TouchableOpacity>
 
-                <Button
-                    title="Bạn chưa có tài khoản? Đăng ký"
-                    onPress={() => this.props.navigation.navigate('SignUp')}
-                />
+                <TouchableOpacity style={{marginTop:20, justifyContent: "center", alignItems: 'center'}} onPress={() => this.props.navigation.navigate('SignUp')}>
+                    <Text style={{ color: "#007aff", fontSize: 16 }}>Bạn chưa có tài khoản? Đăng ký</Text>
+                </TouchableOpacity>
             </View>
         )
     }
@@ -90,7 +89,7 @@ const styles = StyleSheet.create({
     },
     buttonCreat: {
         height: 40,
-        backgroundColor: 'green',
+        backgroundColor: '#53ca64',
         borderRadius: 7,
         alignSelf: "stretch",
         justifyContent: "center",

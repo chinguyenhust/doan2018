@@ -3,12 +3,13 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         alignSelf: "stretch",
-        paddingTop: Platform.OS === 'ios' ? 30 : 5,
+        paddingTop: Platform.OS === 'ios' ? 30 : 0,
         flexDirection: 'column',
     },
     tapbar: {
-        height: 40,
+        height: 56,
         flexDirection:"column",
+        backgroundColor: "#53ca64"
     },
     tap: {
         flex:1,

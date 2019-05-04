@@ -40,7 +40,7 @@
                     }
                 },
                 {
-                    "source": "/Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-base-16.0.1.aar/8c69c08195ffff6ec7aa2978dc5a7c37/res/values/values.xml",
+                    "source": "/Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-base-16.1.0.aar/c4f3028d4665f029e8a664bf5fd1184a/res/values/values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,33,46",
                         "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
@@ -116,25 +116,6 @@
                     }
                 },
                 {
-                    "source": "/Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-maps-15.0.1.aar/641c20c22f6f675b71e13a1a4ceccdb6/res/values/values.xml",
-                    "from": {
-                        "startLines": "4",
-                        "startColumns": "0",
-                        "startOffsets": "165",
-                        "endLines": "60",
-                        "endColumns": "20",
-                        "endOffsets": "1514"
-                    },
-                    "to": {
-                        "startLines": "2948",
-                        "startColumns": "4",
-                        "startOffsets": "187875",
-                        "endLines": "3004",
-                        "endColumns": "20",
-                        "endOffsets": "189224"
-                    }
-                },
-                {
                     "source": "/Users/daisy/.gradle/caches/transforms-1/files-1.1/drawee-1.10.0.aar/9b03520a240e4eddf4f5d25fa22d51ef/res/values/values.xml",
                     "from": {
                         "startLines": "2,58",
@@ -151,6 +132,25 @@
                         "endLines": "2842,3261",
                         "endColumns": "856,1093",
                         "endOffsets": "182787,202375"
+                    }
+                },
+                {
+                    "source": "/Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-maps-16.0.0.aar/73fb90fa8f10bd76b8239c766c8555f2/res/values/values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "165",
+                        "endLines": "60",
+                        "endColumns": "20",
+                        "endOffsets": "1514"
+                    },
+                    "to": {
+                        "startLines": "2948",
+                        "startColumns": "4",
+                        "startOffsets": "187875",
+                        "endLines": "3004",
+                        "endColumns": "20",
+                        "endOffsets": "189224"
                     }
                 },
                 {

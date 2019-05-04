@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Thu Apr 25 02:05:30 ICT 2019
+#Sat May 04 11:01:51 ICT 2019
 56.path=lib/x86/libglog.so
 5.base=/Users/daisy/doan2018/android/app/build/intermediates/transforms/mergeJniLibs/debug/0
 42.base=/Users/daisy/doan2018/android/app/build/intermediates/transforms/mergeJniLibs/debug/0

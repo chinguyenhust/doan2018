@@ -203,15 +203,15 @@ export default class CreatGroup extends Component {
       <View style={styles.container}>
 
         <View style={{ flexDirection: "column" }}>
-          <TouchableOpacity style={styles.tab}>
-            <TouchableOpacity style={{ width: "15%" }} onPress={() => { this.props.navigation.goBack() }}>
-              <Icon name="ios-arrow-round-back" size={34} />
+          <View style={styles.tab}>
+            <TouchableOpacity style={{ width: "15%", justifyContent:"center"}} onPress={() => { this.props.navigation.goBack() }}>
+              <Icon name="ios-arrow-round-back" size={34} style={{color:"#ffffff",}}/>
             </TouchableOpacity>
             <View style={{ width: "75%", justifyContent: "center", }}>
-              <Text style={{ fontSize: 24, fontWeight: "600" }}>Tạo nhóm mới</Text>
+              <Text style={{ fontSize: 20, fontWeight: "600", color: "#ffffff"}}>Tạo nhóm mới</Text>
             </View>
-          </TouchableOpacity>
-          <View style={{ backgroundColor: "#000", height: 1, marginTop: 5 }}></View>
+          </View>
+          {/* <View style={{ backgroundColor: "#000", height: 1, marginTop: 5 }}></View> */}
         </View>
 
         <ScrollView style={{ paddingLeft: 20, paddingRight: 20, marginBottom: 40 }}>
@@ -251,7 +251,7 @@ export default class CreatGroup extends Component {
 
           <View style={styles.dateTime}>
             <TouchableOpacity style={styles.date} onPress={() => navigate('DatePicker')}>
-              <Text style={styles.titleBold}>Ngày đi</Text>
+              <Text style={styles.titleBold}>Ngày đi (*)</Text>
               {(startDate === null || startDate === "Invalid date") ?
                 <Text style={{ color: "#A9A9A9", paddingTop: 5, fontSize: 16 }}>Chọn ngày đến</Text> :
                 <Text style={{ color: "#000", paddingTop: 5, fontSize: 16 }}>{startDate}</Text>
@@ -260,7 +260,7 @@ export default class CreatGroup extends Component {
             <View style={styles.line}>
             </View>
             <TouchableOpacity style={styles.time} onPress={() => navigate('DatePicker')}>
-              <Text style={styles.titleBold}>Ngày về</Text>
+              <Text style={styles.titleBold}>Ngày về (*)</Text>
               {(untilDate === null || untilDate === "Invalid date") ?
                 <Text style={{ color: "#A9A9A9", paddingTop: 5, fontSize: 16 }}>Chọn ngày về</Text> :
                 <Text style={{ color: "#000", paddingTop: 5, fontSize: 16 }}>{untilDate}</Text>
@@ -269,7 +269,7 @@ export default class CreatGroup extends Component {
           </View>
 
           <View style={styles.viewInput}>
-            <Text style={styles.titleBold}>Kế hoạch cho chuyến đi</Text>
+            <Text style={styles.titleBold}>Kế hoạch cho chuyến đi (*)</Text>
             <TextInput
               placeholder="Nhập kế hoạch"
               style={styles.inputSchedule}
@@ -277,7 +277,7 @@ export default class CreatGroup extends Component {
                 this.setState({ schedule });
               }}
               value={this.state.schedule}
-              numberOfLines={4}
+              numberOfLines={3}
               multiline={true}
             />
           </View>

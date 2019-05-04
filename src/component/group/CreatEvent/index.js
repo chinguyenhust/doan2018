@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Alert, Text, View, TouchableOpacity, TextInput } from 'react-native';
+import { Alert, Text, View, TouchableOpacity, TextInput, ScrollView } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import styles from './CreatEventStyle';
 import DatePicker from 'react-native-datepicker';
@@ -67,9 +67,9 @@ export default class CreatEvent extends Component {
     })
   }
 
-  handleSelectAddress (data, details) {
+  handleSelectAddress(data, details) {
     this.setState({
-      address:  details.formatted_address
+      address: details.formatted_address
     })
   }
 
@@ -86,19 +86,19 @@ export default class CreatEvent extends Component {
     return (
       <View style={styles.container} >
         <View style={styles.tapbar}>
-          <TouchableOpacity style={styles.tap}>
-            <TouchableOpacity style={{ width: "15%" }}
+          <View style={styles.tap}>
+            <TouchableOpacity style={{ width: "15%", justifyContent: "center" }}
               onPress={() => { this.props.navigation.goBack() }} >
-              <Icon name="ios-arrow-round-back" size={34} />
+              <Icon name="ios-arrow-round-back" size={34} style={{ color: "#ffffff" }} />
             </TouchableOpacity>
             <View style={{ width: "75%", justifyContent: "center", }}>
-              <Text style={{ fontSize: 24, width: "70%", fontWeight: "600" }}>Tạo kế hoạch</Text>
+              <Text style={{ fontSize: 20, width: "70%", fontWeight: "600", color: "#ffffff" }}>Tạo kế hoạch</Text>
             </View>
-          </TouchableOpacity>
-          <View style={{ height: 1, backgroundColor: "#000", alignSelf: "stretch" }}></View>
+          </View>
+          {/* <View style={{ height: 1, backgroundColor: "#000", alignSelf: "stretch" }}></View> */}
         </View>
-        <View style={{ flex: 16, paddingLeft: 20, paddingRight: 20, flexDirection: "column" }}>
 
+        <ScrollView style={{ flex: 16, paddingLeft: 20, paddingRight: 20, flexDirection: "column" }}>
           <View style={styles.viewInput}>
             <Text style={styles.titleBold}>Tên kế hoach (*)</Text>
             <TextInput style={styles.textInput}
@@ -138,9 +138,8 @@ export default class CreatEvent extends Component {
             customStyles={{
               dateIcon: {
                 position: 'absolute',
-                left: 0,
-                top: 4,
-                marginLeft: 0,
+                right: 5,
+                marginTop: 10,
                 display: "none"
               },
               dateInput: {
@@ -167,12 +166,12 @@ export default class CreatEvent extends Component {
           <View style={{ flexDirection: "column", marginTop: 20 }}>
             <Text style={{ fontSize: 16, fontWeight: "600" }}>Địa điểm</Text>
           </View>
-          <PlaceAutoComplete handleSelectAddress={this.handleSelectAddress}/>
-          
+          <PlaceAutoComplete handleSelectAddress={this.handleSelectAddress} />
+
           <TouchableOpacity style={styles.buttonCreat} onPress={this._handleCreatEvent}>
             <Text style={{ color: "#fff", fontSize: 20 }}>Tạo ngay</Text>
           </TouchableOpacity>
-        </View>
+        </ScrollView>
       </View>
     );
   }

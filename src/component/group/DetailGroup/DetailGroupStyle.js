@@ -3,13 +3,13 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         alignSelf: "stretch",
-        paddingTop: Platform.OS === 'ios' ? 30 : 5,
+        paddingTop: Platform.OS === 'ios' ? 30 : 0,
         flexDirection: 'column',
     },
     tapbar: {
-        height:40,
+        height:50,
         flexDirection:"row",
-        backgroundColor: "green"
+        backgroundColor: "#58d669",
     },
     tapbarItem: {
         flex:1,
@@ -18,11 +18,11 @@ const styles = StyleSheet.create({
     },
     lableBefore: {
         fontSize: 18,
-        color: "#fff"
+        color: "#c7c7c7"
     },
     lableAfter: {
         fontSize: 18,
-        color: "#000"
+        color: "#ffffff"
     }
 });
 

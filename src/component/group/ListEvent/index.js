@@ -117,14 +117,14 @@ export default class ListEvent extends Component {
 
                   <View style={styles.info}>
                     <Text style={styles.textName}>{item.name}</Text>
-                    <Text style={styles.textView}>{item.description}</Text>
+                    <Text style={styles.textView} numberOfLines={1}>{item.description}</Text>
                     <View style={{ flexDirection: "row" }}>
                       <IconClock name="clock" size={20} style={{ color: "#007aff", marginRight:8}} />
                       <Text style={styles.textView}>{(item.time).substr(11, (item.time).length)}</Text>
                     </View>
                     <View style={{ flexDirection: "row" }}>
                       <IconLocation name="location" size={20} style={{ color: "#007aff", marginRight:8 }} />
-                      <Text style={styles.textView}>{item.address}</Text>
+                      <Text style={styles.textView} numberOfLines={1}>{item.address}</Text>
                     </View>
                     <Text style={styles.textView}>{this.getTime(item.time)}</Text>
                   </View>

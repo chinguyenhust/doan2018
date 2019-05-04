@@ -48,18 +48,18 @@ export default class DetailGroup extends Component {
     return (
       <View style={styles.container}>
 
-        <TouchableOpacity
-          style={{ height: 40, flexDirection: "row", paddingLeft: 20, alignSelf: "stretch", justifyContent: "center", alignItems: "center" }}>
+        <View
+          style={{ height: 56, flexDirection: "row", paddingLeft: 20, alignSelf: "stretch", justifyContent: "center", alignItems: "center",backgroundColor: "#53ca64" }}>
           <Icon name="ios-arrow-round-back"
             size={34}
-            style={{ width: "15%" }}
+            style={{ width: "15%", color:"#ffff" }}
             onPress={() => { this.props.navigation.goBack() }} />
-          <Text style={{ fontSize: 24, width: "70%", fontWeight: "600" }}>{this.props.navigation.state.params.name}</Text>
+          <Text style={{ fontSize: 20, width: "70%", fontWeight: "600", color: "#ffffff" }}>{this.props.navigation.state.params.name}</Text>
           <IconInfo name="ios-information-circle-outline"
             size={30}
-            style={{ width: "10%" }}
+            style={{ width: "10%", color:"#ffffff"}}
             onPress={() => { navigate("InfoGroup", { groupId: groupId }) }} />
-        </TouchableOpacity>
+        </View>
 
 
         <View style={styles.tapbar}>

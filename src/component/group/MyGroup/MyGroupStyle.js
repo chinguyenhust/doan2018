@@ -14,8 +14,8 @@ const styles = StyleSheet.create({
     header: {
         alignSelf: "stretch",
         flexDirection: 'column',
-        height: 40,
-        marginTop: Platform.OS === 'ios' ? 30 : 5,
+        height: 56,
+        marginTop: Platform.OS === 'ios' ? 30 : 0,
         alignItems: "center",
     },
     list: {

@@ -22,10 +22,9 @@ const PlaceAutoComplete = ({handleSelectAddress}) => (
       }}
       styles={{
         textInputContainer: {
-          backgroundColor: 'rgba(0,0,0,0)', borderTopWidth: 1,
-          borderBottomWidth: 1,
-          borderWidth: 0.5,
-          borderColor: "#7a7a7a",
+          backgroundColor: 'rgba(0,0,0,0)', 
+          borderWidth: 1,
+          borderColor: "#bcbcbc",
           borderRadius: 4,
           marginTop: 10,
         },

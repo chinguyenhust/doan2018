@@ -53,7 +53,7 @@
     },
     {
         "merged": "/Users/daisy/doan2018/android/app/build/intermediates/res/merged/debug/drawable_common_google_signin_btn_text_dark_focused.xml.flat",
-        "source": "/Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-base-16.0.1.aar/8c69c08195ffff6ec7aa2978dc5a7c37/res/drawable/common_google_signin_btn_text_dark_focused.xml"
+        "source": "/Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-base-16.1.0.aar/c4f3028d4665f029e8a664bf5fd1184a/res/drawable/common_google_signin_btn_text_dark_focused.xml"
     },
     {
         "merged": "/Users/daisy/doan2018/android/app/build/intermediates/res/merged/debug/drawable_notification_bg.xml.flat",
@@ -69,7 +69,7 @@
     },
     {
         "merged": "/Users/daisy/doan2018/android/app/build/intermediates/res/merged/debug/drawable_common_google_signin_btn_text_light_focused.xml.flat",
-        "source": "/Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-base-16.0.1.aar/8c69c08195ffff6ec7aa2978dc5a7c37/res/drawable/common_google_signin_btn_text_light_focused.xml"
+        "source": "/Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-base-16.1.0.aar/c4f3028d4665f029e8a664bf5fd1184a/res/drawable/common_google_signin_btn_text_light_focused.xml"
     },
     {
         "merged": "/Users/daisy/doan2018/android/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_list_pressed_holo_dark.9.png.flat",
@@ -137,7 +137,7 @@
     },
     {
         "merged": "/Users/daisy/doan2018/android/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_common_google_signin_btn_text_light_normal_background.9.png.flat",
-        "source": "/Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-base-16.0.1.aar/8c69c08195ffff6ec7aa2978dc5a7c37/res/drawable-xxhdpi-v4/common_google_signin_btn_text_light_normal_background.9.png"
+        "source": "/Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-base-16.1.0.aar/c4f3028d4665f029e8a664bf5fd1184a/res/drawable-xxhdpi-v4/common_google_signin_btn_text_light_normal_background.9.png"
     },
     {
         "merged": "/Users/daisy/doan2018/android/app/build/intermediates/res/merged/debug/drawable-ldrtl-xxxhdpi-v17_abc_spinner_mtrl_am_alpha.9.png.flat",
@@ -149,7 +149,7 @@
     },
     {
         "merged": "/Users/daisy/doan2018/android/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_common_google_signin_btn_text_light_normal_background.9.png.flat",
-        "source": "/Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-base-16.0.1.aar/8c69c08195ffff6ec7aa2978dc5a7c37/res/drawable-hdpi-v4/common_google_signin_btn_text_light_normal_background.9.png"
+        "source": "/Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-base-16.1.0.aar/c4f3028d4665f029e8a664bf5fd1184a/res/drawable-hdpi-v4/common_google_signin_btn_text_light_normal_background.9.png"
     },
     {
         "merged": "/Users/daisy/doan2018/android/app/build/intermediates/res/merged/debug/layout_abc_tooltip.xml.flat",
@@ -189,7 +189,7 @@
     },
     {
         "merged": "/Users/daisy/doan2018/android/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_common_full_open_on_phone.png.flat",
-        "source": "/Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-base-16.0.1.aar/8c69c08195ffff6ec7aa2978dc5a7c37/res/drawable-hdpi-v4/common_full_open_on_phone.png"
+        "source": "/Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-base-16.1.0.aar/c4f3028d4665f029e8a664bf5fd1184a/res/drawable-hdpi-v4/common_full_open_on_phone.png"
     },
     {
         "merged": "/Users/daisy/doan2018/android/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_textfield_search_default_mtrl_alpha.9.png.flat",
@@ -197,7 +197,7 @@
     },
     {
         "merged": "/Users/daisy/doan2018/android/app/build/intermediates/res/merged/debug/drawable_common_google_signin_btn_icon_dark_normal.xml.flat",
-        "source": "/Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-base-16.0.1.aar/8c69c08195ffff6ec7aa2978dc5a7c37/res/drawable/common_google_signin_btn_icon_dark_normal.xml"
+        "source": "/Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-base-16.1.0.aar/c4f3028d4665f029e8a664bf5fd1184a/res/drawable/common_google_signin_btn_icon_dark_normal.xml"
     },
     {
         "merged": "/Users/daisy/doan2018/android/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_text_select_handle_middle_mtrl_light.png.flat",
@@ -217,7 +217,7 @@
     },
     {
         "merged": "/Users/daisy/doan2018/android/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_googleg_disabled_color_18.png.flat",
-        "source": "/Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-base-16.0.1.aar/8c69c08195ffff6ec7aa2978dc5a7c37/res/drawable-mdpi-v4/googleg_disabled_color_18.png"
+        "source": "/Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-base-16.1.0.aar/c4f3028d4665f029e8a664bf5fd1184a/res/drawable-mdpi-v4/googleg_disabled_color_18.png"
     },
     {
         "merged": "/Users/daisy/doan2018/android/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_ic_launcher.png.flat",
@@ -353,7 +353,7 @@
     },
     {
         "merged": "/Users/daisy/doan2018/android/app/build/intermediates/res/merged/debug/drawable_common_google_signin_btn_text_dark_normal.xml.flat",
-        "source": "/Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-base-16.0.1.aar/8c69c08195ffff6ec7aa2978dc5a7c37/res/drawable/common_google_signin_btn_text_dark_normal.xml"
+        "source": "/Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-base-16.1.0.aar/c4f3028d4665f029e8a664bf5fd1184a/res/drawable/common_google_signin_btn_text_dark_normal.xml"
     },
     {
         "merged": "/Users/daisy/doan2018/android/app/build/intermediates/res/merged/debug/drawable_abc_btn_borderless_material.xml.flat",
@@ -361,7 +361,7 @@
     },
     {
         "merged": "/Users/daisy/doan2018/android/app/build/intermediates/res/merged/debug/color_common_google_signin_btn_tint.xml.flat",
-        "source": "/Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-base-16.0.1.aar/8c69c08195ffff6ec7aa2978dc5a7c37/res/color/common_google_signin_btn_tint.xml"
+        "source": "/Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-base-16.1.0.aar/c4f3028d4665f029e8a664bf5fd1184a/res/color/common_google_signin_btn_tint.xml"
     },
     {
         "merged": "/Users/daisy/doan2018/android/app/build/intermediates/res/merged/debug/drawable_abc_textfield_search_material.xml.flat",
@@ -373,7 +373,7 @@
     },
     {
         "merged": "/Users/daisy/doan2018/android/app/build/intermediates/res/merged/debug/drawable_common_google_signin_btn_icon_disabled.xml.flat",
-        "source": "/Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-base-16.0.1.aar/8c69c08195ffff6ec7aa2978dc5a7c37/res/drawable/common_google_signin_btn_icon_disabled.xml"
+        "source": "/Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-base-16.1.0.aar/c4f3028d4665f029e8a664bf5fd1184a/res/drawable/common_google_signin_btn_icon_disabled.xml"
     },
     {
         "merged": "/Users/daisy/doan2018/android/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_ic_launcher_round.png.flat",
@@ -445,7 +445,7 @@
     },
     {
         "merged": "/Users/daisy/doan2018/android/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_common_google_signin_btn_text_dark_normal_background.9.png.flat",
-        "source": "/Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-base-16.0.1.aar/8c69c08195ffff6ec7aa2978dc5a7c37/res/drawable-xhdpi-v4/common_google_signin_btn_text_dark_normal_background.9.png"
+        "source": "/Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-base-16.1.0.aar/c4f3028d4665f029e8a664bf5fd1184a/res/drawable-xhdpi-v4/common_google_signin_btn_text_dark_normal_background.9.png"
     },
     {
         "merged": "/Users/daisy/doan2018/android/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_text_select_handle_right_mtrl_light.png.flat",
@@ -525,7 +525,7 @@
     },
     {
         "merged": "/Users/daisy/doan2018/android/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_common_google_signin_btn_icon_dark_normal_background.9.png.flat",
-        "source": "/Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-base-16.0.1.aar/8c69c08195ffff6ec7aa2978dc5a7c37/res/drawable-hdpi-v4/common_google_signin_btn_icon_dark_normal_background.9.png"
+        "source": "/Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-base-16.1.0.aar/c4f3028d4665f029e8a664bf5fd1184a/res/drawable-hdpi-v4/common_google_signin_btn_icon_dark_normal_background.9.png"
     },
     {
         "merged": "/Users/daisy/doan2018/android/app/build/intermediates/res/merged/debug/drawable_notification_tile_bg.xml.flat",
@@ -533,7 +533,7 @@
     },
     {
         "merged": "/Users/daisy/doan2018/android/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_googleg_standard_color_18.png.flat",
-        "source": "/Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-base-16.0.1.aar/8c69c08195ffff6ec7aa2978dc5a7c37/res/drawable-xxhdpi-v4/googleg_standard_color_18.png"
+        "source": "/Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-base-16.1.0.aar/c4f3028d4665f029e8a664bf5fd1184a/res/drawable-xxhdpi-v4/googleg_standard_color_18.png"
     },
     {
         "merged": "/Users/daisy/doan2018/android/app/build/intermediates/res/merged/debug/drawable-v21_abc_dialog_material_background.xml.flat",
@@ -553,7 +553,7 @@
     },
     {
         "merged": "/Users/daisy/doan2018/android/app/build/intermediates/res/merged/debug/drawable_common_google_signin_btn_icon_light_normal.xml.flat",
-        "source": "/Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-base-16.0.1.aar/8c69c08195ffff6ec7aa2978dc5a7c37/res/drawable/common_google_signin_btn_icon_light_normal.xml"
+        "source": "/Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-base-16.1.0.aar/c4f3028d4665f029e8a664bf5fd1184a/res/drawable/common_google_signin_btn_icon_light_normal.xml"
     },
     {
         "merged": "/Users/daisy/doan2018/android/app/build/intermediates/res/merged/debug/mipmap-xxhdpi_ic_launcher_round.png.flat",
@@ -813,7 +813,7 @@
     },
     {
         "merged": "/Users/daisy/doan2018/android/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_googleg_disabled_color_18.png.flat",
-        "source": "/Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-base-16.0.1.aar/8c69c08195ffff6ec7aa2978dc5a7c37/res/drawable-xxhdpi-v4/googleg_disabled_color_18.png"
+        "source": "/Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-base-16.1.0.aar/c4f3028d4665f029e8a664bf5fd1184a/res/drawable-xxhdpi-v4/googleg_disabled_color_18.png"
     },
     {
         "merged": "/Users/daisy/doan2018/android/app/build/intermediates/res/merged/debug/anim_abc_grow_fade_in_from_bottom.xml.flat",
@@ -941,7 +941,7 @@
     },
     {
         "merged": "/Users/daisy/doan2018/android/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_common_google_signin_btn_icon_dark_normal_background.9.png.flat",
-        "source": "/Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-base-16.0.1.aar/8c69c08195ffff6ec7aa2978dc5a7c37/res/drawable-xxhdpi-v4/common_google_signin_btn_icon_dark_normal_background.9.png"
+        "source": "/Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-base-16.1.0.aar/c4f3028d4665f029e8a664bf5fd1184a/res/drawable-xxhdpi-v4/common_google_signin_btn_icon_dark_normal_background.9.png"
     },
     {
         "merged": "/Users/daisy/doan2018/android/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_menu_hardkey_panel_mtrl_mult.9.png.flat",
@@ -969,7 +969,7 @@
     },
     {
         "merged": "/Users/daisy/doan2018/android/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_common_google_signin_btn_icon_dark_normal_background.9.png.flat",
-        "source": "/Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-base-16.0.1.aar/8c69c08195ffff6ec7aa2978dc5a7c37/res/drawable-xhdpi-v4/common_google_signin_btn_icon_dark_normal_background.9.png"
+        "source": "/Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-base-16.1.0.aar/c4f3028d4665f029e8a664bf5fd1184a/res/drawable-xhdpi-v4/common_google_signin_btn_icon_dark_normal_background.9.png"
     },
     {
         "merged": "/Users/daisy/doan2018/android/app/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4_abc_btn_check_to_on_mtrl_000.png.flat",
@@ -993,7 +993,7 @@
     },
     {
         "merged": "/Users/daisy/doan2018/android/app/build/intermediates/res/merged/debug/drawable_common_google_signin_btn_icon_light.xml.flat",
-        "source": "/Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-base-16.0.1.aar/8c69c08195ffff6ec7aa2978dc5a7c37/res/drawable/common_google_signin_btn_icon_light.xml"
+        "source": "/Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-base-16.1.0.aar/c4f3028d4665f029e8a664bf5fd1184a/res/drawable/common_google_signin_btn_icon_light.xml"
     },
     {
         "merged": "/Users/daisy/doan2018/android/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_btn_check_to_on_mtrl_015.png.flat",
@@ -1041,7 +1041,7 @@
     },
     {
         "merged": "/Users/daisy/doan2018/android/app/build/intermediates/res/merged/debug/drawable_common_google_signin_btn_text_light.xml.flat",
-        "source": "/Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-base-16.0.1.aar/8c69c08195ffff6ec7aa2978dc5a7c37/res/drawable/common_google_signin_btn_text_light.xml"
+        "source": "/Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-base-16.1.0.aar/c4f3028d4665f029e8a664bf5fd1184a/res/drawable/common_google_signin_btn_text_light.xml"
     },
     {
         "merged": "/Users/daisy/doan2018/android/app/build/intermediates/res/merged/debug/drawable-ldrtl-xhdpi-v17_abc_spinner_mtrl_am_alpha.9.png.flat",
@@ -1077,7 +1077,7 @@
     },
     {
         "merged": "/Users/daisy/doan2018/android/app/build/intermediates/res/merged/debug/drawable_common_google_signin_btn_text_light_normal.xml.flat",
-        "source": "/Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-base-16.0.1.aar/8c69c08195ffff6ec7aa2978dc5a7c37/res/drawable/common_google_signin_btn_text_light_normal.xml"
+        "source": "/Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-base-16.1.0.aar/c4f3028d4665f029e8a664bf5fd1184a/res/drawable/common_google_signin_btn_text_light_normal.xml"
     },
     {
         "merged": "/Users/daisy/doan2018/android/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_textfield_default_mtrl_alpha.9.png.flat",
@@ -1321,7 +1321,7 @@
     },
     {
         "merged": "/Users/daisy/doan2018/android/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_googleg_standard_color_18.png.flat",
-        "source": "/Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-base-16.0.1.aar/8c69c08195ffff6ec7aa2978dc5a7c37/res/drawable-xhdpi-v4/googleg_standard_color_18.png"
+        "source": "/Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-base-16.1.0.aar/c4f3028d4665f029e8a664bf5fd1184a/res/drawable-xhdpi-v4/googleg_standard_color_18.png"
     },
     {
         "merged": "/Users/daisy/doan2018/android/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_btn_switch_to_on_mtrl_00001.9.png.flat",
@@ -1361,7 +1361,7 @@
     },
     {
         "merged": "/Users/daisy/doan2018/android/app/build/intermediates/res/merged/debug/drawable_common_google_signin_btn_text_dark.xml.flat",
-        "source": "/Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-base-16.0.1.aar/8c69c08195ffff6ec7aa2978dc5a7c37/res/drawable/common_google_signin_btn_text_dark.xml"
+        "source": "/Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-base-16.1.0.aar/c4f3028d4665f029e8a664bf5fd1184a/res/drawable/common_google_signin_btn_text_dark.xml"
     },
     {
         "merged": "/Users/daisy/doan2018/android/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_ic_menu_paste_mtrl_am_alpha.png.flat",
@@ -1373,7 +1373,7 @@
     },
     {
         "merged": "/Users/daisy/doan2018/android/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_common_google_signin_btn_icon_dark_normal_background.9.png.flat",
-        "source": "/Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-base-16.0.1.aar/8c69c08195ffff6ec7aa2978dc5a7c37/res/drawable-mdpi-v4/common_google_signin_btn_icon_dark_normal_background.9.png"
+        "source": "/Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-base-16.1.0.aar/c4f3028d4665f029e8a664bf5fd1184a/res/drawable-mdpi-v4/common_google_signin_btn_icon_dark_normal_background.9.png"
     },
     {
         "merged": "/Users/daisy/doan2018/android/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_btn_radio_to_on_mtrl_015.png.flat",
@@ -1385,7 +1385,7 @@
     },
     {
         "merged": "/Users/daisy/doan2018/android/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_common_google_signin_btn_icon_light_normal_background.9.png.flat",
-        "source": "/Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-base-16.0.1.aar/8c69c08195ffff6ec7aa2978dc5a7c37/res/drawable-mdpi-v4/common_google_signin_btn_icon_light_normal_background.9.png"
+        "source": "/Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-base-16.1.0.aar/c4f3028d4665f029e8a664bf5fd1184a/res/drawable-mdpi-v4/common_google_signin_btn_icon_light_normal_background.9.png"
     },
     {
         "merged": "/Users/daisy/doan2018/android/app/build/intermediates/res/merged/debug/color-v23_abc_color_highlight_material.xml.flat",
@@ -1441,7 +1441,7 @@
     },
     {
         "merged": "/Users/daisy/doan2018/android/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_googleg_standard_color_18.png.flat",
-        "source": "/Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-base-16.0.1.aar/8c69c08195ffff6ec7aa2978dc5a7c37/res/drawable-mdpi-v4/googleg_standard_color_18.png"
+        "source": "/Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-base-16.1.0.aar/c4f3028d4665f029e8a664bf5fd1184a/res/drawable-mdpi-v4/googleg_standard_color_18.png"
     },
     {
         "merged": "/Users/daisy/doan2018/android/app/build/intermediates/res/merged/debug/color_abc_secondary_text_material_dark.xml.flat",
@@ -1473,7 +1473,7 @@
     },
     {
         "merged": "/Users/daisy/doan2018/android/app/build/intermediates/res/merged/debug/drawable_common_google_signin_btn_icon_dark_focused.xml.flat",
-        "source": "/Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-base-16.0.1.aar/8c69c08195ffff6ec7aa2978dc5a7c37/res/drawable/common_google_signin_btn_icon_dark_focused.xml"
+        "source": "/Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-base-16.1.0.aar/c4f3028d4665f029e8a664bf5fd1184a/res/drawable/common_google_signin_btn_icon_dark_focused.xml"
     },
     {
         "merged": "/Users/daisy/doan2018/android/app/build/intermediates/res/merged/debug/color_abc_primary_text_disable_only_material_light.xml.flat",
@@ -1497,15 +1497,15 @@
     },
     {
         "merged": "/Users/daisy/doan2018/android/app/build/intermediates/res/merged/debug/color_common_google_signin_btn_text_light.xml.flat",
-        "source": "/Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-base-16.0.1.aar/8c69c08195ffff6ec7aa2978dc5a7c37/res/color/common_google_signin_btn_text_light.xml"
+        "source": "/Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-base-16.1.0.aar/c4f3028d4665f029e8a664bf5fd1184a/res/color/common_google_signin_btn_text_light.xml"
     },
     {
         "merged": "/Users/daisy/doan2018/android/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_common_google_signin_btn_icon_light_normal_background.9.png.flat",
-        "source": "/Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-base-16.0.1.aar/8c69c08195ffff6ec7aa2978dc5a7c37/res/drawable-xhdpi-v4/common_google_signin_btn_icon_light_normal_background.9.png"
+        "source": "/Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-base-16.1.0.aar/c4f3028d4665f029e8a664bf5fd1184a/res/drawable-xhdpi-v4/common_google_signin_btn_icon_light_normal_background.9.png"
     },
     {
         "merged": "/Users/daisy/doan2018/android/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_common_google_signin_btn_icon_light_normal_background.9.png.flat",
-        "source": "/Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-base-16.0.1.aar/8c69c08195ffff6ec7aa2978dc5a7c37/res/drawable-xxhdpi-v4/common_google_signin_btn_icon_light_normal_background.9.png"
+        "source": "/Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-base-16.1.0.aar/c4f3028d4665f029e8a664bf5fd1184a/res/drawable-xxhdpi-v4/common_google_signin_btn_icon_light_normal_background.9.png"
     },
     {
         "merged": "/Users/daisy/doan2018/android/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_cab_background_top_mtrl_alpha.9.png.flat",
@@ -1537,7 +1537,7 @@
     },
     {
         "merged": "/Users/daisy/doan2018/android/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_common_google_signin_btn_icon_light_normal_background.9.png.flat",
-        "source": "/Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-base-16.0.1.aar/8c69c08195ffff6ec7aa2978dc5a7c37/res/drawable-hdpi-v4/common_google_signin_btn_icon_light_normal_background.9.png"
+        "source": "/Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-base-16.1.0.aar/c4f3028d4665f029e8a664bf5fd1184a/res/drawable-hdpi-v4/common_google_signin_btn_icon_light_normal_background.9.png"
     },
     {
         "merged": "/Users/daisy/doan2018/android/app/build/intermediates/res/merged/debug/raw_amu_nested_folders.kml.flat",
@@ -1545,7 +1545,7 @@
     },
     {
         "merged": "/Users/daisy/doan2018/android/app/build/intermediates/res/merged/debug/drawable_common_google_signin_btn_icon_light_focused.xml.flat",
-        "source": "/Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-base-16.0.1.aar/8c69c08195ffff6ec7aa2978dc5a7c37/res/drawable/common_google_signin_btn_icon_light_focused.xml"
+        "source": "/Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-base-16.1.0.aar/c4f3028d4665f029e8a664bf5fd1184a/res/drawable/common_google_signin_btn_icon_light_focused.xml"
     },
     {
         "merged": "/Users/daisy/doan2018/android/app/build/intermediates/res/merged/debug/layout_abc_expanded_menu_layout.xml.flat",
@@ -1573,7 +1573,7 @@
     },
     {
         "merged": "/Users/daisy/doan2018/android/app/build/intermediates/res/merged/debug/color_common_google_signin_btn_text_dark.xml.flat",
-        "source": "/Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-base-16.0.1.aar/8c69c08195ffff6ec7aa2978dc5a7c37/res/color/common_google_signin_btn_text_dark.xml"
+        "source": "/Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-base-16.1.0.aar/c4f3028d4665f029e8a664bf5fd1184a/res/color/common_google_signin_btn_text_dark.xml"
     },
     {
         "merged": "/Users/daisy/doan2018/android/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_notify_panel_notification_icon_bg.png.flat",
@@ -1605,7 +1605,7 @@
     },
     {
         "merged": "/Users/daisy/doan2018/android/app/build/intermediates/res/merged/debug/drawable_common_google_signin_btn_icon_dark.xml.flat",
-        "source": "/Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-base-16.0.1.aar/8c69c08195ffff6ec7aa2978dc5a7c37/res/drawable/common_google_signin_btn_icon_dark.xml"
+        "source": "/Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-base-16.1.0.aar/c4f3028d4665f029e8a664bf5fd1184a/res/drawable/common_google_signin_btn_icon_dark.xml"
     },
     {
         "merged": "/Users/daisy/doan2018/android/app/build/intermediates/res/merged/debug/color_abc_hint_foreground_material_dark.xml.flat",
@@ -1689,7 +1689,7 @@
     },
     {
         "merged": "/Users/daisy/doan2018/android/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_common_google_signin_btn_text_light_normal_background.9.png.flat",
-        "source": "/Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-base-16.0.1.aar/8c69c08195ffff6ec7aa2978dc5a7c37/res/drawable-xhdpi-v4/common_google_signin_btn_text_light_normal_background.9.png"
+        "source": "/Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-base-16.1.0.aar/c4f3028d4665f029e8a664bf5fd1184a/res/drawable-xhdpi-v4/common_google_signin_btn_text_light_normal_background.9.png"
     },
     {
         "merged": "/Users/daisy/doan2018/android/app/build/intermediates/res/merged/debug/anim_catalyst_slide_down.xml.flat",
@@ -1697,7 +1697,7 @@
     },
     {
         "merged": "/Users/daisy/doan2018/android/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_googleg_standard_color_18.png.flat",
-        "source": "/Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-base-16.0.1.aar/8c69c08195ffff6ec7aa2978dc5a7c37/res/drawable-hdpi-v4/googleg_standard_color_18.png"
+        "source": "/Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-base-16.1.0.aar/c4f3028d4665f029e8a664bf5fd1184a/res/drawable-hdpi-v4/googleg_standard_color_18.png"
     },
     {
         "merged": "/Users/daisy/doan2018/android/app/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4_abc_ic_menu_cut_mtrl_alpha.png.flat",
@@ -1717,7 +1717,7 @@
     },
     {
         "merged": "/Users/daisy/doan2018/android/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_common_google_signin_btn_text_light_normal_background.9.png.flat",
-        "source": "/Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-base-16.0.1.aar/8c69c08195ffff6ec7aa2978dc5a7c37/res/drawable-mdpi-v4/common_google_signin_btn_text_light_normal_background.9.png"
+        "source": "/Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-base-16.1.0.aar/c4f3028d4665f029e8a664bf5fd1184a/res/drawable-mdpi-v4/common_google_signin_btn_text_light_normal_background.9.png"
     },
     {
         "merged": "/Users/daisy/doan2018/android/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_notification_bg_normal_pressed.9.png.flat",
@@ -1729,11 +1729,11 @@
     },
     {
         "merged": "/Users/daisy/doan2018/android/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_googleg_disabled_color_18.png.flat",
-        "source": "/Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-base-16.0.1.aar/8c69c08195ffff6ec7aa2978dc5a7c37/res/drawable-hdpi-v4/googleg_disabled_color_18.png"
+        "source": "/Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-base-16.1.0.aar/c4f3028d4665f029e8a664bf5fd1184a/res/drawable-hdpi-v4/googleg_disabled_color_18.png"
     },
     {
         "merged": "/Users/daisy/doan2018/android/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_common_google_signin_btn_text_dark_normal_background.9.png.flat",
-        "source": "/Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-base-16.0.1.aar/8c69c08195ffff6ec7aa2978dc5a7c37/res/drawable-hdpi-v4/common_google_signin_btn_text_dark_normal_background.9.png"
+        "source": "/Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-base-16.1.0.aar/c4f3028d4665f029e8a664bf5fd1184a/res/drawable-hdpi-v4/common_google_signin_btn_text_dark_normal_background.9.png"
     },
     {
         "merged": "/Users/daisy/doan2018/android/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_ic_menu_selectall_mtrl_alpha.png.flat",
@@ -1809,7 +1809,7 @@
     },
     {
         "merged": "/Users/daisy/doan2018/android/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_common_full_open_on_phone.png.flat",
-        "source": "/Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-base-16.0.1.aar/8c69c08195ffff6ec7aa2978dc5a7c37/res/drawable-xhdpi-v4/common_full_open_on_phone.png"
+        "source": "/Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-base-16.1.0.aar/c4f3028d4665f029e8a664bf5fd1184a/res/drawable-xhdpi-v4/common_full_open_on_phone.png"
     },
     {
         "merged": "/Users/daisy/doan2018/android/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_text_select_handle_left_mtrl_dark.png.flat",
@@ -1873,7 +1873,7 @@
     },
     {
         "merged": "/Users/daisy/doan2018/android/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_googleg_disabled_color_18.png.flat",
-        "source": "/Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-base-16.0.1.aar/8c69c08195ffff6ec7aa2978dc5a7c37/res/drawable-xhdpi-v4/googleg_disabled_color_18.png"
+        "source": "/Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-base-16.1.0.aar/c4f3028d4665f029e8a664bf5fd1184a/res/drawable-xhdpi-v4/googleg_disabled_color_18.png"
     },
     {
         "merged": "/Users/daisy/doan2018/android/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_text_select_handle_right_mtrl_light.png.flat",
@@ -1889,7 +1889,7 @@
     },
     {
         "merged": "/Users/daisy/doan2018/android/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_common_google_signin_btn_text_dark_normal_background.9.png.flat",
-        "source": "/Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-base-16.0.1.aar/8c69c08195ffff6ec7aa2978dc5a7c37/res/drawable-xxhdpi-v4/common_google_signin_btn_text_dark_normal_background.9.png"
+        "source": "/Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-base-16.1.0.aar/c4f3028d4665f029e8a664bf5fd1184a/res/drawable-xxhdpi-v4/common_google_signin_btn_text_dark_normal_background.9.png"
     },
     {
         "merged": "/Users/daisy/doan2018/android/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_scrubber_track_mtrl_alpha.9.png.flat",
@@ -1909,7 +1909,7 @@
     },
     {
         "merged": "/Users/daisy/doan2018/android/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_common_google_signin_btn_text_dark_normal_background.9.png.flat",
-        "source": "/Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-base-16.0.1.aar/8c69c08195ffff6ec7aa2978dc5a7c37/res/drawable-mdpi-v4/common_google_signin_btn_text_dark_normal_background.9.png"
+        "source": "/Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-base-16.1.0.aar/c4f3028d4665f029e8a664bf5fd1184a/res/drawable-mdpi-v4/common_google_signin_btn_text_dark_normal_background.9.png"
     },
     {
         "merged": "/Users/daisy/doan2018/android/app/build/intermediates/res/merged/debug/layout_abc_list_menu_item_checkbox.xml.flat",
@@ -1925,7 +1925,7 @@
     },
     {
         "merged": "/Users/daisy/doan2018/android/app/build/intermediates/res/merged/debug/drawable_common_google_signin_btn_text_disabled.xml.flat",
-        "source": "/Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-base-16.0.1.aar/8c69c08195ffff6ec7aa2978dc5a7c37/res/drawable/common_google_signin_btn_text_disabled.xml"
+        "source": "/Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-base-16.1.0.aar/c4f3028d4665f029e8a664bf5fd1184a/res/drawable/common_google_signin_btn_text_disabled.xml"
     },
     {
         "merged": "/Users/daisy/doan2018/android/app/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4_abc_text_select_handle_right_mtrl_dark.png.flat",

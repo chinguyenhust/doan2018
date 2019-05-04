@@ -2,7 +2,7 @@ import { StyleSheet, Platform} from 'react-native'
 const styles = StyleSheet.create({
     container: {
         alignSelf: "stretch",
-        paddingTop: Platform.OS === 'ios' ? 30 : 5,
+        paddingTop: Platform.OS === 'ios' ? 30 : 0,
         flexDirection: 'column',
         backgroundColor: "#fff",
         left: 0,
@@ -19,25 +19,30 @@ const styles = StyleSheet.create({
     },
     inputSchedule: {
         height: 100,
-        borderColor: 'gray',
-        borderWidth: 1,
+        borderColor: '#bcbcbc',
+        borderWidth: 0.5,
         marginTop: 10,
         paddingLeft: 15,
         fontSize: 16,
         borderRadius: 5,
+        textAlignVertical: "top",
+        marginBottom: 8,
+        paddingTop: 2
     },
     button: {
         alignItems: 'center',
-        backgroundColor: "green",
+        backgroundColor: "#53ca64",
         height: 40,
         justifyContent: "center",
         borderRadius: 7,
-        marginTop: 20
+        marginTop: 20,
+        marginBottom: 30
     },
     tab: {
-        height: 30,
+        height: 56,
         flexDirection: "row",
         paddingLeft: 20,
+        backgroundColor: "#53ca64"
     },
     dateTime: {
         backgroundColor: '#fff',
@@ -81,7 +86,7 @@ const styles = StyleSheet.create({
         marginVertical: 8
     },
     viewInput: {
-        marginTop: 15,
+        marginTop: 5,
     },
     textError: {
         color: "red"
