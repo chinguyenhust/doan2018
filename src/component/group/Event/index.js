@@ -62,7 +62,7 @@ export default class Event extends Component {
           (this.state.isEvent)? 
           navigate("CreatEvent",{groupId: groupId}) : 
           navigate("CreatSurvey", {groupId: groupId})}}>
-          <IconAdd name="add-circle" size={60} style={{ color: "#53ca64" }} />
+          <IconAdd name="add-circle" size={60} style={{ color: "#006805" }} />
         </TouchableOpacity>
       </View>
     );

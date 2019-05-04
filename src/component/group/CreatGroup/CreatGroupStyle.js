@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
     },
     button: {
         alignItems: 'center',
-        backgroundColor: "#53ca64",
+        backgroundColor: "#006805",
         height: 40,
         justifyContent: "center",
         borderRadius: 7,
@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
         height: 56,
         flexDirection: "row",
         paddingLeft: 20,
-        backgroundColor: "#53ca64"
+        backgroundColor: "#006805"
     },
     dateTime: {
         backgroundColor: '#fff',

@@ -49,7 +49,7 @@ export default class DetailGroup extends Component {
       <View style={styles.container}>
 
         <View
-          style={{ height: 56, flexDirection: "row", paddingLeft: 20, alignSelf: "stretch", justifyContent: "center", alignItems: "center",backgroundColor: "#53ca64" }}>
+          style={{ height: 56, flexDirection: "row", paddingLeft: 20, alignSelf: "stretch", justifyContent: "center", alignItems: "center",backgroundColor: "#006805" }}>
           <Icon name="ios-arrow-round-back"
             size={34}
             style={{ width: "15%", color:"#ffff" }}

@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
     tapbar: {
         height: 56,
         flexDirection:"column",
-        backgroundColor: "#53ca64"
+        backgroundColor: "#006805"
     },
     tap: {
         flex:1,
@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
     },
     buttonCreat: {
         height: 40,
-        backgroundColor: '#53ca64',
+        backgroundColor: '#006805',
         borderRadius: 7,
         alignSelf: "stretch",
         justifyContent: "center",

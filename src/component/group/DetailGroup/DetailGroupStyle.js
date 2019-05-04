@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
     tapbar: {
         height:50,
         flexDirection:"row",
-        backgroundColor: "#58d669",
+        backgroundColor: "#439737",
     },
     tapbarItem: {
         flex:1,

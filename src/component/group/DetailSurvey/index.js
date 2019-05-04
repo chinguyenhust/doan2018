@@ -113,7 +113,6 @@ export default class DetailSurvey extends Component {
               <Text style={{ fontSize: 20, width: "70%", fontWeight: "600",color: "#ffffff" }}>Khảo sát ý kiến</Text>
             </View>
           </View>
-          <View style={{ height: 1, backgroundColor: "#000", alignSelf: "stretch" }}></View>
         </View>
         <View style={{ flex: 16, paddingLeft: 20, paddingRight: 20, flexDirection: "column" }}>
 

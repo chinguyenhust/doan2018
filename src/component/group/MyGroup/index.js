@@ -155,9 +155,9 @@ export default class MyGroup extends Component {
 
     return (
       <View style={styles.container}>
-        <StatusBar backgroundColor="#089837" barStyle="light-content" />
+        <StatusBar backgroundColor="#003c00" barStyle="light-content" />
         <View style={styles.header}>
-          <View style={{ height: 56, flexDirection: "row", justifyContent: "center", alignItems: "center", backgroundColor: "#53ca64" }}>
+          <View style={{ height: 56, flexDirection: "row", justifyContent: "center", alignItems: "center", backgroundColor: "#006805" }}>
             <View style={{ flex: 8, alignItems: "center" }}>
               <Text style={{ fontSize: 20, fontWeight: "600", color: "#ffffff" }}>Nhóm của tôi</Text>
             </View>
@@ -228,7 +228,7 @@ export default class MyGroup extends Component {
         <TouchableOpacity
           style={{ zIndex: 1000, bottom: 30, justifyContent: 'flex-end', marginLeft: "80%", position: 'absolute' }}
           onPress={() => navigate("CreatGroup", { uid: uid })}>
-          <IconAdd name="add-circle" size={60} style={{ color: "#53ca64" }} />
+          <IconAdd name="add-circle" size={60} style={{ color: "#006805" }} />
         </TouchableOpacity>
       </View>
     );

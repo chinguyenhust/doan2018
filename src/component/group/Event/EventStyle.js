@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
     },
     lableBefore: {
         fontSize: 18,
-        color: "#000"
+        color: "#000000"
     },
     lableAfter: {
         fontSize: 18,

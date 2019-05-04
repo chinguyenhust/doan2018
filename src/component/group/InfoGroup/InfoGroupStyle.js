@@ -2,7 +2,7 @@ import {Platform, StyleSheet } from 'react-native'
 const styles = StyleSheet.create({
     container: {
         alignSelf: "stretch",
-        paddingTop: Platform.OS === 'ios' ? 30 : 5,
+        paddingTop: Platform.OS === 'ios' ? 30 : 0,
         flexDirection: 'column',
         backgroundColor: "#fff",
         left: 0,
@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
     },
     button: {
         alignItems: 'center', 
-        backgroundColor:"green", 
+        backgroundColor:"#006805", 
         height:40,  
         justifyContent: "center",
         borderRadius: 7

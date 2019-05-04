@@ -61,7 +61,7 @@ export default class UserInfo extends Component {
     return (
       <View style={styles.container}>
         <View style={styles.header}>
-          <View style={{ height: 56, flexDirection: "row", justifyContent: "center", alignItems: "center", backgroundColor: "#53ca64"}}>
+          <View style={{ height: 56, flexDirection: "row", justifyContent: "center", alignItems: "center", backgroundColor: "#006805"}}>
             <Icon name="ios-arrow-round-back" size={34}
               style={{ width: "15%", paddingLeft: 20, color: "#ffffff"}}
               onPress={() => { this.props.navigation.goBack() }}
