@@ -180,10 +180,9 @@ export default class RangeDatepicker extends Component {
   }
 
   handleRenderRow(month) {
-    const { selectedBackgroundColor, selectedTextColor, todayColor, ignoreMinDate, minDate, maxDate } = this.props;
+    const { selectedBackgroundColor, selectedTextColor, todayColor, ignoreMinDate, maxDate } = this.props;
     let { availableDates, startDate, untilDate } = this.state;
-
-
+    const minDate = new Date();
 
     if (availableDates && availableDates.length > 0) {
       availableDates = availableDates.filter(function (d) {
@@ -213,16 +212,16 @@ export default class RangeDatepicker extends Component {
     var untilDate = moment(this.state.untilDate).format("DD-MM-YYYY");
 
     return (
-      <View style={{ backgroundColor: '#fff', zIndex: 1000, alignSelf: 'center' }}>
-        <TouchableOpacity style={{ height: 30, marginTop: 60, flexDirection: "row" }}>
+      <View style={{ backgroundColor: '#fff', zIndex: 1000, alignSelf: 'center', paddingTop: Platform.OS === 'ios' ? 30 : 0, }}>
+        <View style={{ height: 56,  flexDirection: "row", backgroundColor:"#006805", alignItems: "center", paddingLeft: 15 }}>
           <Icon name="ios-arrow-round-back"
-            style={{ marginLeft: 20 }} size={34}
+            style={{ marginLeft: 20, color: "#ffffff" }} size={34}
             onPress={() => this.props.navigation.goBack(null, {
               startDate: startDate,
               untilDate: untilDate
             })} />
-          <Text style={{ fontSize: 20, marginLeft: 20 }}>Chọn ngày</Text>
-        </TouchableOpacity>
+          <Text style={{ fontSize: 20, marginLeft: 20, fontWeight: "600", color: "#ffffff"}}>Chọn ngày</Text>
+        </View>
         {/* {
           this.props.showClose || this.props.showReset ?
             (<View style={{ flexDirection: 'row', justifyContent: "space-between", padding: 20, paddingBottom: 10 }}>
@@ -238,19 +237,19 @@ export default class RangeDatepicker extends Component {
         } */}
         <View style={{ flexDirection: 'row', justifyContent: "space-between", paddingHorizontal: 20, paddingBottom: 5, alignItems: 'center' }}>
           <View style={{ flex: 1 }}>
-            <Text style={{ fontSize: 34, color: '#666' }}>
+            <Text style={{ fontSize: 28, color: '#666' }}>
               {this.state.startDate ? moment(this.state.startDate).format("DD-MM-YYYY") : this.props.placeHolderStart}
             </Text>
           </View>
 
           <View style={{}}>
-            <Text style={{ fontSize: 80 }}>
+            <Text style={{ fontSize: 70 }}>
               /
 							</Text>
           </View>
 
           <View style={{ flex: 1 }}>
-            <Text style={{ fontSize: 34, color: '#666', textAlign: 'right' }}>
+            <Text style={{ fontSize: 28, color: '#666', textAlign: 'right' }}>
               {this.state.untilDate ? moment(this.state.untilDate).format("DD-MM-YYYY") : this.props.placeHolderUntil}
             </Text>
           </View>

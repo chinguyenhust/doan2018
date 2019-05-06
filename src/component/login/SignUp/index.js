@@ -2,6 +2,8 @@ import React from 'react'
 import { StyleSheet, Text, TextInput, View, Button, TouchableOpacity, Alert } from 'react-native';
 import firebase from 'react-native-firebase';
 import { required, phone, password, Email } from '../../../util/validate';
+import CryptoJS from "react-native-crypto-js";
+import { Data } from '../../../api/Data'
 
 export default class SignUp extends React.Component {
   state = {
@@ -59,20 +61,23 @@ export default class SignUp extends React.Component {
         .auth()
         .createUserWithEmailAndPassword(this.state.email, this.state.password)
         .then(() => {
-          var check = this._handleCheck();
           var { email, userName, phone, password, id } = this.state;
-          firebase.database().ref('users/').push({
+          let ciphertext = CryptoJS.AES.encrypt(password, 'secret key 123').toString();
+          Data.ref('users').push({
             userName: userName,
             phone: phone,
             email: email,
-            password: password,
+            password: ciphertext,
             latitude: null,
             longitude: null
           })
           this.props.navigation.navigate('Login');
-          ref.childByAutoId().setValue(data)
+          // ref.childByAutoId().setValue(data)
         })
-        .catch(error => this.setState({ errorMessage: error.message }))
+        .catch((error) => {
+          this.setState({ errorMessage: error.message });
+          alert("errro")
+        })
     } else {
       Alert.alert(
         'Thông báo',

@@ -6,7 +6,8 @@ import {
   TouchableWithoutFeedback,
   TouchableOpacity,
   FlatList,
-  UIManager
+  UIManager,
+  Image
 } from 'react-native';
 import PropTypes from 'prop-types';
 import reject from 'lodash/reject';
@@ -15,6 +16,7 @@ import get from 'lodash/get';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import styles, { colorPack } from './styles';
+import { ScrollView } from 'react-native-gesture-handler';
 
 // set UIManager LayoutAnimationEnabledExperimental
 if (UIManager.setLayoutAnimationEnabledExperimental) {
@@ -65,7 +67,7 @@ export default class MultiSelect extends Component {
     tagTextColor: colorPack.primary,
     fontFamily: '',
     tagRemoveIconColor: colorPack.danger,
-    onSelectedItemsChange: () => {},
+    onSelectedItemsChange: () => { },
     selectedItemFontFamily: '',
     selectedItemTextColor: colorPack.primary,
     itemFontFamily: '',
@@ -84,10 +86,10 @@ export default class MultiSelect extends Component {
     fontSize: 14,
     fixedHeight: false,
     hideTags: false,
-    onChangeInput: () => {},
+    onChangeInput: () => { },
     displayKey: 'name',
     canAddItems: false,
-    onAddItem: () => {}
+    onAddItem: () => { }
   };
 
   constructor(props) {
@@ -313,6 +315,7 @@ export default class MultiSelect extends Component {
   };
 
   _getRow = item => {
+
     const { selectedItemIconColor, displayKey } = this.props;
     return (
       <TouchableOpacity
@@ -321,31 +324,40 @@ export default class MultiSelect extends Component {
         style={{ paddingLeft: 20, paddingRight: 20 }}
       >
         <View>
-          <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-            <Text
-              style={[
-                {
-                  flex: 1,
-                  fontSize: 16,
-                  paddingTop: 5,
-                  paddingBottom: 5
-                },
-                this._itemStyle(item),
-                item.disabled ? { color: 'grey' } : {}
-              ]}
-            >
-              {item[displayKey]}
-            </Text>
-            {this._itemSelected(item) ? (
-              <Icon
-                name="check"
-                style={{
-                  fontSize: 20,
-                  color: selectedItemIconColor
-                }}
+          <View style={{ flexDirection: 'row', }}>
+            <View style={{ flex: 9, flexDirection: 'row', height: 55 }}>
+              <Image
+                style={{ width: 40, height: 40, borderRadius: 20, marginTop: 8 }}
+                source={{ uri: item.avatar }}
               />
+              <View style={{ flexDirection: "column", justifyContent: "center", marginLeft: 20 }}>
+                <Text
+                  style={[
+                    {
+                      fontSize: 16,
+                    },
+                    this._itemStyle(item),
+                    item.disabled ? { color: 'grey' } : {}
+                  ]}
+                >
+                  {item[displayKey]}
+                </Text>
+                <Text>{item.phone}</Text>
+              </View>
+            </View>
+            {this._itemSelected(item) ? (
+              <View style={{ flex: 1, justifyContent: "center" }}>
+                <Icon
+                  name="check"
+                  style={{
+                    fontSize: 20,
+                    color: selectedItemIconColor,
+                  }}
+                />
+              </View>
             ) : null}
           </View>
+
         </View>
       </TouchableOpacity>
     );
@@ -407,6 +419,7 @@ export default class MultiSelect extends Component {
     let itemList;
     let addItemRow;
     const renderItems = searchTerm ? this._filterItems(searchTerm) : items;
+    console.log(renderItems)
     if (renderItems.length) {
       itemList = (
         <FlatList
@@ -513,7 +526,7 @@ export default class MultiSelect extends Component {
                 backgroundColor: '#fafafa'
               }}
             >
-              <View>{this._renderItems()}</View>
+              <ScrollView style={{height:250}}>{this._renderItems()}</ScrollView>
               {!single &&
                 !hideSubmitButton && (
                   <TouchableOpacity
@@ -536,57 +549,57 @@ export default class MultiSelect extends Component {
             </View>
           </View>
         ) : (
-          <View>
-            <View style={styles.dropdownView}>
-              <View
-                style={[
-                  styles.subSection,
-                  { paddingTop: 10, paddingBottom: 10 }
-                ]}
-              >
-                <TouchableWithoutFeedback onPress={this._toggleSelector}>
-                  <View
-                    style={{
-                      flex: 1,
-                      flexDirection: 'row',
-                      alignItems: 'center'
-                    }}
-                  >
-                    <Text
-                      style={[
-                        {
-                          flex: 1,
-                          fontSize: fontSize || 16,
-                          color: textColor || colorPack.placeholderTextColor
-                        },
-                        altFontFamily
-                          ? { fontFamily: altFontFamily }
-                          : fontFamily ? { fontFamily } : {}
-                      ]}
-                      numberOfLines={1}
+            <View>
+              <View style={styles.dropdownView}>
+                <View
+                  style={[
+                    styles.subSection,
+                    { paddingTop: 10, paddingBottom: 10 }
+                  ]}
+                >
+                  <TouchableWithoutFeedback onPress={this._toggleSelector}>
+                    <View
+                      style={{
+                        flex: 1,
+                        flexDirection: 'row',
+                        alignItems: 'center'
+                      }}
                     >
-                      {this._getSelectLabel()}
-                    </Text>
-                    <Icon
-                      name={hideSubmitButton ? 'menu-right' : 'menu-down'}
-                      style={styles.indicator}
-                    />
-                  </View>
-                </TouchableWithoutFeedback>
+                      <Text
+                        style={[
+                          {
+                            flex: 1,
+                            fontSize: fontSize || 16,
+                            color: textColor || colorPack.placeholderTextColor
+                          },
+                          altFontFamily
+                            ? { fontFamily: altFontFamily }
+                            : fontFamily ? { fontFamily } : {}
+                        ]}
+                        numberOfLines={1}
+                      >
+                        {this._getSelectLabel()}
+                      </Text>
+                      <Icon
+                        name={hideSubmitButton ? 'menu-right' : 'menu-down'}
+                        style={styles.indicator}
+                      />
+                    </View>
+                  </TouchableWithoutFeedback>
+                </View>
               </View>
+              {!single && !hideTags && selectedItems.length ? (
+                <View
+                  style={{
+                    flexDirection: 'row',
+                    flexWrap: 'wrap'
+                  }}
+                >
+                  {this._displaySelectedItems()}
+                </View>
+              ) : null}
             </View>
-            {!single && !hideTags && selectedItems.length ? (
-              <View
-                style={{
-                  flexDirection: 'row',
-                  flexWrap: 'wrap'
-                }}
-              >
-                {this._displaySelectedItems()}
-              </View>
-            ) : null}
-          </View>
-        )}
+          )}
       </View>
     );
   }

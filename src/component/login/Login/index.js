@@ -1,7 +1,8 @@
 import React from 'react'
 import { StyleSheet, Text, TextInput, View, Button, TouchableOpacity } from 'react-native';
 import firebase from 'react-native-firebase';
-import { Data } from '../../../api/Data'
+import { Data } from '../../../api/Data';
+import CryptoJS from "react-native-crypto-js";
 
 import { YellowBox } from 'react-native';
 import FCM, { FCMEvent, RemoteNotificationResult, WillPresentNotificationResult, NotificationType } from "react-native-fcm";
@@ -13,6 +14,8 @@ export default class Login extends React.Component {
 
     handleLogin = () => {
         const { email, password } = this.state
+        // let bytes = CryptoJS.AES.decrypt(ciphertext, 'secret key 123');
+        // let originalText = bytes.toString(CryptoJS.enc.Utf8);
         firebase
             .auth()
             .signInWithEmailAndPassword(email, password)
@@ -63,7 +66,7 @@ export default class Login extends React.Component {
                     <Text style={{ color: "#fff", fontSize: 20 }}>Đăng Nhập</Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity style={{marginTop:20, justifyContent: "center", alignItems: 'center'}} onPress={() => this.props.navigation.navigate('SignUp')}>
+                <TouchableOpacity style={{ marginTop: 20, justifyContent: "center", alignItems: 'center' }} onPress={() => this.props.navigation.navigate('SignUp')}>
                     <Text style={{ color: "#007aff", fontSize: 16 }}>Bạn chưa có tài khoản? Đăng ký</Text>
                 </TouchableOpacity>
             </View>
