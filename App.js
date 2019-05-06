@@ -20,6 +20,8 @@ import Loading from './src/component/login/Loading'
 import Login from './src/component/login/Login'
 import SignUp from './src/component/login/SignUp';
 
+import SearchScreen from './src/component/search/SearchScreen';
+
 import FCM from 'react-native-fcm';
 
 import { StackNavigator, createStackNavigator, createAppContainer } from 'react-navigation';
@@ -75,6 +77,9 @@ const MainStack = createStackNavigator(
     },
     DatePicker: {
       screen: DatePicker,
+    },
+    SearchScreen: {
+      screen: SearchScreen,    
     }
   }, {
     headerMode: 'none',

@@ -95,7 +95,8 @@ class Chat extends React.Component {
         messages={this.state.messages}
         onSend={this.send}
         user={this.user}
-        
+        alwaysShowSend
+        renderUsernameOnMessage
       />
     );
   }

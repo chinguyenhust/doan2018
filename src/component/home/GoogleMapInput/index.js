@@ -27,8 +27,10 @@ const PlaceAutoComplete = ({handleSelectAddress}) => (
           borderColor: "#bcbcbc",
           borderRadius: 4,
           marginTop: 10,
+          zIndex:1000,
         },
         listView: {
+          
         }
         ,
         textInput: {
@@ -37,7 +39,8 @@ const PlaceAutoComplete = ({handleSelectAddress}) => (
           height: 30,
           color: '#333333',
           fontSize: 16,
-          fontWeight: "400"
+          fontWeight: "400",
+          
         },
         predefinedPlacesDescription: {
           color: '#76a100'

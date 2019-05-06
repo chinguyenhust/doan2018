@@ -9,7 +9,7 @@ import { Data } from "../../../api/Data";
 import * as firebase from 'firebase';
 import ImageResizer from 'react-native-image-resizer';
 import { required } from '../../../util/validate';
-import { exportAllDeclaration } from '@babel/types';
+
 
 let users = Data.ref('/users');
 
@@ -50,7 +50,8 @@ export default class CreatGroup extends Component {
   _handleCreatGroup = () => {
     var { name, schedule, image, selectedItems, description } = this.state;
     var user = firebase.auth().currentUser;
-    var uid = this.props.navigation.state.params.uid;
+    // var uid = this.props.navigation.state.params.uid;
+    var uid = user.uid;
     const startDate = this.props.navigation.getParam("startDate", null);
     const untilDate = this.props.navigation.getParam("untilDate", null);
     var check = this._handleCheck();

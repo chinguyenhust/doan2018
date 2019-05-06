@@ -74,7 +74,7 @@ export default class MyGroup extends Component {
       this.setState({ initialPosition: initalRegion });
       this.setState({ markerPosition: initalRegion });
     },
-      (error) => alert(JSON.stringify(error)),
+      // (error) => alert(JSON.stringify(error)),
       { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 })
 
     this.watchID = navigator.geolocation.watchPosition((position) => {
@@ -135,7 +135,6 @@ export default class MyGroup extends Component {
         this.setState({
           progressVisible: false
         })
-        console.log("1111111")
       });
       this.setState({
         progressVisible: false
@@ -158,9 +157,13 @@ export default class MyGroup extends Component {
         <StatusBar backgroundColor="#003c00" barStyle="light-content" />
         <View style={styles.header}>
           <View style={{ height: 56, flexDirection: "row", justifyContent: "center", alignItems: "center", backgroundColor: "#006805" }}>
-            <View style={{ flex: 8, alignItems: "center" }}>
+            <View style={{ flex: 7, alignItems: "center" }}>
               <Text style={{ fontSize: 20, fontWeight: "600", color: "#ffffff" }}>Nhóm của tôi</Text>
             </View>
+            <Icon name="ios-search" 
+            style={{ fontSize: 24, color: "#ffffff", flex:1 }} 
+            onPress={() => navigate("SearchScreen")}
+            />
             <IconNotifi name="ios-notifications"
               style={{ fontSize: 24, flex: 1, color: "#ffffff" }}
             />
