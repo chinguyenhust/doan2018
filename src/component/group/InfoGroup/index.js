@@ -171,9 +171,9 @@ export default class InfoGroup extends Component {
       <View style={styles.container}>
 
         <View style={{ flexDirection: "column" }}>
-          <TouchableOpacity style={{ height: 30, flexDirection: "row", paddingLeft: 20 }}>
+          <View style={{ height: 56, flexDirection: "row", paddingLeft: 20, backgroundColor:"#006805" ,}}>
             <Icon name="ios-arrow-round-back" size={34} style={{ width: "15%" }} onPress={() => { this.props.navigation.goBack() }} />
-          </TouchableOpacity>
+          </View>
         </View>
 
         <ScrollView style={{ paddingLeft: 20, paddingRight: 20, marginBottom: 40 }}>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, TouchableOpacity, TextInput, Image, ScrollView, Dimensions, } from 'react-native';
+import { Text, View, TouchableOpacity, TextInput, Image, ScrollView, Dimensions, StatusBar} from 'react-native';
 import styles from './MyGroupStyle';
 import Icon from 'react-native-vector-icons/Ionicons';
 import IconAdd from 'react-native-vector-icons/MaterialIcons';
@@ -74,7 +74,7 @@ export default class MyGroup extends Component {
       this.setState({ initialPosition: initalRegion });
       this.setState({ markerPosition: initalRegion });
     },
-      (error) => alert(JSON.stringify(error)),
+      // (error) => alert(JSON.stringify(error)),
       { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 })
 
     this.watchID = navigator.geolocation.watchPosition((position) => {
@@ -150,32 +150,37 @@ export default class MyGroup extends Component {
     const { navigate } = this.props.navigation;
     const { items, searchTerm, searchAttribute, ignoreCase } = this.state;
     var uid = this.props.navigation.state.params.uid;
+    
 
     return (
       <View style={styles.container}>
-
+        <StatusBar backgroundColor="#003c00" barStyle="light-content" />
         <View style={styles.header}>
-          <View style={{ height: 39, flexDirection: "row", justifyContent: "center", alignItems: "center" }}>
-            <View style={{ flex: 8, alignItems: "center" }}>
-              <Text style={{ fontSize: 20, fontWeight: "600" }}>Nhóm của tôi</Text>
+          <View style={{ height: 56, flexDirection: "row", justifyContent: "center", alignItems: "center", backgroundColor: "#006805" }}>
+            <View style={{ flex: 7, alignItems: "center" }}>
+              <Text style={{ fontSize: 20, fontWeight: "600", color: "#ffffff" }}>Nhóm của tôi</Text>
             </View>
+            <Icon name="ios-search" 
+            style={{ fontSize: 24, color: "#ffffff", flex:1 }} 
+            onPress={() => navigate("SearchScreen")}
+            />
             <IconNotifi name="ios-notifications"
-              style={{ fontSize: 24, flex: 1, color: "#007aff" }}
+              style={{ fontSize: 24, flex: 1, color: "#ffffff" }}
             />
             <IconUser name="user-circle"
-              style={{ fontSize: 24, flex: 1, color: "#007aff" }}
+              style={{ fontSize: 24, flex: 1, color: "#ffffff" }}
               onPress={() => navigate("UserInfo", {
                 "email": this.props.navigation.state.params.email,
                 "userId": this.state.userId
               })}
             />
           </View>
-          <View style={{ height: 1, backgroundColor: "#000", alignSelf: "stretch" }}></View>
+          {/* <View style={{ height: 1, backgroundColor: "#000", alignSelf: "stretch" }}></View> */}
         </View>
 
         <View style={{ flexDirection: "column" }}>
           <TouchableOpacity style={styles.search}>
-            <TextInput style={{ fontSize: 18, width: "84%", }} placeholder="Tìm kiếm"
+            <TextInput style={{ fontSize: 16, width: "84%", }} placeholder="Tìm kiếm"
               onChangeText={searchTerm => this.setState({ searchTerm })}
             ></TextInput>
             <Icon name="ios-search" style={{ fontSize: 24, color: "#a9a9a9", width: "6%", marginTop: 5, }} />
@@ -224,9 +229,9 @@ export default class MyGroup extends Component {
         </ScrollView>
 
         <TouchableOpacity
-          style={{ zIndex: 1000, bottom: 60, justifyContent: 'flex-end', marginLeft: "80%", position: 'absolute' }}
+          style={{ zIndex: 1000, bottom: 30, justifyContent: 'flex-end', marginLeft: "80%", position: 'absolute' }}
           onPress={() => navigate("CreatGroup", { uid: uid })}>
-          <IconAdd name="add-circle" size={60} style={{ color: "green" }} />
+          <IconAdd name="add-circle" size={60} style={{ color: "#006805" }} />
         </TouchableOpacity>
       </View>
     );

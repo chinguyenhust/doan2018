@@ -9,7 +9,7 @@ import { Data } from "../../../api/Data";
 import * as firebase from 'firebase';
 import ImageResizer from 'react-native-image-resizer';
 import { required } from '../../../util/validate';
-import { exportAllDeclaration } from '@babel/types';
+
 
 let users = Data.ref('/users');
 
@@ -28,6 +28,7 @@ export default class CreatGroup extends Component {
       description: "",
       errGroupName: "",
       group_id: null,
+      isAddMember: false
     };
     this.uploadImage = this.uploadImage.bind(this);
   }
@@ -39,6 +40,8 @@ export default class CreatGroup extends Component {
       items.push({
         id: snapshot.key,
         name: data.userName,
+        avatar: data.avatar,
+        phone: data.phone
       })
       this.setState({ items: items });
     });
@@ -47,7 +50,8 @@ export default class CreatGroup extends Component {
   _handleCreatGroup = () => {
     var { name, schedule, image, selectedItems, description } = this.state;
     var user = firebase.auth().currentUser;
-    var uid = this.props.navigation.state.params.uid;
+    // var uid = this.props.navigation.state.params.uid;
+    var uid = user.uid;
     const startDate = this.props.navigation.getParam("startDate", null);
     const untilDate = this.props.navigation.getParam("untilDate", null);
     var check = this._handleCheck();
@@ -84,7 +88,7 @@ export default class CreatGroup extends Component {
       }).catch((error) => {
         console.log(error);
       });
-      this.props.navigation.navigate("DetailGroup", { name: name, groupId: this.state.group_id})
+      this.props.navigation.navigate("DetailGroup", { name: name, groupId: this.state.group_id })
     } else {
       Alert.alert(
         'Thông báo',
@@ -192,6 +196,11 @@ export default class CreatGroup extends Component {
       return true;
     return false;
   }
+  _handleAddMember = () => {
+    this.setState({
+      isAddMember: true
+    })
+  }
 
   render() {
     const { selectedItems, items, avatar } = this.state;
@@ -203,15 +212,15 @@ export default class CreatGroup extends Component {
       <View style={styles.container}>
 
         <View style={{ flexDirection: "column" }}>
-          <TouchableOpacity style={styles.tab}>
-            <TouchableOpacity style={{ width: "15%" }} onPress={() => { this.props.navigation.goBack() }}>
-              <Icon name="ios-arrow-round-back" size={34} />
+          <View style={styles.tab}>
+            <TouchableOpacity style={{ width: "15%", justifyContent: "center" }} onPress={() => { this.props.navigation.goBack() }}>
+              <Icon name="ios-arrow-round-back" size={34} style={{ color: "#ffffff", }} />
             </TouchableOpacity>
             <View style={{ width: "75%", justifyContent: "center", }}>
-              <Text style={{ fontSize: 24, fontWeight: "600" }}>Tạo nhóm mới</Text>
+              <Text style={{ fontSize: 20, fontWeight: "600", color: "#ffffff" }}>Tạo nhóm mới</Text>
             </View>
-          </TouchableOpacity>
-          <View style={{ backgroundColor: "#000", height: 1, marginTop: 5 }}></View>
+          </View>
+          {/* <View style={{ backgroundColor: "#000", height: 1, marginTop: 5 }}></View> */}
         </View>
 
         <ScrollView style={{ paddingLeft: 20, paddingRight: 20, marginBottom: 40 }}>
@@ -251,7 +260,7 @@ export default class CreatGroup extends Component {
 
           <View style={styles.dateTime}>
             <TouchableOpacity style={styles.date} onPress={() => navigate('DatePicker')}>
-              <Text style={styles.titleBold}>Ngày đi</Text>
+              <Text style={styles.titleBold}>Ngày đi (*)</Text>
               {(startDate === null || startDate === "Invalid date") ?
                 <Text style={{ color: "#A9A9A9", paddingTop: 5, fontSize: 16 }}>Chọn ngày đến</Text> :
                 <Text style={{ color: "#000", paddingTop: 5, fontSize: 16 }}>{startDate}</Text>
@@ -260,7 +269,7 @@ export default class CreatGroup extends Component {
             <View style={styles.line}>
             </View>
             <TouchableOpacity style={styles.time} onPress={() => navigate('DatePicker')}>
-              <Text style={styles.titleBold}>Ngày về</Text>
+              <Text style={styles.titleBold}>Ngày về (*)</Text>
               {(untilDate === null || untilDate === "Invalid date") ?
                 <Text style={{ color: "#A9A9A9", paddingTop: 5, fontSize: 16 }}>Chọn ngày về</Text> :
                 <Text style={{ color: "#000", paddingTop: 5, fontSize: 16 }}>{untilDate}</Text>
@@ -269,7 +278,7 @@ export default class CreatGroup extends Component {
           </View>
 
           <View style={styles.viewInput}>
-            <Text style={styles.titleBold}>Kế hoạch cho chuyến đi</Text>
+            <Text style={styles.titleBold}>Kế hoạch cho chuyến đi (*)</Text>
             <TextInput
               placeholder="Nhập kế hoạch"
               style={styles.inputSchedule}
@@ -277,37 +286,49 @@ export default class CreatGroup extends Component {
                 this.setState({ schedule });
               }}
               value={this.state.schedule}
-              numberOfLines={4}
+              numberOfLines={3}
               multiline={true}
             />
           </View>
-
-          <MultiSelect
-            hideTags
-            items={items}
-            uniqueKey="id"
-            ref={(component) => { this.multiSelect = component }}
-            onSelectedItemsChange={this.onSelectedItemsChange}
-            selectedItems={selectedItems}
-            selectText="Thành viên nhóm"
-            searchInputPlaceholderText="Tìm kiếm thành viên"
-            onChangeInput={(text) => console.log(text)}
-            altFontFamily="Cochin"
-            tagRemoveIconColor="#007aff"
-            tagBorderColor="#007aff"
-            tagTextColor="#007aff"
-            selectedItemTextColor="#000"
-            selectedItemIconColor="#000"
-            itemTextColor="#000"
-            displayKey="name"
-            searchInputStyle={{ color: '#CCC', height: 40, fontSize: 16 }}
-            submitButtonColor="#007aff"
-            submitButtonText="Submit"
-            fontSize={16}
-          />
-          <View>
-            {this.multiSelect && this.multiSelect.getSelectedItemsExt(selectedItems)}
-          </View>
+          {
+            // (!this.state.isAddMember)
+            //   ?
+            //   <TouchableOpacity style={{ height: 40, backgroundColor: "#53ca64", width: 150, borderRadius: 4 , justifyContent: "center"}} onPress={this._handleAddMember}>
+            //     <Text style={{ color: "#ffffff", fontSize: 16, fontWeight: "500" }}>Thêm thành viên</Text>
+            //   </TouchableOpacity>
+            //   :
+              <View>
+                <View style={{marginBottom:5}}>
+                  <Text style={styles.titleBold}>Thêm thành viên </Text>
+                </View>
+                <MultiSelect
+                  hideTags
+                  items={items}
+                  uniqueKey="id"
+                  ref={(component) => { this.multiSelect = component }}
+                  onSelectedItemsChange={this.onSelectedItemsChange}
+                  selectedItems={selectedItems}
+                  selectText="Chọn thành viên nhóm"
+                  searchInputPlaceholderText="Tìm kiếm thành viên"
+                  onChangeInput={(text) => console.log(text)}
+                  altFontFamily="Cochin"
+                  tagRemoveIconColor="#007aff"
+                  tagBorderColor="#007aff"
+                  tagTextColor="#007aff"
+                  selectedItemTextColor="#000"
+                  selectedItemIconColor="#000"
+                  itemTextColor="#000"
+                  displayKey="name"
+                  searchInputStyle={{ color: '#CCC', height: 40, fontSize: 16 }}
+                  submitButtonColor="#007aff"
+                  submitButtonText="Submit"
+                  fontSize={16}
+                />
+                <View>
+                  {this.multiSelect && this.multiSelect.getSelectedItemsExt(selectedItems)}
+                </View>
+              </View>
+          }
 
           <TouchableOpacity style={styles.button} onPress={this._handleCreatGroup}>
             <Text style={{ color: "#fff", fontSize: 20 }}>Tạo nhóm</Text>

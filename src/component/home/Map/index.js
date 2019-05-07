@@ -1,8 +1,9 @@
 
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, Dimensions} from 'react-native';
+import { StyleSheet, Text, View, Dimensions } from 'react-native';
 import MapView from "react-native-maps";
 import { Marker } from 'react-native-maps';
+import { Data } from "../../../api/Data";
 
 const { width, height } = Dimensions.get('window')
 const SCREEN_HEIGHT = height;
@@ -10,6 +11,10 @@ const SCREEN_WIDTH = width;
 const ASPECT_RATIO = width / height;
 const LATTITUDE_DETA = 0.0922;
 const LONGTITUDE_DETA = LATTITUDE_DETA * ASPECT_RATIO;
+
+let groups = Data.ref('/groups');
+let group_user = Data.ref('/group_users');
+let users = Data.ref('users');
 
 export default class Map extends Component {
   constructor(props) {
@@ -25,6 +30,7 @@ export default class Map extends Component {
         latitude: 0,
         longtitude: 0
       },
+      listMember: [],
     }
   }
 
@@ -63,27 +69,58 @@ export default class Map extends Component {
 
     })
 
+    const groupId = this.props.groupId;
+    const listMember = this.state.listMember
+    group_user.orderByChild("group_id").equalTo(groupId).on("child_added", (snapshot) => {
+      users.orderByKey().equalTo(snapshot.val().user_id).on("child_added", (snapshot) => {
+        var data = snapshot.val();
+        console.log(data)
+        listMember.push({
+          userName: data.userName,
+          position: {
+            latitude: data.latitude,
+            longitude: data.longitude
+          }
+        })
+        this.setState({
+          listMember: listMember
+        })
+      })
+    })
+
   }
 
   componentWillUnmount() {
-    navigator.geolocation.clearWatch(this.watchID)
+    navigator.geolocation.clearWatch(this.watchID);
   }
 
   render() {
+    var { listMember } = this.state;
     return (
       <View style={styles.container}>
-        
+
         <MapView
           provider={MapView.PROVIDER_GOOGLE}
           style={styles.map}
           initialRegion={this.state.initialPosition}
         >
-          <Marker
+          {(listMember) &&
+            listMember.map((option) =>
+              <Marker
+              title={option.userName}
+                coordinate={option.position}>
+                <View style={styles.radius}>
+                  <View style={styles.marker}>
+                  </View>
+                </View>
+              </Marker>
+            )}
+          {/* <Marker
             coordinate={this.state.markerPosition}>
             <View style={styles.radius}>
               <View style={styles.marker}></View>
             </View>
-          </Marker>
+          </Marker> */}
         </MapView>
       </View>
     );
@@ -125,3 +162,4 @@ const styles = StyleSheet.create({
     backgroundColor: "#007aff"
   }
 });
+

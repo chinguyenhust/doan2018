@@ -57,12 +57,12 @@ export default class Event extends Component {
             />}
         </View>
 
-        <TouchableOpacity style={{ zIndex: 1000, bottom: 60, justifyContent: 'flex-end', marginLeft: "80%", position: 'absolute' }} 
+        <TouchableOpacity style={{ zIndex: 1000, bottom: 30, justifyContent: 'flex-end', marginLeft: "80%", position: 'absolute' }} 
         onPress={()=>{
           (this.state.isEvent)? 
           navigate("CreatEvent",{groupId: groupId}) : 
           navigate("CreatSurvey", {groupId: groupId})}}>
-          <IconAdd name="add-circle" size={60} style={{ color: "green" }} />
+          <IconAdd name="add-circle" size={60} style={{ color: "#006805" }} />
         </TouchableOpacity>
       </View>
     );

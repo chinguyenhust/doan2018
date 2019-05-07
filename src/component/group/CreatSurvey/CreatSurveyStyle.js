@@ -1,14 +1,15 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet, Platform} from 'react-native'
 const styles = StyleSheet.create({
     container: {
         flex: 1,
         alignSelf: "stretch",
-        paddingTop: 30,
+        paddingTop: Platform.OS === 'ios' ? 30 : 0,
         flexDirection: 'column',
     },
     tapbar: {
-        height: 40,
+        height: 56,
         flexDirection: "column",
+        backgroundColor: "#006805"
     },
     tap: {
         flex: 1,
@@ -28,7 +29,7 @@ const styles = StyleSheet.create({
     },
     buttonCreat: {
         height: 40,
-        backgroundColor: 'green',
+        backgroundColor: '#006805',
         borderRadius: 7,
         alignSelf: "stretch",
         justifyContent: "center",

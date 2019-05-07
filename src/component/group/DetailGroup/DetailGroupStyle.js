@@ -1,15 +1,15 @@
-import { StyleSheet } from 'react-native'
+import {Platform ,StyleSheet } from 'react-native'
 const styles = StyleSheet.create({
     container: {
         flex: 1,
         alignSelf: "stretch",
-        paddingTop: 30,
+        paddingTop: Platform.OS === 'ios' ? 30 : 0,
         flexDirection: 'column',
     },
     tapbar: {
-        height:40,
+        height:50,
         flexDirection:"row",
-        backgroundColor: "green"
+        backgroundColor: "#439737",
     },
     tapbarItem: {
         flex:1,
@@ -18,11 +18,11 @@ const styles = StyleSheet.create({
     },
     lableBefore: {
         fontSize: 18,
-        color: "#fff"
+        color: "#c7c7c7"
     },
     lableAfter: {
         fontSize: 18,
-        color: "#000"
+        color: "#ffffff"
     }
 });
 

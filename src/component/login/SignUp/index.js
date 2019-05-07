@@ -2,6 +2,8 @@ import React from 'react'
 import { StyleSheet, Text, TextInput, View, Button, TouchableOpacity, Alert } from 'react-native';
 import firebase from 'react-native-firebase';
 import { required, phone, password, Email } from '../../../util/validate';
+import CryptoJS from "react-native-crypto-js";
+import { Data } from '../../../api/Data'
 
 export default class SignUp extends React.Component {
   state = {
@@ -54,34 +56,37 @@ export default class SignUp extends React.Component {
 
   handleSignUp = () => {
     var check = this._handleCheck();
-    if(check){
-    firebase
-      .auth()
-      .createUserWithEmailAndPassword(this.state.email, this.state.password)
-      .then(() => {
-        var check = this._handleCheck();
-        var { email, userName, phone, password, id } = this.state;
-        firebase.database().ref('users/').push({
-          userName: userName,
-          phone: phone,
-          email: email,
-          password: password,
-          latitude: null,
-          longitude: null
+    if (check) {
+      firebase
+        .auth()
+        .createUserWithEmailAndPassword(this.state.email, this.state.password)
+        .then(() => {
+          var { email, userName, phone, password, id } = this.state;
+          let ciphertext = CryptoJS.AES.encrypt(password, 'secret key 123').toString();
+          Data.ref('users').push({
+            userName: userName,
+            phone: phone,
+            email: email,
+            password: ciphertext,
+            latitude: null,
+            longitude: null
+          })
+          this.props.navigation.navigate('Login');
+          // ref.childByAutoId().setValue(data)
         })
-        this.props.navigation.navigate('Login');
-        ref.childByAutoId().setValue(data)
-      })
-      .catch(error => this.setState({ errorMessage: error.message }))
-    }else{
+        .catch((error) => {
+          this.setState({ errorMessage: error.message });
+          alert("errro")
+        })
+    } else {
       Alert.alert(
         'Thông báo',
         'Vui lòng điền đầy đủ thông tin!',
         [
-            { text: 'OK', onPress: () => console.log('OK Pressed') },
+          { text: 'OK', onPress: () => console.log('OK Pressed') },
         ],
         { cancelable: false },
-    );
+      );
     }
   }
   render() {
@@ -147,10 +152,11 @@ export default class SignUp extends React.Component {
         <TouchableOpacity style={styles.buttonCreat} onPress={this.handleSignUp}>
           <Text style={{ color: "#fff", fontSize: 20 }}>Đăng ký</Text>
         </TouchableOpacity>
-        <Button
-          title="Bạn đã có tài khoản? Đăng nhập"
-          onPress={() => this.props.navigation.navigate('Login')}
-        />
+        <TouchableOpacity style={{ marginTop: 20, justifyContent: "center", alignItems: 'center' }}
+          onPress={() => this.props.navigation.navigate('Login')}>
+          <Text style={{ color: "#007aff", fontSize: 16 }}>Bạn đã có tài khoản? Đăng nhập</Text>
+        </TouchableOpacity>
+        
       </View>
     )
   }
@@ -164,7 +170,7 @@ const styles = StyleSheet.create({
   },
   buttonCreat: {
     height: 40,
-    backgroundColor: 'green',
+    backgroundColor: '#006805',
     borderRadius: 7,
     alignSelf: "stretch",
     justifyContent: "center",

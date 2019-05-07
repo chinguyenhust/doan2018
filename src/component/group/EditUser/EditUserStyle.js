@@ -14,12 +14,13 @@ const styles = StyleSheet.create({
     header: {
         alignSelf: "stretch",
         flexDirection: 'column',
-        height: 40,
+        height: 56,
         marginTop: 30,
         alignItems: "center",
+        backgroundColor:"#006805"
     },
     tap: {
-        height: 39, 
+        height: 56, 
         flexDirection: "row", 
         justifyContent: "center", 
         alignItems: "center"

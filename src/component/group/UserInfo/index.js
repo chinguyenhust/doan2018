@@ -41,6 +41,7 @@ export default class UserInfo extends Component {
     }).catch((error) =>{
       alert("Đã có lỗi xảy ra trong quá trình logout. Xin thử lại")
     });
+    FCM.unsubscribeFromTopic("test");
   }
 
   _handleEdit = () => {
@@ -60,17 +61,17 @@ export default class UserInfo extends Component {
     return (
       <View style={styles.container}>
         <View style={styles.header}>
-          <View style={{ height: 39, flexDirection: "row", justifyContent: "center", alignItems: "center" }}>
+          <View style={{ height: 56, flexDirection: "row", justifyContent: "center", alignItems: "center", backgroundColor: "#006805"}}>
             <Icon name="ios-arrow-round-back" size={34}
-              style={{ width: "15%", paddingLeft: 20 }}
+              style={{ width: "15%", paddingLeft: 20, color: "#ffffff"}}
               onPress={() => { this.props.navigation.goBack() }}
             />
             <View style={{ alignItems: "center", width: "70%" }}>
-              <Text style={{ fontSize: 20 }}>Thông tin tài khoản</Text>
+              <Text style={{ fontSize: 20, color: "#ffffff", fontWeight:"600" }}>Thông tin tài khoản</Text>
             </View>
             <View style={{ width: "15%", alignItems: "center" }}>
               <IconEdit name="edit" 
-              style={{ fontSize: 24, color: "#007aff" }} 
+              style={{ fontSize: 24, color: "#ffffff" }} 
               onPress={this._handleEdit}
               />
             </View>

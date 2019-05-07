@@ -930,6 +930,7 @@ layout select_dialog_singlechoice_material
 layout support_simple_spinner_dropdown_item
 mipmap ic_launcher
 mipmap ic_launcher_round
+mipmap ic_notif
 raw amu_ballon_gx_prefix
 raw amu_basic_folder
 raw amu_basic_placemark
@@ -1033,10 +1034,19 @@ string common_google_play_services_wear_update_text
 string common_open_on_phone
 string common_signin_button_text
 string common_signin_button_text_long
+string default_web_client_id
+string fcm_fallback_notification_channel_label
+string firebase_database_url
+string gcm_defaultSenderId
+string google_api_key
+string google_app_id
+string google_crash_reporting_api_key
+string google_storage_bucket
 string header_description
 string image_button_description
 string image_description
 string link_description
+string project_id
 string search_description
 string search_menu_title
 string status_bar_notification_info_overflow
@@ -1466,5 +1476,4 @@ styleable View android_theme android_focusable paddingEnd paddingStart theme
 styleable ViewBackgroundHelper android_background backgroundTint backgroundTintMode
 styleable ViewStubCompat android_id android_layout android_inflatedId
 xml provider_paths
-xml react_native_config
 xml rn_dev_preferences

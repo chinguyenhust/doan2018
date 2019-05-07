@@ -119,17 +119,14 @@ export default class EditUser extends Component {
         <View style={styles.header}>
           <View style={styles.tap}>
             <Icon name="ios-arrow-round-back" size={34}
-              style={{ width: "15%", paddingLeft: 20 }}
+              style={{ width: "15%", paddingLeft: 20 , color: "#ffffff"}}
               onPress={() => { this.props.navigation.goBack() }}
             />
             <View style={{ alignItems: "center", width: "70%" }}>
-              <Text style={{ fontSize: 20 }}>Chỉnh sửa thông tin</Text>
-            </View>
-            <View style={{ width: "15%", alignItems: "center" }}>
-              <IconEdit name="edit" style={{ fontSize: 24, color: "#007aff" }} />
+              <Text style={{ fontSize: 20, color:"#ffffff" }}>Chỉnh sửa thông tin</Text>
             </View>
           </View>
-          <View style={{ height: 1, backgroundColor: "#bcbcbc", alignSelf: "stretch" }}></View>
+          {/* <View style={{ height: 1, backgroundColor: "#bcbcbc", alignSelf: "stretch" }}></View> */}
         </View>
 
         <View style={{ paddingTop: 20, flexDirection: "column" }}>

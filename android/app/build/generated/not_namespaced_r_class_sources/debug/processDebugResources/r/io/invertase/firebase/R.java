@@ -932,13 +932,13 @@ public final class R {
         public static final int catalyst_report_button = 0x7f0c003e;
         public static final int catalyst_settings = 0x7f0c003f;
         public static final int catalyst_settings_title = 0x7f0c0040;
-        public static final int header_description = 0x7f0c0053;
-        public static final int image_button_description = 0x7f0c0054;
-        public static final int image_description = 0x7f0c0055;
-        public static final int link_description = 0x7f0c0056;
-        public static final int search_description = 0x7f0c0057;
-        public static final int search_menu_title = 0x7f0c0058;
-        public static final int status_bar_notification_info_overflow = 0x7f0c0059;
+        public static final int header_description = 0x7f0c005b;
+        public static final int image_button_description = 0x7f0c005c;
+        public static final int image_description = 0x7f0c005d;
+        public static final int link_description = 0x7f0c005e;
+        public static final int search_description = 0x7f0c0060;
+        public static final int search_menu_title = 0x7f0c0061;
+        public static final int status_bar_notification_info_overflow = 0x7f0c0062;
     }
     public static final class style {
         private style() {}
@@ -1843,6 +1843,6 @@ public final class R {
     public static final class xml {
         private xml() {}
 
-        public static final int rn_dev_preferences = 0x7f0f0002;
+        public static final int rn_dev_preferences = 0x7f0f0001;
     }
 }
