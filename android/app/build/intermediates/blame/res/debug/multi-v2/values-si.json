@@ -38,23 +38,6 @@
                     }
                 },
                 {
-                    "source": "/Users/daisy/.gradle/caches/transforms-1/files-1.1/firebase-messaging-17.6.0.aar/f27237bb3b13abb0853299df2b13a3d1/res/values-si/values.xml",
-                    "from": {
-                        "startLines": "4",
-                        "startColumns": "0",
-                        "startOffsets": "205",
-                        "endColumns": "99",
-                        "endOffsets": "304"
-                    },
-                    "to": {
-                        "startLines": "47",
-                        "startColumns": "4",
-                        "startOffsets": "5500",
-                        "endColumns": "103",
-                        "endOffsets": "5599"
-                    }
-                },
-                {
                     "source": "/Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-basement-16.2.0.aar/135c6966dc8f88eefe159db3f8bce0f8/res/values-si/values.xml",
                     "from": {
                         "startLines": "4",
@@ -69,6 +52,23 @@
                         "startOffsets": "3958",
                         "endColumns": "197",
                         "endOffsets": "4151"
+                    }
+                },
+                {
+                    "source": "/Users/daisy/.gradle/caches/transforms-1/files-1.1/firebase-messaging-18.0.0.aar/8d1f7c8683112868db0fc3975d839a45/res/values-si/values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "205",
+                        "endColumns": "99",
+                        "endOffsets": "304"
+                    },
+                    "to": {
+                        "startLines": "47",
+                        "startColumns": "4",
+                        "startOffsets": "5500",
+                        "endColumns": "103",
+                        "endOffsets": "5599"
                     }
                 },
                 {

@@ -21,6 +21,7 @@ import Login from './src/component/login/Login'
 import SignUp from './src/component/login/SignUp';
 
 import SearchScreen from './src/component/search/SearchScreen';
+import ItemInfo from './src/component/search/ItemInfo'
 
 import FCM from 'react-native-fcm';
 
@@ -80,6 +81,9 @@ const MainStack = createStackNavigator(
     },
     SearchScreen: {
       screen: SearchScreen,    
+    },
+    ItemInfo: {
+      screen: ItemInfo,
     }
   }, {
     headerMode: 'none',

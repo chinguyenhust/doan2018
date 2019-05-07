@@ -12,7 +12,7 @@ MERGED from [:react-native-gesture-handler] /Users/daisy/doan2018/node_modules/r
 MERGED from [:react-native-maps] /Users/daisy/doan2018/node_modules/react-native-maps/lib/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-12:12
 MERGED from [io.branch.sdk.android:library:3.0.4] /Users/daisy/.gradle/caches/transforms-1/files-1.1/library-3.0.4.aar/4c387cb8fc17973c70fd0e5a9b4ac1bd/AndroidManifest.xml:2:1-11:12
 MERGED from [:react-native-vector-icons] /Users/daisy/doan2018/node_modules/react-native-vector-icons/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
-MERGED from [com.facebook.react:react-native:0.59.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/react-native-0.59.1.aar/4c4e7b7c943910b1093fc6113e52f09d/AndroidManifest.xml:2:1-13:12
+MERGED from [com.facebook.react:react-native:0.59.5] /Users/daisy/.gradle/caches/transforms-1/files-1.1/react-native-0.59.5.aar/ae552bdff7b2832a48341101009e0595/AndroidManifest.xml:2:1-13:12
 MERGED from [com.android.support:appcompat-v7:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/5f5c5ceb9b026974e79e5249890ec540/AndroidManifest.xml:17:1-22:12
 MERGED from [:react-native-image-resizer] /Users/daisy/doan2018/node_modules/react-native-image-resizer/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
 MERGED from [com.google.android.gms:play-services-maps:16.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-maps-16.0.0.aar/73fb90fa8f10bd76b8239c766c8555f2/AndroidManifest.xml:17:1-32:12
@@ -141,8 +141,8 @@ MERGED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml:11:5-
 MERGED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml:11:5-81:19
 MERGED from [:react-native-image-picker] /Users/daisy/doan2018/node_modules/react-native-image-picker/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:11:5-21:19
 MERGED from [:react-native-image-picker] /Users/daisy/doan2018/node_modules/react-native-image-picker/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:11:5-21:19
-MERGED from [com.facebook.react:react-native:0.59.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/react-native-0.59.1.aar/4c4e7b7c943910b1093fc6113e52f09d/AndroidManifest.xml:11:5-20
-MERGED from [com.facebook.react:react-native:0.59.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/react-native-0.59.1.aar/4c4e7b7c943910b1093fc6113e52f09d/AndroidManifest.xml:11:5-20
+MERGED from [com.facebook.react:react-native:0.59.5] /Users/daisy/.gradle/caches/transforms-1/files-1.1/react-native-0.59.5.aar/ae552bdff7b2832a48341101009e0595/AndroidManifest.xml:11:5-20
+MERGED from [com.facebook.react:react-native:0.59.5] /Users/daisy/.gradle/caches/transforms-1/files-1.1/react-native-0.59.5.aar/ae552bdff7b2832a48341101009e0595/AndroidManifest.xml:11:5-20
 MERGED from [com.google.android.gms:play-services-maps:16.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-maps-16.0.0.aar/73fb90fa8f10bd76b8239c766c8555f2/AndroidManifest.xml:30:5-20
 MERGED from [com.google.android.gms:play-services-maps:16.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/play-services-maps-16.0.0.aar/73fb90fa8f10bd76b8239c766c8555f2/AndroidManifest.xml:30:5-20
 MERGED from [com.google.firebase:firebase-auth:16.2.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/firebase-auth-16.2.1.aar/ead90470aeaa06f813606837e2c5e10b/AndroidManifest.xml:23:5-40:19
@@ -201,23 +201,23 @@ MERGED from [com.facebook.soloader:soloader:0.6.0] /Users/daisy/.gradle/caches/t
 		ADDED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml:13:7-39
 		ADDED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml:13:7-39
 	tools:ignore
-		ADDED from /Users/daisy/doan2018/android/app/src/debug/AndroidManifest.xml:7:39-78
+		ADDED from /Users/daisy/doan2018/android/app/src/debug/AndroidManifest.xml:7:75-114
 	android:roundIcon
 		ADDED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml:15:7-52
 		ADDED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml:15:7-52
 	tools:targetApi
-		ADDED from /Users/daisy/doan2018/android/app/src/debug/AndroidManifest.xml:7:18-38
+		ADDED from /Users/daisy/doan2018/android/app/src/debug/AndroidManifest.xml:7:54-74
 	android:icon
 		ADDED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml:14:7-41
 		ADDED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml:14:7-41
 	android:allowBackup
 		ADDED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml:16:7-34
 		ADDED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml:16:7-34
-	android:networkSecurityConfig
-		ADDED from /Users/daisy/doan2018/android/app/src/debug/AndroidManifest.xml:7:79-135
 	android:theme
 		ADDED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml:17:7-38
 		ADDED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml:17:7-38
+	android:usesCleartextTraffic
+		ADDED from /Users/daisy/doan2018/android/app/src/debug/AndroidManifest.xml:7:18-53
 	android:name
 		ADDED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml:12:7-38
 		ADDED from /Users/daisy/doan2018/android/app/src/main/AndroidManifest.xml:12:7-38
@@ -389,8 +389,8 @@ MERGED from [io.branch.sdk.android:library:3.0.4] /Users/daisy/.gradle/caches/tr
 MERGED from [io.branch.sdk.android:library:3.0.4] /Users/daisy/.gradle/caches/transforms-1/files-1.1/library-3.0.4.aar/4c387cb8fc17973c70fd0e5a9b4ac1bd/AndroidManifest.xml:7:5-9:41
 MERGED from [:react-native-vector-icons] /Users/daisy/doan2018/node_modules/react-native-vector-icons/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [:react-native-vector-icons] /Users/daisy/doan2018/node_modules/react-native-vector-icons/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
-MERGED from [com.facebook.react:react-native:0.59.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/react-native-0.59.1.aar/4c4e7b7c943910b1093fc6113e52f09d/AndroidManifest.xml:7:5-9:41
-MERGED from [com.facebook.react:react-native:0.59.1] /Users/daisy/.gradle/caches/transforms-1/files-1.1/react-native-0.59.1.aar/4c4e7b7c943910b1093fc6113e52f09d/AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.react:react-native:0.59.5] /Users/daisy/.gradle/caches/transforms-1/files-1.1/react-native-0.59.5.aar/ae552bdff7b2832a48341101009e0595/AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.react:react-native:0.59.5] /Users/daisy/.gradle/caches/transforms-1/files-1.1/react-native-0.59.5.aar/ae552bdff7b2832a48341101009e0595/AndroidManifest.xml:7:5-9:41
 MERGED from [com.android.support:appcompat-v7:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/5f5c5ceb9b026974e79e5249890ec540/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:appcompat-v7:28.0.0] /Users/daisy/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/5f5c5ceb9b026974e79e5249890ec540/AndroidManifest.xml:20:5-44
 MERGED from [:react-native-image-resizer] /Users/daisy/doan2018/node_modules/react-native-image-resizer/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41

@@ -12870,7 +12870,6 @@ public final class R {
   }
   public static final class xml {
     public static final int provider_paths=0x7f0f0000;
-    public static final int react_native_config=0x7f0f0001;
-    public static final int rn_dev_preferences=0x7f0f0002;
+    public static final int rn_dev_preferences=0x7f0f0001;
   }
 }

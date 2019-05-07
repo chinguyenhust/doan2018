@@ -1979,5 +1979,4 @@ int styleable ViewStubCompat_android_id 0
 int styleable ViewStubCompat_android_layout 1
 int styleable ViewStubCompat_android_inflatedId 2
 int xml provider_paths 0x7f0f0000
-int xml react_native_config 0x7f0f0001
-int xml rn_dev_preferences 0x7f0f0002
+int xml rn_dev_preferences 0x7f0f0001

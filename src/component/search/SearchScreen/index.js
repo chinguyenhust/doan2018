@@ -38,18 +38,111 @@ export default class SearchScreen extends React.Component {
     console.log(details.geometry.location.lat)
   }
 
-  handleClickHotel = () => {
-    console.log(this.state.latitude);
-    console.log(this.state.longitude);
-    var param={
-      location: this.state.latitude + "," + this.state.longitude,
-      type:"restaurant",
-      key: KEY,
-      rankby:"distance"
+  handleClickHotel = async () => {
+    if (this.state.address === "") {
+      alert("Vui long nhap dia chi")
+    } else {
+      var param = {
+        location: this.state.latitude + "," + this.state.longitude,
+        type: "lodging",
+        key: KEY,
+        rankby: "distance"
+      }
+      var data = await MyService.getRequestData(param);
+      console.log(param.location)
+      console.log(data.results)
+      this.props.navigation.navigate('ItemInfo', { "data": data.results })
     }
-    var list = MyService.getRequestData(param);
-    console.log(param.location)
-    console.log(list)
+  }
+
+  handleClickTravel = async () => {
+    if (this.state.address === "") {
+      alert("Vui long nhap dia chi")
+    } else {
+      var param = {
+        location: this.state.latitude + "," + this.state.longitude,
+        type: "point_of_interest",
+        key: KEY,
+        rankby: "distance"
+      }
+      var data = await MyService.getRequestData(param);
+      console.log(param.location)
+      console.log(data)
+      console.log(data.results)
+      this.props.navigation.navigate('ItemInfo', { "data": data.results })
+    }
+  }
+
+  handleClickRestaurant = async () => {
+    if (this.state.address === "") {
+      alert("Vui long nhap dia chi")
+    } else {
+      var param = {
+        location: this.state.latitude + "," + this.state.longitude,
+        type: "restaurant",
+        key: KEY,
+        rankby: "distance"
+      }
+      var data = await MyService.getRequestData(param);
+      console.log(param.location)
+      console.log(data)
+      console.log(data.results)
+      this.props.navigation.navigate('ItemInfo', { "data": data.results })
+    }
+  }
+
+  handleClickGas = async () => {
+    if (this.state.address === "") {
+      alert("Vui long nhap dia chi")
+    } else {
+      var param = {
+        location: this.state.latitude + "," + this.state.longitude,
+        type: "gas_station",
+        key: KEY,
+        rankby: "distance"
+      }
+      var data = await MyService.getRequestData(param);
+      console.log(param.location)
+      console.log(data)
+      console.log(data.results)
+      this.props.navigation.navigate('ItemInfo', { "data": data.results })
+    }
+  }
+
+  handleClickATM = async () => {
+    if (this.state.address === "") {
+      alert("Vui long nhap dia chi")
+    } else {
+      var param = {
+        location: this.state.latitude + "," + this.state.longitude,
+        type: "atm",
+        key: KEY,
+        rankby: "distance"
+      }
+      var data = await MyService.getRequestData(param);
+      console.log(param.location)
+      console.log(data)
+      console.log(data.results)
+      this.props.navigation.navigate('ItemInfo', { "data": data.results })
+    }
+  }
+
+  handleClickCoffee = async () => {
+    if (this.state.address === "") {
+      alert("Vui long nhap dia chi")
+    } else {
+      var param = {
+        location: this.state.latitude + "," + this.state.longitude,
+        type: "cafe",
+        key: KEY,
+        rankby: "distance"
+      }
+      var data = await MyService.getRequestData(param);
+      console.log(param.location)
+      console.log(data)
+      console.log(data.results)
+      this.props.navigation.navigate('ItemInfo', { "data": data.results })
+    }
   }
 
   render() {
@@ -79,13 +172,13 @@ export default class SearchScreen extends React.Component {
               <View style={{ flexDirection: "row", height: 90, marginBottom: 10, alignItems: "center" }}>
                 <TouchableOpacity style={styles.item} onPress={this.handleClickHotel}>
                   <View style={{ flex: 2 }}>
-                    <IconHotel name="hotel" size={50} style={{ color: "#3b80ff" }} />
+                    <IconHotel name="hotel" size={50} style={{ color: "#3b80ff" }} onPress={this.handleClickHotel} />
                   </View>
                   <View style={{ flex: 1 }}>
                     <Text>Khách sạn</Text>
                   </View>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.item}>
+                <TouchableOpacity style={styles.item} onPress={this.handleClickRestaurant}>
                   <View style={{ flex: 2 }}>
                     <IconRestaurant name="ios-restaurant" size={50} style={{ color: "#ff5735" }} />
                   </View>
@@ -93,7 +186,7 @@ export default class SearchScreen extends React.Component {
                     <Text>Nhà hàng</Text>
                   </View>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.item}>
+                <TouchableOpacity style={styles.item} onPress={this.handleClickTravel}>
                   <View style={{ flex: 2 }}>
                     <IconTravel name="tripadvisor" size={50} style={{ color: "#6eff84" }} />
                   </View>
@@ -104,7 +197,7 @@ export default class SearchScreen extends React.Component {
               </View>
 
               <View style={{ flexDirection: "row", height: 90 }}>
-                <TouchableOpacity style={styles.item}>
+                <TouchableOpacity style={styles.item} onPress={this.handleClickATM}>
                   <View style={{ flex: 2 }}>
                     <IconATM name="local-atm" size={50} style={{ color: "#a0e6ff" }} />
                   </View>
@@ -112,7 +205,7 @@ export default class SearchScreen extends React.Component {
                     <Text>ATM</Text>
                   </View>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.item}>
+                <TouchableOpacity style={styles.item} onPress={this.handleClickGas}>
                   <View style={{ flex: 2 }}>
                     <IconGas name="local-gas-station" size={50} style={{ color: "#ffa215" }} />
                   </View>
@@ -120,7 +213,7 @@ export default class SearchScreen extends React.Component {
                     <Text>Trạm xăng</Text>
                   </View>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.item}>
+                <TouchableOpacity style={styles.item} onPress={this.handleClickCoffee}>
                   <View style={{ flex: 2 }}>
                     <IconCoffee name="coffee" size={50} style={{ color: "#ff1f22" }} />
                   </View>
