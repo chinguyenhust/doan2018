@@ -18,6 +18,9 @@ export default class InfoGroup extends Component {
       name: "",
       isLoad: false,
       schedule: "",
+      description : "",
+      startDate: "",
+      untilDate: "",
       selectedItems: [],
       items: [],
       created_at: "",
@@ -45,6 +48,9 @@ export default class InfoGroup extends Component {
       console.log(data)
       this.setState({
         name: data.name,
+        description: data.description,
+        startDate: data.startDate,
+        untilDate: data.untilDate,
         schedule: data.schedule,
         avatar: data.avatar
       })
@@ -171,9 +177,10 @@ export default class InfoGroup extends Component {
       <View style={styles.container}>
 
         <View style={{ flexDirection: "column" }}>
-          <View style={{ height: 56, flexDirection: "row", paddingLeft: 20, backgroundColor:"#006805" ,}}>
-            <Icon name="ios-arrow-round-back" size={34} style={{ width: "15%" }} onPress={() => { this.props.navigation.goBack() }} />
+          <View style={{ height: 56, flexDirection: "row", paddingLeft: 20, backgroundColor:"#006805" ,alignItems:"center"}}>
+            <Icon name="ios-arrow-round-back" size={34} style={{ width: "15%", color:"#ffffff"}} onPress={() => { this.props.navigation.goBack() }} />
           </View>
+          <Text style={{ fontSize: 20, fontWeight: "600", color: "#ffffff" }}>{this.state.name}</Text>
         </View>
 
         <ScrollView style={{ paddingLeft: 20, paddingRight: 20, marginBottom: 40 }}>

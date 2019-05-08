@@ -36,10 +36,12 @@ const styles = StyleSheet.create({
     },
     item: {
         paddingLeft: 20,
-        paddingRight: 20,
+        right:0,
         alignSelf: "stretch",
-        height: 60,
-        flexDirection: "row"
+        height: 85,
+        flexDirection: "row",
+        alignItems: "center",
+        
     }
 
 
