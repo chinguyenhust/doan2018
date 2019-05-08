@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import {Text, View,TouchableOpacity, TextInput, Image, ScrollView } from 'react-native';
+import { Text, View, TouchableOpacity, TextInput, Image, ScrollView, FlatList, Switch} from 'react-native';
 import styles from './InfoGroupStyle';
 import Icon from 'react-native-vector-icons/Ionicons';
+import IconDropDown from 'react-native-vector-icons/Ionicons';
 import ImagePicker from 'react-native-image-picker';
 import IconAdd from 'react-native-vector-icons/MaterialIcons';
 import MultiSelect from '../../home/MultiSelect';
@@ -18,12 +19,18 @@ export default class InfoGroup extends Component {
       name: "",
       isLoad: false,
       schedule: "",
+      description: "",
+      startDate: "",
+      untilDate: "",
       selectedItems: [],
       items: [],
       created_at: "",
       avatar: null,
       image: null,
       leader: "",
+      isDropDown: false,
+      enableScrollViewScroll: true,
+
     };
     this.uploadImage = this.uploadImage.bind(this);
   }
@@ -35,6 +42,8 @@ export default class InfoGroup extends Component {
       items.push({
         id: snapshot.key,
         name: data.userName,
+        phone: data.phone,
+        avatar: data.avatar
       })
       this.setState({ items: items });
     });
@@ -45,19 +54,25 @@ export default class InfoGroup extends Component {
       console.log(data)
       this.setState({
         name: data.name,
+        description: data.description,
+        startDate: data.startDate,
+        untilDate: data.untilDate,
         schedule: data.schedule,
         avatar: data.avatar
       })
     })
   }
 
-  componentDidMount(){
+  componentDidMount() {
     const groupId = this.props.navigation.state.params.groupId;
     Data.ref("groups").child(groupId).on("value", (snapshot) => {
       var data = snapshot.val();
       console.log(data)
       this.setState({
         name: data.name,
+        description: data.description,
+        startDate: data.startDate,
+        untilDate: data.untilDate,
         schedule: data.schedule,
         avatar: data.avatar
       })
@@ -91,7 +106,7 @@ export default class InfoGroup extends Component {
       const blob = await response.blob();
       const ref = firebase.storage().ref('avatar').child(new Date().getTime() + "");
       const task = ref.put(blob);
-      
+
       task.on('state_changed', (snapshot) => {
         // Observe state change events such as progress, pause, and resume
         // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
@@ -105,12 +120,12 @@ export default class InfoGroup extends Component {
             console.log('Upload is running');
             break;
         }
-      }, (error) =>{
+      }, (error) => {
         // Handle unsuccessful uploads
-      }, ()=> {
+      }, () => {
         // Handle successful uploads on complete
         // For instance, get the download URL: https://firebasestorage.googleapis.com/...
-        task.snapshot.ref.getDownloadURL().then((downloadURL) =>{
+        task.snapshot.ref.getDownloadURL().then((downloadURL) => {
           console.log('File available at', downloadURL);
           this.setState({
             image: downloadURL,
@@ -164,19 +179,33 @@ export default class InfoGroup extends Component {
     this.setState({ selectedItems });
   };
 
+  handleDropDown = () => {
+    this.setState({
+      isDropDown: !this.state.isDropDown
+    })
+  }
+
+  onEnableScroll = (value) => {
+    this.setState({
+      enableScrollViewScroll: value,
+    });
+  };
+
   render() {
-    const { selectedItems, items, avatar, name, schedule } = this.state;
+    const { selectedItems, items, avatar, name, schedule, description, startDate, untilDate } = this.state;
     const { navigate } = this.props.navigation;
     return (
       <View style={styles.container}>
 
-        <View style={{ flexDirection: "column" }}>
-          <View style={{ height: 56, flexDirection: "row", paddingLeft: 20, backgroundColor:"#006805" ,}}>
-            <Icon name="ios-arrow-round-back" size={34} style={{ width: "15%" }} onPress={() => { this.props.navigation.goBack() }} />
-          </View>
+        <View style={{ height: 56, flexDirection: "row", paddingLeft: 20, backgroundColor: "#006805", alignItems: "center" }}>
+          <Icon name="ios-arrow-round-back" size={34}
+            style={{ width: "15%", color: "#ffffff" }} onPress={() => { this.props.navigation.goBack() }} />
+
         </View>
 
-        <ScrollView style={{ paddingLeft: 20, paddingRight: 20, marginBottom: 40 }}>
+        <ScrollView
+          style={{ paddingLeft: 20, paddingRight: 20, marginBottom: 40 }}
+          scrollEnabled={this.state.enableScrollViewScroll}>
           <TouchableOpacity style={{ alignItems: 'center' }} onPress={this.chooseFile.bind(this)}>
             {(avatar === null) ?
               <IconAdd name="add-circle" size={120} style={{ color: "gray" }} /> :
@@ -187,61 +216,93 @@ export default class InfoGroup extends Component {
             }
           </TouchableOpacity>
 
-          <View style={{ flexDirection: "column" }}>
-            <Text style={{ fontSize: 16 }}>Tên nhóm</Text>
-            <TextInput
-              style={styles.inputName}
-              onChangeText={(name) => {
-                this.setState({ name });
-              }}
-              value={this.state.name}
-            />
+          <View style={{ alignItems: "center", justifyContent: "center", marginTop: 25 }}>
+            <Text style={{ fontSize: 20, fontWeight: "600", color: "#000000" }} numberOfLines={1}>{name}</Text>
+            <Text style={{ fontSize: 16 }}>{description}</Text>
           </View>
 
-          <View style={{ flexDirection: "column", marginTop: 20 }}>
-            <Text style={{ fontSize: 16 }}>Kế hoạch cho chuyến đi</Text>
-            <TextInput
-              style={styles.inputSchedule}
-              onChangeText={(schedule) => {
-                this.setState({ schedule });
-              }}
-              value={this.state.schedule}
-              numberOfLines={4}
-              multiline={true}
-            />
+          <View style={styles.time}>
+            <View style={{ height: 30, justifyContent: "center", }}>
+              <Text style={{ color: "#000000", fontSize: 16, fontWeight: "600" }}>Thời gian </Text>
+            </View>
+            <View style={{ height: 30, justifyContent: "center", }}>
+              <Text style={{ fontSize: 14 }}>Từ {startDate} đến {untilDate}</Text>
+            </View>
           </View>
 
-          <MultiSelect
-            hideTags
-            items={items}
-            uniqueKey="id"
-            ref={(component) => { this.multiSelect = component }}
-            onSelectedItemsChange={this.onSelectedItemsChange}
-            selectedItems={selectedItems}
-            selectText="Thành viên nhóm"
-            searchInputPlaceholderText="Tìm kiếm thành viên"
-            onChangeInput={(text) => console.log(text)}
-            altFontFamily="Cochin"
-            tagRemoveIconColor="#007aff"
-            tagBorderColor="#007aff"
-            tagTextColor="#007aff"
-            selectedItemTextColor="#000"
-            selectedItemIconColor="#000"
-            itemTextColor="#000"
-            displayKey="name"
-            searchInputStyle={{ color: '#CCC', height: 40, fontSize: 16 }}
-            submitButtonColor="#007aff"
-            submitButtonText="Submit"
-            fontSize={16}
-          />
-          <View>
-            {this.multiSelect && this.multiSelect.getSelectedItemsExt(selectedItems)}
+          <View style={styles.schedule}>
+            <View style={{ height: 30, justifyContent: "center", }}>
+              <Text style={{ color: "#000000", fontSize: 16, fontWeight: "600" }}>Lịch trình </Text>
+            </View>
+            <View style={{}}>
+              <Text style={{ fontSize: 14 }}>{schedule}</Text>
+            </View>
           </View>
 
-          <TouchableOpacity style={styles.button} onPress={this._handleEdit}>
-            <Text style={{ color: "#fff", fontSize: 20 }}>Cap nhat</Text>
-          </TouchableOpacity>
+          <View style={styles.time}>
+            <View style={{ height: 30, justifyContent: "center", }}>
+              <Text style={{ color: "#000000", fontSize: 16, fontWeight: "600" }}>Nhóm trưởng</Text>
+            </View>
+            <View style={{ height: 30, justifyContent: "center", }}>
+              <Text style={{ fontSize: 14 }}>Chi Nguyễn (0359832859)</Text>
+            </View>
+          </View>
 
+          <View style={styles.schedule}>
+            <View style={{ flexDirection: "row", marginTop: 10, alignItems: "center" }} >
+              <View style={{ flex: 10 }}>
+                <Text style={{ color: "#000000", fontSize: 16, fontWeight: "600" }}>Thành viên </Text>
+              </View>
+              <TouchableOpacity style={{ flex: 1, alignItems: "center", }} onPress={this.handleDropDown}>
+                <IconDropDown name="md-arrow-dropdown" size={24}
+                  style={{ color: "#000000", }}
+                />
+              </TouchableOpacity>
+            </View>
+            {(this.state.isDropDown) &&
+              <View style={{ height: 200 }}>
+                <FlatList
+                  data={items}
+                  onTouchStart={() => {
+                    this.onEnableScroll(false);
+                  }}
+                  onMomentumScrollEnd={() => {
+                    this.onEnableScroll(true);
+                  }}
+                  renderItem={
+                    ({ item }) =>
+                      <View style={{ flexDirection: 'row', }}>
+                        <View style={{ flex: 9, flexDirection: 'row', height: 55 }}>
+                          <Image
+                            style={{ width: 40, height: 40, borderRadius: 20, marginTop: 8 }}
+                            source={{ uri: (item.avatar) ? item.avatar : 'https://facebook.github.io/react-native/docs/assets/favicon.png' }}
+                          />
+                          <View style={{ flexDirection: "column", justifyContent: "center", marginLeft: 20 }}>
+                            <Text>
+                              {item.name}
+                            </Text>
+                            <Text>{item.phone}</Text>
+                          </View>
+                        </View>
+                      </View>
+                  }
+                />
+              </View>
+            }
+          </View>
+
+          <View style={styles.schedule}>
+            <View style={{ flexDirection: "row", marginTop: 10, alignItems: "center" }} >
+              <View style={{ flex: 10 }}>
+                <Text style={{ color: "#000000", fontSize: 16, fontWeight: "600" }}>Bật định vị nhóm </Text>
+              </View>
+              <TouchableOpacity style={{ flex: 1, alignItems: "center", }} >
+                <IconDropDown name="md-arrow-dropdown" size={24}
+                  style={{ color: "#000000", }}
+                />
+              </TouchableOpacity>
+            </View>
+          </View>
         </ScrollView>
       </View>
     );
