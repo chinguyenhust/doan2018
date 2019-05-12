@@ -50,8 +50,8 @@ export default class CreatGroup extends Component {
   _handleCreatGroup = () => {
     var { name, schedule, image, selectedItems, description } = this.state;
     var user = firebase.auth().currentUser;
-    // var uid = this.props.navigation.state.params.uid;
-    var uid = user.uid;
+    var uid = this.props.navigation.state.params.uid;
+    // var uid = user.uid;
     const startDate = this.props.navigation.getParam("startDate", null);
     const untilDate = this.props.navigation.getParam("untilDate", null);
     var check = this._handleCheck();
@@ -65,7 +65,8 @@ export default class CreatGroup extends Component {
           startDate: startDate,
           untilDate: untilDate,
           description: description,
-          created_at: firebase.database.ServerValue.TIMESTAMP
+          created_at: firebase.database.ServerValue.TIMESTAMP,
+          isOnMap: false
         }
       ).then((snapshot) => {
         this.setState({

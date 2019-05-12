@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, TouchableOpacity, TextInput, Image, ScrollView, FlatList, Switch} from 'react-native';
+import { Text, View, TouchableOpacity, TextInput, Image, ScrollView, FlatList, Switch } from 'react-native';
 import styles from './InfoGroupStyle';
 import Icon from 'react-native-vector-icons/Ionicons';
 import IconDropDown from 'react-native-vector-icons/Ionicons';
@@ -27,47 +27,76 @@ export default class InfoGroup extends Component {
       created_at: "",
       avatar: null,
       image: null,
-      leader: "",
+      leader_name: "",
+      leader_sdt: "",
       isDropDown: false,
       enableScrollViewScroll: true,
-
+      isOn: false,
+      isSchedule: true,
+      isSwitch: false,
     };
     this.uploadImage = this.uploadImage.bind(this);
   }
 
   componentWillMount() {
-    var items = []
-    users.on('child_added', (snapshot) => {
-      let data = snapshot.val();
-      items.push({
-        id: snapshot.key,
-        name: data.userName,
-        phone: data.phone,
-        avatar: data.avatar
-      })
-      this.setState({ items: items });
-    });
-
+    var items = [];
     const groupId = this.props.navigation.state.params.groupId;
+    const uid = this.props.navigation.state.params.uid;
+    var userGroup = Data.ref("group_users")
+      .orderByChild("group_id")
+      .equalTo(groupId)
+      .on("child_added", (snapshot) => {
+        users.orderByKey().equalTo(snapshot.val().user_id).on("child_added", (snapshot) => {
+          let data = snapshot.val();
+          // if (uid === snapshot.key) {
+          //   this.setState({
+          //     leader_name: data.userName,
+          //     leader_sdt: data.phone,
+          //     isSwitch: true,
+          //   });
+          // }
+          items.push({
+            id: snapshot.key,
+            name: data.userName,
+            phone: data.phone,
+            avatar: data.avatar
+          })
+          this.setState({ items: items });
+        })
+      });
+
     Data.ref("groups").child(groupId).on("child_added", (snapshot) => {
       var data = snapshot.val();
-      console.log(data)
       this.setState({
         name: data.name,
         description: data.description,
         startDate: data.startDate,
         untilDate: data.untilDate,
         schedule: data.schedule,
-        avatar: data.avatar
+        avatar: data.avatar,
+        leaderId: data.createdByUserId
       })
     })
   }
 
   componentDidMount() {
     const groupId = this.props.navigation.state.params.groupId;
+    const uid = this.props.navigation.state.params.uid;
     Data.ref("groups").child(groupId).on("value", (snapshot) => {
       var data = snapshot.val();
-      console.log(data)
+      // console.log(data);
+      // console.log(snapshot.val().createdByUserId)
+      if (uid === snapshot.val().createdByUserId) {
+        this.setState({
+          isSwitch: true
+        })
+      }
+      users.orderByKey().equalTo(snapshot.val().createdByUserId).on("child_added", (snap) => {
+        this.setState({
+          leader_name: snap.val().userName,
+          leader_sdt: snap.val().phone
+        })
+      })
       this.setState({
         name: data.name,
         description: data.description,
@@ -185,14 +214,38 @@ export default class InfoGroup extends Component {
     })
   }
 
+  handleClickSchedule = () => {
+    this.setState({
+      isSchedule: !this.state.isSchedule
+    })
+  }
+
   onEnableScroll = (value) => {
     this.setState({
       enableScrollViewScroll: value,
     });
+    
   };
 
+  handleToggle = () => {
+    this.setState({
+      isOn: !this.state.isOn
+    })
+    const groupId = this.props.navigation.state.params.groupId;
+    Data.ref("groups").child(groupId).update(
+      {
+        isOnMap: !this.state.isOn,
+      }
+    ).then(() => {
+      console.log("Success !");
+    }).catch((error) => {
+      console.log(error);
+    });
+  }
+
   render() {
-    const { selectedItems, items, avatar, name, schedule, description, startDate, untilDate } = this.state;
+    const { selectedItems, items, avatar, name, schedule, isSwitch,
+      description, startDate, untilDate, leader_name, leader_sdt } = this.state;
     const { navigate } = this.props.navigation;
     return (
       <View style={styles.container}>
@@ -205,7 +258,8 @@ export default class InfoGroup extends Component {
 
         <ScrollView
           style={{ paddingLeft: 20, paddingRight: 20, marginBottom: 40 }}
-          scrollEnabled={this.state.enableScrollViewScroll}>
+        // scrollEnabled={this.state.enableScrollViewScroll}
+        >
           <TouchableOpacity style={{ alignItems: 'center' }} onPress={this.chooseFile.bind(this)}>
             {(avatar === null) ?
               <IconAdd name="add-circle" size={120} style={{ color: "gray" }} /> :
@@ -231,12 +285,21 @@ export default class InfoGroup extends Component {
           </View>
 
           <View style={styles.schedule}>
-            <View style={{ height: 30, justifyContent: "center", }}>
-              <Text style={{ color: "#000000", fontSize: 16, fontWeight: "600" }}>Lịch trình </Text>
+            <View style={{ flexDirection: "row", marginTop: 10, alignItems: "center" }} >
+              <View style={{ flex: 10 }}>
+                <Text style={{ color: "#000000", fontSize: 16, fontWeight: "600" }}>Lịch trình </Text>
+              </View>
+              <TouchableOpacity style={{ flex: 1, alignItems: "center", }} onPress={this.handleClickSchedule}>
+                <IconDropDown name="md-arrow-dropdown" size={24}
+                  style={{ color: "#000000", }}
+                />
+              </TouchableOpacity>
             </View>
-            <View style={{}}>
-              <Text style={{ fontSize: 14 }}>{schedule}</Text>
-            </View>
+            {(this.state.isSchedule) &&
+              <View style={{}}>
+                <Text style={{ fontSize: 14 }}>{schedule}</Text>
+              </View>
+            }
           </View>
 
           <View style={styles.time}>
@@ -244,7 +307,7 @@ export default class InfoGroup extends Component {
               <Text style={{ color: "#000000", fontSize: 16, fontWeight: "600" }}>Nhóm trưởng</Text>
             </View>
             <View style={{ height: 30, justifyContent: "center", }}>
-              <Text style={{ fontSize: 14 }}>Chi Nguyễn (0359832859)</Text>
+              <Text style={{ fontSize: 14 }}>{leader_name} ({leader_sdt})</Text>
             </View>
           </View>
 
@@ -263,12 +326,12 @@ export default class InfoGroup extends Component {
               <View style={{ height: 200 }}>
                 <FlatList
                   data={items}
-                  onTouchStart={() => {
-                    this.onEnableScroll(false);
-                  }}
-                  onMomentumScrollEnd={() => {
-                    this.onEnableScroll(true);
-                  }}
+                  // onTouchStart={() => {
+                  //   this.onEnableScroll(false);
+                  // }}
+                  // onMomentumScrollEnd={() => {
+                  //   this.onEnableScroll(true);
+                  // }}
                   renderItem={
                     ({ item }) =>
                       <View style={{ flexDirection: 'row', }}>
@@ -290,19 +353,23 @@ export default class InfoGroup extends Component {
               </View>
             }
           </View>
+          {(isSwitch) &&
+            <View style={styles.schedule}>
+              <View style={{ flexDirection: "row", marginTop: 10, alignItems: "center" }} >
+                <View style={{ flex: 4 }}>
+                  <Text style={{ color: "#000000", fontSize: 16, fontWeight: "600" }}>Bật định vị nhóm </Text>
+                </View>
 
-          <View style={styles.schedule}>
-            <View style={{ flexDirection: "row", marginTop: 10, alignItems: "center" }} >
-              <View style={{ flex: 10 }}>
-                <Text style={{ color: "#000000", fontSize: 16, fontWeight: "600" }}>Bật định vị nhóm </Text>
+                <View style={{ flex: 1, alignItems: "center", }} >
+                  <Switch
+                    thumbColor="#006805"
+                    onValueChange={this.handleToggle}
+                    value={this.state.isOn} />
+                </View>
               </View>
-              <TouchableOpacity style={{ flex: 1, alignItems: "center", }} >
-                <IconDropDown name="md-arrow-dropdown" size={24}
-                  style={{ color: "#000000", }}
-                />
-              </TouchableOpacity>
             </View>
-          </View>
+          }
+
         </ScrollView>
       </View>
     );

@@ -44,6 +44,7 @@ export default class DetailGroup extends Component {
     const { navigate } = this.props.navigation;
     const name = this.props.navigation.state.params.userName;
     const groupId = this.props.navigation.state.params.groupId;
+    const uid = this.props.navigation.state.params.uid;
 
     return (
       <View style={styles.container}>
@@ -58,7 +59,7 @@ export default class DetailGroup extends Component {
           <IconInfo name="ios-information-circle-outline"
             size={30}
             style={{ width: "10%", color:"#ffffff"}}
-            onPress={() => { navigate("InfoGroup", { groupId: groupId }) }} />
+            onPress={() => { navigate("InfoGroup", { groupId: groupId, uid: uid}) }} />
         </View>
 
 
