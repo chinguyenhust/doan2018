@@ -13,24 +13,41 @@ export default class ListEvent extends Component {
     super(props);
     this.state = {
       items: [],
+
     }
   }
 
   componentDidMount = async () => {
     var items = [];
     const groupId = this.props.groupId;
+    const uid = this.props.uid;
     await events.orderByChild("groupId").equalTo(groupId).on('child_added', (snapshot) => {
       let data = snapshot.val();
-      items.push({
-        id: snapshot.key,
-        name: data.name,
-        address: data.address,
-        description: data.description,
-        userId: data.createdByUserId,
-        created_at: data.created_at,
-        groupId: data.groupId,
-        time: data.time
-      })
+      if (uid === snapshot.val().createdByUserId) {
+        items.push({
+          id: snapshot.key,
+          name: data.name,
+          address: data.address,
+          description: data.description,
+          userId: data.createdByUserId,
+          created_at: data.created_at,
+          groupId: data.groupId,
+          time: data.time,
+          isDelete: true
+        })
+      } else {
+        items.push({
+          id: snapshot.key,
+          name: data.name,
+          address: data.address,
+          description: data.description,
+          userId: data.createdByUserId,
+          created_at: data.created_at,
+          groupId: data.groupId,
+          time: data.time,
+          isDelete: false
+        })
+      }
       this.setState({ items: items.sort(this.compare) });
     });
   }
@@ -38,17 +55,34 @@ export default class ListEvent extends Component {
   componentWillReceiveProps() {
     var items = [];
     const groupId = this.props.groupId;
+    const uid = this.props.uid;
     events.orderByChild("groupId").equalTo(groupId).on('child_added', (snapshot) => {
       let data = snapshot.val();
-      items.push({
-        id: snapshot.key,
-        name: data.name,
-        address: data.address,
-        userId: data.createdByUserId,
-        created_at: data.created_at,
-        groupId: data.groupId,
-        time: data.time
-      })
+      if (uid === snapshot.val().createdByUserId) {
+        items.push({
+          id: snapshot.key,
+          name: data.name,
+          address: data.address,
+          description: data.description,
+          userId: data.createdByUserId,
+          created_at: data.created_at,
+          groupId: data.groupId,
+          time: data.time,
+          isDelete: true
+        })
+      } else {
+        items.push({
+          id: snapshot.key,
+          name: data.name,
+          address: data.address,
+          description: data.description,
+          userId: data.createdByUserId,
+          created_at: data.created_at,
+          groupId: data.groupId,
+          time: data.time,
+          isDelete: false
+        })
+      }
       this.setState({ items: items.sort(this.compare) });
     });
   }
@@ -66,20 +100,20 @@ export default class ListEvent extends Component {
   getTime = (time) => {
     var a = new Date(time.replace(/-/g, '/')).getTime();
     var b = new Date().getTime();
-    if(a>b){
-      var phut = (a-b)/1000/60;
-      if(phut>=60){
-        var gio = phut/60;
-        if(gio >=24){
-          var ngay = gio/24;
-          return "Con " + Math.round(ngay)+ " ngay";
-        }else{
-          return  "Con " + Math.round(gio) + " gio";
+    if (a > b) {
+      var phut = (a - b) / 1000 / 60;
+      if (phut >= 60) {
+        var gio = phut / 60;
+        if (gio >= 24) {
+          var ngay = gio / 24;
+          return "Con " + Math.round(ngay) + " ngay";
+        } else {
+          return "Con " + Math.round(gio) + " gio";
         }
-      }else{
-        return  "Con" + Math.round(phut) + "phut";
+      } else {
+        return "Con" + Math.round(phut) + "phut";
       }
-    }else{
+    } else {
       return "Ke hoach da ket thuc"
     }
   }
@@ -110,8 +144,8 @@ export default class ListEvent extends Component {
                       </View>
                     </View>
                     {(new Date((item.time).replace(/-/g, '/')).getTime()) > new Date().getTime() ?
-                    <Text style={{ fontSize: 16, color: "green", fontWeight: "600", marginTop: 20 }}>ACTIVE</Text> :
-                    <Text style={{ fontSize: 16, color: "red", fontWeight: "600", marginTop: 20 }}>FINISH</Text>
+                      <Text style={{ fontSize: 16, color: "green", fontWeight: "600", marginTop: 20 }}>ACTIVE</Text> :
+                      <Text style={{ fontSize: 16, color: "red", fontWeight: "600", marginTop: 20 }}>FINISH</Text>
                     }
                   </View>
 
@@ -119,20 +153,22 @@ export default class ListEvent extends Component {
                     <Text style={styles.textName}>{item.name}</Text>
                     <Text style={styles.textView} numberOfLines={1}>{item.description}</Text>
                     <View style={{ flexDirection: "row" }}>
-                      <IconClock name="clock" size={20} style={{ color: "#007aff", marginRight:8}} />
+                      <IconClock name="clock" size={20} style={{ color: "#007aff", marginRight: 8 }} />
                       <Text style={styles.textView}>{(item.time).substr(11, (item.time).length)}</Text>
                     </View>
                     <View style={{ flexDirection: "row" }}>
-                      <IconLocation name="location" size={20} style={{ color: "#007aff", marginRight:8 }} />
+                      <IconLocation name="location" size={20} style={{ color: "#007aff", marginRight: 8 }} />
                       <Text style={styles.textView} numberOfLines={1}>{item.address}</Text>
                     </View>
                     <Text style={styles.textView}>{this.getTime(item.time)}</Text>
                   </View>
-              
-                  <View style={{ width: "10%", justifyContent: "center", }}>
-                    <IconDelete name="delete" size={24}
-                      style={{ color: "gray"}} />
-                  </View>
+
+                  {(item.isDelete) &&
+                    <View style={{ width: "10%", justifyContent: "center", }}>
+                      <IconDelete name="delete" size={24}
+                        style={{ color: "gray" }} />
+                    </View>
+                  }
                 </TouchableOpacity>
               </View>
           }

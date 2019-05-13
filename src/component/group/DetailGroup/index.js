@@ -92,6 +92,7 @@ export default class DetailGroup extends Component {
             <Event
               navigate={navigate}
               groupId={groupId}
+              uid={uid}
               nameGroup={this.props.navigation.state.params.name}
             />}
         </View>
