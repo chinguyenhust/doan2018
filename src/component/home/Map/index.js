@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, Dimensions } from 'react-native';
 import MapView from "react-native-maps";
-import { Marker } from 'react-native-maps';
+import { Marker, Callout } from 'react-native-maps';
 import { Data } from "../../../api/Data";
 
 const { width, height } = Dimensions.get('window')
@@ -31,6 +31,8 @@ export default class Map extends Component {
         longtitude: 0
       },
       listMember: [],
+      isOnPosition: false,
+      leaderId: "",
     }
   }
 
@@ -51,7 +53,7 @@ export default class Map extends Component {
       this.setState({ initialPosition: initalRegion });
       this.setState({ markerPosition: initalRegion });
     },
-      (error) => alert(JSON.stringify(error)),
+      // (error) => alert(JSON.stringify(error)),
       { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 })
 
     this.watchID = navigator.geolocation.watchPosition((position) => {
@@ -70,13 +72,21 @@ export default class Map extends Component {
     })
 
     const groupId = this.props.groupId;
-    const listMember = this.state.listMember
+    const uid = this.props.uid;
+    const listMember = this.state.listMember;
+    groups.orderByKey().equalTo(groupId).on("child_added", (snapshot) => {
+      this.setState({
+        isOnPosition: snapshot.val().isOnMap,
+        leaderId: snapshot.val().createdByUserId,
+      })
+    })
     group_user.orderByChild("group_id").equalTo(groupId).on("child_added", (snapshot) => {
       users.orderByKey().equalTo(snapshot.val().user_id).on("child_added", (snapshot) => {
         var data = snapshot.val();
-        console.log(data)
         listMember.push({
+          userId: snapshot.key,
           userName: data.userName,
+          phone: data.phone,
           position: {
             latitude: data.latitude,
             longitude: data.longitude
@@ -95,25 +105,52 @@ export default class Map extends Component {
   }
 
   render() {
-    var { listMember } = this.state;
+    var { listMember, isOnPosition, leaderId } = this.state;
+    const uid = this.props.uid;
     return (
       <View style={styles.container}>
 
         <MapView
           provider={MapView.PROVIDER_GOOGLE}
           style={styles.map}
+          showsUserLocation={true}
+          followUserLocation={true}
+          showsMyLocationButton={true}
+          showsCompass={true}
+
           initialRegion={this.state.initialPosition}
         >
-          {(listMember) &&
+          {(listMember && isOnPosition) &&
             listMember.map((option) =>
-              <Marker
-              title={option.userName}
-                coordinate={option.position}>
-                <View style={styles.radius}>
-                  <View style={styles.marker}>
-                  </View>
-                </View>
-              </Marker>
+              (leaderId === option.userId && leaderId !== uid) ?
+                <Marker
+                  // title={option.userName}
+                  coordinate={option.position}
+                  pinColor="#006805"
+                >
+                  <Callout>
+                    <View>
+                      <Text style={styles.textColor}>Nhóm trưởng: {option.userName}</Text>
+                      <Text style={styles.textColor}>{option.phone}</Text>
+                    </View>
+                  </Callout>
+                </Marker>
+                :
+                (uid !== option.userId) ?
+
+                  <Marker
+                    title={option.userName}
+                    coordinate={option.position}>
+                    <Callout>
+                      <View>
+                        <Text style={styles.textColor}>{option.userName}</Text>
+                        <Text style={styles.textColor}>{option.phone}</Text>
+                      </View>
+                    </Callout>
+                  </Marker>
+                  :
+                  <View></View>
+
             )}
           {/* <Marker
             coordinate={this.state.markerPosition}>
@@ -160,6 +197,10 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     overflow: "hidden",
     backgroundColor: "#007aff"
+  },
+  textColor: {
+    color: "#000000"
   }
+
 });
 

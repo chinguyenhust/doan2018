@@ -54,6 +54,7 @@ export default class MyGroup extends Component {
     this.props.navigation.navigate('DetailGroup', {
       name: name,
       groupId: groupId,
+      uid: this.props.navigation.state.params.user_id,
       userName: this.state.userName,
     })
   }
@@ -68,7 +69,7 @@ export default class MyGroup extends Component {
   componentDidMount() {
     var { items, groupActive, groupDone, groupFuture } = this.state;
     var email = this.props.navigation.state.params.email;
-
+    var user_id = this.props.navigation.state.params.user_id;
     navigator.geolocation.getCurrentPosition((position) => {
       var lat = parseFloat(position.coords.latitude);
       var long = parseFloat(position.coords.longitude);
@@ -185,7 +186,7 @@ export default class MyGroup extends Component {
   render() {
     const { navigate } = this.props.navigation;
     const { groupActive, searchTerm, searchAttribute, ignoreCase, groupFuture, groupDone } = this.state;
-    var uid = this.props.navigation.state.params.uid;
+    var uid = this.props.navigation.state.params.user_id;
 
 
     return (

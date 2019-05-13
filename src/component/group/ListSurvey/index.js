@@ -19,16 +19,30 @@ export default class ListSurvey extends Component {
   componentDidMount() {
     var items = [];
     const groupId = this.props.groupId;
+    const uid = this.props.uid;
     surveys.orderByChild("groupId").equalTo(groupId).on('child_added', (snapshot) => {
       let data = snapshot.val();
-      items.push({
-        id: snapshot.key,
-        question: data.question,
-        userId: data.createdByUserId,
-        created_at: data.created_at,
-        groupId: data.groupId,
-        options: data.options
-      })
+      if (uid === snapshot.val().createdByUserId) {
+        items.push({
+          id: snapshot.key,
+          question: data.question,
+          userId: data.createdByUserId,
+          created_at: data.created_at,
+          groupId: data.groupId,
+          options: data.options,
+          isDelete: true
+        })
+      } else {
+        items.push({
+          id: snapshot.key,
+          question: data.question,
+          userId: data.createdByUserId,
+          created_at: data.created_at,
+          groupId: data.groupId,
+          options: data.options,
+          isDelete: false
+        })
+      }
       this.setState({ items: items.sort(this.compare) });
     });
 
@@ -37,16 +51,30 @@ export default class ListSurvey extends Component {
   componentWillReceiveProps() {
     var items = [];
     const groupId = this.props.groupId;
+    const uid = this.props.uid;
     surveys.orderByChild("groupId").equalTo(groupId).on('child_added', (snapshot) => {
       let data = snapshot.val();
-      items.push({
-        id: snapshot.key,
-        question: data.question,
-        userId: data.createdByUserId,
-        created_at: data.created_at,
-        groupId: data.groupId,
-        options: data.options
-      })
+      if (uid === snapshot.val().createdByUserId) {
+        items.push({
+          id: snapshot.key,
+          question: data.question,
+          userId: data.createdByUserId,
+          created_at: data.created_at,
+          groupId: data.groupId,
+          options: data.options,
+          isDelete: true
+        })
+      } else {
+        items.push({
+          id: snapshot.key,
+          question: data.question,
+          userId: data.createdByUserId,
+          created_at: data.created_at,
+          groupId: data.groupId,
+          options: data.options,
+          isDelete: false
+        })
+      }
       this.setState({ items: items.sort(this.compare) });
     });
   }
@@ -63,19 +91,19 @@ export default class ListSurvey extends Component {
 
   getTime = (a) => {
     var b = new Date().getTime();
-    var phut = (b-a) / 1000 / 60;
+    var phut = (b - a) / 1000 / 60;
     if (phut >= 60) {
       var gio = phut / 60;
       if (gio >= 24) {
         var ngay = gio / 24;
-        if(ngay >= 7){
-          tuan = ngay/7;
-          return  Math.round(tuan) + " tuan truoc";
-        }else{
-          return  Math.round(ngay) + " ngay truoc";
+        if (ngay >= 7) {
+          tuan = ngay / 7;
+          return Math.round(tuan) + " tuan truoc";
+        } else {
+          return Math.round(ngay) + " ngay truoc";
         }
       } else {
-        return  Math.round(gio) + " gio truoc";
+        return Math.round(gio) + " gio truoc";
       }
     } else {
       return Math.round(phut) + "phut truoc";
@@ -101,10 +129,12 @@ export default class ListSurvey extends Component {
                     <Text style={styles.textName}>{item.question}</Text>
                     <Text style={styles.textView}>Created: {this.getTime(item.created_at)}</Text>
                   </View>
-                  <View style={{ width: "10%", justifyContent: "center", }}>
-                    <IconDelete name="delete" size={24}
-                      style={{ color: "gray" }} />
-                  </View>
+                  {(item.isDelete) &&
+                    <View style={{ width: "10%", justifyContent: "center", }}>
+                      <IconDelete name="delete" size={24}
+                        style={{ color: "gray" }} />
+                    </View>
+                  }
                 </TouchableOpacity>
               </View>
           }
