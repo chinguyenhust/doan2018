@@ -86,6 +86,7 @@ export default class DetailGroup extends Component {
           {(this.state.isMap) &&
             <Map
               groupId={groupId}
+              uid={uid}
             />
           }
           {(this.state.isEvent) &&

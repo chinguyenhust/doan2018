@@ -103,7 +103,8 @@ export default class InfoGroup extends Component {
         startDate: data.startDate,
         untilDate: data.untilDate,
         schedule: data.schedule,
-        avatar: data.avatar
+        avatar: data.avatar,
+        isOn:data.isOnMap
       })
     })
   }
