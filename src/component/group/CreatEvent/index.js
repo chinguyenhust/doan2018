@@ -128,7 +128,7 @@ export default class CreatEvent extends Component {
             />
           </View>
 
-          <Text style={{ fontSize: 16, marginTop: 20, fontWeight: "600" }}>Thời gian (*)</Text>
+          <Text style={{ fontSize: 16, marginTop: 20, fontWeight: "600", color:"#000000" }}>Thời gian (*)</Text>
           <DatePicker
             style={{ marginTop: 10, width: "100%" }}
             date={this.state.date}
@@ -167,7 +167,7 @@ export default class CreatEvent extends Component {
           />
 
           <View style={{ flexDirection: "column", marginTop: 20 }}>
-            <Text style={{ fontSize: 16, fontWeight: "600" }}>Địa điểm</Text>
+            <Text style={{ fontSize: 16, fontWeight: "600", color:"#000000" }}>Địa điểm</Text>
           </View>
           <PlaceAutoComplete handleSelectAddress={this.handleSelectAddress} />
 

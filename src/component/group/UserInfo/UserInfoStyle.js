@@ -32,7 +32,30 @@ const styles = StyleSheet.create({
         width: "100%",
         height: 1,
         backgroundColor: "#bcbcbc"
-    }
+    },
+    txt:{
+        fontSize: 20,
+        color:"#000000"
+    },
+    info:{
+        margin:25, 
+        borderRadius:4, 
+        borderWidth:1, 
+        borderColor:"#ebebeb", 
+        shadowColor: '#b9b9b9',
+        shadowOffset: { width: 0, height: 3 },
+        shadowOpacity: 0.8,
+        shadowRadius: 5,
+        elevation: 1
+    },
+    button: {
+        alignItems: 'center',
+        backgroundColor: "#006805",
+        height: 40,
+        justifyContent: "center",
+        borderRadius: 7,
+        margin:25, 
+    },
 
 
 });

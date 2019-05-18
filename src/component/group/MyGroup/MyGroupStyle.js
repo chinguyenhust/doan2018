@@ -6,7 +6,7 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         backgroundColor: "#fff",
         position: 'absolute',
-        bottom: 0,
+        bottom:0,
         top: 0,
         right: 0,
         left: 0
@@ -42,6 +42,19 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         alignItems: "center",
         
+    },
+    lable: {
+        fontSize: 17,
+        fontWeight: "500",
+        color:"#000000"
+    },
+    txtname: {
+        fontSize: 16, 
+        fontWeight: "400", 
+        color: "#000000"
+    },
+    txtDescription: {
+        fontSize: 13
     }
 
 

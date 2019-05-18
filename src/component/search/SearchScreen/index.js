@@ -171,24 +171,24 @@ export default class SearchScreen extends React.Component {
             <View style={{ flexDirection: "column", marginTop: 20, }}>
               <View style={{ flexDirection: "row", height: 90, marginBottom: 10, alignItems: "center" }}>
                 <TouchableOpacity style={styles.item} onPress={this.handleClickHotel}>
-                  <View style={{ flex: 2 }}>
-                    <IconHotel name="hotel" size={50} style={{ color: "#3b80ff" }} onPress={this.handleClickHotel} />
+                  <View style={{ flex: 3, justifyContent:"center" }}>
+                    <IconHotel name="hotel" size={40} style={{ color: "#3b80ff" }} onPress={this.handleClickHotel} />
                   </View>
                   <View style={{ flex: 1 }}>
                     <Text>Khách sạn</Text>
                   </View>
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.item} onPress={this.handleClickRestaurant}>
-                  <View style={{ flex: 2 }}>
-                    <IconRestaurant name="ios-restaurant" size={50} style={{ color: "#ff5735" }} />
+                  <View style={{ flex: 3 , justifyContent:"center"}}>
+                    <IconRestaurant name="ios-restaurant" size={40} style={{ color: "#ff5735" }} />
                   </View>
                   <View style={{ flex: 1 }}>
                     <Text>Nhà hàng</Text>
                   </View>
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.item} onPress={this.handleClickTravel}>
-                  <View style={{ flex: 2 }}>
-                    <IconTravel name="tripadvisor" size={50} style={{ color: "#6eff84" }} />
+                  <View style={{ flex: 3, justifyContent:"center" }}>
+                    <IconTravel name="tripadvisor" size={40} style={{ color: "#6eff84" }} />
                   </View>
                   <View style={{ flex: 1 }}>
                     <Text>Tham quan</Text>
@@ -198,24 +198,24 @@ export default class SearchScreen extends React.Component {
 
               <View style={{ flexDirection: "row", height: 90 }}>
                 <TouchableOpacity style={styles.item} onPress={this.handleClickATM}>
-                  <View style={{ flex: 2 }}>
-                    <IconATM name="local-atm" size={50} style={{ color: "#a0e6ff" }} />
+                  <View style={{ flex: 3,justifyContent:"center" }}>
+                    <IconATM name="local-atm" size={40} style={{ color: "#a0e6ff" }} />
                   </View>
                   <View style={{ flex: 1 }}>
                     <Text>ATM</Text>
                   </View>
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.item} onPress={this.handleClickGas}>
-                  <View style={{ flex: 2 }}>
-                    <IconGas name="local-gas-station" size={50} style={{ color: "#ffa215" }} />
+                  <View style={{ flex: 3 , justifyContent:"center" }}>
+                    <IconGas name="local-gas-station" size={40} style={{ color: "#ffa215" }} />
                   </View>
                   <View style={{ flex: 1 }}>
                     <Text>Trạm xăng</Text>
                   </View>
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.item} onPress={this.handleClickCoffee}>
-                  <View style={{ flex: 2 }}>
-                    <IconCoffee name="coffee" size={50} style={{ color: "#ff1f22" }} />
+                  <View style={{ flex: 3,justifyContent:"center" }}>
+                    <IconCoffee name="coffee" size={40} style={{ color: "#ff1f22" }} />
                   </View>
                   <View style={{ flex: 1 }}>
                     <Text>Coffee</Text>

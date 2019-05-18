@@ -63,7 +63,8 @@ const styles = StyleSheet.create({
     },
     titleBold: {
         fontSize: 18,
-        fontWeight: "600"
+        fontWeight: "600",
+        color: "#000000"
     },
     textInput: {
         fontSize: 16,

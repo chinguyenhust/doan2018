@@ -3,7 +3,7 @@ import { Alert, Text, View, TouchableOpacity, TextInput, Image, ScrollView } fro
 import styles from './CreatGroupStyle';
 import Icon from 'react-native-vector-icons/Ionicons';
 import ImagePicker from 'react-native-image-picker';
-import IconAdd from 'react-native-vector-icons/MaterialIcons';
+import IconPicture from 'react-native-vector-icons/FontAwesome';
 import MultiSelect from '../../home/MultiSelect';
 import { Data } from "../../../api/Data";
 import * as firebase from 'firebase';
@@ -226,9 +226,9 @@ export default class CreatGroup extends Component {
         </View>
 
         <ScrollView style={{ paddingLeft: 20, paddingRight: 20, marginBottom: 40 }}>
-          <TouchableOpacity style={{ alignItems: 'center' }} onPress={this.chooseFile.bind(this)}>
+          <TouchableOpacity style={{ alignItems: 'center', justifyContent:"center", height:100 }} onPress={this.chooseFile.bind(this)}>
             {(!this.state.isLoad) ?
-              <IconAdd name="add-circle" size={120} style={{ color: "gray" }} /> :
+              <IconPicture name="picture-o" size={60} style={{ color: "#ebebeb" }} /> :
               <Image
                 source={{ uri: avatar }}
                 style={{ width: 100, height: 100, borderRadius: 50, marginTop: 10 }}

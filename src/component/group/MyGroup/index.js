@@ -3,6 +3,7 @@ import { Text, View, TouchableOpacity, TextInput, Image, ScrollView, Dimensions,
 import styles from './MyGroupStyle';
 import Icon from 'react-native-vector-icons/Ionicons';
 import IconAdd from 'react-native-vector-icons/MaterialIcons';
+import IconDescription from 'react-native-vector-icons/MaterialIcons';
 import IconUser from 'react-native-vector-icons/FontAwesome5';
 import IconDiamond from 'react-native-vector-icons/FontAwesome';
 import IconNotifi from 'react-native-vector-icons/Ionicons';
@@ -239,7 +240,7 @@ export default class MyGroup extends Component {
     this.notificationListener = firebase.notifications().onNotification((notification) => {
       const { title, body } = notification;
       this.showAlert(title, body);
-      
+
     });
 
     /*
@@ -295,7 +296,7 @@ export default class MyGroup extends Component {
         <StatusBar backgroundColor="#003c00" barStyle="light-content" />
         <View style={styles.header}>
           <View style={{ height: 56, flexDirection: "row", justifyContent: "center", alignItems: "center", backgroundColor: "#006805" }}>
-            <View style={{ flex: 7, alignItems: "center" }}>
+            <View style={{ flex: 5, alignItems: "center" }}>
               <Text style={{ fontSize: 20, fontWeight: "600", color: "#ffffff" }}>Nhóm của tôi</Text>
             </View>
             <Icon name="ios-search"
@@ -337,7 +338,7 @@ export default class MyGroup extends Component {
 
         <ScrollView style={{}}>
           <View style={{ paddingLeft: 20, marginTop: 20 }}>
-            <Text style={{ fontSize: 18, fontWeight: "500" }}>Nhóm đang diễn ra</Text>
+            <Text style={styles.lable}>Nhóm đang diễn ra</Text>
           </View>
           <SearchableFlatList
             data={groupActive}
@@ -361,15 +362,18 @@ export default class MyGroup extends Component {
                     </View>
                   }
                   <View style={{ flex: 11, paddingTop: 7 }}>
-                    <Text style={{ fontSize: 18, fontWeight: "400", color: "#000000" }}>{item.name}</Text>
-                    <Text style={{ fontSize: 14 }} numberOfLines={1}>{item.description}</Text>
+                    <Text style={styles.txtname}>{item.name}</Text>
+                    <View style={{ flexDirection: "row", alignItems: "center" }}>
+                      <IconDescription name="description" size={14} style={{ marginRight: 10 }} />
+                      <Text style={styles.txtDescription} numberOfLines={1}>{item.description}</Text>
+                    </View>
                     <View style={{ flexDirection: "row", alignItems: "center" }}>
                       <IconClock name="clock" size={14} style={{ marginRight: 10 }} />
                       <Text>{item.startDate} -> {item.untilDate}</Text>
                     </View>
                     {(uid === item.userId) &&
                       <View style={{ flexDirection: "row", alignItems: "center" }}>
-                        <IconDiamond name="diamond" size={14} style={{ marginRight: 10, color:"#006805" }} />
+                        <IconDiamond name="diamond" size={14} style={{ marginRight: 10, color: "#006805" }} />
                         <Text>Nhóm trưởng</Text>
                       </View>
                     }
@@ -382,8 +386,9 @@ export default class MyGroup extends Component {
             keyExtractor={item => item.id}
           />
 
+          <View style={{ height: 5, backgroundColor: "#ebebeb", marginTop: 5 }}></View>
           <View style={{ paddingLeft: 20, marginTop: 20 }}>
-            <Text style={{ fontSize: 18, fontWeight: "500" }}>Nhóm sắp tới</Text>
+            <Text style={styles.lable}>Nhóm sắp tới</Text>
           </View>
           <SearchableFlatList
             data={groupFuture}
@@ -407,15 +412,18 @@ export default class MyGroup extends Component {
                     </View>
                   }
                   <View style={{ paddingTop: 7, flex: 11 }}>
-                    <Text style={{ fontSize: 18, fontWeight: "400", color: "#000000" }}>{item.name}</Text>
-                    <Text style={{ fontSize: 14 }} numberOfLines={1}>{item.description}</Text>
+                    <Text style={styles.txtname}>{item.name}</Text>
+                    <View style={{ flexDirection: "row", alignItems: "center" }}>
+                      <IconDescription name="description" size={14} style={{ marginRight: 10 }} />
+                      <Text style={styles.txtDescription} numberOfLines={1}>{item.description}</Text>
+                    </View>
                     <View style={{ flexDirection: "row", alignItems: "center" }}>
                       <IconClock name="clock" size={14} style={{ marginRight: 10 }} />
                       <Text>{item.startDate} -> {item.untilDate}</Text>
                     </View>
                     {(uid === item.userId) &&
                       <View style={{ flexDirection: "row", alignItems: "center" }}>
-                        <IconDiamond name="diamond" size={14} style={{ marginRight: 10, color:"#006805" }} />
+                        <IconDiamond name="diamond" size={14} style={{ marginRight: 10, color: "#006805" }} />
                         <Text>Nhóm trưởng</Text>
                       </View>
                     }
@@ -428,8 +436,9 @@ export default class MyGroup extends Component {
             keyExtractor={item => item.id}
           />
 
+          <View style={{ height: 5, backgroundColor: "#ebebeb", marginTop: 5 }}></View>
           <View style={{ paddingLeft: 20, marginTop: 20 }}>
-            <Text style={{ fontSize: 18, fontWeight: "500" }}>Nhóm đã kết thúc</Text>
+            <Text style={styles.lable}>Nhóm đã kết thúc</Text>
           </View>
           <SearchableFlatList
             data={groupDone}
@@ -453,28 +462,31 @@ export default class MyGroup extends Component {
                     </View>
                   }
                   <View style={{ flex: 11, paddingTop: 7 }}>
-                    <Text style={{ fontSize: 18, fontWeight: "400", color: "#000000" }}>{item.name}</Text>
-                    <Text style={{ fontSize: 14 }} numberOfLines={1}>{item.description}</Text>
+                    <Text style={styles.txtname}>{item.name}</Text>
+                    <View style={{ flexDirection: "row", alignItems: "center" }}>
+                      <IconDescription name="description" size={14} style={{ marginRight: 10 }} />
+                      <Text style={styles.txtDescription} numberOfLines={1}>{item.description}</Text>
+                    </View>
                     <View style={{ flexDirection: "row", alignItems: "center" }}>
                       <IconClock name="clock" size={14} style={{ marginRight: 10 }} />
                       <Text>{item.startDate} -> {item.untilDate}</Text>
                     </View>
                     {(uid === item.userId) &&
                       <View style={{ flexDirection: "row", alignItems: "center" }}>
-                        <IconDiamond name="diamond" size={14} style={{ marginRight: 10, color:"#006805" }} />
+                        <IconDiamond name="diamond" size={14} style={{ marginRight: 10, color: "#006805" }} />
                         <Text>Nhóm trưởng</Text>
                       </View>
                     }
                     <View style={{ height: 1, backgroundColor: "#bcbcbc", marginTop: 5 }}></View>
                   </View>
                 </TouchableOpacity>
-                <View ></View>
+
               </View>
             }
             keyExtractor={item => item.id}
           />
 
-
+          <View style={{ height: 50 }}></View>
         </ScrollView>
 
         <TouchableOpacity
@@ -482,6 +494,9 @@ export default class MyGroup extends Component {
           onPress={() => navigate("CreatGroup", { uid: uid })}>
           <IconAdd name="add-circle" size={60} style={{ color: "#006805" }} />
         </TouchableOpacity>
+
+
+
       </View>
     );
   }
