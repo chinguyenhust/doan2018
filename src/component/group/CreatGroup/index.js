@@ -9,6 +9,7 @@ import { Data } from "../../../api/Data";
 import * as firebase from 'firebase';
 import ImageResizer from 'react-native-image-resizer';
 import { required } from '../../../util/validate';
+import FCM from 'react-native-fcm';
 
 
 let users = Data.ref('/users');

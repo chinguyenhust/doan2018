@@ -35,6 +35,8 @@ export default class Event extends Component {
     const { navigate } = {...this.props};
     const groupId = this.props.groupId;
     const uid = this.props.uid;
+    const username = this.props.userName;
+    const groupName = this.props.nameGroup;
     return (
       <View style={styles.container}>
         <View style={styles.tapbar}>
@@ -63,8 +65,8 @@ export default class Event extends Component {
         <TouchableOpacity style={{ zIndex: 1000, bottom: 30, justifyContent: 'flex-end', marginLeft: "80%", position: 'absolute' }} 
         onPress={()=>{
           (this.state.isEvent)? 
-          navigate("CreatEvent",{groupId: groupId, uid: uid}) : 
-          navigate("CreatSurvey", {groupId: groupId, uid:uid})
+          navigate("CreatEvent",{groupId: groupId, uid: uid, userName: username, groupName: groupName}) : 
+          navigate("CreatSurvey", {groupId: groupId, uid:uid, userName: username, groupName: groupName})
           }}>
           <IconAdd name="add-circle" size={60} style={{ color: "#006805" }} />
         </TouchableOpacity>

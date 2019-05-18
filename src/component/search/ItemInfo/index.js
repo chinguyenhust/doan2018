@@ -1,17 +1,10 @@
 import React from 'react'
 import { View, Text, ActivityIndicator, FlatList, TouchableOpacity, Image } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
-import IconSearch from 'react-native-vector-icons/Ionicons';
-import IconRestaurant from 'react-native-vector-icons/Ionicons';
-import IconHotel from 'react-native-vector-icons/MaterialIcons';
 import IconClock from 'react-native-vector-icons/Entypo';
 import IconLocation from 'react-native-vector-icons/Entypo';
-import IconGas from 'react-native-vector-icons/MaterialIcons';
-import IconCoffee from 'react-native-vector-icons/MaterialCommunityIcons'
 import styles from './ItemInfoStyle';
-import PlaceAutoComplete from '../../home/GoogleMapInput/index';
-import { ScrollView } from 'react-native-gesture-handler';
-import MyService from "../../../api/MyService";
+
 
 const KEY = "AIzaSyBUlVo1hI6x58Zp3w1uvKDag5H4HqIuINE"
 export default class ItemInfo extends React.Component {

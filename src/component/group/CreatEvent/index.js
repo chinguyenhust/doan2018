@@ -30,6 +30,8 @@ export default class CreatEvent extends Component {
     var check = this._handleCheck();
     var { nameEvent, date, address, description } = this.state;
     const uid = this.props.navigation.state.params.uid;
+    const userName = this.props.navigation.state.params.userName;
+    const groupName = this.props.navigation.state.params.groupName;
     if (check) {
       Data.ref("events").push(
         {
@@ -39,7 +41,9 @@ export default class CreatEvent extends Component {
           address: address,
           createdByUserId: uid,
           groupId: this.props.navigation.state.params.groupId,
-          created_at: firebase.database.ServerValue.TIMESTAMP
+          created_at: firebase.database.ServerValue.TIMESTAMP,
+          userNameCreated: userName,
+          groupName: groupName
         }
       ).then(() => {
         console.log("Success !");

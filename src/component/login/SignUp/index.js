@@ -69,8 +69,14 @@ export default class SignUp extends React.Component {
             email: email,
             password: ciphertext,
             latitude: null,
-            longitude: null
-          })
+            longitude: null,
+            countNotifi: 0, 
+          }).then((snap)=> { 
+            // this.itemRef.ref('NotifiMain').child(snap.key).set({ 
+            //     countNotifi: 0, 
+            //     status: 'old'
+            // })
+        })
           this.props.navigation.navigate('Login');
           // ref.childByAutoId().setValue(data)
         })

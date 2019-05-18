@@ -4,11 +4,13 @@ import styles from './MyGroupStyle';
 import Icon from 'react-native-vector-icons/Ionicons';
 import IconAdd from 'react-native-vector-icons/MaterialIcons';
 import IconUser from 'react-native-vector-icons/FontAwesome5';
+import IconDiamond from 'react-native-vector-icons/FontAwesome';
 import IconNotifi from 'react-native-vector-icons/Ionicons';
 import { SearchableFlatList } from "react-native-searchable-list";
 import { Data } from "../../../api/Data";
 import { ProgressDialog } from 'react-native-simple-dialogs';
 import IconClock from 'react-native-vector-icons/Entypo';
+import FCM from 'react-native-fcm';
 
 const { width, height } = Dimensions.get('window')
 const SCREEN_HEIGHT = height;
@@ -46,7 +48,7 @@ export default class MyGroup extends Component {
         longtitude: 0
       },
       progressVisible: true,
-      // message: ""
+      countNotifi: 0
     }
   }
 
@@ -66,7 +68,7 @@ export default class MyGroup extends Component {
 
   watchID: ?number = null;
 
-  componentDidMount() {
+  async componentDidMount() {
     var { items, groupActive, groupDone, groupFuture } = this.state;
     var email = this.props.navigation.state.params.email;
     var user_id = this.props.navigation.state.params.user_id;
@@ -119,6 +121,8 @@ export default class MyGroup extends Component {
         var data = snapshot.val();
         groups.on('child_added', (snapshot) => {
           if (snapshot.key === data.group_id) {
+            FCM.subscribeToTopic("/topics/" + snapshot.key);
+            console.log("/topics/" + snapshot.key);
             let data = snapshot.val();
             if ((this.toDate(data.untilDate)).getTime() < new Date().getTime()) {
               groupDone.push({
@@ -175,19 +179,116 @@ export default class MyGroup extends Component {
         progressVisible: false
       })
     })
+
+    this.checkPermission();
+    this.createNotificationListeners();
   }
 
   componentWillUnmount() {
-    navigator.geolocation.clearWatch(this.watchID)
+    navigator.geolocation.clearWatch(this.watchID);
+    this.notificationListener();
+    this.notificationOpenedListener();
   }
 
+  // async componentDidMount() {
+  //   this.checkPermission();
+  //   this.createNotificationListeners();
+  //   FCM.subscribeToTopic("/topics/list")
+  // }
 
+  //1
+  async checkPermission() {
+    const enabled = await firebase.messaging().hasPermission();
+    if (enabled) {
+      this.getToken();
+    } else {
+      this.requestPermission();
+    }
+  }
+
+  //3
+  async getToken() {
+    let fcmToken = await AsyncStorage.getItem('fcmToken', value);
+    if (!fcmToken) {
+      fcmToken = await firebase.messaging().getToken();
+      if (fcmToken) {
+        // user has a device token
+        await AsyncStorage.setItem('fcmToken', fcmToken);
+      }
+    }
+  }
+
+  //2
+  async requestPermission() {
+    try {
+      await firebase.messaging().requestPermission();
+      // User has authorised
+      this.getToken();
+    } catch (error) {
+      // User has rejected permissions
+      console.log('permission rejected');
+    }
+  }
+
+  ////////////////////// Add these methods //////////////////////
+
+  async createNotificationListeners() {
+    /*
+    * Triggered when a particular notification has been received in foreground
+    * */
+    this.notificationListener = firebase.notifications().onNotification((notification) => {
+      const { title, body } = notification;
+      this.showAlert(title, body);
+      
+    });
+
+    /*
+    * If your app is in background, you can listen for when a notification is clicked / tapped / opened as follows:
+    * */
+    this.notificationOpenedListener = firebase.notifications().onNotificationOpened((notificationOpen) => {
+      const { title, body } = notificationOpen.notification;
+      this.showAlert(title, body);
+    });
+
+    /*
+    * If your app is closed, you can check if it was opened by a notification being clicked / tapped / opened as follows:
+    * */
+    const notificationOpen = await firebase.notifications().getInitialNotification();
+    if (notificationOpen) {
+      const { title, body } = notificationOpen.notification;
+      this.showAlert(title, body);
+      // users.orderByChild("email").equalTo(email).on("child_added", (snapshot) => {
+      //   users.child(snapshot.key).update({
+      //     countNotifi: snapshot.val().countNotifi + 1,
+      //   })
+      //   this.setState({
+      //     countNotifi: snapshot.val().countNotifi + 1
+      //   })
+      // })
+    }
+    /*
+    * Triggered for data only payload in foreground
+    * */
+    this.messageListener = firebase.messaging().onMessage((message) => {
+      //process data message
+      console.log(JSON.stringify(message));
+    });
+  }
+
+  showAlert(title, body) {
+    Alert.alert(
+      title, body,
+      [
+        { text: 'OK', onPress: () => console.log('OK Pressed') },
+      ],
+      { cancelable: false },
+    );
+  }
 
   render() {
     const { navigate } = this.props.navigation;
     const { groupActive, searchTerm, searchAttribute, ignoreCase, groupFuture, groupDone } = this.state;
     var uid = this.props.navigation.state.params.user_id;
-
 
     return (
       <View style={styles.container}>
@@ -203,6 +304,7 @@ export default class MyGroup extends Component {
             />
             <IconNotifi name="ios-notifications"
               style={{ fontSize: 24, flex: 1, color: "#ffffff" }}
+              onPress={() => navigate("Notification")}
             />
             <IconUser name="user-circle"
               style={{ fontSize: 24, flex: 1, color: "#ffffff" }}
@@ -243,7 +345,7 @@ export default class MyGroup extends Component {
             ignoreCase={ignoreCase}
             searchAttribute={searchAttribute}
             renderItem={
-              ({ item }) => <View style={{ flexDirection: "column",  }}>
+              ({ item }) => <View style={{ flexDirection: "column", }}>
                 <TouchableOpacity style={styles.item} onPress={() => this._handleClickItem(item.name, item.id)} >
                   {(item.avatar === "") ?
                     <Image
@@ -265,6 +367,12 @@ export default class MyGroup extends Component {
                       <IconClock name="clock" size={14} style={{ marginRight: 10 }} />
                       <Text>{item.startDate} -> {item.untilDate}</Text>
                     </View>
+                    {(uid === item.userId) &&
+                      <View style={{ flexDirection: "row", alignItems: "center" }}>
+                        <IconDiamond name="diamond" size={14} style={{ marginRight: 10, color:"#006805" }} />
+                        <Text>Nhóm trưởng</Text>
+                      </View>
+                    }
                     <View style={{ height: 1, backgroundColor: "#bcbcbc", marginTop: 5 }}></View>
                   </View>
                 </TouchableOpacity>
@@ -274,7 +382,7 @@ export default class MyGroup extends Component {
             keyExtractor={item => item.id}
           />
 
-          <View style={{ paddingLeft: 20 , marginTop: 20}}>
+          <View style={{ paddingLeft: 20, marginTop: 20 }}>
             <Text style={{ fontSize: 18, fontWeight: "500" }}>Nhóm sắp tới</Text>
           </View>
           <SearchableFlatList
@@ -305,6 +413,12 @@ export default class MyGroup extends Component {
                       <IconClock name="clock" size={14} style={{ marginRight: 10 }} />
                       <Text>{item.startDate} -> {item.untilDate}</Text>
                     </View>
+                    {(uid === item.userId) &&
+                      <View style={{ flexDirection: "row", alignItems: "center" }}>
+                        <IconDiamond name="diamond" size={14} style={{ marginRight: 10, color:"#006805" }} />
+                        <Text>Nhóm trưởng</Text>
+                      </View>
+                    }
                     <View style={{ height: 1, backgroundColor: "#bcbcbc", marginTop: 5 }}></View>
                   </View>
                 </TouchableOpacity>
@@ -314,7 +428,7 @@ export default class MyGroup extends Component {
             keyExtractor={item => item.id}
           />
 
-          <View style={{ paddingLeft: 20,marginTop: 20 }}>
+          <View style={{ paddingLeft: 20, marginTop: 20 }}>
             <Text style={{ fontSize: 18, fontWeight: "500" }}>Nhóm đã kết thúc</Text>
           </View>
           <SearchableFlatList
@@ -323,7 +437,7 @@ export default class MyGroup extends Component {
             ignoreCase={ignoreCase}
             searchAttribute={searchAttribute}
             renderItem={
-              ({ item }) => <View style={{ flexDirection: "column",}}>
+              ({ item }) => <View style={{ flexDirection: "column", }}>
                 <TouchableOpacity style={styles.item} onPress={() => this._handleClickItem(item.name, item.id)} >
                   {(item.avatar === "") ?
                     <Image
@@ -345,6 +459,12 @@ export default class MyGroup extends Component {
                       <IconClock name="clock" size={14} style={{ marginRight: 10 }} />
                       <Text>{item.startDate} -> {item.untilDate}</Text>
                     </View>
+                    {(uid === item.userId) &&
+                      <View style={{ flexDirection: "row", alignItems: "center" }}>
+                        <IconDiamond name="diamond" size={14} style={{ marginRight: 10, color:"#006805" }} />
+                        <Text>Nhóm trưởng</Text>
+                      </View>
+                    }
                     <View style={{ height: 1, backgroundColor: "#bcbcbc", marginTop: 5 }}></View>
                   </View>
                 </TouchableOpacity>
