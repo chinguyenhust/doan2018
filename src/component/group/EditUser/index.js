@@ -126,7 +126,6 @@ export default class EditUser extends Component {
               <Text style={{ fontSize: 20, color:"#ffffff", fontWeight:"600" }}>Chỉnh sửa thông tin</Text>
             </View>
           </View>
-          {/* <View style={{ height: 1, backgroundColor: "#bcbcbc", alignSelf: "stretch" }}></View> */}
         </View>
 
         <View style={{ paddingTop: 20, flexDirection: "column" }}>

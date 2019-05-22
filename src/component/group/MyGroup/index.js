@@ -123,8 +123,18 @@ export default class MyGroup extends Component {
         groups.on('child_added', (snapshot) => {
           if (snapshot.key === data.group_id) {
             FCM.subscribeToTopic("/topics/" + snapshot.key);
-            console.log("/topics/" + snapshot.key);
             let data = snapshot.val();
+            if((this.toDate(data.startDate).getTime() > new Date().getTime()) || (new Date().getTime() > (this.toDate(data.untilDate).getTime()))){
+              Data.ref("groups").child(snapshot.key).update(
+                {
+                  isOnMap: false,
+                }
+              ).then(() => {
+                console.log("Success !");
+              }).catch((error) => {
+                console.log(error);
+              });
+            }
             if ((this.toDate(data.untilDate)).getTime() < new Date().getTime()) {
               groupDone.push({
                 id: snapshot.key,
@@ -191,13 +201,6 @@ export default class MyGroup extends Component {
     this.notificationOpenedListener();
   }
 
-  // async componentDidMount() {
-  //   this.checkPermission();
-  //   this.createNotificationListeners();
-  //   FCM.subscribeToTopic("/topics/list")
-  // }
-
-  //1
   async checkPermission() {
     const enabled = await firebase.messaging().hasPermission();
     if (enabled) {
@@ -258,14 +261,7 @@ export default class MyGroup extends Component {
     if (notificationOpen) {
       const { title, body } = notificationOpen.notification;
       this.showAlert(title, body);
-      // users.orderByChild("email").equalTo(email).on("child_added", (snapshot) => {
-      //   users.child(snapshot.key).update({
-      //     countNotifi: snapshot.val().countNotifi + 1,
-      //   })
-      //   this.setState({
-      //     countNotifi: snapshot.val().countNotifi + 1
-      //   })
-      // })
+      
     }
     /*
     * Triggered for data only payload in foreground
@@ -315,7 +311,6 @@ export default class MyGroup extends Component {
               })}
             />
           </View>
-          {/* <View style={{ height: 1, backgroundColor: "#000", alignSelf: "stretch" }}></View> */}
         </View>
 
         <View style={{ flexDirection: "column" }}>

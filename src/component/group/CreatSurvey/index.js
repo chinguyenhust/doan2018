@@ -17,7 +17,7 @@ export default class CreatSurvey extends Component {
       isAdd: false,
       options: [],
       optionValue: "",
-      checked: [],
+      checked: false,
       vote: [],
     }
   }
@@ -41,7 +41,7 @@ export default class CreatSurvey extends Component {
 
   _handleChecked = () => {
     this.setState({
-      checked: true,
+      checked: !this.state.checked,
     })
   }
 
@@ -164,7 +164,7 @@ export default class CreatSurvey extends Component {
                   uncheckedIcon='circle-o'
                   checked={this.state.checked}
                   containerStyle={{ borderWidth: 0, backgroundColor: "#fff" }}
-                // onPress={this._handleChecked}
+                  // onPress={this._handleChecked}
                 />
               </View>
             )}
