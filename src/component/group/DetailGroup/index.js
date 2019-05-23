@@ -81,6 +81,7 @@ export default class DetailGroup extends Component {
             <Chat
               name={name}
               groupId={groupId}
+              uid={uid}
             />
           }
           {(this.state.isMap) &&
@@ -94,6 +95,7 @@ export default class DetailGroup extends Component {
               navigate={navigate}
               groupId={groupId}
               uid={uid}
+              userName={name}
               nameGroup={this.props.navigation.state.params.name}
             />}
         </View>

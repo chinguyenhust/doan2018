@@ -17,7 +17,7 @@ export default class CreatSurvey extends Component {
       isAdd: false,
       options: [],
       optionValue: "",
-      checked: [],
+      checked: false,
       vote: [],
     }
   }
@@ -41,22 +41,27 @@ export default class CreatSurvey extends Component {
 
   _handleChecked = () => {
     this.setState({
-      checked: true,
+      checked: !this.state.checked,
     })
   }
 
   _handleCreatSurvey = () => {
     var { question, options } = this.state;
-    var user = firebase.auth().currentUser;
     var check = this._handleCheck();
+    const uid = this.props.navigation.state.params.uid;
+    const groupId = this.props.navigation.state.params.groupId;
+    const userName = this.props.navigation.state.params.userName;
+    const groupName = this.props.navigation.state.params.groupName;
     if (check) {
       Data.ref("surveys").push(
         {
           question: question,
           options: options,
-          createdByUserId: user.uid,
+          createdByUserId: uid,
           groupId: this.props.navigation.state.params.groupId,
-          created_at: firebase.database.ServerValue.TIMESTAMP
+          created_at: firebase.database.ServerValue.TIMESTAMP,
+          userNameCreated: userName,
+          groupName: groupName
         }
       ).then((snapshot) => {
         if (options) {
@@ -77,7 +82,19 @@ export default class CreatSurvey extends Component {
       }).catch((error) => {
         console.log(error);
       });
-      this.props.navigation.navigate("DetailGroup", { name: this.props.nameGroup });
+
+      Data.ref("notification").push({
+        topic: groupId,
+        groupName: groupName,
+        userName: userName,
+        token:"",
+        title:"Khảo sát mới",
+        message: " vừa tạo một cuộc thăm dò ý kiến trong ",
+        created_at: firebase.database.ServerValue.TIMESTAMP,
+        userAvatar: "https://facebook.github.io/react-native/docs/assets/favicon.png"
+      })
+
+      this.props.navigation.navigate("DetailGroup", { name: this.props.groupName });
     } else {
       Alert.alert(
         'Thông báo',
@@ -94,7 +111,7 @@ export default class CreatSurvey extends Component {
     var errQuestion = required(text);
     this.setState({
       question: text,
-      errQuestion: errGroupName
+      errQuestion: errQuestion
     })
   }
 
@@ -147,7 +164,7 @@ export default class CreatSurvey extends Component {
                   uncheckedIcon='circle-o'
                   checked={this.state.checked}
                   containerStyle={{ borderWidth: 0, backgroundColor: "#fff" }}
-                // onPress={this._handleChecked}
+                  // onPress={this._handleChecked}
                 />
               </View>
             )}

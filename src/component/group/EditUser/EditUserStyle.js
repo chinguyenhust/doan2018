@@ -41,15 +41,28 @@ const styles = StyleSheet.create({
     },
     button: {
         alignItems: 'center', 
-        backgroundColor:"green", 
+        backgroundColor:"#006805", 
         height:40, 
         justifyContent: "center",
         borderRadius: 7,
         marginTop: 20,
         marginLeft: 20,
         marginRight: 20
+    },
+    info:{
+        margin:25, 
+        borderRadius:4, 
+        borderWidth:1, 
+        borderColor:"#ebebeb", 
+        shadowColor: '#b9b9b9',
+        shadowOffset: { width: 0, height: 3 },
+        shadowOpacity: 0.8,
+        shadowRadius: 5,
+        elevation: 1
+    },
+    input:{
+        fontSize: 20
     }
-
 
 });
 

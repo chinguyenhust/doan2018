@@ -1,17 +1,10 @@
 import React from 'react'
 import { View, Text, ActivityIndicator, FlatList, TouchableOpacity, Image } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
-import IconSearch from 'react-native-vector-icons/Ionicons';
-import IconRestaurant from 'react-native-vector-icons/Ionicons';
-import IconHotel from 'react-native-vector-icons/MaterialIcons';
 import IconClock from 'react-native-vector-icons/Entypo';
 import IconLocation from 'react-native-vector-icons/Entypo';
-import IconGas from 'react-native-vector-icons/MaterialIcons';
-import IconCoffee from 'react-native-vector-icons/MaterialCommunityIcons'
 import styles from './ItemInfoStyle';
-import PlaceAutoComplete from '../../home/GoogleMapInput/index';
-import { ScrollView } from 'react-native-gesture-handler';
-import MyService from "../../../api/MyService";
+
 
 const KEY = "AIzaSyBUlVo1hI6x58Zp3w1uvKDag5H4HqIuINE"
 export default class ItemInfo extends React.Component {
@@ -19,6 +12,7 @@ export default class ItemInfo extends React.Component {
     super(props);
     this.state = {
       data: this.props.navigation.state.params.data,
+      userLocation: this.props.navigation.state.params.userLocation
     }
   }
   getRating = (rating) => {
@@ -33,7 +27,8 @@ export default class ItemInfo extends React.Component {
   }
 
   render() {
-    var { data } = this.state;
+    const { navigate } = this.props.navigation;
+    var { data, userLocation } = this.state;
     var i = 0;
     return (
       <View style={styles.container}>
@@ -52,7 +47,8 @@ export default class ItemInfo extends React.Component {
           renderItem={
             ({ item }) =>
               <View style={{ flexDirection: "column" }}>
-                <View style={{ flexDirection: "row", alignItems: "center", height: 110, paddingLeft: 15, paddingRight: 15 }}>
+                <TouchableOpacity 
+                style={styles.item} onPress={() => navigate("Direction", { "location": item.geometry.location , "userLocation": userLocation})}>
                   <View style={{ flex: 3 }}>
                     <Image
                       style={{ width: 90, height: 90, borderRadius: 3 }}
@@ -85,7 +81,7 @@ export default class ItemInfo extends React.Component {
 
                   </View>
 
-                </View>
+                </TouchableOpacity>
                 <View style={{ backgroundColor: "#bcbcbc", height: 1 }}></View>
 
               </View>

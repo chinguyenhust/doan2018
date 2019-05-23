@@ -328,7 +328,7 @@ export default class MultiSelect extends Component {
             <View style={{ flex: 9, flexDirection: 'row', height: 55 }}>
               <Image
                 style={{ width: 40, height: 40, borderRadius: 20, marginTop: 8 }}
-                source={{ uri: item.avatar }}
+                source={{ uri: (item.avatar) ? item.avatar : 'https://facebook.github.io/react-native/docs/assets/favicon.png' }}
               />
               <View style={{ flexDirection: "column", justifyContent: "center", marginLeft: 20 }}>
                 <Text

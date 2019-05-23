@@ -5,6 +5,7 @@ import MapView from "react-native-maps";
 import { Marker, Callout } from 'react-native-maps';
 import { Data } from "../../../api/Data";
 
+
 const { width, height } = Dimensions.get('window')
 const SCREEN_HEIGHT = height;
 const SCREEN_WIDTH = width;
@@ -107,6 +108,7 @@ export default class Map extends Component {
   render() {
     var { listMember, isOnPosition, leaderId } = this.state;
     const uid = this.props.uid;
+
     return (
       <View style={styles.container}>
 

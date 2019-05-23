@@ -84,8 +84,17 @@ export default class InfoGroup extends Component {
     const uid = this.props.navigation.state.params.uid;
     Data.ref("groups").child(groupId).on("value", (snapshot) => {
       var data = snapshot.val();
-      // console.log(data);
-      // console.log(snapshot.val().createdByUserId)
+      if((this.toDate(data.startDate).getTime() > new Date().getTime()) || (new Date().getTime() > (this.toDate(data.untilDate).getTime()))){
+        Data.ref("groups").child(groupId).update(
+          {
+            isOnMap: false,
+          }
+        ).then(() => {
+          console.log("Success !");
+        }).catch((error) => {
+          console.log(error);
+        });
+      }
       if (uid === snapshot.val().createdByUserId) {
         this.setState({
           isSwitch: true
@@ -244,10 +253,17 @@ export default class InfoGroup extends Component {
     });
   }
 
+  toDate = (dateStr) => {
+    var parts = dateStr.split("-");
+    return new Date(parts[2], parts[1] - 1, parts[0])
+  }
+
+
   render() {
     const { selectedItems, items, avatar, name, schedule, isSwitch,
       description, startDate, untilDate, leader_name, leader_sdt } = this.state;
     const { navigate } = this.props.navigation;
+    
     return (
       <View style={styles.container}>
 
@@ -354,7 +370,7 @@ export default class InfoGroup extends Component {
               </View>
             }
           </View>
-          {(isSwitch) &&
+          {(isSwitch && (this.toDate(startDate).getTime() < new Date().getTime()) && (new Date().getTime() < (this.toDate(untilDate).getTime()))) &&
             <View style={styles.schedule}>
               <View style={{ flexDirection: "row", marginTop: 10, alignItems: "center" }} >
                 <View style={{ flex: 4 }}>
