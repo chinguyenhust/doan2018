@@ -97,13 +97,13 @@ export default class MyGroup extends Component {
     this.watchID = navigator.geolocation.watchPosition((position) => {
       var lat = parseFloat(position.coords.latitude);
       var long = parseFloat(position.coords.longitude);
-      
+
       var userLocation = {
         latitude: lat,
         longitude: long
       }
       this.setState({
-        userLocation:userLocation
+        userLocation: userLocation
       })
 
       users.orderByChild("email").equalTo(email).on("child_added", (snapshot) => {
@@ -135,7 +135,7 @@ export default class MyGroup extends Component {
           if (snapshot.key === data.group_id) {
             FCM.subscribeToTopic("/topics/" + snapshot.key);
             let data = snapshot.val();
-            if((this.toDate(data.startDate).getTime() > new Date().getTime()) || (new Date().getTime() > (this.toDate(data.untilDate).getTime()))){
+            if ((this.toDate(data.startDate).getTime() > new Date().getTime()) || (new Date().getTime() > (this.toDate(data.untilDate).getTime()))) {
               Data.ref("groups").child(snapshot.key).update(
                 {
                   isOnMap: false,
@@ -272,7 +272,7 @@ export default class MyGroup extends Component {
     if (notificationOpen) {
       const { title, body } = notificationOpen.notification;
       this.showAlert(title, body);
-      
+
     }
     /*
     * Triggered for data only payload in foreground
@@ -295,8 +295,8 @@ export default class MyGroup extends Component {
 
   render() {
     const { navigate } = this.props.navigation;
-    const { groupActive, searchTerm, searchAttribute, 
-      ignoreCase, groupFuture, groupDone, userLocation} = this.state;
+    const { groupActive, searchTerm, searchAttribute,
+      ignoreCase, groupFuture, groupDone, userLocation } = this.state;
     var uid = this.props.navigation.state.params.user_id;
 
     return (
@@ -309,7 +309,7 @@ export default class MyGroup extends Component {
             </View>
             <Icon name="ios-search"
               style={{ fontSize: 24, color: "#ffffff", flex: 1 }}
-              onPress={() => navigate("SearchScreen",{"userLocation": userLocation})}
+              onPress={() => navigate("SearchScreen", { "userLocation": userLocation })}
             />
             <IconNotifi name="ios-notifications"
               style={{ fontSize: 24, flex: 1, color: "#ffffff" }}
@@ -343,158 +343,171 @@ export default class MyGroup extends Component {
           activityIndicatorStyle={{ justifyContent: "center" }}
         />
 
-        <ScrollView style={{}}>
-          <View style={{ paddingLeft: 20, marginTop: 20 }}>
-            <Text style={styles.lable}>Nhóm đang diễn ra</Text>
-          </View>
-          <SearchableFlatList
-            data={groupActive}
-            searchTerm={searchTerm}
-            ignoreCase={ignoreCase}
-            searchAttribute={searchAttribute}
-            renderItem={
-              ({ item }) => <View style={{ flexDirection: "column", }}>
-                <TouchableOpacity style={styles.item} onPress={() => this._handleClickItem(item.name, item.id)} >
-                  {(item.avatar === "") ?
-                    <Image
-                      style={{ width: 50, height: 50, borderRadius: 25 }}
-                      source={{ uri: 'https://facebook.github.io/react-native/docs/assets/favicon.png' }}
-                    />
-                    :
-                    <View style={{ flex: 3 }}>
+        {(groupActive || groupDone || groupFuture) ?
+
+          <ScrollView style={{}}>
+            <View style={{ paddingLeft: 20, marginTop: 20 }}>
+              <Text style={styles.lable}>Nhóm đang diễn ra</Text>
+            </View>
+            <SearchableFlatList
+              data={groupActive}
+              searchTerm={searchTerm}
+              ignoreCase={ignoreCase}
+              searchAttribute={searchAttribute}
+              renderItem={
+                ({ item }) => <View style={{ flexDirection: "column", }}>
+                  <TouchableOpacity style={styles.item} onPress={() => this._handleClickItem(item.name, item.id)} >
+                    {(item.avatar === "") ?
                       <Image
                         style={{ width: 50, height: 50, borderRadius: 25 }}
-                        source={{ uri: item.avatar }}
+                        source={{ uri: 'https://facebook.github.io/react-native/docs/assets/favicon.png' }}
                       />
-                    </View>
-                  }
-                  <View style={{ flex: 11, paddingTop: 7 }}>
-                    <Text style={styles.txtname}>{item.name}</Text>
-                    <View style={{ flexDirection: "row", alignItems: "center" }}>
-                      <IconDescription name="description" size={14} style={{ marginRight: 10 }} />
-                      <Text style={styles.txtDescription} numberOfLines={1}>{item.description}</Text>
-                    </View>
-                    <View style={{ flexDirection: "row", alignItems: "center" }}>
-                      <IconClock name="clock" size={14} style={{ marginRight: 10 }} />
-                      <Text>{item.startDate} -> {item.untilDate}</Text>
-                    </View>
-                    {(uid === item.userId) &&
-                      <View style={{ flexDirection: "row", alignItems: "center" }}>
-                        <IconDiamond name="diamond" size={14} style={{ marginRight: 10, color: "#006805" }} />
-                        <Text>Nhóm trưởng</Text>
+                      :
+                      <View style={{ flex: 3 }}>
+                        <Image
+                          style={{ width: 50, height: 50, borderRadius: 25 }}
+                          source={{ uri: item.avatar }}
+                        />
                       </View>
                     }
-                    <View style={{ height: 1, backgroundColor: "#bcbcbc", marginTop: 5 }}></View>
-                  </View>
-                </TouchableOpacity>
-                <View ></View>
-              </View>
-            }
-            keyExtractor={item => item.id}
-          />
+                    <View style={{ flex: 11, paddingTop: 7 }}>
+                      <Text style={styles.txtname}>{item.name}</Text>
+                      <View style={{ flexDirection: "row", alignItems: "center" }}>
+                        <IconDescription name="description" size={14} style={{ marginRight: 10 }} />
+                        <Text style={styles.txtDescription} numberOfLines={1}>{item.description}</Text>
+                      </View>
+                      <View style={{ flexDirection: "row", alignItems: "center" }}>
+                        <IconClock name="clock" size={14} style={{ marginRight: 10 }} />
+                        <Text>{item.startDate} -> {item.untilDate}</Text>
+                      </View>
+                      {(uid === item.userId) &&
+                        <View style={{ flexDirection: "row", alignItems: "center" }}>
+                          <IconDiamond name="diamond" size={14} style={{ marginRight: 10, color: "#006805" }} />
+                          <Text>Nhóm trưởng</Text>
+                        </View>
+                      }
+                      <View style={{ height: 1, backgroundColor: "#bcbcbc", marginTop: 5 }}></View>
+                    </View>
+                  </TouchableOpacity>
+                  <View ></View>
+                </View>
+              }
+              keyExtractor={item => item.id}
+            />
 
-          <View style={{ height: 5, backgroundColor: "#ebebeb", marginTop: 5 }}></View>
-          <View style={{ paddingLeft: 20, marginTop: 20 }}>
-            <Text style={styles.lable}>Nhóm sắp tới</Text>
-          </View>
-          <SearchableFlatList
-            data={groupFuture}
-            searchTerm={searchTerm}
-            ignoreCase={ignoreCase}
-            searchAttribute={searchAttribute}
-            renderItem={
-              ({ item }) => <View style={{ flexDirection: "column", }}>
-                <TouchableOpacity style={styles.item} onPress={() => this._handleClickItem(item.name, item.id)} >
-                  {(item.avatar === "") ?
-                    <Image
-                      style={{ width: 50, height: 50, borderRadius: 25 }}
-                      source={{ uri: 'https://facebook.github.io/react-native/docs/assets/favicon.png' }}
-                    />
-                    :
-                    <View style={{ flex: 3 }}>
+            <View style={{ height: 5, backgroundColor: "#ebebeb", marginTop: 5 }}></View>
+            <View style={{ paddingLeft: 20, marginTop: 20 }}>
+              <Text style={styles.lable}>Nhóm sắp tới</Text>
+            </View>
+            <SearchableFlatList
+              data={groupFuture}
+              searchTerm={searchTerm}
+              ignoreCase={ignoreCase}
+              searchAttribute={searchAttribute}
+              renderItem={
+                ({ item }) => <View style={{ flexDirection: "column", }}>
+                  <TouchableOpacity style={styles.item} onPress={() => this._handleClickItem(item.name, item.id)} >
+                    {(item.avatar === "") ?
                       <Image
                         style={{ width: 50, height: 50, borderRadius: 25 }}
-                        source={{ uri: item.avatar }}
+                        source={{ uri: 'https://facebook.github.io/react-native/docs/assets/favicon.png' }}
                       />
-                    </View>
-                  }
-                  <View style={{ paddingTop: 7, flex: 11 }}>
-                    <Text style={styles.txtname}>{item.name}</Text>
-                    <View style={{ flexDirection: "row", alignItems: "center" }}>
-                      <IconDescription name="description" size={14} style={{ marginRight: 10 }} />
-                      <Text style={styles.txtDescription} numberOfLines={1}>{item.description}</Text>
-                    </View>
-                    <View style={{ flexDirection: "row", alignItems: "center" }}>
-                      <IconClock name="clock" size={14} style={{ marginRight: 10 }} />
-                      <Text>{item.startDate} -> {item.untilDate}</Text>
-                    </View>
-                    {(uid === item.userId) &&
-                      <View style={{ flexDirection: "row", alignItems: "center" }}>
-                        <IconDiamond name="diamond" size={14} style={{ marginRight: 10, color: "#006805" }} />
-                        <Text>Nhóm trưởng</Text>
+                      :
+                      <View style={{ flex: 3 }}>
+                        <Image
+                          style={{ width: 50, height: 50, borderRadius: 25 }}
+                          source={{ uri: item.avatar }}
+                        />
                       </View>
                     }
-                    <View style={{ height: 1, backgroundColor: "#bcbcbc", marginTop: 5 }}></View>
-                  </View>
-                </TouchableOpacity>
-                <View ></View>
-              </View>
-            }
-            keyExtractor={item => item.id}
-          />
+                    <View style={{ paddingTop: 7, flex: 11 }}>
+                      <Text style={styles.txtname}>{item.name}</Text>
+                      <View style={{ flexDirection: "row", alignItems: "center" }}>
+                        <IconDescription name="description" size={14} style={{ marginRight: 10 }} />
+                        <Text style={styles.txtDescription} numberOfLines={1}>{item.description}</Text>
+                      </View>
+                      <View style={{ flexDirection: "row", alignItems: "center" }}>
+                        <IconClock name="clock" size={14} style={{ marginRight: 10 }} />
+                        <Text>{item.startDate} -> {item.untilDate}</Text>
+                      </View>
+                      {(uid === item.userId) &&
+                        <View style={{ flexDirection: "row", alignItems: "center" }}>
+                          <IconDiamond name="diamond" size={14} style={{ marginRight: 10, color: "#006805" }} />
+                          <Text>Nhóm trưởng</Text>
+                        </View>
+                      }
+                      <View style={{ height: 1, backgroundColor: "#bcbcbc", marginTop: 5 }}></View>
+                    </View>
+                  </TouchableOpacity>
+                  <View ></View>
+                </View>
+              }
+              keyExtractor={item => item.id}
+            />
 
-          <View style={{ height: 5, backgroundColor: "#ebebeb", marginTop: 5 }}></View>
-          <View style={{ paddingLeft: 20, marginTop: 20 }}>
-            <Text style={styles.lable}>Nhóm đã kết thúc</Text>
-          </View>
-          <SearchableFlatList
-            data={groupDone}
-            searchTerm={searchTerm}
-            ignoreCase={ignoreCase}
-            searchAttribute={searchAttribute}
-            renderItem={
-              ({ item }) => <View style={{ flexDirection: "column", }}>
-                <TouchableOpacity style={styles.item} onPress={() => this._handleClickItem(item.name, item.id)} >
-                  {(item.avatar === "") ?
-                    <Image
-                      style={{ width: 50, height: 50, borderRadius: 25 }}
-                      source={{ uri: 'https://facebook.github.io/react-native/docs/assets/favicon.png' }}
-                    />
-                    :
-                    <View style={{ flex: 3 }}>
+            <View style={{ height: 5, backgroundColor: "#ebebeb", marginTop: 5 }}></View>
+            <View style={{ paddingLeft: 20, marginTop: 20 }}>
+              <Text style={styles.lable}>Nhóm đã kết thúc</Text>
+            </View>
+            <SearchableFlatList
+              data={groupDone}
+              searchTerm={searchTerm}
+              ignoreCase={ignoreCase}
+              searchAttribute={searchAttribute}
+              renderItem={
+                ({ item }) => <View style={{ flexDirection: "column", }}>
+                  <TouchableOpacity style={styles.item} onPress={() => this._handleClickItem(item.name, item.id)} >
+                    {(item.avatar === "") ?
                       <Image
                         style={{ width: 50, height: 50, borderRadius: 25 }}
-                        source={{ uri: item.avatar }}
+                        source={{ uri: 'https://facebook.github.io/react-native/docs/assets/favicon.png' }}
                       />
-                    </View>
-                  }
-                  <View style={{ flex: 11, paddingTop: 7 }}>
-                    <Text style={styles.txtname}>{item.name}</Text>
-                    <View style={{ flexDirection: "row", alignItems: "center" }}>
-                      <IconDescription name="description" size={14} style={{ marginRight: 10 }} />
-                      <Text style={styles.txtDescription} numberOfLines={1}>{item.description}</Text>
-                    </View>
-                    <View style={{ flexDirection: "row", alignItems: "center" }}>
-                      <IconClock name="clock" size={14} style={{ marginRight: 10 }} />
-                      <Text>{item.startDate} -> {item.untilDate}</Text>
-                    </View>
-                    {(uid === item.userId) &&
-                      <View style={{ flexDirection: "row", alignItems: "center" }}>
-                        <IconDiamond name="diamond" size={14} style={{ marginRight: 10, color: "#006805" }} />
-                        <Text>Nhóm trưởng</Text>
+                      :
+                      <View style={{ flex: 3 }}>
+                        <Image
+                          style={{ width: 50, height: 50, borderRadius: 25 }}
+                          source={{ uri: item.avatar }}
+                        />
                       </View>
                     }
-                    <View style={{ height: 1, backgroundColor: "#bcbcbc", marginTop: 5 }}></View>
-                  </View>
-                </TouchableOpacity>
+                    <View style={{ flex: 11, paddingTop: 7 }}>
+                      <Text style={styles.txtname}>{item.name}</Text>
+                      <View style={{ flexDirection: "row", alignItems: "center" }}>
+                        <IconDescription name="description" size={14} style={{ marginRight: 10 }} />
+                        <Text style={styles.txtDescription} numberOfLines={1}>{item.description}</Text>
+                      </View>
+                      <View style={{ flexDirection: "row", alignItems: "center" }}>
+                        <IconClock name="clock" size={14} style={{ marginRight: 10 }} />
+                        <Text>{item.startDate} -> {item.untilDate}</Text>
+                      </View>
+                      {(uid === item.userId) &&
+                        <View style={{ flexDirection: "row", alignItems: "center" }}>
+                          <IconDiamond name="diamond" size={14} style={{ marginRight: 10, color: "#006805" }} />
+                          <Text>Nhóm trưởng</Text>
+                        </View>
+                      }
+                      <View style={{ height: 1, backgroundColor: "#bcbcbc", marginTop: 5 }}></View>
+                    </View>
+                  </TouchableOpacity>
 
-              </View>
-            }
-            keyExtractor={item => item.id}
-          />
+                </View>
+              }
+              keyExtractor={item => item.id}
+            />
 
-          <View style={{ height: 50 }}></View>
-        </ScrollView>
+            <View style={{ height: 50 }}></View>
+          </ScrollView>
+          :
+          <View style={{ alignItems: "center", justifyContent: "center", marginTop: 170 }}>
+            <Text style={{ fontSize: 20 }}>Bạn chưa có nhóm nào</Text>
+            <View style={{ flexDirection: "row", alignItems: "center" }}>
+              <Text>Chọn nút  </Text>
+              <IconAdd name="add-circle" size={25} style={{ color: "#006805" }} />
+              <Text>  để tạo nhóm</Text>
+            </View>
+          </View>
+
+        }
 
         <TouchableOpacity
           style={{ zIndex: 1000, bottom: 30, justifyContent: 'flex-end', marginLeft: "80%", position: 'absolute' }}

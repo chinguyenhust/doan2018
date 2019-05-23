@@ -4,6 +4,7 @@ import styles from "./ListSurveyStyle";
 import IconDelete from 'react-native-vector-icons/MaterialIcons';
 import IconNote from 'react-native-vector-icons/Foundation';
 import { Data } from "../../../api/Data";
+import IconAdd from 'react-native-vector-icons/MaterialIcons';
 
 let surveys = Data.ref('/surveys');
 
@@ -116,29 +117,41 @@ export default class ListSurvey extends Component {
     const { navigate } = { ...this.props };
     return (
       <View style={styles.container}>
-        <FlatList
-          data={items}
-          renderItem={
-            ({ item }) =>
-              <View style={styles.itemStyle}>
-                <TouchableOpacity style={styles.item} onPress={() => navigate("DetailSurvey", { id: item.id })}>
-                  <View style={{ width: "10%", justifyContent: "center", }}>
-                    <IconNote name="clipboard-notes" size={30} style={{ color: "red", }} />
-                  </View>
-                  <View style={styles.info}>
-                    <Text style={styles.textName}>{item.question}</Text>
-                    <Text style={styles.textView}>Created: {this.getTime(item.created_at)}</Text>
-                  </View>
-                  {(item.isDelete) &&
+        {(items.length > 0) ?
+          <FlatList
+            data={items}
+            renderItem={
+              ({ item }) =>
+                <View style={styles.itemStyle}>
+                  <TouchableOpacity style={styles.item} onPress={() => navigate("DetailSurvey", { id: item.id })}>
                     <View style={{ width: "10%", justifyContent: "center", }}>
-                      <IconDelete name="delete" size={24}
-                        style={{ color: "gray" }} />
+                      <IconNote name="clipboard-notes" size={30} style={{ color: "red", }} />
                     </View>
-                  }
-                </TouchableOpacity>
-              </View>
-          }
-        />
+                    <View style={styles.info}>
+                      <Text style={styles.textName}>{item.question}</Text>
+                      <Text style={styles.textView}>Created: {this.getTime(item.created_at)}</Text>
+                    </View>
+                    {(item.isDelete) &&
+                      <View style={{ width: "10%", justifyContent: "center", }}>
+                        <IconDelete name="delete" size={24}
+                          style={{ color: "gray" }} />
+                      </View>
+                    }
+                  </TouchableOpacity>
+                </View>
+            }
+          />
+          :
+          <View style={{ alignItems: "center", justifyContent: "center", marginTop: 170 }}>
+            <Text style={{ fontSize: 20 }}>Nhóm chưa có khảo sát nào</Text>
+            <View style={{ flexDirection: "row", alignItems: "center" }}>
+              <Text>Chọn nút  </Text>
+              <IconAdd name="add-circle" size={25} style={{ color: "#006805" }} />
+              <Text>  để tạo khảo sát</Text>
+            </View>
+          </View>
+
+        }
 
       </View>
     );

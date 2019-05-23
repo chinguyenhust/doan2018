@@ -5,6 +5,7 @@ import IconDelete from 'react-native-vector-icons/MaterialIcons';
 import IconClock from 'react-native-vector-icons/EvilIcons';
 import IconLocation from 'react-native-vector-icons/EvilIcons';
 import { Data } from "../../../api/Data";
+import IconAdd from 'react-native-vector-icons/MaterialIcons';
 
 let events = Data.ref('/events');
 
@@ -124,55 +125,67 @@ export default class ListEvent extends Component {
 
     return (
       <View style={styles.container}>
-        <FlatList
-          data={items}
-          renderItem={
-            ({ item }) =>
-              <View style={styles.itemStyle}>
-                <TouchableOpacity style={styles.item} onPress={() => navigate("DetailEvent", { id: item.id })}>
-                  <View style={{ flexDirection: "column", justifyContent: "center" }}>
-                    <View style={styles.calendar}>
-                      <View style={styles.year}>
-                        <Text style={{ color: '#000', fontWeight: "500" }}>{new Date((item.time).replace(/-/g, '/')).getFullYear()}</Text>
+        {(items.length > 0) ?
+          <FlatList
+            data={items}
+            renderItem={
+              ({ item }) =>
+                <View style={styles.itemStyle}>
+                  <TouchableOpacity style={styles.item} onPress={() => navigate("DetailEvent", { id: item.id })}>
+                    <View style={{ flexDirection: "column", justifyContent: "center" }}>
+                      <View style={styles.calendar}>
+                        <View style={styles.year}>
+                          <Text style={{ color: '#000', fontWeight: "500" }}>{new Date((item.time).replace(/-/g, '/')).getFullYear()}</Text>
+                        </View>
+                        <View style={styles.day}>
+                          <Text>{new Date((item.time).replace(/-/g, '/')).getDate()}</Text>
+                          <View style={styles.line}></View>
+                        </View>
+                        <View style={styles.month}>
+                          <Text>{(new Date((item.time).replace(/-/g, '/')).getMonth() + 1)}</Text>
+                        </View>
                       </View>
-                      <View style={styles.day}>
-                        <Text>{new Date((item.time).replace(/-/g, '/')).getDate()}</Text>
-                        <View style={styles.line}></View>
-                      </View>
-                      <View style={styles.month}>
-                        <Text>{(new Date((item.time).replace(/-/g, '/')).getMonth() + 1)}</Text>
-                      </View>
+                      {(new Date((item.time).replace(/-/g, '/')).getTime()) > new Date().getTime() ?
+                        <Text style={{ fontSize: 16, color: "green", fontWeight: "600", marginTop: 20 }}>ACTIVE</Text> :
+                        <Text style={{ fontSize: 16, color: "red", fontWeight: "600", marginTop: 20 }}>FINISH</Text>
+                      }
                     </View>
-                    {(new Date((item.time).replace(/-/g, '/')).getTime()) > new Date().getTime() ?
-                      <Text style={{ fontSize: 16, color: "green", fontWeight: "600", marginTop: 20 }}>ACTIVE</Text> :
-                      <Text style={{ fontSize: 16, color: "red", fontWeight: "600", marginTop: 20 }}>FINISH</Text>
+
+                    <View style={styles.info}>
+                      <Text style={styles.textName}>{item.name}</Text>
+                      <Text style={styles.textView} numberOfLines={1}>{item.description}</Text>
+                      <View style={{ flexDirection: "row" }}>
+                        <IconClock name="clock" size={20} style={{ color: "#007aff", marginRight: 8 }} />
+                        <Text style={styles.textView}>{(item.time).substr(11, (item.time).length)}</Text>
+                      </View>
+                      <View style={{ flexDirection: "row" }}>
+                        <IconLocation name="location" size={20} style={{ color: "#007aff", marginRight: 8 }} />
+                        <Text style={styles.textView} numberOfLines={1}>{item.address}</Text>
+                      </View>
+                      <Text style={styles.textView}>{this.getTime(item.time)}</Text>
+                    </View>
+
+                    {(item.isDelete) &&
+                      <View style={{ width: "10%", justifyContent: "center", }}>
+                        <IconDelete name="delete" size={24}
+                          style={{ color: "gray" }} />
+                      </View>
                     }
-                  </View>
+                  </TouchableOpacity>
+                </View>
+            }
+          />
+          :
+          <View style={{ alignItems: "center", justifyContent: "center", marginTop: 170 }}>
+            <Text style={{ fontSize: 20 }}>Nhóm chưa có kế hoạch nào</Text>
+            <View style={{ flexDirection: "row", alignItems: "center" }}>
+              <Text>Chọn nút  </Text>
+              <IconAdd name="add-circle" size={25} style={{ color: "#006805" }} />
+              <Text>  để tạo kế hoạch</Text>
+            </View>
+          </View>
 
-                  <View style={styles.info}>
-                    <Text style={styles.textName}>{item.name}</Text>
-                    <Text style={styles.textView} numberOfLines={1}>{item.description}</Text>
-                    <View style={{ flexDirection: "row" }}>
-                      <IconClock name="clock" size={20} style={{ color: "#007aff", marginRight: 8 }} />
-                      <Text style={styles.textView}>{(item.time).substr(11, (item.time).length)}</Text>
-                    </View>
-                    <View style={{ flexDirection: "row" }}>
-                      <IconLocation name="location" size={20} style={{ color: "#007aff", marginRight: 8 }} />
-                      <Text style={styles.textView} numberOfLines={1}>{item.address}</Text>
-                    </View>
-                    <Text style={styles.textView}>{this.getTime(item.time)}</Text>
-                  </View>
-
-                  {(item.isDelete) &&
-                    <View style={{ width: "10%", justifyContent: "center", }}>
-                      <IconDelete name="delete" size={24}
-                        style={{ color: "gray" }} />
-                    </View>
-                  }
-                </TouchableOpacity>
-              </View>
-          }
-        />
+        }
       </View>
     );
   }

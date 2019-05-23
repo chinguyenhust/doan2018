@@ -98,7 +98,7 @@ export default class EditUser extends Component {
   };
 
   _handleUpDate = () => {
-    const {name, phone, avatar, email, image} = this.state;
+    const { name, phone, avatar, email, image } = this.state;
     const userId = this.props.navigation.state.params.userId;
     console.log(userId)
     var user = Data.ref("users");
@@ -119,11 +119,11 @@ export default class EditUser extends Component {
         <View style={styles.header}>
           <View style={styles.tap}>
             <Icon name="ios-arrow-round-back" size={34}
-              style={{ width: "15%" , paddingLeft: 20, color: "#ffffff"}}
+              style={{ width: "15%", paddingLeft: 20, color: "#ffffff" }}
               onPress={() => { this.props.navigation.goBack() }}
             />
             <View style={{ alignItems: "center", width: "85%" }}>
-              <Text style={{ fontSize: 20, color:"#ffffff", fontWeight:"600" }}>Chỉnh sửa thông tin</Text>
+              <Text style={{ fontSize: 20, color: "#ffffff", fontWeight: "600" }}>Chỉnh sửa thông tin</Text>
             </View>
           </View>
         </View>
@@ -132,55 +132,50 @@ export default class EditUser extends Component {
           <TouchableOpacity style={{ justifyContent: "center", alignItems: "center" }}
             onPress={this.chooseFile.bind(this)}>
             {(!avatar) ?
-              <IconUser name="user-circle" size={150} style={{ color: "#bcbcbc" }} /> :
+              <IconUser name="user-circle" size={120} style={{ color: "#bcbcbc" }} /> :
               <Image
                 source={{ uri: avatar }}
-                style={{ width: 130, height: 130, borderRadius: 65, marginTop: 10 }}
+                style={{ width: 100, height: 100, borderRadius: 50, marginTop: 10 }}
               />
             }
           </TouchableOpacity>
-          <View style={styles.item}>
-            <IconUser name="user-circle" size={24} style={{ color: "#007aff", flex: 2 }} />
-            <View style={{ flex: 8 }}>
-              <TextInput
-                //   style={styles.inputName}
-                onChangeText={(name) => {
-                  this.setState({ name : name});
-                }}
-                value={this.state.name}
-              />
+          <View style={styles.info}>
+            <View style={styles.item}>
+              <IconUser name="user-circle" size={24} style={{ color: "#006805", flex: 2 }} />
+              <View style={{ flex: 10 }}>
+                <TextInput
+                  //   style={styles.inputName}
+                  onChangeText={(name) => {
+                    this.setState({ name: name });
+                  }}
+                  value={this.state.name}
+                />
+              </View>
             </View>
-          </View>
-          <View style={styles.line}></View>
+            <View style={styles.line}></View>
 
-          <View style={styles.item}>
-            <IconPhone name="phone" size={24} style={{ color: "#007aff", flex: 2 }} />
-            <View style={{ flex: 8 }}>
-              <TextInput
-                //   style={styles.inputName}
-                onChangeText={(phone) => {
-                  this.setState({ phone });
-                }}
-                value={this.state.phone}
-              />
+            <View style={styles.item}>
+              <IconPhone name="phone" size={24} style={{ color: "#006805", flex: 2 }} />
+              <View style={{ flex: 10 }}>
+                <TextInput
+                  //   style={styles.inputName}
+                  onChangeText={(phone) => {
+                    this.setState({ phone });
+                  }}
+                  value={this.state.phone}
+                />
+              </View>
             </View>
-          </View>
-          <View style={styles.line}></View>
+            <View style={styles.line}></View>
 
-          <View style={styles.item}>
-            <IconMail name="ios-mail" size={24} style={{ color: "#007aff", flex: 2 }} />
-            <View style={{ flex: 8 }}>
-              <TextInput
-                //   style={styles.inputName}
-                onChangeText={(email) => {
-                  this.setState({ email });
-                }}
-                value={this.state.email}
-              />
+            <View style={styles.item}>
+              <IconMail name="ios-mail" size={24} style={{ color: "#006805", flex: 2 }} />
+              <View style={{ flex: 10 }}>
+                <Text style={styles.txt}> {email}</Text>
+              </View>
             </View>
+            {/* <View style={styles.line}></View> */}
           </View>
-          <View style={styles.line}></View>
-
 
           <TouchableOpacity style={styles.button} onPress={this._handleUpDate}>
             <Text style={{ color: "#fff", fontSize: 20 }}>Cập nhật</Text>
