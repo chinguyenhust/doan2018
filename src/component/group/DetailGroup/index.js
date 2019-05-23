@@ -81,6 +81,7 @@ export default class DetailGroup extends Component {
             <Chat
               name={name}
               groupId={groupId}
+              uid={uid}
             />
           }
           {(this.state.isMap) &&

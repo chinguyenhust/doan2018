@@ -12,6 +12,7 @@ export default class ItemInfo extends React.Component {
     super(props);
     this.state = {
       data: this.props.navigation.state.params.data,
+      userLocation: this.props.navigation.state.params.userLocation
     }
   }
   getRating = (rating) => {
@@ -26,7 +27,8 @@ export default class ItemInfo extends React.Component {
   }
 
   render() {
-    var { data } = this.state;
+    const { navigate } = this.props.navigation;
+    var { data, userLocation } = this.state;
     var i = 0;
     return (
       <View style={styles.container}>
@@ -45,7 +47,8 @@ export default class ItemInfo extends React.Component {
           renderItem={
             ({ item }) =>
               <View style={{ flexDirection: "column" }}>
-                <View style={{ flexDirection: "row", alignItems: "center", height: 110, paddingLeft: 15, paddingRight: 15 }}>
+                <TouchableOpacity 
+                style={styles.item} onPress={() => navigate("Direction", { "location": item.geometry.location , "userLocation": userLocation})}>
                   <View style={{ flex: 3 }}>
                     <Image
                       style={{ width: 90, height: 90, borderRadius: 3 }}
@@ -78,7 +81,7 @@ export default class ItemInfo extends React.Component {
 
                   </View>
 
-                </View>
+                </TouchableOpacity>
                 <View style={{ backgroundColor: "#bcbcbc", height: 1 }}></View>
 
               </View>

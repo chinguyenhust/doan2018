@@ -25,9 +25,9 @@ class Chat extends React.Component {
     }
   };
 
-  get uid() {
-    return (firebase.auth().currentUser || {}).uid;
-  }
+  // get uid() {
+  //   return (firebase.auth().currentUser || {}).uid;
+  // }
 
   get ref() {
     return firebase.database().ref('messages');
@@ -84,7 +84,7 @@ class Chat extends React.Component {
   get user() {
     return ({
       name: this.props.name,
-      _id: this.uid,
+      _id: this.props.uid,
       avatar: null,
     });
   }

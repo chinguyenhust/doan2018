@@ -23,6 +23,7 @@ import SignUp from './src/component/login/SignUp';
 import SearchScreen from './src/component/search/SearchScreen';
 import ItemInfo from './src/component/search/ItemInfo';
 import Notification from "./src/component/group/Notification";
+import Direction from "./src/component/search/Direction";
 
 import FCM from 'react-native-fcm';
 
@@ -88,6 +89,9 @@ const MainStack = createStackNavigator(
     },
     Notification: {
       screen: Notification,
+    },
+    Direction: {
+      screen: Direction
     }
   }, {
     headerMode: 'none',

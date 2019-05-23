@@ -49,7 +49,11 @@ export default class MyGroup extends Component {
         longtitude: 0
       },
       progressVisible: true,
-      countNotifi: 0
+      countNotifi: 0,
+      userLocation: {
+        latitude: 0,
+        longtitude: 0
+      }
     }
   }
 
@@ -93,7 +97,14 @@ export default class MyGroup extends Component {
     this.watchID = navigator.geolocation.watchPosition((position) => {
       var lat = parseFloat(position.coords.latitude);
       var long = parseFloat(position.coords.longitude);
-      // console.log(lat + "    " + long)
+      
+      var userLocation = {
+        latitude: lat,
+        longitude: long
+      }
+      this.setState({
+        userLocation:userLocation
+      })
 
       users.orderByChild("email").equalTo(email).on("child_added", (snapshot) => {
         users.child(snapshot.key).update({
@@ -284,7 +295,8 @@ export default class MyGroup extends Component {
 
   render() {
     const { navigate } = this.props.navigation;
-    const { groupActive, searchTerm, searchAttribute, ignoreCase, groupFuture, groupDone } = this.state;
+    const { groupActive, searchTerm, searchAttribute, 
+      ignoreCase, groupFuture, groupDone, userLocation} = this.state;
     var uid = this.props.navigation.state.params.user_id;
 
     return (
@@ -297,7 +309,7 @@ export default class MyGroup extends Component {
             </View>
             <Icon name="ios-search"
               style={{ fontSize: 24, color: "#ffffff", flex: 1 }}
-              onPress={() => navigate("SearchScreen")}
+              onPress={() => navigate("SearchScreen",{"userLocation": userLocation})}
             />
             <IconNotifi name="ios-notifications"
               style={{ fontSize: 24, flex: 1, color: "#ffffff" }}

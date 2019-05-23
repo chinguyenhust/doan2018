@@ -39,6 +39,7 @@ export default class SearchScreen extends React.Component {
   }
 
   handleClickHotel = async () => {
+    var userLocation = this.props.navigation.state.params.userLocation;
     if (this.state.address === "") {
       alert("Vui long nhap dia chi")
     } else {
@@ -51,11 +52,12 @@ export default class SearchScreen extends React.Component {
       var data = await MyService.getRequestData(param);
       console.log(param.location)
       console.log(data.results)
-      this.props.navigation.navigate('ItemInfo', { "data": data.results })
+      this.props.navigation.navigate('ItemInfo', { "data": data.results, "userLocation": userLocation })
     }
   }
 
   handleClickTravel = async () => {
+    var userLocation = this.props.navigation.state.params.userLocation;
     if (this.state.address === "") {
       alert("Vui long nhap dia chi")
     } else {
@@ -69,11 +71,12 @@ export default class SearchScreen extends React.Component {
       console.log(param.location)
       console.log(data)
       console.log(data.results)
-      this.props.navigation.navigate('ItemInfo', { "data": data.results })
+      this.props.navigation.navigate('ItemInfo', { "data": data.results, "userLocation": userLocation })
     }
   }
 
   handleClickRestaurant = async () => {
+    var userLocation = this.props.navigation.state.params.userLocation;
     if (this.state.address === "") {
       alert("Vui long nhap dia chi")
     } else {
@@ -87,11 +90,12 @@ export default class SearchScreen extends React.Component {
       console.log(param.location)
       console.log(data)
       console.log(data.results)
-      this.props.navigation.navigate('ItemInfo', { "data": data.results })
+      this.props.navigation.navigate('ItemInfo', { "data": data.results, "userLocation": userLocation })
     }
   }
 
   handleClickGas = async () => {
+    var userLocation = this.props.navigation.state.params.userLocation;
     if (this.state.address === "") {
       alert("Vui long nhap dia chi")
     } else {
@@ -105,11 +109,12 @@ export default class SearchScreen extends React.Component {
       console.log(param.location)
       console.log(data)
       console.log(data.results)
-      this.props.navigation.navigate('ItemInfo', { "data": data.results })
+      this.props.navigation.navigate('ItemInfo', { "data": data.results, "userLocation": userLocation})
     }
   }
 
   handleClickATM = async () => {
+    var userLocation = this.props.navigation.state.params.userLocation;
     if (this.state.address === "") {
       alert("Vui long nhap dia chi")
     } else {
@@ -123,11 +128,12 @@ export default class SearchScreen extends React.Component {
       console.log(param.location)
       console.log(data)
       console.log(data.results)
-      this.props.navigation.navigate('ItemInfo', { "data": data.results })
+      this.props.navigation.navigate('ItemInfo', { "data": data.results,"userLocation": userLocation })
     }
   }
 
   handleClickCoffee = async () => {
+    var userLocation = this.props.navigation.state.params.userLocation;
     if (this.state.address === "") {
       alert("Vui long nhap dia chi")
     } else {
@@ -141,7 +147,7 @@ export default class SearchScreen extends React.Component {
       console.log(param.location)
       console.log(data)
       console.log(data.results)
-      this.props.navigation.navigate('ItemInfo', { "data": data.results })
+      this.props.navigation.navigate('ItemInfo', { "data": data.results, "userLocation": userLocation})
     }
   }
 
