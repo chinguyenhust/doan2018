@@ -18,12 +18,21 @@ export default class CreatEvent extends Component {
       description: "",
       errName: "",
       errDate: "",
+      minDate: "",
+      maxDate:""
     }
     this.handleSelectAddress = this.handleSelectAddress.bind(this)
   }
 
-  componentWillMount() {
-
+  componentDidMount() {
+    var groupId = this.props.navigation.state.params.groupId;
+    Data.ref("groups").orderByKey().equalTo(groupId).on("child_added", (snapshot) => {
+      var data = snapshot.val();
+      this.setState({
+        minDate: data.startDate,
+        maxDate:data.untilDate
+      })
+    })
   }
 
   _handleCreatEvent = () => {
@@ -84,7 +93,14 @@ export default class CreatEvent extends Component {
     return false;
   }
 
+  toDate = (dateStr) => {
+    var parts = dateStr.split("-");
+    return new Date(parts[2], parts[1] - 1, parts[0])
+  }
+
   render() {
+    var {minDate, maxDate} = this.state;
+    var today = new Date().toJSON().slice(0, 10);
 
     return (
       <View style={styles.container} >
@@ -137,6 +153,8 @@ export default class CreatEvent extends Component {
             format="YYYY-MM-DD hh:mm a"
             confirmBtnText="Confirm"
             cancelBtnText="Cancel"
+            minDate={new Date()}
+            maxDate={this.toDate(maxDate)}
             is24Hour={true}
             customStyles={{
               dateIcon: {
