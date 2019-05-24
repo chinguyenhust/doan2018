@@ -115,6 +115,9 @@ export default class ListSurvey extends Component {
   render() {
     const { items } = this.state;
     const { navigate } = { ...this.props };
+    const uid = this.props.uid;
+    const leaderId = this.props.leaderId;
+
     return (
       <View style={styles.container}>
         {(items.length > 0) ?
@@ -123,7 +126,7 @@ export default class ListSurvey extends Component {
             renderItem={
               ({ item }) =>
                 <View style={styles.itemStyle}>
-                  <TouchableOpacity style={styles.item} onPress={() => navigate("DetailSurvey", { id: item.id })}>
+                  <TouchableOpacity style={styles.item} onPress={() => navigate("DetailSurvey", { id: item.id , leaderId: leaderId, uid: uid})}>
                     <View style={{ width: "10%", justifyContent: "center", }}>
                       <IconNote name="clipboard-notes" size={30} style={{ color: "red", }} />
                     </View>
@@ -144,11 +147,13 @@ export default class ListSurvey extends Component {
           :
           <View style={{ alignItems: "center", justifyContent: "center", marginTop: 170 }}>
             <Text style={{ fontSize: 20 }}>Nhóm chưa có khảo sát nào</Text>
-            <View style={{ flexDirection: "row", alignItems: "center" }}>
-              <Text>Chọn nút  </Text>
-              <IconAdd name="add-circle" size={25} style={{ color: "#006805" }} />
-              <Text>  để tạo khảo sát</Text>
-            </View>
+            {(uid === leaderId) &&
+              <View style={{ flexDirection: "row", alignItems: "center" }}>
+                <Text>Chọn nút  </Text>
+                <IconAdd name="add-circle" size={25} style={{ color: "#006805" }} />
+                <Text>  để tạo khảo sát</Text>
+              </View>
+            }
           </View>
 
         }

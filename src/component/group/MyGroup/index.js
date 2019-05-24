@@ -293,6 +293,95 @@ export default class MyGroup extends Component {
     );
   }
 
+  componentWillReceiveProps() {
+    console.log("chingu");
+    // var { items, groupActive, groupDone, groupFuture } = this.state;
+    var groupActive = [];
+    var groupDone = [];
+    var groupFuture = [];
+    var email = this.props.navigation.state.params.email;
+    users.orderByChild("email").equalTo(email).on("child_added", (snapshot) => {
+      this.setState({
+        userName: snapshot.val().userName,
+        userId: snapshot.key
+      });
+      group_user.orderByChild("user_id").equalTo(snapshot.key).on("child_added", (snapshot) => {
+        var data = snapshot.val();
+        groups.on('child_added', (snapshot) => {
+          if (snapshot.key === data.group_id) {
+            FCM.subscribeToTopic("/topics/" + snapshot.key);
+            let data = snapshot.val();
+            if ((this.toDate(data.startDate).getTime() > new Date().getTime()) || (new Date().getTime() > (this.toDate(data.untilDate).getTime()))) {
+              Data.ref("groups").child(snapshot.key).update(
+                {
+                  isOnMap: false,
+                }
+              ).then(() => {
+                console.log("Success !");
+              }).catch((error) => {
+                console.log(error);
+              });
+            }
+            if ((this.toDate(data.untilDate)).getTime() < new Date().getTime()) {
+              groupDone.push({
+                id: snapshot.key,
+                name: data.name,
+                chedule: data.schedule,
+                description: data.description,
+                startDate: data.startDate,
+                untilDate: data.untilDate,
+                userId: data.createdByUserId,
+                created_at: data.created_at,
+                avatar: data.avatar,
+
+              })
+            } else if ((this.toDate(data.startDate).getTime() < new Date().getTime()) && (new Date().getTime() < (this.toDate(data.untilDate).getTime()))) {
+              groupActive.push({
+                id: snapshot.key,
+                name: data.name,
+                chedule: data.schedule,
+                description: data.description,
+                startDate: data.startDate,
+                untilDate: data.untilDate,
+                userId: data.createdByUserId,
+                created_at: data.created_at,
+                avatar: data.avatar,
+
+              })
+            } else {
+              groupFuture.push({
+                id: snapshot.key,
+                name: data.name,
+                chedule: data.schedule,
+                description: data.description,
+                startDate: data.startDate,
+                untilDate: data.untilDate,
+                userId: data.createdByUserId,
+                created_at: data.created_at,
+                avatar: data.avatar,
+
+              })
+            }
+            this.setState({
+              groupDone: groupDone,
+              groupActive: groupActive,
+              groupFuture: groupFuture
+            });
+          }
+        });
+        this.setState({
+          progressVisible: false
+        })
+      });
+      this.setState({
+        progressVisible: false
+      })
+    })
+
+    this.checkPermission();
+    this.createNotificationListeners();
+  }
+
   render() {
     const { navigate } = this.props.navigation;
     const { groupActive, searchTerm, searchAttribute,
@@ -357,19 +446,14 @@ export default class MyGroup extends Component {
               renderItem={
                 ({ item }) => <View style={{ flexDirection: "column", }}>
                   <TouchableOpacity style={styles.item} onPress={() => this._handleClickItem(item.name, item.id)} >
-                    {(item.avatar === "") ?
+
+                    <View style={{ flex: 3 }}>
                       <Image
                         style={{ width: 50, height: 50, borderRadius: 25 }}
-                        source={{ uri: 'https://facebook.github.io/react-native/docs/assets/favicon.png' }}
+                        source={{ uri: (item.avatar) ? item.avatar : 'https://facebook.github.io/react-native/docs/assets/favicon.png' }}
                       />
-                      :
-                      <View style={{ flex: 3 }}>
-                        <Image
-                          style={{ width: 50, height: 50, borderRadius: 25 }}
-                          source={{ uri: item.avatar }}
-                        />
-                      </View>
-                    }
+                    </View>
+
                     <View style={{ flex: 11, paddingTop: 7 }}>
                       <Text style={styles.txtname}>{item.name}</Text>
                       <View style={{ flexDirection: "row", alignItems: "center" }}>
@@ -407,19 +491,14 @@ export default class MyGroup extends Component {
               renderItem={
                 ({ item }) => <View style={{ flexDirection: "column", }}>
                   <TouchableOpacity style={styles.item} onPress={() => this._handleClickItem(item.name, item.id)} >
-                    {(item.avatar === "") ?
+
+                    <View style={{ flex: 3 }}>
                       <Image
                         style={{ width: 50, height: 50, borderRadius: 25 }}
-                        source={{ uri: 'https://facebook.github.io/react-native/docs/assets/favicon.png' }}
+                        source={{ uri: (item.avatar) ? item.avatar : 'https://facebook.github.io/react-native/docs/assets/favicon.png' }}
                       />
-                      :
-                      <View style={{ flex: 3 }}>
-                        <Image
-                          style={{ width: 50, height: 50, borderRadius: 25 }}
-                          source={{ uri: item.avatar }}
-                        />
-                      </View>
-                    }
+                    </View>
+
                     <View style={{ paddingTop: 7, flex: 11 }}>
                       <Text style={styles.txtname}>{item.name}</Text>
                       <View style={{ flexDirection: "row", alignItems: "center" }}>
@@ -457,19 +536,14 @@ export default class MyGroup extends Component {
               renderItem={
                 ({ item }) => <View style={{ flexDirection: "column", }}>
                   <TouchableOpacity style={styles.item} onPress={() => this._handleClickItem(item.name, item.id)} >
-                    {(item.avatar === "") ?
+
+                    <View style={{ flex: 3 }}>
                       <Image
                         style={{ width: 50, height: 50, borderRadius: 25 }}
-                        source={{ uri: 'https://facebook.github.io/react-native/docs/assets/favicon.png' }}
+                        source={{ uri: (item.avatar) ? item.avatar : 'https://facebook.github.io/react-native/docs/assets/favicon.png' }}
                       />
-                      :
-                      <View style={{ flex: 3 }}>
-                        <Image
-                          style={{ width: 50, height: 50, borderRadius: 25 }}
-                          source={{ uri: item.avatar }}
-                        />
-                      </View>
-                    }
+                    </View>
+
                     <View style={{ flex: 11, paddingTop: 7 }}>
                       <Text style={styles.txtname}>{item.name}</Text>
                       <View style={{ flexDirection: "row", alignItems: "center" }}>
@@ -506,7 +580,6 @@ export default class MyGroup extends Component {
               <Text>  để tạo nhóm</Text>
             </View>
           </View>
-
         }
 
         <TouchableOpacity
@@ -514,8 +587,6 @@ export default class MyGroup extends Component {
           onPress={() => navigate("CreatGroup", { uid: uid })}>
           <IconAdd name="add-circle" size={60} style={{ color: "#006805" }} />
         </TouchableOpacity>
-
-
 
       </View>
     );

@@ -11,7 +11,6 @@ import ImageResizer from 'react-native-image-resizer';
 import { required } from '../../../util/validate';
 import FCM from 'react-native-fcm';
 
-
 let users = Data.ref('/users');
 
 export default class CreatGroup extends Component {
@@ -28,8 +27,13 @@ export default class CreatGroup extends Component {
       image: null,
       description: "",
       errGroupName: "",
+      errSchedule: "",
       group_id: null,
-      isAddMember: false
+      isAddMember: false,
+      startDate:"",
+      errStartDate:"",
+      untilDate:"",
+      errUntilDate:""
     };
     this.uploadImage = this.uploadImage.bind(this);
   }
@@ -55,6 +59,10 @@ export default class CreatGroup extends Component {
     // var uid = user.uid;
     const startDate = this.props.navigation.getParam("startDate", null);
     const untilDate = this.props.navigation.getParam("untilDate", null);
+    this.setState({
+      startDate:startDate,
+      untilDate:untilDate
+    })
     var check = this._handleCheck();
     if (check) {
       Data.ref("groups").push(
@@ -192,9 +200,18 @@ export default class CreatGroup extends Component {
     })
   }
 
+  _handleChangeSchulde = (text) => {
+    var errSchedule = required(text);
+    this.setState({
+      schedule: text,
+      errSchedule: errSchedule
+    })
+  }
+
   _handleCheck() {
-    const { name, errGroupName, } = this.state;
-    if (name && !errGroupName)
+    const { name, errGroupName, schedule,
+      errSchedule, startDate ,errStartDate, untilDate,errUntilDate , selectedItems} = this.state;
+    if (name && !errGroupName && schedule && !errSchedule && startDate && !errStartDate && untilDate && !errUntilDate && (selectedItems !==[]))
       return true;
     return false;
   }
@@ -222,7 +239,6 @@ export default class CreatGroup extends Component {
               <Text style={{ fontSize: 20, fontWeight: "600", color: "#ffffff" }}>Tạo nhóm mới</Text>
             </View>
           </View>
-          {/* <View style={{ backgroundColor: "#000", height: 1, marginTop: 5 }}></View> */}
         </View>
 
         <ScrollView style={{ paddingLeft: 20, paddingRight: 20, marginBottom: 40 }}>
@@ -267,6 +283,7 @@ export default class CreatGroup extends Component {
                 <Text style={{ color: "#A9A9A9", paddingTop: 5, fontSize: 16 }}>Chọn ngày đến</Text> :
                 <Text style={{ color: "#000", paddingTop: 5, fontSize: 16 }}>{startDate}</Text>
               }
+              {this.state.errStartDate ? <Text style={styles.textError}>{this.state.errStartDate}</Text> : null}
             </TouchableOpacity>
             <View style={styles.line}>
             </View>
@@ -276,6 +293,7 @@ export default class CreatGroup extends Component {
                 <Text style={{ color: "#A9A9A9", paddingTop: 5, fontSize: 16 }}>Chọn ngày về</Text> :
                 <Text style={{ color: "#000", paddingTop: 5, fontSize: 16 }}>{untilDate}</Text>
               }
+              {this.state.errUntilDate ? <Text style={styles.textError}>{this.state.errUntilDate}</Text> : null}
             </TouchableOpacity>
           </View>
 
@@ -284,24 +302,18 @@ export default class CreatGroup extends Component {
             <TextInput
               placeholder="Nhập kế hoạch"
               style={styles.inputSchedule}
-              onChangeText={(schedule) => {
-                this.setState({ schedule });
-              }}
+              onChangeText={this._handleChangeSchulde}
               value={this.state.schedule}
               numberOfLines={3}
               multiline={true}
             />
+            {this.state.errSchedule ? <Text style={styles.textError}>{this.state.errSchedule}</Text> : null}
           </View>
           {
-            // (!this.state.isAddMember)
-            //   ?
-            //   <TouchableOpacity style={{ height: 40, backgroundColor: "#53ca64", width: 150, borderRadius: 4 , justifyContent: "center"}} onPress={this._handleAddMember}>
-            //     <Text style={{ color: "#ffffff", fontSize: 16, fontWeight: "500" }}>Thêm thành viên</Text>
-            //   </TouchableOpacity>
-            //   :
+           
               <View>
                 <View style={{marginBottom:5}}>
-                  <Text style={styles.titleBold}>Thêm thành viên </Text>
+                  <Text style={styles.titleBold}>Thêm thành viên (*) </Text>
                 </View>
                 <MultiSelect
                   hideTags

@@ -154,12 +154,6 @@ export default class Map extends Component {
                   <View></View>
 
             )}
-          {/* <Marker
-            coordinate={this.state.markerPosition}>
-            <View style={styles.radius}>
-              <View style={styles.marker}></View>
-            </View>
-          </Marker> */}
         </MapView>
       </View>
     );

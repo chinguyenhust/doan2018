@@ -122,6 +122,8 @@ export default class ListEvent extends Component {
   render() {
     const { navigate } = { ...this.props };
     const { items } = this.state;
+    const uid = this.props.uid;
+    const leaderId = this.props.leaderId;
 
     return (
       <View style={styles.container}>
@@ -178,11 +180,13 @@ export default class ListEvent extends Component {
           :
           <View style={{ alignItems: "center", justifyContent: "center", marginTop: 170 }}>
             <Text style={{ fontSize: 20 }}>Nhóm chưa có kế hoạch nào</Text>
-            <View style={{ flexDirection: "row", alignItems: "center" }}>
-              <Text>Chọn nút  </Text>
-              <IconAdd name="add-circle" size={25} style={{ color: "#006805" }} />
-              <Text>  để tạo kế hoạch</Text>
-            </View>
+            {(uid === leaderId) &&
+              <View style={{ flexDirection: "row", alignItems: "center" }}>
+                <Text>Chọn nút  </Text>
+                <IconAdd name="add-circle" size={25} style={{ color: "#006805" }} />
+                <Text>  để tạo kế hoạch</Text>
+              </View>
+            }
           </View>
 
         }

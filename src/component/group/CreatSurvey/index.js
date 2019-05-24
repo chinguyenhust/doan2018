@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Alert, Text, View, TouchableOpacity, TextInput } from 'react-native';
+import { Alert, Text, View, TouchableOpacity, TextInput , Switch} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import IconAdd from 'react-native-vector-icons/Ionicons';
 import styles from './CreatSurveyStyle';
@@ -19,6 +19,7 @@ export default class CreatSurvey extends Component {
       optionValue: "",
       checked: false,
       vote: [],
+      isAccept: false,
     }
   }
 
@@ -61,7 +62,8 @@ export default class CreatSurvey extends Component {
           groupId: this.props.navigation.state.params.groupId,
           created_at: firebase.database.ServerValue.TIMESTAMP,
           userNameCreated: userName,
-          groupName: groupName
+          groupName: groupName,
+          isAccept: this.state.isAccept
         }
       ).then((snapshot) => {
         if (options) {
@@ -87,8 +89,8 @@ export default class CreatSurvey extends Component {
         topic: groupId,
         groupName: groupName,
         userName: userName,
-        token:"",
-        title:"Khảo sát mới",
+        token: "",
+        title: "Khảo sát mới",
         message: " vừa tạo một cuộc thăm dò ý kiến trong ",
         created_at: firebase.database.ServerValue.TIMESTAMP,
         userAvatar: "https://facebook.github.io/react-native/docs/assets/favicon.png"
@@ -122,6 +124,12 @@ export default class CreatSurvey extends Component {
     return false;
   }
 
+  handleToggle = () => {
+    this.setState({
+      isAccept: !this.state.isAccept
+    })
+  }
+
 
   render() {
     const { navigate } = this.props.navigation;
@@ -132,12 +140,12 @@ export default class CreatSurvey extends Component {
       <View style={styles.container} >
         <View style={styles.tapbar}>
           <View style={styles.tap}>
-            <TouchableOpacity style={{ width: "15%", justifyContent:"center" }}
+            <TouchableOpacity style={{ width: "15%", justifyContent: "center" }}
               onPress={() => { this.props.navigation.goBack() }}>
-              <Icon name="ios-arrow-round-back" size={34} style={{color:"#ffffff"}}/>
+              <Icon name="ios-arrow-round-back" size={34} style={{ color: "#ffffff" }} />
             </TouchableOpacity>
             <View style={{ width: "75%", justifyContent: "center", }}>
-              <Text style={{ fontSize: 20, width: "70%", fontWeight: "600", color: "#ffffff"}}>Khảo sát ý kiến</Text>
+              <Text style={{ fontSize: 20, width: "70%", fontWeight: "600", color: "#ffffff" }}>Khảo sát ý kiến</Text>
             </View>
           </View>
           {/* <View style={{ height: 1, backgroundColor: "#000", alignSelf: "stretch" }}></View> */}
@@ -164,7 +172,7 @@ export default class CreatSurvey extends Component {
                   uncheckedIcon='circle-o'
                   checked={this.state.checked}
                   containerStyle={{ borderWidth: 0, backgroundColor: "#fff" }}
-                  // onPress={this._handleChecked}
+                // onPress={this._handleChecked}
                 />
               </View>
             )}
@@ -179,6 +187,21 @@ export default class CreatSurvey extends Component {
               value={this.state.optionValue}
             />
           </View>
+
+          {/* <View style={styles.schedule}>
+            <View style={{ flexDirection: "row", marginTop: 10, alignItems: "center" }} >
+              <View style={{ flex: 4 }}>
+                <Text style={{ color: "#000000", fontSize: 16, fontWeight: "600" }}>Cho phép thành viên thêm lựa chọn</Text>
+              </View>
+
+              <View style={{ flex: 1, alignItems: "center", }} >
+                <Switch
+                  thumbColor="#006805"
+                  onValueChange={this.handleToggle}
+                  value={this.state.isAccept} />
+              </View>
+            </View>
+          </View> */}
 
           <TouchableOpacity style={styles.buttonCreat} onPress={this._handleCreatSurvey}>
             <Text style={{ color: "#fff", fontSize: 20 }}>Tạo ngay</Text>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View, Button, TouchableOpacity, TextInput } from 'react-native';
+import { Platform, StyleSheet, Text, View, Switch, TouchableOpacity, TextInput } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import IconAdd from 'react-native-vector-icons/Ionicons';
 import styles from './DetailSurveyStyle';
@@ -20,18 +20,21 @@ export default class DetailSurvey extends Component {
       optionValue: "",
       checked: [],
       vote: [],
+      isAccept: false
     }
   }
 
   componentDidMount() {
     const surveyId = this.props.navigation.state.params.id;
-    var user = firebase.auth().currentUser;
+    const uid = this.props.navigation.state.params.uid;
+    // var user = firebase.auth().currentUser;
     var checked = this.state.checked;
     const vote = this.state.vote;
     survey.child(surveyId).on("value", (snapshot) => {
       var data = snapshot.val();
       this.setState({
         question: data.question,
+        isAccept: data.isAccept
       });
     })
 
@@ -47,7 +50,7 @@ export default class DetailSurvey extends Component {
         options: arrSurvey
       });
       if (data.members) {
-        if (data.members.includes(user.uid)) {
+        if (data.members.includes(uid)) {
           checked.push(true);
         } else {
           checked.push(false);
@@ -75,12 +78,13 @@ export default class DetailSurvey extends Component {
   _handleAddOption = () => {
     var { options, optionValue, checked } = this.state;
     const surveyId = this.props.navigation.state.params.id;
-    var user = firebase.auth().currentUser;
+    const uid = this.props.navigation.state.params.uid;
+    // var user = firebase.auth().currentUser;
     if (optionValue === "") {
       alert("Nhập giá trị của tuỳ chọn")
     } else {
       var members = [];
-      members.push(user.uid)
+      members.push(uid)
       answers.push({
         survey_id: surveyId,
         value: optionValue,
@@ -95,22 +99,38 @@ export default class DetailSurvey extends Component {
     })
   }
 
+  handleToggle = () => {
+    const surveyId = this.props.navigation.state.params.id;
+    this.setState({
+      isAccept: !this.state.isAccept
+    });
+    survey.child(surveyId).update(
+      {
+        isAccept: !this.state.isAccept,
+      }
+    ).then(() => {
+      console.log("Success !");
+    }).catch((error) => {
+      console.log(error);
+    });
+  }
+
   render() {
     const { navigate } = this.props.navigation;
-    const { options, question, checked, vote } = this.state;
+    const { options, question, checked, vote, isAccept } = this.state;
     const surveyId = this.props.navigation.state.params.id;
-    var user = firebase.auth().currentUser;
-    console.log(vote);
-
+    const leaderId = this.props.navigation.state.params.leaderId;
+    // var user = firebase.auth().currentUser;
+    const uid = this.props.navigation.state.params.uid;
     return (
       <View style={styles.container} >
         <View style={styles.tapbar}>
           <View style={styles.tap}>
-            <TouchableOpacity style={{ width: "15%", justifyContent:"center" }} onPress={() => { this.props.navigation.goBack() }}>
-              <Icon name="ios-arrow-round-back" size={34} style={{color: "#ffffff"}} />
+            <TouchableOpacity style={{ width: "15%", justifyContent: "center" }} onPress={() => { this.props.navigation.goBack() }}>
+              <Icon name="ios-arrow-round-back" size={34} style={{ color: "#ffffff" }} />
             </TouchableOpacity>
             <View style={{ width: "75%", justifyContent: "center", }}>
-              <Text style={{ fontSize: 20, width: "70%", fontWeight: "600",color: "#ffffff" }}>Khảo sát ý kiến</Text>
+              <Text style={{ fontSize: 20, width: "70%", fontWeight: "600", color: "#ffffff" }}>Khảo sát ý kiến</Text>
             </View>
           </View>
         </View>
@@ -133,19 +153,19 @@ export default class DetailSurvey extends Component {
                   containerStyle={{ borderWidth: 0, backgroundColor: "#fff", width: "80%", alignItems: "flex-start" }}
                   onPress={() => {
                     if (option.members) {
-                      if (option.members.includes(user.uid)) {
-                        var indexOf = option.members.indexOf(user.uid)
+                      if (option.members.includes(uid)) {
+                        var indexOf = option.members.indexOf(uid)
                         answers.child(option.key).child("members").child(indexOf).remove();
                       } else {
                         var arr = (option.members ? option.members : []);
-                        arr.push(user.uid);
+                        arr.push(uid);
                         answers.child(option.key).update({
                           members: arr
                         })
                       }
                     } else {
                       var arr = (option.members ? option.members : []);
-                      arr.push(user.uid);
+                      arr.push(uid);
                       answers.child(option.key).update({
                         members: arr
                       });
@@ -165,17 +185,34 @@ export default class DetailSurvey extends Component {
                 <Text style={{ fontSize: 16, marginTop: 10 }}> {vote[index]} vote</Text>
               </View>
             )}
+          {(isAccept || (uid === leaderId)) &&
+            <View style={styles.option}>
+              <IconAdd name="ios-add" style={styles.icon} size={30} onPress={this._handleAddOption} />
+              <TextInput placeholder="Thêm option"
+                style={styles.input}
+                onChangeText={(optionValue) => {
+                  this.setState({ optionValue });
+                }}
+                value={this.state.optionValue}
+              />
+            </View>
+          }
+          {(uid === leaderId) &&
+            <View style={styles.schedule}>
+              <View style={{ flexDirection: "row", marginTop: 10, alignItems: "center" }} >
+                <View style={{ flex: 4 }}>
+                  <Text style={{ color: "#000000", fontSize: 16, fontWeight: "600" }}>Cho phép thành viên thêm lựa chọn</Text>
+                </View>
 
-          <View style={styles.option}>
-            <IconAdd name="ios-add" style={styles.icon} size={30} onPress={this._handleAddOption} />
-            <TextInput placeholder="Thêm option"
-              style={styles.input}
-              onChangeText={(optionValue) => {
-                this.setState({ optionValue });
-              }}
-              value={this.state.optionValue}
-            />
-          </View>
+                <View style={{ flex: 1, alignItems: "center", }} >
+                  <Switch
+                    thumbColor="#006805"
+                    onValueChange={this.handleToggle}
+                    value={this.state.isAccept} />
+                </View>
+              </View>
+            </View>
+          }
 
           <TouchableOpacity style={styles.buttonCreat} onPress={() => navigate('DetailGroup')}>
             <Text style={{ color: "#fff", fontSize: 20 }}>Gửi lựa chọn</Text>
