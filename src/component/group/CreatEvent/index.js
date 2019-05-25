@@ -39,6 +39,7 @@ export default class CreatEvent extends Component {
     var check = this._handleCheck();
     var { nameEvent, date, address, description } = this.state;
     const uid = this.props.navigation.state.params.uid;
+    const groupId = this.props.navigation.state.params.groupId;
     const userName = this.props.navigation.state.params.userName;
     const groupName = this.props.navigation.state.params.groupName;
     if (check) {
@@ -49,17 +50,27 @@ export default class CreatEvent extends Component {
           description: description,
           address: address,
           createdByUserId: uid,
-          groupId: this.props.navigation.state.params.groupId,
+          groupId: groupId,
           created_at: firebase.database.ServerValue.TIMESTAMP,
           userNameCreated: userName,
           groupName: groupName
         }
       ).then(() => {
         console.log("Success !");
+        Data.ref("notification").push({
+          topic: groupId,
+          groupName: groupName,
+          userName: userName,
+          token: "",
+          title: "Kế hoạch mới",
+          message: " vừa tạo một kế hoạch mới trong ",
+          created_at: firebase.database.ServerValue.TIMESTAMP,
+          userAvatar: "https://facebook.github.io/react-native/docs/assets/favicon.png"
+        })
       }).catch((error) => {
         console.log(error);
       });
-      this.props.navigation.navigate("DetailGroup", { name: this.props.nameGroup });
+      this.props.navigation.navigate("DetailGroup", { name: groupName });
     } else {
       Alert.alert(
         'Thông báo',
