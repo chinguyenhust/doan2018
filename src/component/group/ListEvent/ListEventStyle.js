@@ -12,16 +12,17 @@ const styles = StyleSheet.create({
     },
     info: {
         flexDirection: "column",
-        width: "70%",
+        width: "65%",
+        marginRight:10
     },
     textName: {
         height: 25,
-        fontSize: 20,
+        fontSize: 18,
         fontWeight: "500"
     },
     textView: {
         height: 25,
-        fontSize: 14,
+        fontSize: 13,
     },
     textDescription: {
         height: 25,

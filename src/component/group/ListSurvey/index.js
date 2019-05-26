@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, FlatList, TouchableOpacity } from 'react-native';
+import { Text, View, FlatList, TouchableOpacity , Alert} from 'react-native';
 import styles from "./ListSurveyStyle";
 import IconDelete from 'react-native-vector-icons/MaterialIcons';
 import IconNote from 'react-native-vector-icons/Foundation';
@@ -47,6 +47,29 @@ export default class ListSurvey extends Component {
       this.setState({ items: items.sort(this.compare) });
     });
 
+    surveys.orderByChild("groupId").equalTo(groupId).on("child_removed", (snapshot) => {
+      var items = this.state.items;
+      var arr = [];
+
+      items.map(item => {
+        if (item.id !== snapshot.key) {
+          arr.push({
+            id: item.id,
+            question: item.question,
+            userId: item.createdByUserId,
+            created_at: item.created_at,
+            groupId: item.groupId,
+            options: item.options,
+            isDelete: item.isDelete
+          })
+          this.setState({ items: arr })
+        } else {
+          
+          this.setState({ items: arr })
+        }
+      })
+    });
+
   }
 
   componentWillReceiveProps() {
@@ -77,6 +100,29 @@ export default class ListSurvey extends Component {
         })
       }
       this.setState({ items: items.sort(this.compare) });
+    });
+
+    surveys.orderByChild("groupId").equalTo(groupId).on("child_removed", (snapshot) => {
+      var items = this.state.items;
+      var arr = [];
+
+      items.map(item => {
+        if (item.id !== snapshot.key) {
+          arr.push({
+            id: item.id,
+            question: item.question,
+            userId: item.createdByUserId,
+            created_at: item.created_at,
+            groupId: item.groupId,
+            options: item.options,
+            isDelete: item.isDelete
+          })
+          this.setState({ items: arr })
+        } else {
+          
+          this.setState({ items: arr })
+        }
+      })
     });
   }
 
@@ -112,6 +158,27 @@ export default class ListSurvey extends Component {
 
   }
 
+  hanldeDelete = (id) => {
+    Alert.alert(
+      'Thông báo',
+      'Bạn chắc chắn muốn xoá khảo sát này',
+      [
+        {
+          text: 'Cancel',
+          onPress: () => console.log('Cancel Pressed'),
+          style: 'cancel',
+        },
+        {
+          text: 'OK',
+          onPress: () => {
+            surveys.child(id).remove();
+          }
+        },
+      ],
+      { cancelable: false },
+    );
+  }
+
   render() {
     const { items } = this.state;
     const { navigate } = { ...this.props };
@@ -123,24 +190,26 @@ export default class ListSurvey extends Component {
         {(items.length > 0) ?
           <FlatList
             data={items}
+            extraData={this.state.items}
             renderItem={
               ({ item }) =>
                 <View style={styles.itemStyle}>
-                  <TouchableOpacity style={styles.item} onPress={() => navigate("DetailSurvey", { id: item.id , leaderId: leaderId, uid: uid})}>
+                  <View style={styles.item} >
                     <View style={{ width: "10%", justifyContent: "center", }}>
                       <IconNote name="clipboard-notes" size={30} style={{ color: "red", }} />
                     </View>
-                    <View style={styles.info}>
+                    <TouchableOpacity style={styles.info} onPress={() => navigate("DetailSurvey", { id: item.id, leaderId: leaderId, uid: uid })}>
                       <Text style={styles.textName}>{item.question}</Text>
                       <Text style={styles.textView}>Created: {this.getTime(item.created_at)}</Text>
-                    </View>
-                    {(item.isDelete) &&
+                    </TouchableOpacity>
+                    {(uid === leaderId) &&
                       <View style={{ width: "10%", justifyContent: "center", }}>
                         <IconDelete name="delete" size={24}
-                          style={{ color: "gray" }} />
+                          style={{ color: "gray" }}
+                          onPress={() => this.hanldeDelete(item.id)} />
                       </View>
                     }
-                  </TouchableOpacity>
+                  </View>
                 </View>
             }
           />

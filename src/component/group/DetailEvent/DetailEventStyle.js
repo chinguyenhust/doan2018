@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
     input: {
         height: 40, 
         paddingLeft: 15,
-        fontSize: 20,
+        fontSize: 16,
     },
     buttonCreat: {
         height: 40,
