@@ -37,40 +37,7 @@ export default class Map extends Component {
     }
   }
 
-  watchID: ?number = null;
-
   componentDidMount() {
-    navigator.geolocation.getCurrentPosition((position) => {
-      var lat = parseFloat(position.coords.latitude);
-      var long = parseFloat(position.coords.longitude);
-
-      var initalRegion = {
-        latitude: lat,
-        longitude: long,
-        latitudeDelta: LATTITUDE_DETA,
-        longitudeDelta: LONGTITUDE_DETA,
-      }
-
-      this.setState({ initialPosition: initalRegion });
-      this.setState({ markerPosition: initalRegion });
-    },
-      // (error) => alert(JSON.stringify(error)),
-      { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 })
-
-    this.watchID = navigator.geolocation.watchPosition((position) => {
-      var lat = parseFloat(position.coords.latitude);
-      var long = parseFloat(position.coords.longitude);
-
-      var lastRegion = {
-        latitude: lat,
-        longitude: long,
-        latitudeDelta: LATTITUDE_DETA,
-        longitudeDelta: LONGTITUDE_DETA
-      }
-      this.setState({ initialPosition: lastRegion });
-      this.setState({ markerPosition: lastRegion });
-
-    })
 
     const groupId = this.props.groupId;
     const uid = this.props.uid;
@@ -99,10 +66,6 @@ export default class Map extends Component {
       })
     })
 
-  }
-
-  componentWillUnmount() {
-    navigator.geolocation.clearWatch(this.watchID);
   }
 
   render() {

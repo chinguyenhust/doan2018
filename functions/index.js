@@ -67,7 +67,7 @@ exports.addSurvey = functions.database.ref('/surveys/{id}').onCreate((change, co
     });
 });
 
-exports.addMember = functions.database.ref('/group_users/{id}').onCreate((change, context) => {
+exports.addMember = functions.database.ref('/groups/{id}').onCreate((change, context) => {
 
   const subject = change.val();
 
@@ -95,7 +95,36 @@ exports.addMember = functions.database.ref('/group_users/{id}').onCreate((change
     });
 });
 
-exports.updateGroup = functions.database.ref('/groups/{id}').onUpdate((change, context) => {
+exports.updateGroup = functions.database.ref('/groups/{id}/isOnMap').onUpdate((change, context) => {
+
+  const subject = change.val();
+  if (snap.after.val().statusAgree === 'đồng ý')
+
+  const payload = {
+    notification: {
+      title: `${subject.name}`,
+      body: ` Bạn vừa được thêm vào nhóm mới.`,
+      sound: 'default',
+      badge: '1'
+    },
+  };
+
+  const options = {
+    collapseKey: 'demo',
+    contentAvailable: true,
+    priority: 'high',
+    timeToLive: 60 * 60 * 24,
+  };
+
+  const topic = '/topics/' + subject.group_id;
+  return admin.messaging().sendToTopic(topic, payload, options)
+    .then((response) => {
+      console.log('Successfully sent message:', response);
+      return null;
+    });
+});
+
+exports.acceptPosition = functions.database.ref('/groups/{id}').onUpdate((change, context) => {
 
   const subject = change.val();
 

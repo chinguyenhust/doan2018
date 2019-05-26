@@ -12,6 +12,7 @@ export default class DetailEvent extends Component {
     super(props);
     this.state = {
       nameEvent: "",
+      description: "",
       date: "",
       address: "",
       data: [
@@ -37,6 +38,7 @@ export default class DetailEvent extends Component {
       var data = snapshot.val();
       this.setState({
         nameEvent: data.name,
+        description: data.description,
         date: data.time,
         address: data.address
       })
@@ -106,6 +108,17 @@ export default class DetailEvent extends Component {
                 this.setState({ nameEvent });
               }}
               value={this.state.nameEvent}
+            />
+          </View>
+
+          <View style={{ flexDirection: "row", marginTop: 20 }}>
+            <Text style={{ fontSize: 16, marginTop: 10 }}>Mô tả :</Text>
+            <TextInput
+              style={styles.input}
+              onChangeText={(description) => {
+                this.setState({ description });
+              }}
+              value={this.state.description}
             />
           </View>
 

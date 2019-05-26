@@ -9,6 +9,10 @@ import IconPhone from 'react-native-vector-icons/FontAwesome5';
 import IconLogOut from 'react-native-vector-icons/AntDesign';
 import { Data } from "../../../api/Data";
 import * as firebase from 'firebase';
+import FCM from 'react-native-fcm';
+
+
+let group_user = Data.ref('/group_users');
 
 export default class UserInfo extends Component {
   constructor(props) {
@@ -36,12 +40,16 @@ export default class UserInfo extends Component {
   }
 
   _handleLogout = () => {
+    var uid = this.props.navigation.state.params.userId;
     firebase.auth().signOut().then(() => {
       this.props.navigation.navigate('Login');
     }).catch((error) => {
       alert("Đã có lỗi xảy ra trong quá trình logout. Xin thử lại")
     });
-    FCM.unsubscribeFromTopic("test");
+    group_user.orderByChild("user_id").equalTo(uid).on("child_added", (snapshot) => {
+      var data = snapshot.val();
+      FCM.unsubscribeFromTopic(data.group_id);
+    })
   }
 
   _handleEdit = () => {
@@ -56,7 +64,6 @@ export default class UserInfo extends Component {
 
   render() {
     const { name, phone, avatar, email } = this.state;
-    console.log(avatar);
 
     return (
       <View style={styles.container}>

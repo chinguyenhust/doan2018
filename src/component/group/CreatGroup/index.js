@@ -54,7 +54,7 @@ export default class CreatGroup extends Component {
 
   _handleCreatGroup = () => {
     var { name, schedule, image, selectedItems, description } = this.state;
-    var user = firebase.auth().currentUser;
+    // var user = firebase.auth().currentUser;
     var uid = this.props.navigation.state.params.uid;
     // var uid = user.uid;
     const startDate = this.props.navigation.getParam("startDate", null);
@@ -78,6 +78,7 @@ export default class CreatGroup extends Component {
           isOnMap: false
         }
       ).then((snapshot) => {
+        FCM.subscribeToTopic("/topics/" + snapshot.key);
         this.setState({
           group_id: snapshot.key,
         })
@@ -90,6 +91,16 @@ export default class CreatGroup extends Component {
               }
             ).then(() => {
               console.log("Success !");
+              Data.ref("notification").push({
+                topic: snapshot.key,
+                groupName: name,
+                userName: uid,
+                token: "",
+                title: "Nhóm mới",
+                message: "Bạn vừa được thêm vào nhóm ",
+                created_at: firebase.database.ServerValue.TIMESTAMP,
+                userAvatar: "https://facebook.github.io/react-native/docs/assets/favicon.png"
+              })
             }).catch((error) => {
               console.log(error);
             });

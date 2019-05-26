@@ -96,7 +96,7 @@ export default class CreatSurvey extends Component {
         userAvatar: "https://facebook.github.io/react-native/docs/assets/favicon.png"
       })
 
-      this.props.navigation.navigate("DetailGroup", { name: this.props.groupName });
+      this.props.navigation.navigate("DetailGroup", { name: groupName });
     } else {
       Alert.alert(
         'Thông báo',

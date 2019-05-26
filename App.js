@@ -14,6 +14,7 @@ import InfoGroup from './src/component/group/InfoGroup';
 import Chat from './src/component/group/Chat';
 import UserInfo from "./src/component/group/UserInfo";
 import EditUser from './src/component/group/EditUser';
+import EditGroup from './src/component/group/EditGroup';
 
 import Main from './src/component/login/Main';
 import Loading from './src/component/login/Loading'
@@ -92,6 +93,9 @@ const MainStack = createStackNavigator(
     },
     Direction: {
       screen: Direction
+    },
+    EditGroup :{
+      screen: EditGroup,
     }
   }, {
     headerMode: 'none',

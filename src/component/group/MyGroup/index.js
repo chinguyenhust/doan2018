@@ -12,6 +12,7 @@ import { Data } from "../../../api/Data";
 import { ProgressDialog } from 'react-native-simple-dialogs';
 import IconClock from 'react-native-vector-icons/Entypo';
 import FCM from 'react-native-fcm';
+import firebase from 'react-native-firebase';
 
 const { width, height } = Dimensions.get('window')
 const SCREEN_HEIGHT = height;
@@ -91,8 +92,9 @@ export default class MyGroup extends Component {
       this.setState({ initialPosition: initalRegion });
       this.setState({ markerPosition: initalRegion });
     },
-      // (error) => alert(JSON.stringify(error)),
-      { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 })
+      (error) => alert(JSON.stringify(error)),
+      // { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 }
+      )
 
     this.watchID = navigator.geolocation.watchPosition((position) => {
       var lat = parseFloat(position.coords.latitude);
@@ -251,7 +253,7 @@ export default class MyGroup extends Component {
     /*
     * Triggered when a particular notification has been received in foreground
     * */
-    this.notificationListener = firebase.notifications().onNotification((notification) => {
+    this.notificationListener = () => firebase.notifications().onNotification((notification) => {
       const { title, body } = notification;
       this.showAlert(title, body);
 
@@ -260,7 +262,7 @@ export default class MyGroup extends Component {
     /*
     * If your app is in background, you can listen for when a notification is clicked / tapped / opened as follows:
     * */
-    this.notificationOpenedListener = firebase.notifications().onNotificationOpened((notificationOpen) => {
+    this.notificationOpenedListener = () => firebase.notifications().onNotificationOpened((notificationOpen) => {
       const { title, body } = notificationOpen.notification;
       this.showAlert(title, body);
     });
@@ -294,8 +296,6 @@ export default class MyGroup extends Component {
   }
 
   componentWillReceiveProps() {
-    console.log("chingu");
-    // var { items, groupActive, groupDone, groupFuture } = this.state;
     var groupActive = [];
     var groupDone = [];
     var groupFuture = [];

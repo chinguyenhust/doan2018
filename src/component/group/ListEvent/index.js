@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import { Text, View, FlatList, TouchableOpacity } from 'react-native';
+import { Text, View, FlatList, TouchableOpacity, Alert } from 'react-native';
 import styles from "./ListEventStyle";
 import IconDelete from 'react-native-vector-icons/MaterialIcons';
 import IconClock from 'react-native-vector-icons/EvilIcons';
 import IconLocation from 'react-native-vector-icons/EvilIcons';
 import { Data } from "../../../api/Data";
 import IconAdd from 'react-native-vector-icons/MaterialIcons';
+import IconEdit from 'react-native-vector-icons/MaterialIcons';
 
 let events = Data.ref('/events');
 
@@ -51,13 +52,37 @@ export default class ListEvent extends Component {
       }
       this.setState({ items: items.sort(this.compare) });
     });
+
+    events.orderByChild("groupId").equalTo(groupId).on("child_removed", (snapshot) => {
+      var items = this.state.items;
+      var arr = [];
+      
+      items.map(item => {
+        if (item.id !== snapshot.key) {
+          arr.push({
+            id: item.id,
+            name: item.name,
+            address: item.address,
+            description: item.description,
+            userId: item.createdByUserId,
+            created_at: item.created_at,
+            groupId: item.groupId,
+            time: item.time,
+            isDelete: item.isDelete
+          })
+          this.setState({ items: arr })
+        }else{
+          this.setState({ items: arr })
+        }
+      })
+    });
   }
 
   componentWillReceiveProps() {
     var items = [];
     const groupId = this.props.groupId;
     const uid = this.props.uid;
-    events.orderByChild("groupId").equalTo(groupId).on('child_added', (snapshot) => {
+    events.orderByChild("groupId").equalTo(groupId).on("child_added", (snapshot) => {
       let data = snapshot.val();
       if (uid === snapshot.val().createdByUserId) {
         items.push({
@@ -85,6 +110,30 @@ export default class ListEvent extends Component {
         })
       }
       this.setState({ items: items.sort(this.compare) });
+    });
+
+    events.orderByChild("groupId").equalTo(groupId).on("child_removed", (snapshot) => {
+      var items = this.state.items;
+      var arr = [];
+      
+      items.map(item => {
+        if (item.id !== snapshot.key) {
+          arr.push({
+            id: item.id,
+            name: item.name,
+            address: item.address,
+            description: item.description,
+            userId: item.createdByUserId,
+            created_at: item.created_at,
+            groupId: item.groupId,
+            time: item.time,
+            isDelete: item.isDelete
+          })
+          this.setState({ items: arr })
+        }else{
+          this.setState({ items: arr })
+        }
+      })
     });
   }
 
@@ -119,21 +168,46 @@ export default class ListEvent extends Component {
     }
   }
 
+  hanldeDelete = (id) => {
+    Alert.alert(
+      'Thông báo',
+      'Bạn chắc chắn muốn xoá kế hoạch này',
+      [
+        {
+          text: 'Cancel',
+          onPress: () => console.log('Cancel Pressed'),
+          style: 'cancel',
+        },
+        {
+          text: 'OK',
+          onPress: () => {
+            events.child(id).remove();
+          }
+        },
+      ],
+      { cancelable: false },
+    );
+  }
+
+  handleEdit = () => {
+
+  }
+
   render() {
     const { navigate } = { ...this.props };
     const { items } = this.state;
     const uid = this.props.uid;
     const leaderId = this.props.leaderId;
-
     return (
       <View style={styles.container}>
         {(items.length > 0) ?
           <FlatList
             data={items}
+            extraData={this.state.items}
             renderItem={
               ({ item }) =>
                 <View style={styles.itemStyle}>
-                  <TouchableOpacity style={styles.item} onPress={() => navigate("DetailEvent", { id: item.id })}>
+                  <View style={styles.item} >
                     <View style={{ flexDirection: "column", justifyContent: "center" }}>
                       <View style={styles.calendar}>
                         <View style={styles.year}>
@@ -153,7 +227,7 @@ export default class ListEvent extends Component {
                       }
                     </View>
 
-                    <View style={styles.info}>
+                    <TouchableOpacity style={styles.info} onPress={() => navigate("DetailEvent", { id: item.id })}>
                       <Text style={styles.textName}>{item.name}</Text>
                       <Text style={styles.textView} numberOfLines={1}>{item.description}</Text>
                       <View style={{ flexDirection: "row" }}>
@@ -165,15 +239,21 @@ export default class ListEvent extends Component {
                         <Text style={styles.textView} numberOfLines={1}>{item.address}</Text>
                       </View>
                       <Text style={styles.textView}>{this.getTime(item.time)}</Text>
-                    </View>
+                    </TouchableOpacity>
 
-                    {(item.isDelete) &&
-                      <View style={{ width: "10%", justifyContent: "center", }}>
-                        <IconDelete name="delete" size={24}
-                          style={{ color: "gray" }} />
+                    {(uid === leaderId) &&
+                      <View style={{ flexDirection: "column" }}>
+                        <TouchableOpacity style={{ flex: 1, justifyContent: "center" }} onPress={() => this.hanldeDelete(item.id)}>
+                          <IconDelete name="delete" size={24}
+                            style={{ color: "gray" }}
+                          />
+                        </TouchableOpacity>
+                        <IconEdit name="edit"
+                          style={{ fontSize: 24, color: "gray", flex: 1 }}
+                        />
                       </View>
                     }
-                  </TouchableOpacity>
+                  </View>
                 </View>
             }
           />
