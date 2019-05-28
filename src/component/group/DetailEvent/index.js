@@ -7,6 +7,8 @@ import RadioGroup from 'react-native-radio-buttons-group';
 import { Data } from "../../../api/Data";
 import * as firebase from 'firebase';
 
+let users = Data.ref('/users');
+
 export default class DetailEvent extends Component {
   constructor(props) {
     super(props);
@@ -19,12 +21,12 @@ export default class DetailEvent extends Component {
         {
           label: 'Có tham gia',
           value: 1,
-          color: "#007aff"
+          color: "#006805"
         },
         {
           label: 'Không tham gia',
           value: 2,
-          color: "#007aff"
+          color: "#006805"
         },
       ],
       members: []
@@ -32,6 +34,20 @@ export default class DetailEvent extends Component {
   }
 
   componentDidMount() {
+
+    var items = []
+    users.on('child_added', (snapshot) => {
+      let data = snapshot.val();
+      items.push({
+        id: snapshot.key,
+        name: data.userName,
+        avatar: data.avatar,
+        phone: data.phone
+      })
+      this.setState({ members: items });
+    }); 
+
+
     const eventId = this.props.navigation.state.params.id;
     var event = Data.ref("events");
     event.child(eventId).on("value", (snapshot) => {
@@ -42,26 +58,28 @@ export default class DetailEvent extends Component {
         date: data.time,
         address: data.address
       })
-      // console.log("iems  ", data)
     })
   }
 
   onPress = (data) => {
     const eventId = this.props.navigation.state.params.id;
-    const members = this.state.members;
-    var user = firebase.auth().currentUser;
+    const uid = this.props.navigation.state.params.uid;
+    const members = [];
 
     data.map((item) => {
-      console.log(item.selected);
-      if (item.selected === true) {
-        members.push(user.uid)
-        Data.ref("participations").push({
-          event_id: eventId,
+      
+      if (item.selected === true && item.value ==1) {
+        members.push(uid);
+        Data.ref("events").child(eventId).update({
           members: members,
         })
       }
+      else {
+        var indexOf = members.indexOf(uid)
+        Data.ref("events").child(eventId).child("members").child(indexOf).remove()
+      }
+      
     })
-    console.log(data[0]);
     this.setState({ data });
   };
 
@@ -87,50 +105,57 @@ export default class DetailEvent extends Component {
     return (
       <View style={styles.container} >
         <View style={styles.tapbar}>
-          <TouchableOpacity style={styles.tap}>
-            <TouchableOpacity style={{ width: "15%", justifyContent:"center"}}
+          <View style={styles.tap}>
+            <TouchableOpacity style={{ width: "15%", justifyContent: "center" }}
               onPress={() => { this.props.navigation.goBack() }} >
-              <Icon name="ios-arrow-round-back" size={34} style={{color: "#ffffff"}}/>
+              <Icon name="ios-arrow-round-back" size={34} style={{ color: "#ffffff" }} />
             </TouchableOpacity>
             <View style={{ width: "75%", justifyContent: "center", }}>
               <Text style={{ fontSize: 20, width: "70%", fontWeight: "600", color: "#ffffff" }}>Kế hoạch</Text>
             </View>
-          </TouchableOpacity>
+          </View>
           {/* <View style={{ height: 1, backgroundColor: "#000", alignSelf: "stretch" }}></View> */}
         </View>
-        <View style={{ flex: 16, paddingLeft: 20, paddingRight: 20, flexDirection: "column" }}>
+        <View style={{ paddingLeft: 20, paddingRight: 20, flexDirection: "column", }}>
 
           <View style={{ flexDirection: "row", marginTop: 20 }}>
-            <Text style={{ fontSize: 16, marginTop: 10 }}>Tên kế hoạch:</Text>
-            <TextInput
+            <Text style={{ fontSize: 16 }}>Tên kế hoạch:</Text>
+            <Text numberOfLines={2} style={styles.text}>  {this.state.nameEvent}</Text>
+            {/* <TextInput
               style={styles.input}
               onChangeText={(nameEvent) => {
                 this.setState({ nameEvent });
               }}
               value={this.state.nameEvent}
-            />
+            /> */}
           </View>
 
           <View style={{ flexDirection: "row", marginTop: 20 }}>
-            <Text style={{ fontSize: 16, marginTop: 10 }}>Mô tả :</Text>
-            <TextInput
+            <Text style={{ fontSize: 16 }}>Mô tả:</Text>
+            <View>
+              <Text numberOfLines={2} style={styles.text}>  {this.state.description}</Text>
+            </View>
+            {/* <TextInput
               style={styles.input}
               onChangeText={(description) => {
                 this.setState({ description });
               }}
               value={this.state.description}
-            />
+            /> */}
           </View>
 
-          <View style={{ flexDirection: "row" }}>
-            <Text style={{ fontSize: 16, marginTop: 10 }}>Địa điểm: </Text>
-            <TextInput
+          <View style={{ flexDirection: "row", marginTop: 20, }}>
+            <Text style={{ fontSize: 16 }}>Địa điểm: </Text>
+            <View style={{paddingLeft:10, width:"80%"}}>
+              <Text numberOfLines={3} style={styles.text}>{this.state.address}</Text>
+            </View>
+            {/* <TextInput
               style={styles.input}
               onChangeText={(address) => {
                 this.setState({ address });
               }}
               value={this.state.address}
-            />
+            /> */}
           </View>
 
           <DatePicker
@@ -162,12 +187,12 @@ export default class DetailEvent extends Component {
             <Text style={{ fontSize: 16 }}>Số người tham gia: 7/10</Text>
             <FlatList
               horizontal={true}
-              data={[{ key: 'a' }, { key: 'b' }, { key: 'a' }, { key: 'b' }, { key: 'a' }, { key: 'b' }]}
+              data={this.state.members}
               renderItem={({ item }) =>
                 <View style={{ marginLeft: 15, marginTop: 20 }}>
                   <Image
-                    style={{ width: 60, height: 60, borderRadius: 30 }}
-                    source={{ uri: 'https://facebook.github.io/react-native/docs/assets/favicon.png' }}
+                    style={{ width: 50, height: 50, borderRadius: 25 }}
+                    source={{ uri: (item.avatar) ? item.avatar :'https://facebook.github.io/react-native/docs/assets/favicon.png' }}
                   />
                 </View>
               }
@@ -176,7 +201,7 @@ export default class DetailEvent extends Component {
               <RadioGroup
                 radioButtons={this.state.data}
                 onPress={this.onPress}
-                color="#007aff"
+                color="#006805"
               />
             </View>
           </View>

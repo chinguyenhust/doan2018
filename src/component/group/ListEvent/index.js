@@ -56,7 +56,7 @@ export default class ListEvent extends Component {
     events.orderByChild("groupId").equalTo(groupId).on("child_removed", (snapshot) => {
       var items = this.state.items;
       var arr = [];
-      
+
       items.map(item => {
         if (item.id !== snapshot.key) {
           arr.push({
@@ -71,7 +71,7 @@ export default class ListEvent extends Component {
             isDelete: item.isDelete
           })
           this.setState({ items: arr })
-        }else{
+        } else {
           this.setState({ items: arr })
         }
       })
@@ -115,7 +115,7 @@ export default class ListEvent extends Component {
     events.orderByChild("groupId").equalTo(groupId).on("child_removed", (snapshot) => {
       var items = this.state.items;
       var arr = [];
-      
+
       items.map(item => {
         if (item.id !== snapshot.key) {
           arr.push({
@@ -130,7 +130,7 @@ export default class ListEvent extends Component {
             isDelete: item.isDelete
           })
           this.setState({ items: arr })
-        }else{
+        } else {
           this.setState({ items: arr })
         }
       })
@@ -227,7 +227,7 @@ export default class ListEvent extends Component {
                       }
                     </View>
 
-                    <TouchableOpacity style={styles.info} onPress={() => navigate("DetailEvent", { id: item.id })}>
+                    <TouchableOpacity style={styles.info} onPress={() => navigate("DetailEvent", { id: item.id , uid: uid})}>
                       <Text style={styles.textName}>{item.name}</Text>
                       <Text style={styles.textView} numberOfLines={1}>{item.description}</Text>
                       <View style={{ flexDirection: "row" }}>
@@ -243,14 +243,26 @@ export default class ListEvent extends Component {
 
                     {(uid === leaderId) &&
                       <View style={{ flexDirection: "column" }}>
-                        <TouchableOpacity style={{ flex: 1, justifyContent: "center" }} onPress={() => this.hanldeDelete(item.id)}>
+                        <TouchableOpacity style={{ flex: 1, justifyContent: "center" }}
+                          onPress={() => this.hanldeDelete(item.id)}>
                           <IconDelete name="delete" size={24}
                             style={{ color: "gray" }}
                           />
-                        </TouchableOpacity>
-                        <IconEdit name="edit"
-                          style={{ fontSize: 24, color: "gray", flex: 1 }}
-                        />
+                        </TouchableOpacity >
+                        {/* <TouchableOpacity style={{ flex: 1, justifyContent: "center" }}
+                          onPress={() => {
+                            this.props.navigation.navigate('EditEvent', {
+                              "name": item.name,
+                              "description": item.description,
+                              "time": item.time,
+                              "address": item.address,
+                              "id": item.id,
+                            });
+                          }}>
+                          <IconEdit name="edit"
+                            style={{ fontSize: 24, color: "gray" }}
+                          />
+                        </TouchableOpacity> */}
                       </View>
                     }
                   </View>

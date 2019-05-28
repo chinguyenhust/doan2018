@@ -51,7 +51,7 @@ export default class Notification extends Component {
             style={{ width: "15%", color: "#ffff" }}
             onPress={() => { this.props.navigation.goBack() }} />
           <View style={{justifyContent:"center"}}>
-            <Text style={{ color: "#ffffff", fontSize: 20, fontWeight: "600" }}>Thong bao</Text>
+            <Text style={{ color: "#ffffff", fontSize: 20, fontWeight: "600" }}>Thông goBack</Text>
           </View>
         </View>
 
@@ -62,14 +62,14 @@ export default class Notification extends Component {
               <View style={{ flexDirection: "column" }}>
                 <TouchableOpacity style={styles.item} >
 
-                  <View style={{ flex: 3 }}>
+                  <View style={{ flex: 2 }}>
                     <Image
                       style={{ width: 50, height: 50, borderRadius: 25 }}
                       source={{ uri: item.userAvatar }}
                     />
                   </View>
 
-                  <View style={{ paddingTop: 7, flex: 11 ,paddingRight:20}}>
+                  <View style={{ paddingTop: 8, flex: 11 ,paddingRight:20}}>
                     <Text style={{ fontSize: 16, fontWeight: "400", color: "#000000" }}>{item.userName}{item.message}{item.groupName}</Text>
                     <Text style={{ fontSize: 14 }}>1 gio truoc</Text>
                     <View style={{ height: 1, backgroundColor: "#bcbcbc", marginTop: 5 }}></View>

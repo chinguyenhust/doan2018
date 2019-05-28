@@ -288,7 +288,7 @@ export default class CreatGroup extends Component {
           </View>
 
           <View style={styles.dateTime}>
-            <TouchableOpacity style={styles.date} onPress={() => navigate('DatePicker')}>
+            <TouchableOpacity style={styles.date} onPress={() => navigate('DatePicker', {"isEdit":false})}>
               <Text style={styles.titleBold}>Ngày đi (*)</Text>
               {(startDate === null || startDate === "Invalid date") ?
                 <Text style={{ color: "#A9A9A9", paddingTop: 5, fontSize: 16 }}>Chọn ngày đến</Text> :
@@ -298,7 +298,7 @@ export default class CreatGroup extends Component {
             </TouchableOpacity>
             <View style={styles.line}>
             </View>
-            <TouchableOpacity style={styles.time} onPress={() => navigate('DatePicker')}>
+            <TouchableOpacity style={styles.time} onPress={() => navigate('DatePicker', {"isEdit":false})}>
               <Text style={styles.titleBold}>Ngày về (*)</Text>
               {(untilDate === null || untilDate === "Invalid date") ?
                 <Text style={{ color: "#A9A9A9", paddingTop: 5, fontSize: 16 }}>Chọn ngày về</Text> :

@@ -143,7 +143,7 @@ export default class MyGroup extends Component {
                   isOnMap: false,
                 }
               ).then(() => {
-                console.log("Success !");
+                // console.log("Success !");
               }).catch((error) => {
                 console.log(error);
               });
@@ -317,7 +317,7 @@ export default class MyGroup extends Component {
                   isOnMap: false,
                 }
               ).then(() => {
-                console.log("Success !");
+                // console.log("Success !");
               }).catch((error) => {
                 console.log(error);
               });

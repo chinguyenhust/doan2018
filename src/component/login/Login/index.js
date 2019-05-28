@@ -27,10 +27,10 @@ export default class Login extends React.Component {
               this.props.navigation.navigate('MyGroup', { "email": email, "user_id": key });
               FCM.requestPermissions();
 
-              FCM.getFCMToken().then(token => {
-                console.log(token)
-                Data.ref('tokenFCM').child(key).set({ token: token })
-              });
+              // FCM.getFCMToken().then(token => {
+              //   console.log(token)
+              //   Data.ref('tokenFCM').child(key).set({ token: token })
+              // });
             })
           })
           )
