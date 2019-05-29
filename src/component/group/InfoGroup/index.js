@@ -297,7 +297,7 @@ export default class InfoGroup extends Component {
 
         <ScrollView
           style={{ paddingLeft: 20, paddingRight: 20, marginBottom: 40 }}
-        // scrollEnabled={this.state.enableScrollViewScroll}
+          scrollEnabled={this.state.enableScrollViewScroll}
         >
           <TouchableOpacity style={{ alignItems: 'center' }} onPress={this.chooseFile.bind(this)}>
           
@@ -364,12 +364,12 @@ export default class InfoGroup extends Component {
               <View style={{ height: 200 }}>
                 <FlatList
                   data={items}
-                  // onTouchStart={() => {
-                  //   this.onEnableScroll(false);
-                  // }}
-                  // onMomentumScrollEnd={() => {
-                  //   this.onEnableScroll(true);
-                  // }}
+                  onTouchStart={() => {
+                    this.onEnableScroll(false);
+                  }}
+                  onMomentumScrollEnd={() => {
+                    this.onEnableScroll(true);
+                  }}
                   renderItem={
                     ({ item }) =>
                       <View style={{ flexDirection: 'row', }}>

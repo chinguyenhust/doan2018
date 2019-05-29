@@ -227,19 +227,22 @@ export default class ListEvent extends Component {
                       }
                     </View>
 
-                    <TouchableOpacity style={styles.info} onPress={() => navigate("DetailEvent", { id: item.id , uid: uid})}>
-                      <Text style={styles.textName}>{item.name}</Text>
-                      <Text style={styles.textView} numberOfLines={1}>{item.description}</Text>
-                      <View style={{ flexDirection: "row" }}>
+                    <View style={styles.info} >
+                    {/* onPress={() => navigate("DetailEvent", { id: item.id , uid: uid})} */}
+                      <Text style={styles.textName} numberOfLines={2}>{item.name}</Text>
+                      <Text style={styles.textView} numberOfLines={2}>{item.description}</Text>
+                      <View style={{ flexDirection: "row" , paddingTop:6, paddingBottom: 3}}>
                         <IconClock name="clock" size={20} style={{ color: "#007aff", marginRight: 8 }} />
                         <Text style={styles.textView}>{(item.time).substr(11, (item.time).length)}</Text>
                       </View>
-                      <View style={{ flexDirection: "row" }}>
+                      <View style={{ flexDirection: "row", width:"90%", paddingTop:3, paddingBottom: 3}}>
                         <IconLocation name="location" size={20} style={{ color: "#007aff", marginRight: 8 }} />
-                        <Text style={styles.textView} numberOfLines={1}>{item.address}</Text>
+                        <View>
+                        <Text style={styles.textView} numberOfLines={2}>{item.address}</Text>
+                        </View>
                       </View>
                       <Text style={styles.textView}>{this.getTime(item.time)}</Text>
-                    </TouchableOpacity>
+                    </View>
 
                     {(uid === leaderId) &&
                       <View style={{ flexDirection: "column" }}>
@@ -249,20 +252,21 @@ export default class ListEvent extends Component {
                             style={{ color: "gray" }}
                           />
                         </TouchableOpacity >
-                        {/* <TouchableOpacity style={{ flex: 1, justifyContent: "center" }}
+                        <TouchableOpacity style={{ flex: 1, justifyContent: "center" }}
                           onPress={() => {
-                            this.props.navigation.navigate('EditEvent', {
+                            navigate('EditEvent', {
                               "name": item.name,
                               "description": item.description,
                               "time": item.time,
                               "address": item.address,
                               "id": item.id,
+                              "groupId": item.groupId
                             });
                           }}>
                           <IconEdit name="edit"
                             style={{ fontSize: 24, color: "gray" }}
                           />
-                        </TouchableOpacity> */}
+                        </TouchableOpacity>
                       </View>
                     }
                   </View>

@@ -75,17 +75,18 @@ _handleUpDateInfoGroup = () => {
         timeUpdate: firebase.database.ServerValue.TIMESTAMP,
       }
     ).then((snapshot) => {
+      
       if (selectedItems) {
         selectedItems.map((item) => {
           Data.ref("group_users").push(
             {
-              group_id: snapshot.key,
+              group_id: group_id,
               user_id: item
             }
           ).then(() => {
             console.log("Success !");
             Data.ref("notification").push({
-              topic: snapshot.key,
+              topic: group_id,
               groupName: name,
               userName: uid,
               token: "",

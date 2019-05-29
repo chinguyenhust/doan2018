@@ -16,16 +16,17 @@ const styles = StyleSheet.create({
         marginRight:10
     },
     textName: {
-        height: 25,
+        // height: 40,
         fontSize: 18,
-        fontWeight: "500"
+        fontWeight: "500",
+        paddingBottom:6
     },
     textView: {
-        height: 25,
+        // height: 40,
         fontSize: 13,
     },
     textDescription: {
-        height: 25,
+        // height: 40,
         fontSize: 14,
         color: "#a9a9a9"
     },
@@ -36,12 +37,13 @@ const styles = StyleSheet.create({
     itemStyle: {
         flexDirection: "column",
         paddingTop: 10,
-        height: 150,
+        // height: 200,
         borderColor: "#F5F5F5",
         borderWidth: 1,
         borderRadius: 8,
         marginBottom: 10,
         paddingLeft: 10,
+        paddingBottom:10,
         backgroundColor: "#F5F5F5",
         marginLeft: 10,
         marginRight: 10,

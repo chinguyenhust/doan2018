@@ -19,7 +19,8 @@ export default class EditEvent extends Component {
       errName: "",
       errDate: "",
       minDate: "",
-      maxDate:""
+      maxDate:"",
+      groupName: ""
     }
     this.handleSelectAddress = this.handleSelectAddress.bind(this)
   }
@@ -30,43 +31,38 @@ export default class EditEvent extends Component {
       var data = snapshot.val();
       this.setState({
         minDate: data.startDate,
-        maxDate:data.untilDate
+        maxDate:data.untilDate,
+        groupName:data.name
       })
     })
   }
 
-  _handleCreatEvent = () => {
+  _handleEditEvent = () => {
     var check = this._handleCheck();
-    var { nameEvent, date, address, description } = this.state;
-    const uid = this.props.navigation.state.params.uid;
-    const groupId = this.props.navigation.state.params.groupId;
-    const userName = this.props.navigation.state.params.userName;
-    const groupName = this.props.navigation.state.params.groupName;
+    var id = this.props.navigation.state.params.id;
+    var { nameEvent, date, address, description, groupName } = this.state;
+    // const uid = this.props.navigation.state.params.uid;
     if (check) {
-      Data.ref("events").push(
+      Data.ref("events").child(id).update(
         {
           name: nameEvent,
           time: date,
           description: description,
           address: address,
-          createdByUserId: uid,
-          groupId: groupId,
-          created_at: firebase.database.ServerValue.TIMESTAMP,
-          userNameCreated: userName,
-          groupName: groupName
+          // editByUserId: uid,
+          created_edit: firebase.database.ServerValue.TIMESTAMP,
         }
       ).then(() => {
-        console.log("Success !");
-        Data.ref("notification").push({
-          topic: groupId,
-          groupName: groupName,
-          userName: userName,
-          token: "",
-          title: "Kế hoạch mới",
-          message: " vừa tạo một kế hoạch mới trong ",
-          created_at: firebase.database.ServerValue.TIMESTAMP,
-          userAvatar: "https://facebook.github.io/react-native/docs/assets/favicon.png"
-        })
+        // Data.ref("notification").push({
+        //   topic: groupId,
+        //   groupName: groupName,
+        //   userName: userName,
+        //   token: "",
+        //   title: "Chỉnh sửa kế hoạch",
+        //   message: " vừa tạo một kế hoạch mới trong ",
+        //   created_at: firebase.database.ServerValue.TIMESTAMP,
+        //   userAvatar: "https://facebook.github.io/react-native/docs/assets/favicon.png"
+        // })
       }).catch((error) => {
         console.log(error);
       });
@@ -110,8 +106,7 @@ export default class EditEvent extends Component {
   }
 
   render() {
-    var {minDate, maxDate} = this.state;
-    var today = new Date().toJSON().slice(0, 10);
+    var {groupName, maxDate} = this.state;
 
     return (
       <View style={styles.container} >
@@ -198,9 +193,9 @@ export default class EditEvent extends Component {
           <View style={{ flexDirection: "column", marginTop: 20 }}>
             <Text style={{ fontSize: 16, fontWeight: "600", color:"#000000" }}>Địa điểm</Text>
           </View>
-          <PlaceAutoComplete handleSelectAddress={this.handleSelectAddress} />
+          <PlaceAutoComplete handleSelectAddress={this.handleSelectAddress}  address = {this.state.address}/>
 
-          <TouchableOpacity style={styles.buttonCreat} onPress={this._handleCreatEvent}>
+          <TouchableOpacity style={styles.buttonCreat} onPress={this._handleEditEvent}>
             <Text style={{ color: "#fff", fontSize: 20 }}>Cập nhật</Text>
           </TouchableOpacity>
         </ScrollView>
