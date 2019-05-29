@@ -138,7 +138,7 @@ export default class DetailSurvey extends Component {
 
           <View style={{ flexDirection: "row", marginTop: 20 }}>
             <Text style={{ fontSize: 16 }}>Câu hỏi: </Text>
-            <Text style={{ fontSize: 16, color: "red", marginLeft: 20 }}> {question} </Text>
+            <Text style={{ fontSize: 16, color: "#000000", marginLeft: 20 , fontWeight: "600"}}> {question} </Text>
           </View>
 
           {(options.length > 0) &&

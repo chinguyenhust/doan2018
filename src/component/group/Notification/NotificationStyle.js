@@ -20,10 +20,23 @@ const styles = StyleSheet.create({
         paddingLeft: 20,
         right: 0,
         alignSelf: "stretch",
-        height: 85,
+        height: 70,
         flexDirection: "row",
         alignItems: "center",
-    }
+    },
+    contentView: {
+        paddingLeft: 10,
+        flex: 1,
+        flexDirection:'row',
+        flexWrap:'wrap'
+    },
+    username: {
+        fontWeight: 'bold',
+        color:"#000000"
+    },
+    content: {
+        color:"#000000"
+    }, 
 });
 
 export default styles

@@ -12,7 +12,8 @@ export default class ItemInfo extends React.Component {
     super(props);
     this.state = {
       data: this.props.navigation.state.params.data,
-      userLocation: this.props.navigation.state.params.userLocation
+      userLocation: this.props.navigation.state.params.userLocation,
+      source: this.props.navigation.state.params.source,
     }
   }
   getRating = (rating) => {
@@ -28,7 +29,7 @@ export default class ItemInfo extends React.Component {
 
   render() {
     const { navigate } = this.props.navigation;
-    var { data, userLocation } = this.state;
+    var { data, userLocation , source} = this.state;
     var i = 0;
     return (
       <View style={styles.container}>
@@ -42,6 +43,7 @@ export default class ItemInfo extends React.Component {
         </View>
         {/* String url = https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=PHOTOREF&key=YOUR_API_KEY */}
 
+        {(data) ?
         <FlatList
           data={data}
           renderItem={
@@ -50,14 +52,19 @@ export default class ItemInfo extends React.Component {
                 <TouchableOpacity 
                 style={styles.item} onPress={() => navigate("Direction", { "location": item.geometry.location , "userLocation": userLocation})}>
                   <View style={{ flex: 3 }}>
+                  {(item.photos) ?
                     <Image
                       style={{ width: 90, height: 90, borderRadius: 3 }}
                       source={{
-                        uri: (item.photos) ?
-                          'https://maps.googleapis.com/maps/api/place/photo?maxwidth=1500&photoreference=' + item.photos[0].photo_reference + '&key=' + KEY
-                          : 'https://facebook.github.io/react-native/docs/assets/favicon.png'
+                        uri: 'https://maps.googleapis.com/maps/api/place/photo?maxwidth=1500&photoreference=' + item.photos[0].photo_reference + '&key=' + KEY 
                       }}
                     />
+                    :
+                    <Image
+                      style={{ width: 90, height: 90 , borderRadius: 3 }}
+                      source={source}
+                    />
+                    }
                   </View>
                   <View style={{ flexDirection: "column", marginLeft: 10, flex: 7 }}>
                     <Text numberOfLines={2} style={{ fontSize: 18, fontWeight: "500", color: "#000" }}>{item.name}</Text>
@@ -87,6 +94,11 @@ export default class ItemInfo extends React.Component {
               </View>
           }
         />
+        :
+        <View style={{marginTop:200, justifyContent:"center"}}>
+          <Text style={{fontSize:18, color:"#000000"}}>Hiện tại chưa có dữ liệu</Text>
+        </View>
+        }
       </View>
     )
   }

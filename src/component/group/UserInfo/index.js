@@ -21,7 +21,7 @@ export default class UserInfo extends Component {
       name: "",
       email: "",
       phone: "",
-      avatar: null,
+      avatar: "",
     }
   }
 
@@ -64,7 +64,7 @@ export default class UserInfo extends Component {
 
   render() {
     const { name, phone, avatar, email } = this.state;
-
+    console.log(avatar)
     return (
       <View style={styles.container}>
         <View style={styles.header}>
@@ -86,14 +86,14 @@ export default class UserInfo extends Component {
           <View style={{ height: 1, backgroundColor: "#bcbcbc", alignSelf: "stretch" }}></View>
         </View>
 
-        <View style={{ paddingTop: 20, flexDirection: "column" , }}>
+        <View style={{ paddingTop: 20, flexDirection: "column", }}>
           <View style={{ justifyContent: "center", alignItems: "center" }}>
-            {(!avatar) ?
-              <IconUser name="user-circle" size={120} style={{ color: "#ebebeb",  }} /> :
+            {(avatar) ?
               <Image
                 source={{ uri: avatar }}
                 style={{ width: 100, height: 100, borderRadius: 50, marginTop: 10 }}
-              />
+              /> :
+              <IconUser name="user-circle" size={120} style={{ color: "#ebebeb", }} />
             }
           </View>
           <View style={styles.info}>
