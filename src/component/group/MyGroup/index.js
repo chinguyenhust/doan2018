@@ -54,7 +54,7 @@ export default class MyGroup extends Component {
       userLocation: {
         latitude: 0,
         longtitude: 0
-      }
+      },
     }
   }
 
@@ -76,7 +76,7 @@ export default class MyGroup extends Component {
 
   async componentDidMount() {
     var items = [];
-     var groupActive = [];
+    var groupActive = [];
     var groupDone = [];
     var groupFuture = [];
     var email = this.props.navigation.state.params.email;
@@ -97,7 +97,7 @@ export default class MyGroup extends Component {
     },
       (error) => alert(JSON.stringify(error)),
       // { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 }
-      )
+    )
 
     this.watchID = navigator.geolocation.watchPosition((position) => {
       var lat = parseFloat(position.coords.latitude);
@@ -438,9 +438,11 @@ export default class MyGroup extends Component {
         {(groupActive || groupDone || groupFuture) ?
 
           <ScrollView style={{}}>
-            <View style={{ paddingLeft: 20, marginTop: 20 }}>
-              <Text style={styles.lable}>Nhóm đang diễn ra</Text>
-            </View>
+            {(groupActive.length > 0) &&
+              <View style={{ paddingLeft: 20, marginTop: 20 }}>
+                <Text style={styles.lable}>Nhóm đang diễn ra</Text>
+              </View>
+            }
             <SearchableFlatList
               data={groupActive}
               searchTerm={searchTerm}
@@ -481,11 +483,13 @@ export default class MyGroup extends Component {
               }
               keyExtractor={item => item.id}
             />
-
-            <View style={{ height: 5, backgroundColor: "#ebebeb", marginTop: 5 }}></View>
-            <View style={{ paddingLeft: 20, marginTop: 20 }}>
-              <Text style={styles.lable}>Nhóm sắp tới</Text>
-            </View>
+            {(groupFuture.length > 0) &&
+              <View>
+                <View style={{ height: 5, backgroundColor: "#ebebeb", marginTop: 5 }}></View>
+                <View style={{ paddingLeft: 20, marginTop: 20 }}>
+                  <Text style={styles.lable}>Nhóm sắp tới</Text>
+                </View>
+              </View>}
             <SearchableFlatList
               data={groupFuture}
               searchTerm={searchTerm}
@@ -527,10 +531,14 @@ export default class MyGroup extends Component {
               keyExtractor={item => item.id}
             />
 
-            <View style={{ height: 5, backgroundColor: "#ebebeb", marginTop: 5 }}></View>
-            <View style={{ paddingLeft: 20, marginTop: 20 }}>
-              <Text style={styles.lable}>Nhóm đã kết thúc</Text>
-            </View>
+            {(groupDone.length >0) &&
+              <View>
+                <View style={{ height: 5, backgroundColor: "#ebebeb", marginTop: 5 }}></View>
+                <View style={{ paddingLeft: 20, marginTop: 20 }}>
+                  <Text style={styles.lable}>Nhóm đã kết thúc</Text>
+                </View>
+              </View>
+            }
             <SearchableFlatList
               data={groupDone}
               searchTerm={searchTerm}

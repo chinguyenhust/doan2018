@@ -5,6 +5,7 @@ import MapView from "react-native-maps";
 import { Marker, Callout } from 'react-native-maps';
 import { Data } from "../../../api/Data";
 import MapViewDirections from 'react-native-maps-directions';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 const { width, height } = Dimensions.get('window')
 const SCREEN_HEIGHT = height;
@@ -60,6 +61,10 @@ export default class Direction extends Component {
     const GOOGLE_MAPS_APIKEY = 'AIzaSyDXwSjZX3_R1Pib3q0-XMXz76XgWhiMSS4';
     return (
       <View style={styles.container}>
+        <View style={{ paddingTop: 10, zIndex:10000 , paddingLeft:20}}>
+          <Icon name="ios-arrow-round-back" size={40}
+            style={{ color: "#006805" }} onPress={() => { this.props.navigation.goBack() }} />
+        </View>
 
         <MapView
           provider={MapView.PROVIDER_GOOGLE}
@@ -91,8 +96,8 @@ export default class Direction extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    // justifyContent: 'center',
+    // alignItems: 'center',
     backgroundColor: '#F5FCFF',
   },
   map: {

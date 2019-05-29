@@ -3,7 +3,8 @@ import { StyleSheet, Text, TextInput, View, Button, TouchableOpacity, Alert } fr
 import firebase from 'react-native-firebase';
 import { required, phone, password, Email } from '../../../util/validate';
 import CryptoJS from "react-native-crypto-js";
-import { Data } from '../../../api/Data'
+import { Data } from '../../../api/Data';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 export default class SignUp extends React.Component {
   state = {
@@ -70,13 +71,13 @@ export default class SignUp extends React.Component {
             password: ciphertext,
             latitude: null,
             longitude: null,
-            countNotifi: 0, 
-          }).then((snap)=> { 
+            countNotifi: 0,
+          }).then((snap) => {
             // this.itemRef.ref('NotifiMain').child(snap.key).set({ 
             //     countNotifi: 0, 
             //     status: 'old'
             // })
-        })
+          })
           this.props.navigation.navigate('Login');
           // ref.childByAutoId().setValue(data)
         })
@@ -98,6 +99,10 @@ export default class SignUp extends React.Component {
   render() {
     return (
       <View style={styles.container}>
+        <View style={{ paddingTop: 15 }}>
+          <Icon name="ios-arrow-round-back" size={34}
+            style={{ color: "#006805" }} onPress={() => { this.props.navigation.goBack() }} />
+        </View>
         <View style={{ justifyContent: 'center', alignItems: 'center', }}>
           <Text style={{ fontSize: 28, fontWeight: "600" }}>Đăng ký</Text>
           {this.state.errorMessage &&
@@ -162,7 +167,7 @@ export default class SignUp extends React.Component {
           onPress={() => this.props.navigation.navigate('Login')}>
           <Text style={{ color: "#007aff", fontSize: 16 }}>Bạn đã có tài khoản? Đăng nhập</Text>
         </TouchableOpacity>
-        
+
       </View>
     )
   }
@@ -170,9 +175,9 @@ export default class SignUp extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    paddingLeft: "10%",
-    paddingRight: "10%"
+    paddingLeft: 20,
+    paddingRight: 20,
+    alignSelf: "stretch",
   },
   buttonCreat: {
     height: 40,
@@ -184,7 +189,7 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 1 },
     shadowOpacity: 0.3,
     alignItems: 'center',
-    marginTop: 30
+    marginTop: 20
   },
   titleBold: {
     fontSize: 18,
@@ -201,7 +206,7 @@ const styles = StyleSheet.create({
     marginVertical: 8
   },
   viewInput: {
-    marginTop: 15,
+    marginTop: 5,
   },
   textError: {
     color: "red"

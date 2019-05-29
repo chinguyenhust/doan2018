@@ -1,8 +1,9 @@
 import React from 'react'
-import { StyleSheet, Text, TextInput, View, Button, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, TextInput, View, Button, TouchableOpacity, Image } from 'react-native';
 import firebase from 'react-native-firebase';
 import { Data } from '../../../api/Data';
 import CryptoJS from "react-native-crypto-js";
+import icon from '../../../assets/icon.png'
 
 import { YellowBox } from 'react-native';
 import FCM, { FCMEvent, RemoteNotificationResult, WillPresentNotificationResult, NotificationType } from "react-native-fcm";
@@ -22,7 +23,7 @@ export default class Login extends React.Component {
       .then(() => {
         Data.ref("users").orderByChild("email").equalTo(email)
           .on('value', ((snapshot) => {
-            snapshot.forEach((childSnapshot) =>{
+            snapshot.forEach((childSnapshot) => {
               key = childSnapshot.key;
               this.props.navigation.navigate('MyGroup', { "email": email, "user_id": key });
               FCM.requestPermissions();
@@ -43,6 +44,10 @@ export default class Login extends React.Component {
     return (
       <View style={styles.container}>
         <View style={{ justifyContent: 'center', alignItems: 'center', marginBottom: 30 }}>
+          <Image
+            style={{ width: 100, height: 100, marginBottom:10 }}
+            source={icon}
+          />
           <Text style={{ fontSize: 28, }}>Đăng nhập</Text>
           {this.state.errorMessage &&
             <Text style={{ color: 'red' }}>
