@@ -7,7 +7,7 @@ admin.initializeApp(functions.config().firebase);
 /**
  * Triggers when new subject added in the list and sends a notification.
  */
-exports.sendNotification = functions.database.ref('/events/{id}').onCreate((change, context) => {
+exports.addEvent = functions.database.ref('/events/{id}').onCreate((change, context) => {
 
   const subject = change.val();
 
@@ -67,7 +67,36 @@ exports.addSurvey = functions.database.ref('/surveys/{id}').onCreate((change, co
     });
 });
 
-exports.addMember = functions.database.ref('/groups/{id}').onCreate((change, context) => {
+exports.addMessage = functions.database.ref('/messages/{id}').onCreate((change, context) => {
+
+  const subject = change.val();
+
+  const payload = {
+    notification: {
+      title: 'Tin nhắn mới',
+      body: `${subject.user.name} vừa gửi 1 tin nhắn trong nhóm.`,
+      sound: 'default',
+      badge: '1'
+    },
+  };
+
+  const options = {
+    collapseKey: 'demo',
+    contentAvailable: true,
+    priority: 'high',
+    timeToLive: 60 * 60 * 24,
+  };
+
+  const topic = '/topics/' + subject.groupId;
+  return admin.messaging().sendToTopic(topic, payload, options)
+    .then((response) => {
+      console.log('Successfully sent message:', response);
+      return null;
+    });
+});
+
+
+exports.addMember = functions.database.ref('/group_users/{id}').onCreate((change, context) => {
 
   const subject = change.val();
 
@@ -87,27 +116,88 @@ exports.addMember = functions.database.ref('/groups/{id}').onCreate((change, con
     timeToLive: 60 * 60 * 24,
   };
 
-  const topic = '/topics/' + subject.group_id;
-  return admin.messaging().sendToTopic(topic, payload, options)
-    .then((response) => {
-      console.log('Successfully sent message:', response);
-      return null;
-    });
+  return admin.database().ref('tokenFCM').child(subject.user_id)
+    .once('value', (snapshot1) => {
+      token = snapshot1.val().token
+      return admin.messaging().sendToDevice(token, payload, options);
+    })
+
 });
 
-exports.updateGroup = functions.database.ref('/groups/{id}/isOnMap').onUpdate((change, context) => {
+exports.updateEvent = functions.database.ref('/events/{id}').onUpdate((change, context) => {
 
-  const subject = change.val();
-  if (snap.after.val().statusAgree === 'đồng ý')
-
-  const payload = {
-    notification: {
-      title: `${subject.name}`,
-      body: ` Bạn vừa được thêm vào nhóm mới.`,
-      sound: 'default',
-      badge: '1'
-    },
+  const options = {
+    collapseKey: 'demo',
+    contentAvailable: true,
+    priority: 'high',
+    timeToLive: 60 * 60 * 24,
   };
+  const topic = '/topics/' + change.after.val().groupId;
+
+  if (change.after.val().name !== change.before.val().name){
+    const payload = {
+      notification: {
+        title: 'Doan2018',
+        body: ` ${change.before.val().name} đã đổi tên là ${change.after.val().name}.`,
+        sound: 'default',
+        badge: '1'
+      },
+    };
+    
+    return admin.messaging().sendToTopic(topic, payload, options)
+      .then((response) => {
+        console.log('Successfully sent message:', response);
+        return null;
+      });
+  } else if(change.after.val().time !== change.before.val().time){
+    const payload = {
+      notification: {
+        title: 'Doan2018',
+        body: ` ${change.after.val().name} đã đổi thời gian kế hoạch sang ${change.after.val().time}.`,
+        sound: 'default',
+        badge: '1'
+      },
+    };
+    
+    return admin.messaging().sendToTopic(topic, payload, options)
+      .then((response) => {
+        console.log('Successfully sent message:', response);
+        return null;
+      });
+  }else if(change.after.val().address !== change.before.val().address){
+    const payload = {
+      notification: {
+        title: 'Doan2018',
+        body: ` ${change.after.val().name} đã đổi địa chỉ kế hoạch sang ${change.after.val().address}.`,
+        sound: 'default',
+        badge: '1'
+      },
+    };
+    
+    return admin.messaging().sendToTopic(topic, payload, options)
+      .then((response) => {
+        console.log('Successfully sent message:', response);
+        return null;
+      });
+  }else if(change.after.val().description !== change.before.val().description){
+    const payload = {
+      notification: {
+        title: 'Doan2018',
+        body: ` ${change.after.val().name} đã đổi mô tả kế hoạch là ${change.after.val().description}.`,
+        sound: 'default',
+        badge: '1'
+      },
+    };
+    
+    return admin.messaging().sendToTopic(topic, payload, options)
+      .then((response) => {
+        console.log('Successfully sent message:', response);
+        return null;
+      });
+  }
+});
+
+exports.updateGroup = functions.database.ref('/groups/{id}').onUpdate((change, context) => {
 
   const options = {
     collapseKey: 'demo',
@@ -116,38 +206,70 @@ exports.updateGroup = functions.database.ref('/groups/{id}/isOnMap').onUpdate((c
     timeToLive: 60 * 60 * 24,
   };
 
-  const topic = '/topics/' + subject.group_id;
-  return admin.messaging().sendToTopic(topic, payload, options)
-    .then((response) => {
-      console.log('Successfully sent message:', response);
-      return null;
-    });
-});
+  const topic = '/topics/' + context.params.id;
+  if (change.after.val().isOnMap !== change.before.val().isOnMap) {
+    if (change.after.val().isOnMap === true) {
+      const payload = {
+        notification: {
+          title: `Doan 2018`,
+          body: ` ${change.after.val().name} đã được bật định vị nhóm`,
+          sound: 'default',
+          badge: '1'
+        },
+      };
 
-exports.acceptPosition = functions.database.ref('/groups/{id}').onUpdate((change, context) => {
+      return admin.messaging().sendToTopic(topic, payload, options)
+        .then((response) => {
+          console.log('Successfully sent message:', response);
+          return null;
+        });
 
-  const subject = change.val();
+    } else {
+      const payload = {
+        notification: {
+          title: `Doan 2018`,
+          body: ` ${change.after.val().name} đã tắt bật định vị nhóm`,
+          sound: 'default',
+          badge: '1'
+        },
+      };
 
-  const payload = {
-    notification: {
-      title: `${subject.name}`,
-      body: ` Bạn vừa được thêm vào nhóm mới.`,
-      sound: 'default',
-      badge: '1'
-    },
-  };
+      return admin.messaging().sendToTopic(topic, payload, options)
+        .then((response) => {
+          console.log('Successfully sent message:', response);
+          return null;
+        });
+    }
+  } else if (change.after.val().name !== change.before.val().name) {
+    const payload = {
+      notification: {
+        title: `Doan 2018`,
+        body: ` ${change.before.val().name} đã thay đổi tên nhóm thành ${change.after.val().name}`,
+        sound: 'default',
+        badge: '1'
+      },
+    };
 
-  const options = {
-    collapseKey: 'demo',
-    contentAvailable: true,
-    priority: 'high',
-    timeToLive: 60 * 60 * 24,
-  };
+    return admin.messaging().sendToTopic(topic, payload, options)
+      .then((response) => {
+        console.log('Successfully sent message:', response);
+        return null;
+      });
+  }else if (change.after.val().schedule !== change.before.val().schedule) {
+    const payload = {
+      notification: {
+        title: `Doan 2018`,
+        body: ` ${change.after.val().name} đã thay đổi lịch trình nhóm`,
+        sound: 'default',
+        badge: '1'
+      },
+    };
 
-  const topic = '/topics/' + subject.group_id;
-  return admin.messaging().sendToTopic(topic, payload, options)
-    .then((response) => {
-      console.log('Successfully sent message:', response);
-      return null;
-    });
+    return admin.messaging().sendToTopic(topic, payload, options)
+      .then((response) => {
+        console.log('Successfully sent message:', response);
+        return null;
+      });
+  }
+
 });

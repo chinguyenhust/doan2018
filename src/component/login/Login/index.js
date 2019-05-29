@@ -28,7 +28,7 @@ export default class Login extends React.Component {
               FCM.requestPermissions();
 
               FCM.getFCMToken().then(token => {
-                console.log(token)
+                // console.log(token)
                 Data.ref('tokenFCM').child(key).set({ token: token })
               });
             })

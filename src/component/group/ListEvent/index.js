@@ -56,7 +56,7 @@ export default class ListEvent extends Component {
     events.orderByChild("groupId").equalTo(groupId).on("child_removed", (snapshot) => {
       var items = this.state.items;
       var arr = [];
-      
+
       items.map(item => {
         if (item.id !== snapshot.key) {
           arr.push({
@@ -71,7 +71,7 @@ export default class ListEvent extends Component {
             isDelete: item.isDelete
           })
           this.setState({ items: arr })
-        }else{
+        } else {
           this.setState({ items: arr })
         }
       })
@@ -115,7 +115,7 @@ export default class ListEvent extends Component {
     events.orderByChild("groupId").equalTo(groupId).on("child_removed", (snapshot) => {
       var items = this.state.items;
       var arr = [];
-      
+
       items.map(item => {
         if (item.id !== snapshot.key) {
           arr.push({
@@ -130,7 +130,7 @@ export default class ListEvent extends Component {
             isDelete: item.isDelete
           })
           this.setState({ items: arr })
-        }else{
+        } else {
           this.setState({ items: arr })
         }
       })
@@ -227,30 +227,46 @@ export default class ListEvent extends Component {
                       }
                     </View>
 
-                    <TouchableOpacity style={styles.info} onPress={() => navigate("DetailEvent", { id: item.id })}>
-                      <Text style={styles.textName}>{item.name}</Text>
-                      <Text style={styles.textView} numberOfLines={1}>{item.description}</Text>
-                      <View style={{ flexDirection: "row" }}>
+                    <View style={styles.info} >
+                    {/* onPress={() => navigate("DetailEvent", { id: item.id , uid: uid})} */}
+                      <Text style={styles.textName} numberOfLines={2}>{item.name}</Text>
+                      <Text style={styles.textView} numberOfLines={2}>{item.description}</Text>
+                      <View style={{ flexDirection: "row" , paddingTop:6, paddingBottom: 3}}>
                         <IconClock name="clock" size={20} style={{ color: "#007aff", marginRight: 8 }} />
                         <Text style={styles.textView}>{(item.time).substr(11, (item.time).length)}</Text>
                       </View>
-                      <View style={{ flexDirection: "row" }}>
+                      <View style={{ flexDirection: "row", width:"90%", paddingTop:3, paddingBottom: 3}}>
                         <IconLocation name="location" size={20} style={{ color: "#007aff", marginRight: 8 }} />
-                        <Text style={styles.textView} numberOfLines={1}>{item.address}</Text>
+                        <View>
+                        <Text style={styles.textView} numberOfLines={2}>{item.address}</Text>
+                        </View>
                       </View>
                       <Text style={styles.textView}>{this.getTime(item.time)}</Text>
-                    </TouchableOpacity>
+                    </View>
 
                     {(uid === leaderId) &&
                       <View style={{ flexDirection: "column" }}>
-                        <TouchableOpacity style={{ flex: 1, justifyContent: "center" }} onPress={() => this.hanldeDelete(item.id)}>
+                        <TouchableOpacity style={{ flex: 1, justifyContent: "center" }}
+                          onPress={() => this.hanldeDelete(item.id)}>
                           <IconDelete name="delete" size={24}
                             style={{ color: "gray" }}
                           />
+                        </TouchableOpacity >
+                        <TouchableOpacity style={{ flex: 1, justifyContent: "center" }}
+                          onPress={() => {
+                            navigate('EditEvent', {
+                              "name": item.name,
+                              "description": item.description,
+                              "time": item.time,
+                              "address": item.address,
+                              "id": item.id,
+                              "groupId": item.groupId
+                            });
+                          }}>
+                          <IconEdit name="edit"
+                            style={{ fontSize: 24, color: "gray" }}
+                          />
                         </TouchableOpacity>
-                        <IconEdit name="edit"
-                          style={{ fontSize: 24, color: "gray", flex: 1 }}
-                        />
                       </View>
                     }
                   </View>

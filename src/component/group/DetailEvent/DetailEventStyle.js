@@ -35,6 +35,11 @@ const styles = StyleSheet.create({
         alignItems: "center",
         marginTop: 50
     },
+    text :{
+        color:"#000000",
+        fontSize:16,
+        fontWeight: "600"
+    }
     
 });
 

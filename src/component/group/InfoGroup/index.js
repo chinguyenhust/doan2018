@@ -9,6 +9,7 @@ import MultiSelect from '../../home/MultiSelect';
 import { Data } from "../../../api/Data";
 import * as firebase from 'firebase';
 import ImageResizer from 'react-native-image-resizer';
+import IconEdit from 'react-native-vector-icons/MaterialIcons';
 
 let users = Data.ref('/users');
 
@@ -84,7 +85,7 @@ export default class InfoGroup extends Component {
     const uid = this.props.navigation.state.params.uid;
     Data.ref("groups").child(groupId).on("value", (snapshot) => {
       var data = snapshot.val();
-      if((this.toDate(data.startDate).getTime() > new Date().getTime()) || (new Date().getTime() > (this.toDate(data.untilDate).getTime()))){
+      if ((this.toDate(data.startDate).getTime() > new Date().getTime()) || (new Date().getTime() > (this.toDate(data.untilDate).getTime()))) {
         Data.ref("groups").child(groupId).update(
           {
             isOnMap: false,
@@ -113,31 +114,31 @@ export default class InfoGroup extends Component {
         untilDate: data.untilDate,
         schedule: data.schedule,
         avatar: data.avatar,
-        isOn:data.isOnMap
+        isOn: data.isOnMap
       })
     })
   }
 
-  _handleEdit = () => {
-    const groupId = this.props.navigation.state.params.groupId;
-    var { name, schedule, image, selectedItems } = this.state;
-    var user = firebase.auth().currentUser;
-    Data.ref("groups").child(groupId).update(
-      {
-        name: name,
-        schedule: schedule,
-        avatar: image,
-        // members: selectedItems,
-        created_update: firebase.database.ServerValue.TIMESTAMP,
-        userUpdate: user.uid
-      }
-    ).then(() => {
-      console.log("Success !");
-    }).catch((error) => {
-      console.log(error);
-    });
-    this.props.navigation.navigate("DetailGroup", { name: name })
-  }
+  // _handleEdit = () => {
+  //   const groupId = this.props.navigation.state.params.groupId;
+  //   var { name, schedule, image, selectedItems } = this.state;
+  //   var user = firebase.auth().currentUser;
+  //   Data.ref("groups").child(groupId).update(
+  //     {
+  //       name: name,
+  //       schedule: schedule,
+  //       avatar: image,
+  //       // members: selectedItems,
+  //       created_update: firebase.database.ServerValue.TIMESTAMP,
+  //       userUpdate: user.uid
+  //     }
+  //   ).then(() => {
+  //     console.log("Success !");
+  //   }).catch((error) => {
+  //     console.log(error);
+  //   });
+  //   this.props.navigation.navigate("DetailGroup", { name: name })
+  // }
 
   uploadImage = async uri => {
     try {
@@ -234,7 +235,7 @@ export default class InfoGroup extends Component {
     this.setState({
       enableScrollViewScroll: value,
     });
-    
+
   };
 
   handleToggle = () => {
@@ -258,33 +259,53 @@ export default class InfoGroup extends Component {
     return new Date(parts[2], parts[1] - 1, parts[0])
   }
 
+  _handleEdit =() => {
+    this.props.navigation.navigate('EditGroup', {
+      "name": this.state.name,
+      "description": this.state.description,
+      "startDate": this.state.startDate,
+      "untilDate": this.state.untilDate,
+      "schedule": this.state.schedule,
+      "avatar": this.state.avatar,
+      "groupId": this.props.navigation.state.params.groupId,
+      "uid": this.props.navigation.state.params.uid,
+      "members": this.state.items,
+    });
+  }
+
 
   render() {
     const { selectedItems, items, avatar, name, schedule, isSwitch,
       description, startDate, untilDate, leader_name, leader_sdt } = this.state;
     const { navigate } = this.props.navigation;
-    
+
     return (
       <View style={styles.container}>
 
-        <View style={{ height: 56, flexDirection: "row", paddingLeft: 20, backgroundColor: "#006805", alignItems: "center" }}>
-          <Icon name="ios-arrow-round-back" size={34}
-            style={{ width: "15%", color: "#ffffff" }} onPress={() => { this.props.navigation.goBack() }} />
-
+        <View style={{ height: 56, flexDirection: "row", paddingLeft: 20,paddingRight: 20, backgroundColor: "#006805", alignItems: "center" }}>
+          <View style={{justifyContent:"flex-start", flex:9}}>
+            <Icon name="ios-arrow-round-back" size={34}
+              style={{ color: "#ffffff" }} onPress={() => { this.props.navigation.goBack() }} />
+          </View>
+          <View style={{justifyContent:"flex-end", flex:1}}>
+            <IconEdit name="edit"
+              style={{ fontSize: 24, color: "#ffffff" }}
+              onPress={this._handleEdit}
+            />
+          </View>
         </View>
 
         <ScrollView
           style={{ paddingLeft: 20, paddingRight: 20, marginBottom: 40 }}
-        // scrollEnabled={this.state.enableScrollViewScroll}
+          scrollEnabled={this.state.enableScrollViewScroll}
         >
           <TouchableOpacity style={{ alignItems: 'center' }} onPress={this.chooseFile.bind(this)}>
-            {(avatar === null) ?
-              <IconAdd name="add-circle" size={120} style={{ color: "gray" }} /> :
+          
               <Image
-                source={{ uri: avatar }}
+                source={{ uri: (avatar) ? avatar :"https://facebook.github.io/react-native/docs/assets/favicon.png"  }}
                 style={{ width: 100, height: 100, borderRadius: 50, marginTop: 10 }}
               />
-            }
+            
           </TouchableOpacity>
 
           <View style={{ alignItems: "center", justifyContent: "center", marginTop: 25 }}>
@@ -343,12 +364,12 @@ export default class InfoGroup extends Component {
               <View style={{ height: 200 }}>
                 <FlatList
                   data={items}
-                  // onTouchStart={() => {
-                  //   this.onEnableScroll(false);
-                  // }}
-                  // onMomentumScrollEnd={() => {
-                  //   this.onEnableScroll(true);
-                  // }}
+                  onTouchStart={() => {
+                    this.onEnableScroll(false);
+                  }}
+                  onMomentumScrollEnd={() => {
+                    this.onEnableScroll(true);
+                  }}
                   renderItem={
                     ({ item }) =>
                       <View style={{ flexDirection: 'row', }}>

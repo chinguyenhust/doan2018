@@ -91,7 +91,7 @@ export default class Map extends Component {
                 <Marker
                   // title={option.userName}
                   coordinate={option.position}
-                  pinColor="#006805"
+                  pinColor="#8e2176"
                 >
                   <Callout>
                     <View>

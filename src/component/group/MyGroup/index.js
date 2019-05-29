@@ -75,7 +75,10 @@ export default class MyGroup extends Component {
   watchID: ?number = null;
 
   async componentDidMount() {
-    var { items, groupActive, groupDone, groupFuture } = this.state;
+    var items = [];
+     var groupActive = [];
+    var groupDone = [];
+    var groupFuture = [];
     var email = this.props.navigation.state.params.email;
     var user_id = this.props.navigation.state.params.user_id;
     navigator.geolocation.getCurrentPosition((position) => {
@@ -143,7 +146,7 @@ export default class MyGroup extends Component {
                   isOnMap: false,
                 }
               ).then(() => {
-                console.log("Success !");
+                // console.log("Success !");
               }).catch((error) => {
                 console.log(error);
               });
@@ -317,7 +320,7 @@ export default class MyGroup extends Component {
                   isOnMap: false,
                 }
               ).then(() => {
-                console.log("Success !");
+                // console.log("Success !");
               }).catch((error) => {
                 console.log(error);
               });

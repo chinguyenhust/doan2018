@@ -1,7 +1,7 @@
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
 import React from 'react'
 const API_KEY = 'AIzaSyBDZSUAda65OflvYZmZ4G5XSGONZv3pkuY';
-const PlaceAutoComplete = ({handleSelectAddress}) => (
+const PlaceAutoComplete = ({handleSelectAddress, address}) => (
     <GooglePlacesAutocomplete placeholder='Nhập địa chỉ' minLength={2}
       autoFocus={false}
       fetchDetails={true} 
@@ -11,7 +11,7 @@ const PlaceAutoComplete = ({handleSelectAddress}) => (
         handleSelectAddress(data, details)
         // console.log(data,details)
       }
-      getDefaultValue={() => { return ''; }}
+      getDefaultValue={() => { return (address) ? address : ''; }}
       query={{
         key: API_KEY,
         language: 'vi',

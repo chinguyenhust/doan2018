@@ -169,13 +169,20 @@ export default class RangeDatepicker extends Component {
 
   handleConfirmDate() {
     var startDate = moment(this.state.startDate).format("DD-MM-YYYY");
-    var untilDate = moment(this.state.untilDate).format("DD-MM-YYYY")
+    var untilDate = moment(this.state.untilDate).format("DD-MM-YYYY");
+    var isEdit = this.props.navigation.state.params.isEdit;
     this.props.onConfirm && this.props.onConfirm(this.state.startDate, this.state.untilDate);
     if (this.state.startDate && this.state.untilDate) {
-      this.props.navigation.navigate('CreatGroup', {
-        startDate: startDate,
-        untilDate: untilDate
-      });
+      (isEdit) ?
+        this.props.navigation.navigate('EditGroup', {
+          startDate: startDate,
+          untilDate: untilDate
+        })
+        :
+        this.props.navigation.navigate('CreatGroup', {
+          startDate: startDate,
+          untilDate: untilDate
+        });
     }
   }
 
@@ -213,14 +220,14 @@ export default class RangeDatepicker extends Component {
 
     return (
       <View style={{ backgroundColor: '#fff', zIndex: 1000, alignSelf: 'center', paddingTop: Platform.OS === 'ios' ? 30 : 0, }}>
-        <View style={{ height: 56,  flexDirection: "row", backgroundColor:"#006805", alignItems: "center", paddingLeft: 15 }}>
+        <View style={{ height: 56, flexDirection: "row", backgroundColor: "#006805", alignItems: "center", paddingLeft: 15 }}>
           <Icon name="ios-arrow-round-back"
             style={{ marginLeft: 20, color: "#ffffff" }} size={34}
             onPress={() => this.props.navigation.goBack(null, {
               startDate: startDate,
               untilDate: untilDate
             })} />
-          <Text style={{ fontSize: 20, marginLeft: 20, fontWeight: "600", color: "#ffffff"}}>Chọn ngày</Text>
+          <Text style={{ fontSize: 20, marginLeft: 20, fontWeight: "600", color: "#ffffff" }}>Chọn ngày</Text>
         </View>
         {/* {
           this.props.showClose || this.props.showReset ?

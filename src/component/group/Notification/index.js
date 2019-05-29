@@ -51,7 +51,7 @@ export default class Notification extends Component {
             style={{ width: "15%", color: "#ffff" }}
             onPress={() => { this.props.navigation.goBack() }} />
           <View style={{justifyContent:"center"}}>
-            <Text style={{ color: "#ffffff", fontSize: 20, fontWeight: "600" }}>Thong bao</Text>
+            <Text style={{ color: "#ffffff", fontSize: 20, fontWeight: "600" }}>Thông báo</Text>
           </View>
         </View>
 
