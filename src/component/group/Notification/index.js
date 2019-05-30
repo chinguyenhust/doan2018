@@ -15,10 +15,7 @@ export default class Notification extends Component {
     super(props);
     this.state = {
       items: [],
-      isHome: this.props.navigation.state.params.isHome,
-      isSearch: this.props.navigation.state.params.isSearch,
-      isNoti: this.props.navigation.state.params.isNoti,
-      isUser: this.props.navigation.state.params.isUser,
+     
     }
   }
 
@@ -124,85 +121,6 @@ export default class Notification extends Component {
               </View>
           }
         />
-
-        <View style={styles.tapbar}>
-          <TouchableOpacity style={styles.tapItem}
-            onPress={() => {
-              navigate("MyGroup",{
-                "isHome":true,
-                "isSearch":false,
-                "isNoti":false,
-                "isUser":false
-              });
-              
-            }
-            }>
-            <View style={{ flex: 2, justifyContent: "center" }}>
-              <IconHome name="home"
-                style={{ fontSize: 20, color: (isHome) ? "#008605" : "#bcbcbc" }}
-              />
-            </View>
-            <Text style={{ color: (isHome) ? "#008605" : "#bcbcbc" }}>Nhóm của tôi</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity style={styles.tapItem}
-            onPress={() => {
-              navigate("SearchScreen",{
-                "email": this.props.navigation.state.params.email,
-                "isHome": false,
-                "isSearch": true,
-                "isNoti": false,
-                "isUser": false
-              });
-              
-            }}>
-            <View style={{ flex: 2, justifyContent: "center" }}>
-              <Icon name="ios-search"
-                style={{ fontSize: 20, color: (isSearch) ? "#008605" : "#bcbcbc" }}
-              />
-            </View>
-            <Text style={{ color: (isSearch) ? "#008605" : "#bcbcbc" }}>Khám phá</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity style={styles.tapItem}
-            onPress={() => {
-              navigate("Notification", {
-                "email": this.props.navigation.state.params.email,
-              "isHome": false,
-              "isSearch": false,
-              "isNoti": true,
-              "isUser": false});
-              
-            }
-            }>
-            <View style={{ flex: 2, justifyContent: "center" }}>
-              <IconNotifi name="ios-notifications"
-                style={{ fontSize: 20, color: (isNoti) ? "#008605" : "#bcbcbc" }}
-              />
-            </View>
-            <Text style={{ color: (isNoti) ? "#008605" : "#bcbcbc" }}>Thông báo</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity style={styles.tapItem}
-            onPress={() => {
-              navigate("UserInfo", {
-                "email": this.props.navigation.state.params.email,
-                "isHome": false,
-                "isSearch": false,
-                "isNoti": false,
-                "isUser": true
-              })
-              
-            }
-            }>
-            <View style={{ flex: 2, justifyContent: "center" }}>
-              <IconUser name="user-circle"
-                style={{ fontSize: 20, color: (isUser) ? "#008605" : "#bcbcbc" }}
-              />
-            </View>
-            <Text style={{ color: (isUser) ? "#008605" : "#bcbcbc" }}>Tôi</Text>
-          </TouchableOpacity>
-        </View>
 
       </View>
     );
