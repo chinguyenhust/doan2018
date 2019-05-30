@@ -273,3 +273,32 @@ exports.updateGroup = functions.database.ref('/groups/{id}').onUpdate((change, c
   }
 
 });
+
+exports.addSurvey = functions.database.ref('/surveys/{id}').o((change, context) => {
+
+  const subject = change.val();
+
+  const payload = {
+    notification: {
+      title: 'Khảo sát mới',
+      body: `${subject.userNameCreated} vừa tạo một cuộc thăm dò ý kiến ${subject.question} trong nhóm ${subject.groupName}`,
+      sound: 'default',
+      badge: '1'
+    },
+  };
+
+  const options = {
+    collapseKey: 'demo',
+    contentAvailable: true,
+    priority: 'high',
+    timeToLive: 60 * 60 * 24,
+  };
+
+  const topic = '/topics/' + subject.groupId;
+  return admin.messaging().sendToTopic(topic, payload, options)
+    .then((response) => {
+      console.log('Successfully sent message:', response);
+      return null;
+    });
+});
+

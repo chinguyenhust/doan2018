@@ -156,15 +156,15 @@ export default class ListEvent extends Component {
         var gio = phut / 60;
         if (gio >= 24) {
           var ngay = gio / 24;
-          return "Con " + Math.round(ngay) + " ngay";
+          return "Còn " + Math.round(ngay) + " ngày";
         } else {
-          return "Con " + Math.round(gio) + " gio";
+          return "Còn " + Math.round(gio) + " giờ";
         }
       } else {
-        return "Con" + Math.round(phut) + "phut";
+        return "Còn" + Math.round(phut) + "phút";
       }
     } else {
-      return "Ke hoach da ket thuc"
+      return "Kế hoạch đã kết thúc"
     }
   }
 

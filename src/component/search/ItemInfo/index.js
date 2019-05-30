@@ -43,7 +43,7 @@ export default class ItemInfo extends React.Component {
         </View>
         {/* String url = https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=PHOTOREF&key=YOUR_API_KEY */}
 
-        {(data) ?
+        {(data.length > 0) ?
         <FlatList
           data={data}
           renderItem={
@@ -95,7 +95,7 @@ export default class ItemInfo extends React.Component {
           }
         />
         :
-        <View style={{marginTop:200, justifyContent:"center"}}>
+        <View style={{marginTop:200, justifyContent:"center", alignItems:"center"}}>
           <Text style={{fontSize:18, color:"#000000"}}>Hiện tại chưa có dữ liệu</Text>
         </View>
         }
