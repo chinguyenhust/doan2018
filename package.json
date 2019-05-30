@@ -27,6 +27,7 @@
     "react-native-radio-buttons-group": "^1.0.7",
     "react-native-searchable-list": "^1.1.3",
     "react-native-simple-dialogs": "^1.1.0",
+    "react-native-tabbar-bottom": "^1.0.4",
     "react-native-vector-icons": "^6.4.2",
     "react-navigation": "^3.5.1",
     "toggle-switch-react-native": "^2.0.2"

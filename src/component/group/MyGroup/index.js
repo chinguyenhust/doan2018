@@ -7,12 +7,14 @@ import IconDescription from 'react-native-vector-icons/MaterialIcons';
 import IconUser from 'react-native-vector-icons/FontAwesome5';
 import IconDiamond from 'react-native-vector-icons/FontAwesome';
 import IconNotifi from 'react-native-vector-icons/Ionicons';
+import IconHome from "react-native-vector-icons/Entypo";
 import { SearchableFlatList } from "react-native-searchable-list";
 import { Data } from "../../../api/Data";
 import { ProgressDialog } from 'react-native-simple-dialogs';
 import IconClock from 'react-native-vector-icons/Entypo';
 import FCM from 'react-native-fcm';
 import firebase from 'react-native-firebase';
+
 
 const { width, height } = Dimensions.get('window')
 const SCREEN_HEIGHT = height;
@@ -55,6 +57,10 @@ export default class MyGroup extends Component {
         latitude: 0,
         longtitude: 0
       },
+      isHome: true,
+      isSearch: false,
+      isNoti: false,
+      isUser: false,
     }
   }
 
@@ -388,32 +394,17 @@ export default class MyGroup extends Component {
   render() {
     const { navigate } = this.props.navigation;
     const { groupActive, searchTerm, searchAttribute,
-      ignoreCase, groupFuture, groupDone, userLocation } = this.state;
+      ignoreCase, groupFuture, groupDone, userLocation , isHome, isNoti, isSearch, isUser} = this.state;
     var uid = this.props.navigation.state.params.user_id;
 
     return (
       <View style={styles.container}>
         <StatusBar backgroundColor="#003c00" barStyle="light-content" />
         <View style={styles.header}>
-          <View style={{ height: 56, flexDirection: "row", justifyContent: "center", alignItems: "center", backgroundColor: "#006805" }}>
-            <View style={{ flex: 5, alignItems: "center" }}>
-              <Text style={{ fontSize: 20, fontWeight: "600", color: "#ffffff" }}>Nhóm của tôi</Text>
-            </View>
-            <Icon name="ios-search"
-              style={{ fontSize: 24, color: "#ffffff", flex: 1 }}
-              onPress={() => navigate("SearchScreen", { "userLocation": userLocation })}
-            />
-            <IconNotifi name="ios-notifications"
-              style={{ fontSize: 24, flex: 1, color: "#ffffff" }}
-              onPress={() => navigate("Notification")}
-            />
-            <IconUser name="user-circle"
-              style={{ fontSize: 24, flex: 1, color: "#ffffff" }}
-              onPress={() => navigate("UserInfo", {
-                "email": this.props.navigation.state.params.email,
-                "userId": this.state.userId
-              })}
-            />
+          <View style={{ height: 56, flexDirection: "row", alignItems: "center", width:"100%", backgroundColor: "#006805", paddingLeft:20 }}>
+
+            <Text style={{ fontSize: 20, fontWeight: 'bold', color: "#ffffff" }}>Nhóm của tôi</Text>
+
           </View>
         </View>
 
@@ -531,7 +522,7 @@ export default class MyGroup extends Component {
               keyExtractor={item => item.id}
             />
 
-            {(groupDone.length >0) &&
+            {(groupDone.length > 0) &&
               <View>
                 <View style={{ height: 5, backgroundColor: "#ebebeb", marginTop: 5 }}></View>
                 <View style={{ paddingLeft: 20, marginTop: 20 }}>
@@ -594,10 +585,106 @@ export default class MyGroup extends Component {
         }
 
         <TouchableOpacity
-          style={{ zIndex: 1000, bottom: 30, justifyContent: 'flex-end', marginLeft: "80%", position: 'absolute' }}
+          style={{ zIndex: 1000, bottom: 50, justifyContent: 'flex-end', marginLeft: "80%", position: 'absolute' }}
           onPress={() => navigate("CreatGroup", { uid: uid })}>
           <IconAdd name="add-circle" size={60} style={{ color: "#006805" }} />
         </TouchableOpacity>
+
+        <View style={styles.tapbar}>
+          <TouchableOpacity style={ styles.tapItem}
+            onPress={() => {
+              navigate("MyGroup");
+              this.setState({
+                isHome: true,
+                isSearch: false,
+                isNoti: false,
+                isUser: false,
+              })
+            }
+            }>
+            <View style={{ flex: 2, justifyContent: "center" }}>
+              <IconHome name="home"
+                style={{ fontSize: 20, color: (isHome) ? "#008605" :"#bcbcbc"}}
+              />
+            </View>
+            <Text style={{color: (isHome) ? "#008605" :"#bcbcbc" }}>Nhóm của tôi</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity style={ styles.tapItem}
+            onPress={() => {
+              navigate("SearchScreen",{
+                "email": this.props.navigation.state.params.email,
+                "isHome":false,
+                "isSearch":true,
+                "isNoti":false,
+                "isUser":false
+              });
+              this.setState({
+                isHome: false,
+                isSearch: true,
+                isNoti: false,
+                isUser: false,
+              })
+            }}>
+            <View style={{ flex: 2, justifyContent: "center" }}>
+              <Icon name="ios-search"
+                style={{ fontSize: 20, color: (isSearch) ? "#008605" :"#bcbcbc"  }}
+              />
+            </View>
+            <Text style={{color: (isSearch) ? "#008605" :"#bcbcbc" }}>Khám phá</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity style={ styles.tapItem}
+            onPress={() => {
+              navigate("Notification",{
+                "email": this.props.navigation.state.params.email,
+                "isHome":false,
+                "isSearch":false,
+                "isNoti":true,
+                "isUser":false
+              });
+              this.setState({
+                isHome: false,
+                isSearch: false,
+                isNoti: true,
+                isUser: false,
+              })
+            }
+            }>
+            <View style={{ flex: 2, justifyContent: "center" }}>
+              <IconNotifi name="ios-notifications"
+                style={{ fontSize: 20, color: (isNoti) ? "#008605" :"#bcbcbc" }}
+              />
+            </View>
+            <Text style={{color: (isNoti) ? "#008605" :"#bcbcbc" }}>Thông báo</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity style={ styles.tapItem}
+            onPress={() => {
+              navigate("UserInfo", {
+                "email": this.props.navigation.state.params.email,
+                "userId": this.state.userId,
+                "isHome":false,
+                "isSearch":false,
+                "isNoti":false,
+                "isUser":true
+              })
+              this.setState({
+                isHome: false,
+                isSearch: false,
+                isNoti: false,
+                isUser: true,
+              })
+            }
+            }>
+            <View style={{ flex: 2, justifyContent: "center" }}>
+              <IconUser name="user-circle"
+                style={{ fontSize: 20, color: (isUser) ? "#008605" :"#bcbcbc" }}
+              />
+            </View>
+            <Text style={{color: (isUser) ? "#008605" :"#bcbcbc" }}>Tôi</Text>
+          </TouchableOpacity>
+        </View>
 
       </View>
     );
