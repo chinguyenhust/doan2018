@@ -3332,8 +3332,15 @@ public final class R {
     public static final int notification_tile_bg=0x7f06007f;
     public static final int notify_panel_notification_icon_bg=0x7f060080;
     public static final int redbox_top_border_background=0x7f060081;
-    public static final int tooltip_frame_dark=0x7f060082;
-    public static final int tooltip_frame_light=0x7f060083;
+    public static final int src_assets_bank=0x7f060082;
+    public static final int src_assets_cafe=0x7f060083;
+    public static final int src_assets_camera=0x7f060084;
+    public static final int src_assets_hotel=0x7f060085;
+    public static final int src_assets_icon=0x7f060086;
+    public static final int src_assets_petrolimex=0x7f060087;
+    public static final int src_assets_restaurant=0x7f060088;
+    public static final int tooltip_frame_dark=0x7f060089;
+    public static final int tooltip_frame_light=0x7f06008a;
   }
   public static final class id {
     public static final int ALT=0x7f070000;

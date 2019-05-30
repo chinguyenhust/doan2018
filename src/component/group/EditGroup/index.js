@@ -103,7 +103,7 @@ _handleUpDateInfoGroup = () => {
     }).catch((error) => {
       console.log(error);
     });
-    this.props.navigation.navigate("DetailGroup", { name: name, groupId: this.state.group_id })
+    this.props.navigation.navigate("MyGroup", { name: name, groupId: this.state.group_id })
   } else {
     Alert.alert(
       'Thông báo',

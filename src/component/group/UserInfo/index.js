@@ -10,6 +10,11 @@ import IconLogOut from 'react-native-vector-icons/AntDesign';
 import { Data } from "../../../api/Data";
 import * as firebase from 'firebase';
 import FCM from 'react-native-fcm';
+// import Icon from 'react-native-vector-icons/Ionicons';
+// import icon from '../../../assets/icon.png';
+// import IconUser from 'react-native-vector-icons/FontAwesome5';
+import IconNotifi from 'react-native-vector-icons/Ionicons';
+import IconHome from "react-native-vector-icons/Entypo";
 
 
 let group_user = Data.ref('/group_users');
@@ -22,6 +27,11 @@ export default class UserInfo extends Component {
       email: "",
       phone: "",
       avatar: "",
+      isHome: this.props.navigation.state.params.isHome,
+      isSearch: this.props.navigation.state.params.isSearch,
+      isNoti: this.props.navigation.state.params.isNoti,
+      isUser: this.props.navigation.state.params.isUser,
+      userid: this.props.navigation.state.params.userId
     }
   }
 
@@ -63,17 +73,14 @@ export default class UserInfo extends Component {
   }
 
   render() {
-    const { name, phone, avatar, email } = this.state;
-    console.log(avatar)
+    const { name, phone, avatar, email, isHome, isNoti, isSearch, isUser } = this.state;
+    const { navigate } = this.props.navigation;
     return (
       <View style={styles.container}>
         <View style={styles.header}>
           <View style={{ height: 56, flexDirection: "row", justifyContent: "center", alignItems: "center", backgroundColor: "#006805" }}>
-            <Icon name="ios-arrow-round-back" size={34}
-              style={{ width: "15%", paddingLeft: 20, color: "#ffffff" }}
-              onPress={() => { this.props.navigation.goBack() }}
-            />
-            <View style={{ alignItems: "center", width: "70%" }}>
+
+            <View style={{ paddingLeft:25, width: "85%" }}>
               <Text style={{ fontSize: 20, color: "#ffffff", fontWeight: "600" }}>Thông tin tài khoản</Text>
             </View>
             <View style={{ width: "15%", alignItems: "center" }}>
@@ -125,15 +132,102 @@ export default class UserInfo extends Component {
           <TouchableOpacity style={styles.button} onPress={this._handleLogout}>
             <Text style={{ color: "#fff", fontSize: 20 }}>Đăng xuất</Text>
           </TouchableOpacity>
+        </View>
 
-          {/* <TouchableOpacity style={styles.item} onPress={this._handleLogout}>
-            <IconLogOut name="logout" size={24} style={{ color: "#007aff", flex: 2 }} />
-            <View style={{ flex: 8 }}>
-              <Text style={{ fontSize: 20, }}> Đăng xuất</Text>
+        <View style={styles.tapbar}>
+          <TouchableOpacity style={styles.tapItem}
+            onPress={() => {
+              navigate("MyGroup");
+              this.setState({
+                isHome: true,
+                isSearch: false,
+                isNoti: false,
+                isUser: false,
+              })
+            }
+            }>
+            <View style={{ flex: 2, justifyContent: "center" }}>
+              <IconHome name="home"
+                style={{ fontSize: 20, color: (isHome) ? "#008605" : "#bcbcbc" }}
+              />
             </View>
-          </TouchableOpacity> */}
+            <Text style={{ color: (isHome) ? "#008605" : "#bcbcbc" }}>Nhóm của tôi</Text>
+          </TouchableOpacity>
 
+          <TouchableOpacity style={styles.tapItem}
+            onPress={() => {
+              navigate("SearchScreen", {
+                "email": this.props.navigation.state.params.email,
+                "isHome": false,
+                "isSearch": true,
+                "isNoti": false,
+                "isUser": false
+              });
+              this.setState({
+                isHome: false,
+                isSearch: true,
+                isNoti: false,
+                isUser: false,
+              })
+            }}>
+            <View style={{ flex: 2, justifyContent: "center" }}>
+              <Icon name="ios-search"
+                style={{ fontSize: 20, color: (isSearch) ? "#008605" : "#bcbcbc" }}
+              />
+            </View>
+            <Text style={{ color: (isSearch) ? "#008605" : "#bcbcbc" }}>Khám phá</Text>
+          </TouchableOpacity>
 
+          <TouchableOpacity style={styles.tapItem}
+            onPress={() => {
+              navigate("Notification", {
+                "email": this.props.navigation.state.params.email,
+                "isHome": false,
+                "isSearch": false,
+                "isNoti": true,
+                "isUser": false
+              });
+              this.setState({
+                isHome: false,
+                isSearch: false,
+                isNoti: true,
+                isUser: false,
+              })
+            }
+            }>
+            <View style={{ flex: 2, justifyContent: "center" }}>
+              <IconNotifi name="ios-notifications"
+                style={{ fontSize: 20, color: (isNoti) ? "#008605" : "#bcbcbc" }}
+              />
+            </View>
+            <Text style={{ color: (isNoti) ? "#008605" : "#bcbcbc" }}>Thông báo</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity style={styles.tapItem}
+            onPress={() => {
+              navigate("UserInfo", {
+                "email": this.props.navigation.state.params.email,
+                "userId": this.state.userId,
+                "isHome": false,
+                "isSearch": false,
+                "isNoti": false,
+                "isUser": true
+              })
+              this.setState({
+                isHome: false,
+                isSearch: false,
+                isNoti: false,
+                isUser: true,
+              })
+            }
+            }>
+            <View style={{ flex: 2, justifyContent: "center" }}>
+              <IconUser name="user-circle"
+                style={{ fontSize: 20, color: (isUser) ? "#008605" : "#bcbcbc" }}
+              />
+            </View>
+            <Text style={{ color: (isUser) ? "#008605" : "#bcbcbc" }}>Tôi</Text>
+          </TouchableOpacity>
         </View>
 
       </View>

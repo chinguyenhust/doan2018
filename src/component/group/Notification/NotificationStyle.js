@@ -37,6 +37,22 @@ const styles = StyleSheet.create({
     content: {
         color:"#000000"
     }, 
+    tapbar: {
+        flexDirection: "row",
+        zIndex: 1000,
+        bottom: 0,
+        justifyContent: 'flex-end',
+        height: 48,
+        alignItems: "center",
+        borderColor: '#ddd',
+        borderTopWidth: 1,
+    },
+    tapItem:{
+        flex: 1, 
+        flexDirection: "column", 
+        alignItems: "center"
+    }
+
 });
 
 export default styles

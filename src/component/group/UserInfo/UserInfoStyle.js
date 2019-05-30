@@ -5,7 +5,7 @@ const styles = StyleSheet.create({
         flex: 1,
         flexDirection: 'column',
         backgroundColor: "#fff",
-        position: 'absolute',
+        // position: 'absolute',
         bottom: 0,
         top: 0,
         right: 0,
@@ -54,9 +54,26 @@ const styles = StyleSheet.create({
         height: 40,
         justifyContent: "center",
         borderRadius: 7,
-        margin:25, 
+        marginLeft:25,
+        marginRight:25,
+        marginTop:30,
+        marginBottom:40 
     },
-
+    tapbar: {
+        flexDirection: "row",
+        zIndex: 1000,
+        bottom: 0,
+        justifyContent: 'flex-end',
+        height: 48,
+        alignItems: "center",
+        borderColor: '#ddd',
+        borderTopWidth: 1,
+    },
+    tapItem:{
+        flex: 1, 
+        flexDirection: "column", 
+        alignItems: "center"
+    }
 
 });
 
