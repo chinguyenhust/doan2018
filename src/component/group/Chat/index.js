@@ -1,7 +1,8 @@
 import React from 'react';
-import { GiftedChat } from 'react-native-gifted-chat'; // 0.3.0
+import { GiftedChat , Send} from 'react-native-gifted-chat'; // 0.3.0
 import { View } from 'react-native'
 import firebase from 'firebase';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 class Chat extends React.Component {
   constructor(props) {
@@ -89,6 +90,18 @@ class Chat extends React.Component {
     });
   }
 
+  renderSend(props) {
+    return (
+        <Send
+            {...props}
+        >
+            <View style={{marginRight: 15, alignItems:"center", marginBottom:8}}>
+                <Icon name="ios-send" style={{color:"#008605"}} size={30}/>
+            </View>
+        </Send>
+    );
+}
+
   render() {
     return (
       <GiftedChat
@@ -97,6 +110,8 @@ class Chat extends React.Component {
         user={this.user}
         alwaysShowSend
         renderUsernameOnMessage
+        renderSend={this.renderSend}
+        
       />
     );
   }

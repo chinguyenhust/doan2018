@@ -4,12 +4,6 @@ const styles = StyleSheet.create({
         alignSelf: "stretch",
         flex: 1,
         flexDirection: 'column',
-        backgroundColor: "#fff",
-        // position: 'absolute',
-        bottom: 0,
-        top: 0,
-        right: 0,
-        left: 0
     },
     header: {
         alignSelf: "stretch",
@@ -67,7 +61,7 @@ const styles = StyleSheet.create({
         height: 48,
         alignItems: "center",
         borderColor: '#ddd',
-        borderTopWidth: 1,
+        borderTopWidth: 1,        
     },
     tapItem:{
         flex: 1, 

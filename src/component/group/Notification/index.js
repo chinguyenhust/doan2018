@@ -128,13 +128,13 @@ export default class Notification extends Component {
         <View style={styles.tapbar}>
           <TouchableOpacity style={styles.tapItem}
             onPress={() => {
-              navigate("MyGroup");
-              this.setState({
-                isHome: true,
-                isSearch: false,
-                isNoti: false,
-                isUser: false,
-              })
+              navigate("MyGroup",{
+                "isHome":true,
+                "isSearch":false,
+                "isNoti":false,
+                "isUser":false
+              });
+              
             }
             }>
             <View style={{ flex: 2, justifyContent: "center" }}>
@@ -154,12 +154,7 @@ export default class Notification extends Component {
                 "isNoti": false,
                 "isUser": false
               });
-              this.setState({
-                isHome: false,
-                isSearch: true,
-                isNoti: false,
-                isUser: false,
-              })
+              
             }}>
             <View style={{ flex: 2, justifyContent: "center" }}>
               <Icon name="ios-search"
@@ -177,12 +172,7 @@ export default class Notification extends Component {
               "isSearch": false,
               "isNoti": true,
               "isUser": false});
-              this.setState({
-                isHome: false,
-                isSearch: false,
-                isNoti: true,
-                isUser: false,
-              })
+              
             }
             }>
             <View style={{ flex: 2, justifyContent: "center" }}>
@@ -202,12 +192,7 @@ export default class Notification extends Component {
                 "isNoti": false,
                 "isUser": true
               })
-              this.setState({
-                isHome: false,
-                isSearch: false,
-                isNoti: false,
-                isUser: true,
-              })
+              
             }
             }>
             <View style={{ flex: 2, justifyContent: "center" }}>

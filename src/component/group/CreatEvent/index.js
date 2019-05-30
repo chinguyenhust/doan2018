@@ -5,7 +5,7 @@ import styles from './CreatEventStyle';
 import DatePicker from 'react-native-datepicker';
 import { Data } from "../../../api/Data";
 import * as firebase from 'firebase';
-import { required } from '../../../util/validate';
+import { required, Email } from '../../../util/validate';
 import PlaceAutoComplete from '../../home/GoogleMapInput/index';
 
 export default class CreatEvent extends Component {
@@ -117,12 +117,12 @@ export default class CreatEvent extends Component {
       <View style={styles.container} >
         <View style={styles.tapbar}>
           <View style={styles.tap}>
-            <TouchableOpacity style={{ width: "15%", justifyContent: "center" }}
+            <TouchableOpacity style={{ width: "10%", alignItems: "center" }}
               onPress={() => { this.props.navigation.goBack() }} >
               <Icon name="ios-arrow-round-back" size={34} style={{ color: "#ffffff" }} />
             </TouchableOpacity>
-            <View style={{ width: "75%", justifyContent: "center", }}>
-              <Text style={{ fontSize: 20, width: "70%", fontWeight: "600", color: "#ffffff" }}>Tạo kế hoạch</Text>
+            <View style={{ width: "80%", alignItems: "center", }}>
+              <Text style={{ fontSize: 20, width: "70%", fontWeight: "500", color: "#ffffff" }}>Tạo kế hoạch</Text>
             </View>
           </View>
           {/* <View style={{ height: 1, backgroundColor: "#000", alignSelf: "stretch" }}></View> */}

@@ -126,11 +126,11 @@ export default class DetailSurvey extends Component {
       <View style={styles.container} >
         <View style={styles.tapbar}>
           <View style={styles.tap}>
-            <TouchableOpacity style={{ width: "15%", justifyContent: "center" }} onPress={() => { this.props.navigation.goBack() }}>
+            <TouchableOpacity style={{ width: "10%", alignItems: "center" }} onPress={() => { this.props.navigation.goBack() }}>
               <Icon name="ios-arrow-round-back" size={34} style={{ color: "#ffffff" }} />
             </TouchableOpacity>
-            <View style={{ width: "75%", justifyContent: "center", }}>
-              <Text style={{ fontSize: 20, width: "70%", fontWeight: "600", color: "#ffffff" }}>Khảo sát ý kiến</Text>
+            <View style={{ width: "80%", alignItems: "center", }}>
+              <Text style={{ fontSize: 20, width: "70%", fontWeight: "500", color: "#ffffff" }}>Khảo sát ý kiến</Text>
             </View>
           </View>
         </View>

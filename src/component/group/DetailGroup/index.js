@@ -50,12 +50,12 @@ export default class DetailGroup extends Component {
       <View style={styles.container}>
 
         <View
-          style={{ height: 56, flexDirection: "row", paddingLeft: 20, alignSelf: "stretch", justifyContent: "center", alignItems: "center",backgroundColor: "#006805" }}>
+          style={{ height: 56, flexDirection: "row", paddingLeft: 20, alignSelf: "stretch", alignItems: "center",backgroundColor: "#006805" }}>
           <Icon name="ios-arrow-round-back"
             size={34}
-            style={{ width: "15%", color:"#ffff" }}
+            style={{ width: "10%", color:"#ffff" }}
             onPress={() => { this.props.navigation.goBack() }} />
-          <Text style={{ fontSize: 20, width: "70%", fontWeight: "600", color: "#ffffff" }}>{this.props.navigation.state.params.name}</Text>
+          <Text style={{ fontSize: 20, width: "75%", fontWeight: "500", color: "#ffffff" }}>{this.props.navigation.state.params.name}</Text>
           <IconInfo name="ios-information-circle-outline"
             size={30}
             style={{ width: "10%", color:"#ffffff"}}

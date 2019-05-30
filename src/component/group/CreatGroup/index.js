@@ -243,11 +243,11 @@ export default class CreatGroup extends Component {
 
         <View style={{ flexDirection: "column" }}>
           <View style={styles.tab}>
-            <TouchableOpacity style={{ width: "15%", justifyContent: "center" }} onPress={() => { this.props.navigation.goBack() }}>
+            <TouchableOpacity style={{ width: "10%", justifyContent: "center" }} onPress={() => { this.props.navigation.goBack() }}>
               <Icon name="ios-arrow-round-back" size={34} style={{ color: "#ffffff", }} />
             </TouchableOpacity>
-            <View style={{ width: "75%", justifyContent: "center", }}>
-              <Text style={{ fontSize: 20, fontWeight: "600", color: "#ffffff" }}>Tạo nhóm mới</Text>
+            <View style={{ width: "80%", justifyContent: "center", }}>
+              <Text style={{ fontSize: 20, fontWeight: "500", color: "#ffffff" }}>Tạo nhóm mới</Text>
             </View>
           </View>
         </View>

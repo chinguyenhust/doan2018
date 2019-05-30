@@ -93,7 +93,7 @@ export default class UserInfo extends Component {
           <View style={{ height: 1, backgroundColor: "#bcbcbc", alignSelf: "stretch" }}></View>
         </View>
 
-        <View style={{ paddingTop: 20, flexDirection: "column", }}>
+        <ScrollView style={{ paddingTop: 20, flexDirection: "column", }}>
           <View style={{ justifyContent: "center", alignItems: "center" }}>
             {(avatar) ?
               <Image
@@ -132,18 +132,18 @@ export default class UserInfo extends Component {
           <TouchableOpacity style={styles.button} onPress={this._handleLogout}>
             <Text style={{ color: "#fff", fontSize: 20 }}>Đăng xuất</Text>
           </TouchableOpacity>
-        </View>
+        </ScrollView>
 
         <View style={styles.tapbar}>
           <TouchableOpacity style={styles.tapItem}
             onPress={() => {
-              navigate("MyGroup");
-              this.setState({
-                isHome: true,
-                isSearch: false,
-                isNoti: false,
-                isUser: false,
-              })
+              navigate("MyGroup",{
+                "isHome":true,
+                "isSearch":false,
+                "isNoti":false,
+                "isUser":false
+              });
+             
             }
             }>
             <View style={{ flex: 2, justifyContent: "center" }}>
@@ -163,12 +163,7 @@ export default class UserInfo extends Component {
                 "isNoti": false,
                 "isUser": false
               });
-              this.setState({
-                isHome: false,
-                isSearch: true,
-                isNoti: false,
-                isUser: false,
-              })
+              
             }}>
             <View style={{ flex: 2, justifyContent: "center" }}>
               <Icon name="ios-search"
@@ -187,12 +182,7 @@ export default class UserInfo extends Component {
                 "isNoti": true,
                 "isUser": false
               });
-              this.setState({
-                isHome: false,
-                isSearch: false,
-                isNoti: true,
-                isUser: false,
-              })
+              
             }
             }>
             <View style={{ flex: 2, justifyContent: "center" }}>
@@ -213,12 +203,7 @@ export default class UserInfo extends Component {
                 "isNoti": false,
                 "isUser": true
               })
-              this.setState({
-                isHome: false,
-                isSearch: false,
-                isNoti: false,
-                isUser: true,
-              })
+             
             }
             }>
             <View style={{ flex: 2, justifyContent: "center" }}>

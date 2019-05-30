@@ -140,12 +140,12 @@ export default class CreatSurvey extends Component {
       <View style={styles.container} >
         <View style={styles.tapbar}>
           <View style={styles.tap}>
-            <TouchableOpacity style={{ width: "15%", justifyContent: "center" }}
+            <TouchableOpacity style={{ width: "10%", justifyContent: "center" }}
               onPress={() => { this.props.navigation.goBack() }}>
               <Icon name="ios-arrow-round-back" size={34} style={{ color: "#ffffff" }} />
             </TouchableOpacity>
             <View style={{ width: "75%", justifyContent: "center", }}>
-              <Text style={{ fontSize: 20, width: "70%", fontWeight: "600", color: "#ffffff" }}>Khảo sát ý kiến</Text>
+              <Text style={{ fontSize: 20, width: "70%", fontWeight: "500", color: "#ffffff" }}>Khảo sát ý kiến</Text>
             </View>
           </View>
           {/* <View style={{ height: 1, backgroundColor: "#000", alignSelf: "stretch" }}></View> */}

@@ -394,8 +394,12 @@ export default class MyGroup extends Component {
   render() {
     const { navigate } = this.props.navigation;
     const { groupActive, searchTerm, searchAttribute,
-      ignoreCase, groupFuture, groupDone, userLocation , isHome, isNoti, isSearch, isUser} = this.state;
+      ignoreCase, groupFuture, groupDone, userLocation } = this.state;
     var uid = this.props.navigation.state.params.user_id;
+    var isHome= true;
+    var isNoti = false;
+    var isSearch= false;
+    var isUser=false;
 
     return (
       <View style={styles.container}>
@@ -594,12 +598,7 @@ export default class MyGroup extends Component {
           <TouchableOpacity style={ styles.tapItem}
             onPress={() => {
               navigate("MyGroup");
-              this.setState({
-                isHome: true,
-                isSearch: false,
-                isNoti: false,
-                isUser: false,
-              })
+              
             }
             }>
             <View style={{ flex: 2, justifyContent: "center" }}>
@@ -619,12 +618,7 @@ export default class MyGroup extends Component {
                 "isNoti":false,
                 "isUser":false
               });
-              this.setState({
-                isHome: false,
-                isSearch: true,
-                isNoti: false,
-                isUser: false,
-              })
+              
             }}>
             <View style={{ flex: 2, justifyContent: "center" }}>
               <Icon name="ios-search"
@@ -643,12 +637,7 @@ export default class MyGroup extends Component {
                 "isNoti":true,
                 "isUser":false
               });
-              this.setState({
-                isHome: false,
-                isSearch: false,
-                isNoti: true,
-                isUser: false,
-              })
+              
             }
             }>
             <View style={{ flex: 2, justifyContent: "center" }}>
@@ -669,12 +658,7 @@ export default class MyGroup extends Component {
                 "isNoti":false,
                 "isUser":true
               })
-              this.setState({
-                isHome: false,
-                isSearch: false,
-                isNoti: false,
-                isUser: true,
-              })
+              
             }
             }>
             <View style={{ flex: 2, justifyContent: "center" }}>

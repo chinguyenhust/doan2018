@@ -4,18 +4,19 @@ const styles = StyleSheet.create({
         alignSelf: "stretch",
         flex: 1,
         flexDirection: 'column',
-        backgroundColor: "#fff",
-        position: 'absolute',
+        paddingTop: Platform.OS === 'ios' ? 30 : 0,
+        height:"100%",
+        // position: 'absolute',
         bottom: 0,
         top: 0,
         right: 0,
-        left: 0
+        left: 0,
+        backgroundColor:"red"
     },
     header: {
         alignSelf: "stretch",
         flexDirection: 'column',
         height: 56,
-        marginTop: Platform.OS === 'ios' ? 30 : 0,
         alignItems: "center",
     },
     item: {
@@ -56,6 +57,21 @@ const styles = StyleSheet.create({
         borderRadius: 7,
         margin:25, 
     },
+    tapbar: {
+        flexDirection: "row",
+        zIndex: 1000,
+        bottom: 0,
+        justifyContent: 'flex-end',
+        height: 48,
+        alignItems: "center",
+        borderColor: '#ddd',
+        borderTopWidth: 1,
+    },
+    tapItem:{
+        flex: 1, 
+        flexDirection: "column", 
+        alignItems: "center"
+    }
 
 
 });
