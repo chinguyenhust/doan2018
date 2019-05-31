@@ -1,7 +1,5 @@
 import React from 'react'
-import { View, Text, ActivityIndicator, StyleSheet, TouchableOpacity } from 'react-native';
-import Icon from 'react-native-vector-icons/Ionicons';
-import IconSearch from 'react-native-vector-icons/Ionicons';
+import { View, Text, ActivityIndicator, Alert, TouchableOpacity } from 'react-native';
 import IconRestaurant from 'react-native-vector-icons/Ionicons';
 import IconHotel from 'react-native-vector-icons/MaterialIcons';
 import IconATM from 'react-native-vector-icons/MaterialIcons';
@@ -18,11 +16,6 @@ import img_bank from "../../../assets/bank.png";
 import img_cafe from "../../../assets/cafe.png";
 import img_camera from "../../../assets/camera.png";
 import img_petrolimex from "../../../assets/petrolimex.png";
-// import Icon from 'react-native-vector-icons/Ionicons';
-// import icon from '../../../assets/icon.png';
-import IconUser from 'react-native-vector-icons/FontAwesome5';
-import IconNotifi from 'react-native-vector-icons/Ionicons';
-import IconHome from "react-native-vector-icons/Entypo";
 
 const KEY = "AIzaSyBUlVo1hI6x58Zp3w1uvKDag5H4HqIuINE"
 export default class SearchScreen extends React.Component {
@@ -34,10 +27,6 @@ export default class SearchScreen extends React.Component {
       latitude: "",
       longitude: "",
       type: "",
-      isHome: this.props.navigation.state.params.isHome,
-      isSearch: this.props.navigation.state.params.isSearch,
-      isNoti: this.props.navigation.state.params.isNoti,
-      isUser: this.props.navigation.state.params.isUser,
     }
     this.handleSelectAddress = this.handleSelectAddress.bind(this)
   }
@@ -52,9 +41,17 @@ export default class SearchScreen extends React.Component {
   }
 
   handleClickHotel = async () => {
-    var userLocation = this.props.navigation.state.params.userLocation;
+    var userLocation = this.props.userLocation;
+    var navigation = this.props.navigation
     if (this.state.address === "") {
-      alert("Vui long nhap dia chi")
+      Alert.alert(
+        'Thông báo',
+        'Vui lòng nhập địa chỉ!',
+        [
+          { text: 'OK', onPress: () => console.log('OK Pressed') },
+        ],
+        { cancelable: false },
+      );
     } else {
       var param = {
         location: this.state.latitude + "," + this.state.longitude,
@@ -63,9 +60,8 @@ export default class SearchScreen extends React.Component {
         rankby: "distance"
       }
       var data = await MyService.getRequestData(param);
-      console.log(param.location)
-      console.log(data.results)
-      this.props.navigation.navigate('ItemInfo', { 
+     
+      navigation.navigate('ItemInfo', { 
         "data": data.results, 
         "userLocation": userLocation,
         "source": img_hotel
@@ -74,9 +70,16 @@ export default class SearchScreen extends React.Component {
   }
 
   handleClickTravel = async () => {
-    var userLocation = this.props.navigation.state.params.userLocation;
+    var userLocation = this.props.userLocation;
     if (this.state.address === "") {
-      alert("Vui lòng nhập địa chỉ")
+      Alert.alert(
+        'Thông báo',
+        'Vui lòng nhập địa chỉ!',
+        [
+          { text: 'OK', onPress: () => console.log('OK Pressed') },
+        ],
+        { cancelable: false },
+      );
     } else {
       var param = {
         location: this.state.latitude + "," + this.state.longitude,
@@ -85,9 +88,7 @@ export default class SearchScreen extends React.Component {
         rankby: "distance"
       }
       var data = await MyService.getRequestData(param);
-      console.log(param.location)
-      console.log(data)
-      console.log(data.results)
+      
       this.props.navigation.navigate('ItemInfo', { 
         "data": data.results, 
         "userLocation": userLocation,
@@ -97,9 +98,17 @@ export default class SearchScreen extends React.Component {
   }
 
   handleClickRestaurant = async () => {
-    var userLocation = this.props.navigation.state.params.userLocation;
+    var userLocation = this.props.userLocation;
+    var navigation = this.props.navigation
     if (this.state.address === "") {
-      alert("Vui lòng nhập địa chỉ")
+      Alert.alert(
+        'Thông báo',
+        'Vui lòng nhập địa chỉ!',
+        [
+          { text: 'OK', onPress: () => console.log('OK Pressed') },
+        ],
+        { cancelable: false },
+      );
     } else {
       var param = {
         location: this.state.latitude + "," + this.state.longitude,
@@ -108,10 +117,8 @@ export default class SearchScreen extends React.Component {
         rankby: "distance"
       }
       var data = await MyService.getRequestData(param);
-      console.log(param.location)
-      console.log(data)
-      console.log(data.results)
-      this.props.navigation.navigate('ItemInfo', { 
+      
+      navigation.navigate('ItemInfo', { 
         "data": data.results, 
         "userLocation": userLocation,
         "source": img_restaurant
@@ -120,9 +127,17 @@ export default class SearchScreen extends React.Component {
   }
 
   handleClickGas = async () => {
-    var userLocation = this.props.navigation.state.params.userLocation;
+    var userLocation = this.props.userLocation;
+    var navigation = this.props.navigation
     if (this.state.address === "") {
-      alert("Vui lòng nhập địa chỉ")
+      Alert.alert(
+        'Thông báo',
+        'Vui lòng nhập địa chỉ!',
+        [
+          { text: 'OK', onPress: () => console.log('OK Pressed') },
+        ],
+        { cancelable: false },
+      );
     } else {
       var param = {
         location: this.state.latitude + "," + this.state.longitude,
@@ -131,10 +146,8 @@ export default class SearchScreen extends React.Component {
         rankby: "distance"
       }
       var data = await MyService.getRequestData(param);
-      console.log(param.location)
-      console.log(data)
-      console.log(data.results)
-      this.props.navigation.navigate('ItemInfo', { 
+     
+      navigation.navigate('ItemInfo', { 
         "data": data.results, 
         "userLocation": userLocation,
         "source": img_petrolimex
@@ -143,9 +156,17 @@ export default class SearchScreen extends React.Component {
   }
 
   handleClickATM = async () => {
-    var userLocation = this.props.navigation.state.params.userLocation;
+    var userLocation = this.props.userLocation;
+    var navigation = this.props.navigation
     if (this.state.address === "") {
-      alert("Vui lòng nhập địa chỉ")
+      Alert.alert(
+        'Thông báo',
+        'Vui lòng nhập địa chỉ!',
+        [
+          { text: 'OK', onPress: () => console.log('OK Pressed') },
+        ],
+        { cancelable: false },
+      );
     } else {
       var param = {
         location: this.state.latitude + "," + this.state.longitude,
@@ -154,10 +175,8 @@ export default class SearchScreen extends React.Component {
         rankby: "distance"
       }
       var data = await MyService.getRequestData(param);
-      console.log(param.location)
-      console.log(data)
-      console.log(data.results)
-      this.props.navigation.navigate('ItemInfo', { 
+     
+      navigation.navigate('ItemInfo', { 
         "data": data.results,
         "userLocation": userLocation ,
         "source": img_bank
@@ -166,9 +185,17 @@ export default class SearchScreen extends React.Component {
   }
 
   handleClickCoffee = async () => {
-    var userLocation = this.props.navigation.state.params.userLocation;
+    var userLocation = this.props.userLocation;
+    var navigation = this.props.navigation
     if (this.state.address === "") {
-      alert("Vui lòng nhập địa chỉ")
+      Alert.alert(
+        'Thông báo',
+        'Vui lòng nhập địa chỉ!',
+        [
+          { text: 'OK', onPress: () => console.log('OK Pressed') },
+        ],
+        { cancelable: false },
+      );
     } else {
       var param = {
         location: this.state.latitude + "," + this.state.longitude,
@@ -177,10 +204,8 @@ export default class SearchScreen extends React.Component {
         rankby: "distance"
       }
       var data = await MyService.getRequestData(param);
-      console.log(param.location)
-      console.log(data)
-      console.log(data.results)
-      this.props.navigation.navigate('ItemInfo', { 
+      
+      navigation.navigate('ItemInfo', { 
         "data": data.results, 
         "userLocation": userLocation,
         "source": img_cafe
@@ -193,17 +218,8 @@ export default class SearchScreen extends React.Component {
     const { navigate } = this.props.navigation;
     return (
       <View style={styles.container}>
-        <View
-          style={styles.header}>
-          <Icon name="ios-arrow-round-back"
-            size={34}
-            style={{ width: "15%", color: "#ffff" }}
-            onPress={() => { this.props.navigation.goBack() }} />
-          {/* <IconSearch name="ios-search"
-          style={{ fontSize: 24, color: "#ffffff", flex: 1 }}
-          onPress={() => navigate("SearchScreen")}
-        /> */}
-          <Text style={{ color: "#ffffff", fontSize: 20, fontWeight: "600" }}>Tìm kiếm cơ bản</Text>
+        <View style={styles.header}>
+          <Text style={{ color: "#ffffff", fontSize: 20, fontWeight: "500" }}>Tìm kiếm cơ bản</Text>
         </View>
         <ScrollView style={{ flex: 1, paddingLeft: 20, paddingRight: 20, flexDirection: "column" }}>
           <View style={{ justifyContent: "center", marginTop: 20, }}>
@@ -271,101 +287,6 @@ export default class SearchScreen extends React.Component {
           </View>
 
         </ScrollView>
-
-        <View style={styles.tapbar}>
-          <TouchableOpacity style={ styles.tapItem}
-            onPress={() => {
-              navigate("MyGroup");
-              this.setState({
-                isHome: true,
-                isSearch: false,
-                isNoti: false,
-                isUser: false,
-              })
-            }
-            }>
-            <View style={{ flex: 2, justifyContent: "center" }}>
-              <IconHome name="home"
-                style={{ fontSize: 20, color: (isHome) ? "#008605" :"#bcbcbc"}}
-              />
-            </View>
-            <Text style={{color: (isHome) ? "#008605" :"#bcbcbc" }}>Nhóm của tôi</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity style={ styles.tapItem}
-            onPress={() => {
-              navigate("SearchScreen",{
-                "email": this.props.navigation.state.params.email,
-                "isHome":false,
-                "isSearch":true,
-                "isNoti":false,
-                "isUser":false
-              });
-              this.setState({
-                isHome: false,
-                isSearch: true,
-                isNoti: false,
-                isUser: false,
-              })
-            }}>
-            <View style={{ flex: 2, justifyContent: "center" }}>
-              <Icon name="ios-search"
-                style={{ fontSize: 20, color: (isSearch) ? "#008605" :"#bcbcbc"  }}
-              />
-            </View>
-            <Text style={{color: (isSearch) ? "#008605" :"#bcbcbc" }}>Khám phá</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity style={ styles.tapItem}
-            onPress={() => {
-              navigate("Notification",{
-                "email": this.props.navigation.state.params.email,
-                "isHome":false,
-                "isSearch":false,
-                "isNoti":true,
-                "isUser":false
-              });
-              this.setState({
-                isHome: false,
-                isSearch: false,
-                isNoti: true,
-                isUser: false,
-              })
-            }
-            }>
-            <View style={{ flex: 2, justifyContent: "center" }}>
-              <IconNotifi name="ios-notifications"
-                style={{ fontSize: 20, color: (isNoti) ? "#008605" :"#bcbcbc" }}
-              />
-            </View>
-            <Text style={{color: (isNoti) ? "#008605" :"#bcbcbc" }}>Thông báo</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity style={ styles.tapItem}
-            onPress={() => {
-              navigate("UserInfo", {
-                "email": this.props.navigation.state.params.email,
-                "isHome":false,
-                "isSearch":false,
-                "isNoti":false,
-                "isUser":true
-              })
-              this.setState({
-                isHome: false,
-                isSearch: false,
-                isNoti: false,
-                isUser: true,
-              })
-            }
-            }>
-            <View style={{ flex: 2, justifyContent: "center" }}>
-              <IconUser name="user-circle"
-                style={{ fontSize: 20, color: (isUser) ? "#008605" :"#bcbcbc" }}
-              />
-            </View>
-            <Text style={{color: (isUser) ? "#008605" :"#bcbcbc" }}>Tôi</Text>
-          </TouchableOpacity>
-        </View>
 
       </View>
     )

@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
     line: {
         width: "1%",
         height: 50,
-        backgroundColor: "#a9a9a9"
+        alignItems:"center"
     },
     titleBold: {
         fontSize: 18,

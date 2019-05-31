@@ -1,9 +1,10 @@
 import React from 'react'
-import { StyleSheet, Text, TextInput, View, Button, TouchableOpacity, Image } from 'react-native';
+import { StyleSheet, Text, TextInput, View, Button, TouchableOpacity, Image, Alert } from 'react-native';
 import firebase from 'react-native-firebase';
 import { Data } from '../../../api/Data';
 import CryptoJS from "react-native-crypto-js";
-import icon from '../../../assets/icon.png'
+import icon from '../../../assets/icon.png';
+import { required, Email } from '../../../util/validate';
 
 import { YellowBox } from 'react-native';
 import FCM, { FCMEvent, RemoteNotificationResult, WillPresentNotificationResult, NotificationType } from "react-native-fcm";
@@ -11,41 +12,82 @@ YellowBox.ignoreWarnings(['Warning: isMounted(...) is deprecated', 'Module RCTIm
 console.ignoredYellowBox = ['Setting a timer'];
 
 export default class Login extends React.Component {
-  state = { email: '', password: '', errorMessage: null }
+  state = {
+    email: '',
+    password: '',
+    errorMessage: null,
+    errEmail: "",
+    errPassword: "",
+  }
+
+  _handleChangePassword = (text) => {
+    var errPassword = required(text);
+    this.setState({
+      password: text,
+      errPassword: errPassword
+    })
+  }
+  _handleChangeEmail = (text) => {
+    var errEmail = required(text) || Email(text);
+    this.setState({
+      email: text,
+      errEmail: errEmail
+    })
+  }
+
+  _handleCheck() {
+    const { email, password, errEmail, errPassword } = this.state;
+    if (email && password && !errEmail && !errPassword)
+      return true;
+    return false;
+  }
 
   handleLogin = () => {
     const { email, password } = this.state
-    // let bytes = CryptoJS.AES.decrypt(ciphertext, 'secret key 123');
-    // let originalText = bytes.toString(CryptoJS.enc.Utf8);
-    firebase
-      .auth()
-      .signInWithEmailAndPassword(email, password)
-      .then(() => {
-        Data.ref("users").orderByChild("email").equalTo(email)
-          .on('value', ((snapshot) => {
-            snapshot.forEach((childSnapshot) => {
-              key = childSnapshot.key;
-              this.props.navigation.navigate('MyGroup', { "email": email, "user_id": key });
-              FCM.requestPermissions();
+    var check = this._handleCheck();
+    if (check) {
 
-              FCM.getFCMToken().then(token => {
-                // console.log(token)
-                Data.ref('tokenFCM').child(key).set({ token: token })
-              });
+      firebase
+        .auth()
+        .signInWithEmailAndPassword(email, password)
+        .then(() => {
+          Data.ref("users").orderByChild("email").equalTo(email)
+            .on('value', ((snapshot) => {
+              snapshot.forEach((childSnapshot) => {
+                key = childSnapshot.key;
+                this.props.navigation.navigate('MyGroup', { "email": email, "user_id": key });
+                FCM.requestPermissions();
+
+                FCM.getFCMToken().then(token => {
+                  // console.log(token)
+                  Data.ref('tokenFCM').child(key).set({ token: token })
+                });
+              })
             })
-          })
-          )
-      })
+            )
+        })
 
-      .catch(error => this.setState({ errorMessage: error.message }))
+        .catch(error => this.setState({ errorMessage: error.message }))
+    } else {
+      Alert.alert(
+        'Thông báo',
+        'Vui lòng điền đầy đủ thông tin!',
+        [
+          { text: 'OK', onPress: () => console.log('OK Pressed') },
+        ],
+        { cancelable: false },
+      );
+    }
   }
+
+
 
   render() {
     return (
       <View style={styles.container}>
         <View style={{ justifyContent: 'center', alignItems: 'center', marginBottom: 30 }}>
           <Image
-            style={{ width: 100, height: 100, marginBottom:10 }}
+            style={{ width: 100, height: 100, marginBottom: 10 }}
             source={icon}
           />
           <Text style={{ fontSize: 28, }}>Đăng nhập</Text>
@@ -54,21 +96,27 @@ export default class Login extends React.Component {
               {this.state.errorMessage}
             </Text>}
         </View>
-        <TextInput
-          style={styles.textInput}
-          autoCapitalize="none"
-          placeholder="Email"
-          onChangeText={email => this.setState({ email })}
-          value={this.state.email}
-        />
-        <TextInput
-          secureTextEntry
-          style={styles.textInput}
-          autoCapitalize="none"
-          placeholder="Password"
-          onChangeText={password => this.setState({ password })}
-          value={this.state.password}
-        />
+        <View>
+          <TextInput
+            style={styles.textInput}
+            autoCapitalize="none"
+            placeholder="Email"
+            onChangeText={this._handleChangeEmail}
+            value={this.state.email}
+          />
+          {this.state.errEmail ? <Text style={styles.textError}>{this.state.errEmail}</Text> : null}
+        </View>
+        <View>
+          <TextInput
+            secureTextEntry
+            style={styles.textInput}
+            autoCapitalize="none"
+            placeholder="Password"
+            onChangeText={this._handleChangePassword}
+            value={this.state.password}
+          />
+          {this.state.errPassword ? <Text style={styles.textError}>{this.state.errPassword}</Text> : null}
+        </View>
         <TouchableOpacity style={styles.buttonCreat} onPress={this.handleLogin}>
           <Text style={{ color: "#fff", fontSize: 20 }}>Đăng Nhập</Text>
         </TouchableOpacity>
@@ -109,5 +157,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginTop: 30
 
+  },
+  textError: {
+    color: "red"
   }
 })

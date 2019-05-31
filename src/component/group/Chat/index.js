@@ -1,7 +1,8 @@
 import React from 'react';
-import { GiftedChat } from 'react-native-gifted-chat'; // 0.3.0
+import { GiftedChat, Send, Bubble } from 'react-native-gifted-chat'; // 0.3.0
 import { View } from 'react-native'
 import firebase from 'firebase';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 class Chat extends React.Component {
   constructor(props) {
@@ -34,7 +35,7 @@ class Chat extends React.Component {
   }
 
   parse = snapshot => {
-    const { timestamp: numberStamp, text, user, groupId} = snapshot.val();
+    const { timestamp: numberStamp, text, user, groupId } = snapshot.val();
     const { key: _id } = snapshot;
     const timestamp = new Date(numberStamp);
     const message = {
@@ -61,7 +62,7 @@ class Chat extends React.Component {
   send = messages => {
     for (let i = 0; i < messages.length; i++) {
       const groupId = this.props.groupId;
-      const { text, user} = messages[i];
+      const { text, user } = messages[i];
       const message = {
         text,
         user,
@@ -89,6 +90,31 @@ class Chat extends React.Component {
     });
   }
 
+  renderSend(props) {
+    return (
+      <Send
+        {...props}
+      >
+        <View style={{ marginRight: 15, alignItems: "center", marginBottom: 8 }}>
+          <Icon name="ios-send" style={{ color: "#008605" }} size={30} />
+        </View>
+      </Send>
+    );
+  }
+
+  renderBubble (props) {
+    return (
+      <Bubble
+        {...props}
+        wrapperStyle={{
+          right: {
+            backgroundColor: "#008605"
+          }
+        }}
+      />
+    )
+  }
+
   render() {
     return (
       <GiftedChat
@@ -97,6 +123,8 @@ class Chat extends React.Component {
         user={this.user}
         alwaysShowSend
         renderUsernameOnMessage
+        renderSend={this.renderSend}
+        renderBubble={this.renderBubble}
       />
     );
   }

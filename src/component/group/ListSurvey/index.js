@@ -5,6 +5,7 @@ import IconDelete from 'react-native-vector-icons/MaterialIcons';
 import IconNote from 'react-native-vector-icons/Foundation';
 import { Data } from "../../../api/Data";
 import IconAdd from 'react-native-vector-icons/MaterialIcons';
+import { ScrollView } from 'react-native-gesture-handler';
 
 let surveys = Data.ref('/surveys');
 
@@ -136,26 +137,44 @@ export default class ListSurvey extends Component {
     return 0;
   }
 
-  getTime = (a) => {
-    var b = new Date().getTime();
-    var phut = (b - a) / 1000 / 60;
-    if (phut >= 60) {
-      var gio = phut / 60;
-      if (gio >= 24) {
-        var ngay = gio / 24;
-        if (ngay >= 7) {
-          tuan = ngay / 7;
-          return Math.round(tuan) + " tuan truoc";
-        } else {
-          return Math.round(ngay) + " ngay truoc";
-        }
-      } else {
-        return Math.round(gio) + " gio truoc";
-      }
-    } else {
-      return Math.round(phut) + "phut truoc";
+  getDate = (time) => {
+    var a = new Date(time);
+    var mounth = a.getMonth() + 1;
+    var day = a.getDate();
+    var hour = a.getHours();
+    if (hour < 10) {
+      hour = "0" + hour;
     }
+    var minute = a.getSeconds();
+    if (minute < 10) {
+      minute = "0" + minute;
+    }
+    return "Ngày " + day + " tháng " + mounth + " lúc " + hour + ":" + minute;
+  }
 
+  getTime = (time) => {
+    var a = new Date(time).getTime();
+    var b = new Date().getTime();
+
+    var giay = (b - a) / 1000;
+
+    if (0 <= giay && giay < 60) {
+      return "Vừa xong"
+    } else {
+      var phut = Math.round(giay / 60);
+      if (0 <= phut && phut < 60) {
+        return phut + " phút trước"
+      }
+      else {
+        var gio = Math.round(phut / 60);
+        if (0 <= gio && gio < 24) {
+          return gio + "giờ trước"
+        }
+        else {
+          return this.getDate(time);
+        }
+      }
+    }
   }
 
   hanldeDelete = (id) => {
@@ -188,6 +207,7 @@ export default class ListSurvey extends Component {
     return (
       <View style={styles.container}>
         {(items.length > 0) ?
+        <ScrollView>
           <FlatList
             data={items}
             extraData={this.state.items}
@@ -200,7 +220,7 @@ export default class ListSurvey extends Component {
                     </View>
                     <TouchableOpacity style={styles.info} onPress={() => navigate("DetailSurvey", { id: item.id, leaderId: leaderId, uid: uid })}>
                       <Text style={styles.textName}>{item.question}</Text>
-                      <Text style={styles.textView}>Created: {this.getTime(item.created_at)}</Text>
+                      <Text style={styles.textView}>{this.getTime(item.created_at)}</Text>
                     </TouchableOpacity>
                     {(uid === leaderId) &&
                       <View style={{ width: "10%", justifyContent: "center", }}>
@@ -213,6 +233,8 @@ export default class ListSurvey extends Component {
                 </View>
             }
           />
+          <View style={{height:100}}></View>
+          </ScrollView>
           :
           <View style={{ alignItems: "center", justifyContent: "center", marginTop: 170 }}>
             <Text style={{ fontSize: 20 }}>Nhóm chưa có khảo sát nào</Text>

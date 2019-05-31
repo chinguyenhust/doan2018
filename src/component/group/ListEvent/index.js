@@ -7,6 +7,7 @@ import IconLocation from 'react-native-vector-icons/EvilIcons';
 import { Data } from "../../../api/Data";
 import IconAdd from 'react-native-vector-icons/MaterialIcons';
 import IconEdit from 'react-native-vector-icons/MaterialIcons';
+import { ScrollView } from 'react-native-gesture-handler';
 
 let events = Data.ref('/events');
 
@@ -201,78 +202,81 @@ export default class ListEvent extends Component {
     return (
       <View style={styles.container}>
         {(items.length > 0) ?
-          <FlatList
-            data={items}
-            extraData={this.state.items}
-            renderItem={
-              ({ item }) =>
-                <View style={styles.itemStyle}>
-                  <View style={styles.item} >
-                    <View style={{ flexDirection: "column", justifyContent: "center" }}>
-                      <View style={styles.calendar}>
-                        <View style={styles.year}>
-                          <Text style={{ color: '#000', fontWeight: "500" }}>{new Date((item.time).replace(/-/g, '/')).getFullYear()}</Text>
+          <ScrollView>
+            <FlatList
+              data={items}
+              extraData={this.state.items}
+              renderItem={
+                ({ item }) =>
+                  <View style={styles.itemStyle}>
+                    <View style={styles.item} >
+                      <View style={{ flexDirection: "column", justifyContent: "center" }}>
+                        <View style={styles.calendar}>
+                          <View style={styles.year}>
+                            <Text style={{ color: '#000', fontWeight: "500" }}>{new Date((item.time).replace(/-/g, '/')).getFullYear()}</Text>
+                          </View>
+                          <View style={styles.day}>
+                            <Text>{new Date((item.time).replace(/-/g, '/')).getDate()}</Text>
+                            <View style={styles.line}></View>
+                          </View>
+                          <View style={styles.month}>
+                            <Text>{(new Date((item.time).replace(/-/g, '/')).getMonth() + 1)}</Text>
+                          </View>
                         </View>
-                        <View style={styles.day}>
-                          <Text>{new Date((item.time).replace(/-/g, '/')).getDate()}</Text>
-                          <View style={styles.line}></View>
-                        </View>
-                        <View style={styles.month}>
-                          <Text>{(new Date((item.time).replace(/-/g, '/')).getMonth() + 1)}</Text>
-                        </View>
+                        {(new Date((item.time).replace(/-/g, '/')).getTime()) > new Date().getTime() ?
+                          <Text style={{ fontSize: 16, color: "green", fontWeight: "600", marginTop: 20 }}>ACTIVE</Text> :
+                          <Text style={{ fontSize: 16, color: "red", fontWeight: "600", marginTop: 20 }}>FINISH</Text>
+                        }
                       </View>
-                      {(new Date((item.time).replace(/-/g, '/')).getTime()) > new Date().getTime() ?
-                        <Text style={{ fontSize: 16, color: "green", fontWeight: "600", marginTop: 20 }}>ACTIVE</Text> :
-                        <Text style={{ fontSize: 16, color: "red", fontWeight: "600", marginTop: 20 }}>FINISH</Text>
+
+                      <View style={styles.info} >
+                        {/* onPress={() => navigate("DetailEvent", { id: item.id , uid: uid})} */}
+                        <Text style={styles.textName} numberOfLines={2}>{item.name}</Text>
+                        <Text style={styles.textView} numberOfLines={2}>{item.description}</Text>
+                        <View style={{ flexDirection: "row", paddingTop: 6, paddingBottom: 3 }}>
+                          <IconClock name="clock" size={20} style={{ color: "#007aff", marginRight: 8 }} />
+                          <Text style={styles.textView}>{(item.time).substr(11, (item.time).length)}</Text>
+                        </View>
+                        <View style={{ flexDirection: "row", width: "90%", paddingTop: 3, paddingBottom: 3 }}>
+                          <IconLocation name="location" size={20} style={{ color: "#007aff", marginRight: 8 }} />
+                          <View>
+                            <Text style={styles.textView} numberOfLines={2}>{item.address}</Text>
+                          </View>
+                        </View>
+                        <Text style={styles.textView}>{this.getTime(item.time)}</Text>
+                      </View>
+
+                      {(uid === leaderId) &&
+                        <View style={{ flexDirection: "column" }}>
+                          <TouchableOpacity style={{ flex: 1, justifyContent: "center" }}
+                            onPress={() => this.hanldeDelete(item.id)}>
+                            <IconDelete name="delete" size={24}
+                              style={{ color: "gray" }}
+                            />
+                          </TouchableOpacity >
+                          <TouchableOpacity style={{ flex: 1, justifyContent: "center" }}
+                            onPress={() => {
+                              navigate('EditEvent', {
+                                "name": item.name,
+                                "description": item.description,
+                                "time": item.time,
+                                "address": item.address,
+                                "id": item.id,
+                                "groupId": item.groupId
+                              });
+                            }}>
+                            <IconEdit name="edit"
+                              style={{ fontSize: 24, color: "gray" }}
+                            />
+                          </TouchableOpacity>
+                        </View>
                       }
                     </View>
-
-                    <View style={styles.info} >
-                    {/* onPress={() => navigate("DetailEvent", { id: item.id , uid: uid})} */}
-                      <Text style={styles.textName} numberOfLines={2}>{item.name}</Text>
-                      <Text style={styles.textView} numberOfLines={2}>{item.description}</Text>
-                      <View style={{ flexDirection: "row" , paddingTop:6, paddingBottom: 3}}>
-                        <IconClock name="clock" size={20} style={{ color: "#007aff", marginRight: 8 }} />
-                        <Text style={styles.textView}>{(item.time).substr(11, (item.time).length)}</Text>
-                      </View>
-                      <View style={{ flexDirection: "row", width:"90%", paddingTop:3, paddingBottom: 3}}>
-                        <IconLocation name="location" size={20} style={{ color: "#007aff", marginRight: 8 }} />
-                        <View>
-                        <Text style={styles.textView} numberOfLines={2}>{item.address}</Text>
-                        </View>
-                      </View>
-                      <Text style={styles.textView}>{this.getTime(item.time)}</Text>
-                    </View>
-
-                    {(uid === leaderId) &&
-                      <View style={{ flexDirection: "column" }}>
-                        <TouchableOpacity style={{ flex: 1, justifyContent: "center" }}
-                          onPress={() => this.hanldeDelete(item.id)}>
-                          <IconDelete name="delete" size={24}
-                            style={{ color: "gray" }}
-                          />
-                        </TouchableOpacity >
-                        <TouchableOpacity style={{ flex: 1, justifyContent: "center" }}
-                          onPress={() => {
-                            navigate('EditEvent', {
-                              "name": item.name,
-                              "description": item.description,
-                              "time": item.time,
-                              "address": item.address,
-                              "id": item.id,
-                              "groupId": item.groupId
-                            });
-                          }}>
-                          <IconEdit name="edit"
-                            style={{ fontSize: 24, color: "gray" }}
-                          />
-                        </TouchableOpacity>
-                      </View>
-                    }
                   </View>
-                </View>
-            }
-          />
+              }
+            />
+            <View style={{ height: 100 }}></View>
+          </ScrollView>
           :
           <View style={{ alignItems: "center", justifyContent: "center", marginTop: 170 }}>
             <Text style={{ fontSize: 20 }}>Nhóm chưa có kế hoạch nào</Text>

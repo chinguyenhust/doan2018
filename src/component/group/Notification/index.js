@@ -2,11 +2,8 @@ import React, { Component } from 'react';
 import { Text, View, FlatList, TouchableOpacity, Image } from 'react-native';
 import styles from "./NotificationStyle";
 import { Data } from "../../../api/Data";
-import Icon from 'react-native-vector-icons/Ionicons';
 import icon from '../../../assets/icon.png';
-import IconUser from 'react-native-vector-icons/FontAwesome5';
-import IconNotifi from 'react-native-vector-icons/Ionicons';
-import IconHome from "react-native-vector-icons/Entypo";
+import { ScrollView } from 'react-native-gesture-handler';
 
 let notifis = Data.ref('/notification');
 
@@ -15,10 +12,7 @@ export default class Notification extends Component {
     super(props);
     this.state = {
       items: [],
-      isHome: this.props.navigation.state.params.isHome,
-      isSearch: this.props.navigation.state.params.isSearch,
-      isNoti: this.props.navigation.state.params.isNoti,
-      isUser: this.props.navigation.state.params.isUser,
+
     }
   }
 
@@ -84,6 +78,24 @@ export default class Notification extends Component {
     }
   }
 
+  handleClickItem = ( title, groupId, groupName, userName) => {
+    const navigation  = this.props.navigation;
+    if(title === "Nhóm mới"){
+      navigation.navigate('MyGroup', {
+         "email": this.props.email, 
+         "user_id": this.props.user_id ,
+         "page": "HomeScreen"
+        });
+    }else{
+      navigation.navigate('DetailGroup', {
+        name: groupName,
+        groupId: groupId,
+        uid: this.props.user_id,
+        userName: userName,
+      })
+    }
+  }
+
   render() {
     const { items, isHome, isNoti, isSearch, isUser } = this.state;
     const { navigate } = this.props.navigation;
@@ -91,18 +103,19 @@ export default class Notification extends Component {
       <View style={styles.container}>
         <View
           style={styles.header}>
-          
+
           <View style={{ justifyContent: "center" }}>
             <Text style={{ color: "#ffffff", fontSize: 20, fontWeight: "600" }}>Thông báo</Text>
           </View>
         </View>
-
+        
+        <ScrollView>
         <FlatList
           data={items}
           renderItem={
             ({ item }) =>
               <View style={{ flexDirection: "column" }}>
-                <TouchableOpacity style={styles.item} >
+                <TouchableOpacity style={styles.item} onPress={()=>{this.handleClickItem(item.title, item.topic, item.groupName, item.userName)}}>
                   <View style={{ flex: 3 }}>
                     <Image
                       style={{ width: 50, height: 50 }}
@@ -112,7 +125,9 @@ export default class Notification extends Component {
 
                   <View style={{ flex: 11, paddingRight: 20 }}>
                     <Text>
-                      <Text style={styles.username}>{item.userName}</Text>
+                      {(item.title !== "Nhóm mới") &&
+                        <Text style={styles.username}>{item.userName}</Text>
+                      }
                       <Text style={styles.content}>{item.message}</Text>
                       <Text style={styles.username}>{item.groupName}</Text>
                     </Text>
@@ -124,101 +139,8 @@ export default class Notification extends Component {
               </View>
           }
         />
-
-        <View style={styles.tapbar}>
-          <TouchableOpacity style={styles.tapItem}
-            onPress={() => {
-              navigate("MyGroup");
-              this.setState({
-                isHome: true,
-                isSearch: false,
-                isNoti: false,
-                isUser: false,
-              })
-            }
-            }>
-            <View style={{ flex: 2, justifyContent: "center" }}>
-              <IconHome name="home"
-                style={{ fontSize: 20, color: (isHome) ? "#008605" : "#bcbcbc" }}
-              />
-            </View>
-            <Text style={{ color: (isHome) ? "#008605" : "#bcbcbc" }}>Nhóm của tôi</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity style={styles.tapItem}
-            onPress={() => {
-              navigate("SearchScreen",{
-                "email": this.props.navigation.state.params.email,
-                "isHome": false,
-                "isSearch": true,
-                "isNoti": false,
-                "isUser": false
-              });
-              this.setState({
-                isHome: false,
-                isSearch: true,
-                isNoti: false,
-                isUser: false,
-              })
-            }}>
-            <View style={{ flex: 2, justifyContent: "center" }}>
-              <Icon name="ios-search"
-                style={{ fontSize: 20, color: (isSearch) ? "#008605" : "#bcbcbc" }}
-              />
-            </View>
-            <Text style={{ color: (isSearch) ? "#008605" : "#bcbcbc" }}>Khám phá</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity style={styles.tapItem}
-            onPress={() => {
-              navigate("Notification", {
-                "email": this.props.navigation.state.params.email,
-              "isHome": false,
-              "isSearch": false,
-              "isNoti": true,
-              "isUser": false});
-              this.setState({
-                isHome: false,
-                isSearch: false,
-                isNoti: true,
-                isUser: false,
-              })
-            }
-            }>
-            <View style={{ flex: 2, justifyContent: "center" }}>
-              <IconNotifi name="ios-notifications"
-                style={{ fontSize: 20, color: (isNoti) ? "#008605" : "#bcbcbc" }}
-              />
-            </View>
-            <Text style={{ color: (isNoti) ? "#008605" : "#bcbcbc" }}>Thông báo</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity style={styles.tapItem}
-            onPress={() => {
-              navigate("UserInfo", {
-                "email": this.props.navigation.state.params.email,
-                "isHome": false,
-                "isSearch": false,
-                "isNoti": false,
-                "isUser": true
-              })
-              this.setState({
-                isHome: false,
-                isSearch: false,
-                isNoti: false,
-                isUser: true,
-              })
-            }
-            }>
-            <View style={{ flex: 2, justifyContent: "center" }}>
-              <IconUser name="user-circle"
-                style={{ fontSize: 20, color: (isUser) ? "#008605" : "#bcbcbc" }}
-              />
-            </View>
-            <Text style={{ color: (isUser) ? "#008605" : "#bcbcbc" }}>Tôi</Text>
-          </TouchableOpacity>
-        </View>
-
+        <View style={{height:100}}></View>
+        </ScrollView>
       </View>
     );
   }
