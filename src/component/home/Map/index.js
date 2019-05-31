@@ -4,6 +4,7 @@ import { StyleSheet, Text, View, Dimensions } from 'react-native';
 import MapView from "react-native-maps";
 import { Marker, Callout } from 'react-native-maps';
 import { Data } from "../../../api/Data";
+import Icon from 'react-native-vector-icons/Ionicons';
 
 
 const { width, height } = Dimensions.get('window')
@@ -58,7 +59,8 @@ export default class Map extends Component {
           position: {
             latitude: data.latitude,
             longitude: data.longitude
-          }
+          },
+          privarteLocation: data.privarteLocation
         })
         this.setState({
           listMember: listMember
@@ -91,7 +93,7 @@ export default class Map extends Component {
                 <Marker
                   // title={option.userName}
                   coordinate={option.position}
-                  pinColor="#8e2176"
+                  pinColor="#008605"
                 >
                   <Callout>
                     <View>
@@ -115,7 +117,6 @@ export default class Map extends Component {
                   </Marker>
                   :
                   <View></View>
-
             )}
         </MapView>
       </View>
@@ -126,7 +127,7 @@ export default class Map extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
+    // justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
   },

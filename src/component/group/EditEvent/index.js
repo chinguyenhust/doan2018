@@ -53,16 +53,16 @@ export default class EditEvent extends Component {
           created_edit: firebase.database.ServerValue.TIMESTAMP,
         }
       ).then(() => {
-        // Data.ref("notification").push({
-        //   topic: groupId,
-        //   groupName: groupName,
-        //   userName: userName,
-        //   token: "",
-        //   title: "Chỉnh sửa kế hoạch",
-        //   message: " vừa tạo một kế hoạch mới trong ",
-        //   created_at: firebase.database.ServerValue.TIMESTAMP,
-        //   userAvatar: "https://facebook.github.io/react-native/docs/assets/favicon.png"
-        // })
+        Data.ref("notification").push({
+          topic: groupId,
+          groupName: groupName,
+          userName: userName,
+          token: "",
+          title: "Chỉnh sửa kế hoạch",
+          message: " vừa thay đổi thông tin kế hoạch. ",
+          created_at: firebase.database.ServerValue.TIMESTAMP,
+          userAvatar: "https://facebook.github.io/react-native/docs/assets/favicon.png"
+        })
       }).catch((error) => {
         console.log(error);
       });

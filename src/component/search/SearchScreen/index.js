@@ -1,7 +1,5 @@
 import React from 'react'
-import { View, Text, ActivityIndicator, StyleSheet, TouchableOpacity } from 'react-native';
-import Icon from 'react-native-vector-icons/Ionicons';
-import IconSearch from 'react-native-vector-icons/Ionicons';
+import { View, Text, ActivityIndicator, Alert, TouchableOpacity } from 'react-native';
 import IconRestaurant from 'react-native-vector-icons/Ionicons';
 import IconHotel from 'react-native-vector-icons/MaterialIcons';
 import IconATM from 'react-native-vector-icons/MaterialIcons';
@@ -18,7 +16,6 @@ import img_bank from "../../../assets/bank.png";
 import img_cafe from "../../../assets/cafe.png";
 import img_camera from "../../../assets/camera.png";
 import img_petrolimex from "../../../assets/petrolimex.png";
-
 
 const KEY = "AIzaSyBUlVo1hI6x58Zp3w1uvKDag5H4HqIuINE"
 export default class SearchScreen extends React.Component {
@@ -47,7 +44,14 @@ export default class SearchScreen extends React.Component {
     var userLocation = this.props.userLocation;
     var navigation = this.props.navigation
     if (this.state.address === "") {
-      alert("Vui long nhap dia chi")
+      Alert.alert(
+        'Thông báo',
+        'Vui lòng nhập địa chỉ!',
+        [
+          { text: 'OK', onPress: () => console.log('OK Pressed') },
+        ],
+        { cancelable: false },
+      );
     } else {
       var param = {
         location: this.state.latitude + "," + this.state.longitude,
@@ -68,7 +72,14 @@ export default class SearchScreen extends React.Component {
   handleClickTravel = async () => {
     var userLocation = this.props.userLocation;
     if (this.state.address === "") {
-      alert("Vui lòng nhập địa chỉ")
+      Alert.alert(
+        'Thông báo',
+        'Vui lòng nhập địa chỉ!',
+        [
+          { text: 'OK', onPress: () => console.log('OK Pressed') },
+        ],
+        { cancelable: false },
+      );
     } else {
       var param = {
         location: this.state.latitude + "," + this.state.longitude,
@@ -90,7 +101,14 @@ export default class SearchScreen extends React.Component {
     var userLocation = this.props.userLocation;
     var navigation = this.props.navigation
     if (this.state.address === "") {
-      alert("Vui lòng nhập địa chỉ")
+      Alert.alert(
+        'Thông báo',
+        'Vui lòng nhập địa chỉ!',
+        [
+          { text: 'OK', onPress: () => console.log('OK Pressed') },
+        ],
+        { cancelable: false },
+      );
     } else {
       var param = {
         location: this.state.latitude + "," + this.state.longitude,
@@ -112,7 +130,14 @@ export default class SearchScreen extends React.Component {
     var userLocation = this.props.userLocation;
     var navigation = this.props.navigation
     if (this.state.address === "") {
-      alert("Vui lòng nhập địa chỉ")
+      Alert.alert(
+        'Thông báo',
+        'Vui lòng nhập địa chỉ!',
+        [
+          { text: 'OK', onPress: () => console.log('OK Pressed') },
+        ],
+        { cancelable: false },
+      );
     } else {
       var param = {
         location: this.state.latitude + "," + this.state.longitude,
@@ -134,7 +159,14 @@ export default class SearchScreen extends React.Component {
     var userLocation = this.props.userLocation;
     var navigation = this.props.navigation
     if (this.state.address === "") {
-      alert("Vui lòng nhập địa chỉ")
+      Alert.alert(
+        'Thông báo',
+        'Vui lòng nhập địa chỉ!',
+        [
+          { text: 'OK', onPress: () => console.log('OK Pressed') },
+        ],
+        { cancelable: false },
+      );
     } else {
       var param = {
         location: this.state.latitude + "," + this.state.longitude,
@@ -156,7 +188,14 @@ export default class SearchScreen extends React.Component {
     var userLocation = this.props.userLocation;
     var navigation = this.props.navigation
     if (this.state.address === "") {
-      alert("Vui lòng nhập địa chỉ")
+      Alert.alert(
+        'Thông báo',
+        'Vui lòng nhập địa chỉ!',
+        [
+          { text: 'OK', onPress: () => console.log('OK Pressed') },
+        ],
+        { cancelable: false },
+      );
     } else {
       var param = {
         location: this.state.latitude + "," + this.state.longitude,

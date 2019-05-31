@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, TouchableOpacity, TextInput, Image, ScrollView, FlatList, Switch } from 'react-native';
+import { Text, View, TouchableOpacity, Alert, Image, ScrollView, FlatList, Switch } from 'react-native';
 import styles from './InfoGroupStyle';
 import Icon from 'react-native-vector-icons/Ionicons';
 import IconDropDown from 'react-native-vector-icons/Ionicons';
@@ -259,7 +259,7 @@ export default class InfoGroup extends Component {
     return new Date(parts[2], parts[1] - 1, parts[0])
   }
 
-  _handleEdit =() => {
+  _handleEdit = () => {
     this.props.navigation.navigate('EditGroup', {
       "name": this.state.name,
       "description": this.state.description,
@@ -273,6 +273,18 @@ export default class InfoGroup extends Component {
     });
   }
 
+  handleImage = () => {
+    Alert.alert(
+      'Thông báo',
+      'Vui lòng nhập địa chỉ!',
+      [
+        { text: 'OK', onPress: () => console.log('OK Pressed') },
+      ],
+      { cancelable: false },
+    );
+  }
+
+
 
   render() {
     const { selectedItems, items, avatar, name, schedule, isSwitch,
@@ -282,12 +294,12 @@ export default class InfoGroup extends Component {
     return (
       <View style={styles.container}>
 
-        <View style={{ height: 56, flexDirection: "row", paddingLeft: 20,paddingRight: 20, backgroundColor: "#006805", alignItems: "center" }}>
-          <View style={{justifyContent:"flex-start", flex:9}}>
+        <View style={{ height: 56, flexDirection: "row", paddingLeft: 20, paddingRight: 20, backgroundColor: "#006805", alignItems: "center" }}>
+          <View style={{ justifyContent: "flex-start", flex: 9 }}>
             <Icon name="ios-arrow-round-back" size={34}
               style={{ color: "#ffffff" }} onPress={() => { this.props.navigation.goBack() }} />
           </View>
-          <View style={{justifyContent:"flex-end", flex:1}}>
+          <View style={{ justifyContent: "flex-end", flex: 1 }}>
             <IconEdit name="edit"
               style={{ fontSize: 24, color: "#ffffff" }}
               onPress={this._handleEdit}
@@ -300,12 +312,12 @@ export default class InfoGroup extends Component {
           scrollEnabled={this.state.enableScrollViewScroll}
         >
           <TouchableOpacity style={{ alignItems: 'center' }} onPress={this.chooseFile.bind(this)}>
-          
-              <Image
-                source={{ uri: (avatar) ? avatar :"https://facebook.github.io/react-native/docs/assets/favicon.png"  }}
-                style={{ width: 100, height: 100, borderRadius: 50, marginTop: 10 }}
-              />
-            
+
+            <Image
+              source={{ uri: (avatar) ? avatar : "https://facebook.github.io/react-native/docs/assets/favicon.png" }}
+              style={{ width: 100, height: 100, borderRadius: 50, marginTop: 10 }}
+            />
+
           </TouchableOpacity>
 
           <View style={{ alignItems: "center", justifyContent: "center", marginTop: 25 }}>

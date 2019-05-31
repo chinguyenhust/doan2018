@@ -6,6 +6,7 @@ import styles from "./DetailGroupStyle";
 import Map from '../../home/Map';
 import Event from '../Event';
 import Chat from '../Chat';
+import { Data } from "../../../api/Data";
 
 export default class DetailGroup extends Component {
   constructor(props) {
@@ -40,6 +41,14 @@ export default class DetailGroup extends Component {
     })
   }
 
+  handlePrivateLocation = () => {
+    const uid = this.props.navigation.state.params.uid;
+    Data.ref("users").child(uid).update({
+      privateLocation:true,
+    })
+
+  }
+
   render() {
     const { navigate } = this.props.navigation;
     const name = this.props.navigation.state.params.userName;
@@ -50,16 +59,21 @@ export default class DetailGroup extends Component {
       <View style={styles.container}>
 
         <View
-          style={{ height: 56, flexDirection: "row", paddingLeft: 20, alignSelf: "stretch", alignItems: "center",backgroundColor: "#006805" }}>
+          style={{ height: 56, flexDirection: "row", paddingLeft: 20, alignSelf: "stretch", alignItems: "center", backgroundColor: "#006805" }}>
           <Icon name="ios-arrow-round-back"
             size={34}
-            style={{ width: "10%", color:"#ffff" }}
+            style={{ width: "10%", color: "#ffff" }}
             onPress={() => { this.props.navigation.goBack() }} />
-          <Text style={{ fontSize: 20, width: "75%", fontWeight: "500", color: "#ffffff" }}>{this.props.navigation.state.params.name}</Text>
+          <Text style={{ fontSize: 20, width: "80%", fontWeight: "500", color: "#ffffff"}} numberOfLines={1}>{this.props.navigation.state.params.name}</Text>
+{/* 
+          <Icon name="ios-unlock" size={26}
+            style={{ color: "#ffffff",  width: "10%" }}
+            onPress={this.handlePrivateLocation}
+          /> */}
           <IconInfo name="ios-information-circle-outline"
-            size={30}
-            style={{ width: "10%", color:"#ffffff"}}
-            onPress={() => { navigate("InfoGroup", { groupId: groupId, uid: uid}) }} />
+            size={26}
+            style={{ width: "10%", color: "#ffffff" }}
+            onPress={() => { navigate("InfoGroup", { groupId: groupId, uid: uid }) }} />
         </View>
 
 

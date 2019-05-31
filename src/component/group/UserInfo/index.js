@@ -6,15 +6,9 @@ import IconMail from 'react-native-vector-icons/Ionicons';
 import IconEdit from 'react-native-vector-icons/MaterialIcons';
 import IconUser from 'react-native-vector-icons/FontAwesome5';
 import IconPhone from 'react-native-vector-icons/FontAwesome5';
-import IconLogOut from 'react-native-vector-icons/AntDesign';
 import { Data } from "../../../api/Data";
 import * as firebase from 'firebase';
 import FCM from 'react-native-fcm';
-// import Icon from 'react-native-vector-icons/Ionicons';
-// import icon from '../../../assets/icon.png';
-// import IconUser from 'react-native-vector-icons/FontAwesome5';
-import IconNotifi from 'react-native-vector-icons/Ionicons';
-import IconHome from "react-native-vector-icons/Entypo";
 
 
 let group_user = Data.ref('/group_users');

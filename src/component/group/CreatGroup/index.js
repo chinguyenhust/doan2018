@@ -297,6 +297,7 @@ export default class CreatGroup extends Component {
               {this.state.errStartDate ? <Text style={styles.textError}>{this.state.errStartDate}</Text> : null}
             </TouchableOpacity>
             <View style={styles.line}>
+              <View style={{width:1, height:50, backgroundColor:"#bcbcbc"}}></View>
             </View>
             <TouchableOpacity style={styles.time} onPress={() => navigate('DatePicker', {"isEdit":false})}>
               <Text style={styles.titleBold}>Ngày về (*)</Text>

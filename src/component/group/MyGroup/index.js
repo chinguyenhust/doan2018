@@ -40,22 +40,34 @@ export default class MyGroup extends Component {
     }
   }
 
+  componentDidMount() {
+      this.setState({
+        page: this.props.navigation.state.params.page ? this.props.navigation.state.params.page : "HomeScreen"
+    })
+  }
+  componentWillReceiveProps (){
+    this.setState({
+      page: this.props.navigation.state.params.page ? this.props.navigation.state.params.page : "HomeScreen"
+  })
+  }
+
   render() {
-    
     return (
       <View style={styles.container}>
         <StatusBar backgroundColor="#003c00" barStyle="light-content" />
 
-        {this.state.page === "HomeScreen" && 
-        <Home 
-        navigation={this.props.navigation}
-        email={this.props.navigation.state.params.email}
-        user_id={this.props.navigation.state.params.user_id}
-        />
+        {(this.state.page === "HomeScreen") &&
+          <Home
+            navigation={this.props.navigation}
+            email={this.props.navigation.state.params.email}
+            user_id={this.props.navigation.state.params.user_id}
+          />
         }
         {this.state.page === "NotificationScreen" &&
           <Notification
             navigation={this.props.navigation}
+            user_id={this.props.navigation.state.params.user_id}
+            email={this.props.navigation.state.params.email}
           />
         }
         {this.state.page === "ProfileScreen" &&
@@ -102,7 +114,7 @@ export default class MyGroup extends Component {
             },
           ]}
         />
-        </View>
+      </View>
 
       // </View>
     );

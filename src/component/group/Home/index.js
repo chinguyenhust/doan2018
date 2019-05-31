@@ -96,7 +96,7 @@ export default class Home extends Component {
       this.setState({ markerPosition: initalRegion });
     },
       (error) => alert(JSON.stringify(error)),
-      // { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 }
+      // { enableHighAccuracy: false, timeout: 50000, maximumAge: 10000}
     )
 
     this.watchID = navigator.geolocation.watchPosition((position) => {
@@ -565,7 +565,7 @@ export default class Home extends Component {
               keyExtractor={item => item.id}
             />
 
-            <View style={{ height: 50 }}></View>
+            <View style={{ height: 60 }}></View>
           </ScrollView>
           :
           <View style={{ alignItems: "center", justifyContent: "center", marginTop: 170 }}>
