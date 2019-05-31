@@ -10,6 +10,7 @@ import { Data } from "../../../api/Data";
 import * as firebase from 'firebase';
 import ImageResizer from 'react-native-image-resizer';
 import IconEdit from 'react-native-vector-icons/MaterialIcons';
+import { Dialog } from 'react-native-simple-dialogs';
 
 let users = Data.ref('/users');
 
@@ -35,6 +36,7 @@ export default class InfoGroup extends Component {
       isOn: false,
       isSchedule: true,
       isSwitch: false,
+      dialogVisible: false
     };
     this.uploadImage = this.uploadImage.bind(this);
   }
@@ -119,26 +121,6 @@ export default class InfoGroup extends Component {
     })
   }
 
-  // _handleEdit = () => {
-  //   const groupId = this.props.navigation.state.params.groupId;
-  //   var { name, schedule, image, selectedItems } = this.state;
-  //   var user = firebase.auth().currentUser;
-  //   Data.ref("groups").child(groupId).update(
-  //     {
-  //       name: name,
-  //       schedule: schedule,
-  //       avatar: image,
-  //       // members: selectedItems,
-  //       created_update: firebase.database.ServerValue.TIMESTAMP,
-  //       userUpdate: user.uid
-  //     }
-  //   ).then(() => {
-  //     console.log("Success !");
-  //   }).catch((error) => {
-  //     console.log(error);
-  //   });
-  //   this.props.navigation.navigate("DetailGroup", { name: name })
-  // }
 
   uploadImage = async uri => {
     try {
@@ -274,14 +256,9 @@ export default class InfoGroup extends Component {
   }
 
   handleImage = () => {
-    Alert.alert(
-      'Thông báo',
-      'Vui lòng nhập địa chỉ!',
-      [
-        { text: 'OK', onPress: () => console.log('OK Pressed') },
-      ],
-      { cancelable: false },
-    );
+    this.setState({
+      dialogVisible:true
+    })
   }
 
 
@@ -311,7 +288,7 @@ export default class InfoGroup extends Component {
           style={{ paddingLeft: 20, paddingRight: 20, marginBottom: 40 }}
           scrollEnabled={this.state.enableScrollViewScroll}
         >
-          <TouchableOpacity style={{ alignItems: 'center' }} onPress={this.chooseFile.bind(this)}>
+          <TouchableOpacity style={{ alignItems: 'center' }} onPress={this.handleImage}>
 
             <Image
               source={{ uri: (avatar) ? avatar : "https://facebook.github.io/react-native/docs/assets/favicon.png" }}
@@ -319,6 +296,23 @@ export default class InfoGroup extends Component {
             />
 
           </TouchableOpacity>
+
+          <Dialog
+            visible={this.state.dialogVisible}
+            contentStyle={
+              {
+                alignItems: "center",
+                justifyContent: "center",
+            }
+            }
+            onTouchOutside={() => this.setState({ dialogVisible: false })} 
+            >
+            
+            <Image
+              source={{ uri: (avatar) ? avatar : "https://facebook.github.io/react-native/docs/assets/favicon.png" }}
+              style={{ width: 250, height: 250 }}
+            />
+          </Dialog>
 
           <View style={{ alignItems: "center", justifyContent: "center", marginTop: 25 }}>
             <Text style={{ fontSize: 20, fontWeight: "600", color: "#000000" }} numberOfLines={1}>{name}</Text>
