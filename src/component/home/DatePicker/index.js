@@ -220,9 +220,9 @@ export default class RangeDatepicker extends Component {
 
     return (
       <View style={{ backgroundColor: '#fff', zIndex: 1000, alignSelf: 'center', paddingTop: Platform.OS === 'ios' ? 30 : 0, }}>
-        <View style={{ height: 56, flexDirection: "row", backgroundColor: "#006805", alignItems: "center", paddingLeft: 15 }}>
+        <View style={{ height: 56, flexDirection: "row", backgroundColor: "#006805", alignItems: "center", paddingLeft: 20 }}>
           <Icon name="ios-arrow-round-back"
-            style={{ marginLeft: 20, color: "#ffffff" }} size={34}
+            style={{color: "#ffffff" }} size={34}
             onPress={() => this.props.navigation.goBack(null, {
               startDate: startDate,
               untilDate: untilDate

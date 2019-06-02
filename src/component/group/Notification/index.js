@@ -33,9 +33,19 @@ export default class Notification extends Component {
         created_at: data.created_at
       })
       this.setState({
-        items: items
+        items: items.sort(this.compare)
       })
     });
+  }
+
+  compare = (a, b) => {
+    var time1 = new Date(a.created_at).getTime();
+    var time2 = new Date(b.created_at).getTime();
+    if (time2 < time1)
+      return -1;
+    if (time2 > time1)
+      return 1;
+    return 0;
   }
 
   getDate = (time) => {
@@ -97,7 +107,7 @@ export default class Notification extends Component {
   }
 
   render() {
-    const { items, isHome, isNoti, isSearch, isUser } = this.state;
+    const { items} = this.state;
     const { navigate } = this.props.navigation;
     return (
       <View style={styles.container}>

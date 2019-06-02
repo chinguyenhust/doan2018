@@ -277,10 +277,14 @@ export default class InfoGroup extends Component {
               style={{ color: "#ffffff" }} onPress={() => { this.props.navigation.goBack() }} />
           </View>
           <View style={{ justifyContent: "flex-end", flex: 1 }}>
+            {untilDate && (new Date().getTime() < (this.toDate(untilDate).getTime())) ?
             <IconEdit name="edit"
               style={{ fontSize: 24, color: "#ffffff" }}
               onPress={this._handleEdit}
             />
+            :
+            <View></View>
+            }
           </View>
         </View>
 
@@ -311,7 +315,7 @@ export default class InfoGroup extends Component {
             <Image
               source={{ uri: (avatar) ? avatar : "https://facebook.github.io/react-native/docs/assets/favicon.png" }}
               style={{ width: 250, height: 250 }}
-            />
+            />+
           </Dialog>
 
           <View style={{ alignItems: "center", justifyContent: "center", marginTop: 25 }}>
