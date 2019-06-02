@@ -115,7 +115,7 @@ export default class Notification extends Component {
           style={styles.header}>
 
           <View style={{ justifyContent: "center" }}>
-            <Text style={{ color: "#ffffff", fontSize: 20, fontWeight: "600" }}>Thông báo</Text>
+            <Text style={{ color: "#ffffff", fontSize: 20, fontWeight: "500" }}>Thông báo</Text>
           </View>
         </View>
         

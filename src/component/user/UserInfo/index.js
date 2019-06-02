@@ -120,7 +120,7 @@ export default class UserInfo extends Component {
           </TouchableOpacity>
 
           {/* <TouchableOpacity style={styles.item} onPress={this._handleLogout}>
-            <IconLogOut name="logout" size={24} style={{ color: "#007aff", flex: 2 }} />
+            <IconLogOut name="logout" size={24} style={{ color: "#008605", flex: 2 }} />
             <View style={{ flex: 8 }}>
               <Text style={{ fontSize: 20, }}> Đăng xuất</Text>
             </View>

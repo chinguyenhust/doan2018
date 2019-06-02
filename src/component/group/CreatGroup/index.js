@@ -30,10 +30,10 @@ export default class CreatGroup extends Component {
       errSchedule: "",
       group_id: null,
       isAddMember: false,
-      startDate:"",
-      errStartDate:"",
-      untilDate:"",
-      errUntilDate:""
+      startDate: "",
+      errStartDate: "",
+      untilDate: "",
+      errUntilDate: ""
     };
     this.uploadImage = this.uploadImage.bind(this);
   }
@@ -60,8 +60,8 @@ export default class CreatGroup extends Component {
     const startDate = this.props.navigation.getParam("startDate", null);
     const untilDate = this.props.navigation.getParam("untilDate", null);
     this.setState({
-      startDate:startDate,
-      untilDate:untilDate
+      startDate: startDate,
+      untilDate: untilDate
     })
     var check = this._handleCheck();
     if (check) {
@@ -106,10 +106,16 @@ export default class CreatGroup extends Component {
             });
           })
         }
+        this.props.navigation.navigate("DetailGroup", {
+          name: name,
+          groupId: snapshot.key,
+          uid: uid,
+          userName: this.state.userName,
+        })
       }).catch((error) => {
         console.log(error);
       });
-      this.props.navigation.navigate("DetailGroup", { name: name, groupId: this.state.group_id })
+      
     } else {
       Alert.alert(
         'Thông báo',
@@ -220,9 +226,11 @@ export default class CreatGroup extends Component {
   }
 
   _handleCheck() {
+    const startDate = this.props.navigation.getParam("startDate", null);
+    const untilDate = this.props.navigation.getParam("untilDate", null);
     const { name, errGroupName, schedule,
-      errSchedule, startDate ,errStartDate, untilDate,errUntilDate , selectedItems} = this.state;
-    if (name && !errGroupName && schedule && !errSchedule && startDate && !errStartDate && untilDate && !errUntilDate && (selectedItems !==[]))
+      errSchedule, errStartDate, errUntilDate, selectedItems } = this.state;
+    if (name && !errGroupName && schedule && !errSchedule && startDate && !errStartDate && untilDate && !errUntilDate && (selectedItems !== []))
       return true;
     return false;
   }
@@ -253,7 +261,7 @@ export default class CreatGroup extends Component {
         </View>
 
         <ScrollView style={{ paddingLeft: 20, paddingRight: 20, marginBottom: 40 }}>
-          <TouchableOpacity style={{ alignItems: 'center', justifyContent:"center", height:100 }} onPress={this.chooseFile.bind(this)}>
+          <TouchableOpacity style={{ alignItems: 'center', justifyContent: "center", height: 100 }} onPress={this.chooseFile.bind(this)}>
             {(!this.state.isLoad) ?
               <IconPicture name="picture-o" size={60} style={{ color: "#ebebeb" }} /> :
               <Image
@@ -288,7 +296,7 @@ export default class CreatGroup extends Component {
           </View>
 
           <View style={styles.dateTime}>
-            <TouchableOpacity style={styles.date} onPress={() => navigate('DatePicker', {"isEdit":false})}>
+            <TouchableOpacity style={styles.date} onPress={() => navigate('DatePicker', { "isEdit": false })}>
               <Text style={styles.titleBold}>Ngày đi (*)</Text>
               {(startDate === null || startDate === "Invalid date") ?
                 <Text style={{ color: "#A9A9A9", paddingTop: 5, fontSize: 16 }}>Chọn ngày đến</Text> :
@@ -297,9 +305,9 @@ export default class CreatGroup extends Component {
               {this.state.errStartDate ? <Text style={styles.textError}>{this.state.errStartDate}</Text> : null}
             </TouchableOpacity>
             <View style={styles.line}>
-              <View style={{width:1, height:50, backgroundColor:"#bcbcbc"}}></View>
+              <View style={{ width: 1, height: 50, backgroundColor: "#bcbcbc" }}></View>
             </View>
-            <TouchableOpacity style={styles.time} onPress={() => navigate('DatePicker', {"isEdit":false})}>
+            <TouchableOpacity style={styles.time} onPress={() => navigate('DatePicker', { "isEdit": false })}>
               <Text style={styles.titleBold}>Ngày về (*)</Text>
               {(untilDate === null || untilDate === "Invalid date") ?
                 <Text style={{ color: "#A9A9A9", paddingTop: 5, fontSize: 16 }}>Chọn ngày về</Text> :
@@ -322,38 +330,38 @@ export default class CreatGroup extends Component {
             {this.state.errSchedule ? <Text style={styles.textError}>{this.state.errSchedule}</Text> : null}
           </View>
           {
-           
-              <View>
-                <View style={{marginBottom:5}}>
-                  <Text style={styles.titleBold}>Thêm thành viên (*) </Text>
-                </View>
-                <MultiSelect
-                  hideTags
-                  items={items}
-                  uniqueKey="id"
-                  ref={(component) => { this.multiSelect = component }}
-                  onSelectedItemsChange={this.onSelectedItemsChange}
-                  selectedItems={selectedItems}
-                  selectText="Chọn thành viên nhóm"
-                  searchInputPlaceholderText="Tìm kiếm thành viên"
-                  onChangeInput={(text) => console.log(text)}
-                  altFontFamily="Cochin"
-                  tagRemoveIconColor="#007aff"
-                  tagBorderColor="#007aff"
-                  tagTextColor="#007aff"
-                  selectedItemTextColor="#000"
-                  selectedItemIconColor="#000"
-                  itemTextColor="#000"
-                  displayKey="name"
-                  searchInputStyle={{ color: '#CCC', height: 40, fontSize: 16 }}
-                  submitButtonColor="#007aff"
-                  submitButtonText="Submit"
-                  fontSize={16}
-                />
-                <View>
-                  {this.multiSelect && this.multiSelect.getSelectedItemsExt(selectedItems)}
-                </View>
+
+            <View>
+              <View style={{ marginBottom: 5 }}>
+                <Text style={styles.titleBold}>Thêm thành viên (*) </Text>
               </View>
+              <MultiSelect
+                hideTags
+                items={items}
+                uniqueKey="id"
+                ref={(component) => { this.multiSelect = component }}
+                onSelectedItemsChange={this.onSelectedItemsChange}
+                selectedItems={selectedItems}
+                selectText="Chọn thành viên nhóm"
+                searchInputPlaceholderText="Tìm kiếm thành viên"
+                onChangeInput={(text) => console.log(text)}
+                altFontFamily="Cochin"
+                tagRemoveIconColor="#008605"
+                tagBorderColor="#008605"
+                tagTextColor="#008605"
+                selectedItemTextColor="#000"
+                selectedItemIconColor="#000"
+                itemTextColor="#000"
+                displayKey="name"
+                searchInputStyle={{ color: '#CCC', height: 40, fontSize: 16 }}
+                submitButtonColor="#008605"
+                submitButtonText="Submit"
+                fontSize={16}
+              />
+              <View>
+                {this.multiSelect && this.multiSelect.getSelectedItemsExt(selectedItems)}
+              </View>
+            </View>
           }
 
           <TouchableOpacity style={styles.button} onPress={this._handleCreatGroup}>

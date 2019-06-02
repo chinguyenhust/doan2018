@@ -156,7 +156,7 @@ const styles = StyleSheet.create({
     borderColor: "white",
     borderRadius: 10,
     overflow: "hidden",
-    backgroundColor: "#007aff"
+    backgroundColor: "#008605"
   },
   textColor: {
     color: "#000000"

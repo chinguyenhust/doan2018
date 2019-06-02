@@ -272,9 +272,12 @@ export default class InfoGroup extends Component {
       <View style={styles.container}>
 
         <View style={{ height: 56, flexDirection: "row", paddingLeft: 20, paddingRight: 20, backgroundColor: "#006805", alignItems: "center" }}>
-          <View style={{ justifyContent: "flex-start", flex: 9 }}>
+          <View style={{ justifyContent: "flex-start", flex: 1 }}>
             <Icon name="ios-arrow-round-back" size={34}
               style={{ color: "#ffffff" }} onPress={() => { this.props.navigation.goBack() }} />
+          </View>
+          <View style={{flex:8}}>
+            <Text style={{ color: "#ffffff", fontSize: 20, fontWeight: "500" }}>Thông tin nhóm</Text>
           </View>
           <View style={{ justifyContent: "flex-end", flex: 1 }}>
             {untilDate && (new Date().getTime() < (this.toDate(untilDate).getTime())) ?

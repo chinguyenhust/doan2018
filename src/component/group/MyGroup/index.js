@@ -1,19 +1,7 @@
 import React, { Component } from 'react';
 import { Text, View, TouchableOpacity, TextInput, Image, ScrollView, Dimensions, StatusBar, } from 'react-native';
 import styles from './MyGroupStyle';
-import Icon from 'react-native-vector-icons/Ionicons';
-import IconAdd from 'react-native-vector-icons/MaterialIcons';
-import IconDescription from 'react-native-vector-icons/MaterialIcons';
-import IconUser from 'react-native-vector-icons/FontAwesome5';
-import IconDiamond from 'react-native-vector-icons/FontAwesome';
-import IconNotifi from 'react-native-vector-icons/Ionicons';
-import IconHome from "react-native-vector-icons/Entypo";
-import { SearchableFlatList } from "react-native-searchable-list";
 import { Data } from "../../../api/Data";
-import { ProgressDialog } from 'react-native-simple-dialogs';
-import IconClock from 'react-native-vector-icons/Entypo';
-import FCM from 'react-native-fcm';
-import firebase from 'react-native-firebase';
 import Tabbar from 'react-native-tabbar-bottom';
 import SearchScreen from "../../search/SearchScreen";
 import UserInfo from "../../group//UserInfo";
@@ -37,13 +25,22 @@ export default class MyGroup extends Component {
     super(props);
     this.state = {
       page: "HomeScreen",
+      user_id:""
     }
   }
 
   componentDidMount() {
+    var email = this.props.navigation.state.params.email;
       this.setState({
         page: this.props.navigation.state.params.page ? this.props.navigation.state.params.page : "HomeScreen"
     })
+    users.orderByChild("email").equalTo(email).on("child_added", (snapshot) => {
+      this.setState({
+        user_id:snapshot.key,
+      })
+    })
+
+
   }
   componentWillReceiveProps (){
     this.setState({
@@ -60,13 +57,13 @@ export default class MyGroup extends Component {
           <Home
             navigation={this.props.navigation}
             email={this.props.navigation.state.params.email}
-            user_id={this.props.navigation.state.params.user_id}
+            user_id={this.state.user_id}
           />
         }
         {this.state.page === "NotificationScreen" &&
           <Notification
             navigation={this.props.navigation}
-            user_id={this.props.navigation.state.params.user_id}
+            user_id={this.state.user_id}
             email={this.props.navigation.state.params.email}
           />
         }
