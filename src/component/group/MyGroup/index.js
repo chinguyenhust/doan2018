@@ -91,6 +91,8 @@ export default class MyGroup extends Component {
           }}
           tabbarBgColor="#ffffff"
           iconColor="#bcbcbc"
+          lableColor="#bcbcbc"
+          selectedLabelColor="#008605"
           selectedIconColor="#008605"
           tabbarBorderTopColor="#bcbcbc"
           activePage={this.state.page}
@@ -98,20 +100,24 @@ export default class MyGroup extends Component {
             {
               page: "HomeScreen",
               icon: "home",
+              iconText:"Nhóm của tôi"
+            },
+            {
+              page: "SearchScreen",
+              icon: "search",
+              iconText:"Tìm kiếm"
             },
             {
               page: "NotificationScreen",
               icon: "notifications",
               badgeNumber: 11,
+              iconText:"Thông báo"
             },
             {
               page: "ProfileScreen",
               icon: "person",
-            },
-            {
-              page: "SearchScreen",
-              icon: "search",
-            },
+              iconText:"Tôi"
+            }, 
           ]}
         />
       </View>

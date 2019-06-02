@@ -96,7 +96,7 @@ export default class Home extends Component {
       this.setState({ markerPosition: initalRegion });
     },
       (error) => alert(JSON.stringify(error)),
-      // { enableHighAccuracy: false, timeout: 50000, maximumAge: 10000}
+      { enableHighAccuracy: false, timeout: 50000, maximumAge: 10000}
     )
 
     this.watchID = navigator.geolocation.watchPosition((position) => {

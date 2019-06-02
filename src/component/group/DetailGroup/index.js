@@ -64,7 +64,7 @@ export default class DetailGroup extends Component {
             size={34}
             style={{ width: "10%", color: "#ffff" }}
             onPress={() => { this.props.navigation.goBack() }} />
-          <Text style={{ fontSize: 20, width: "80%", fontWeight: "500", color: "#ffffff"}} numberOfLines={1}>{this.props.navigation.state.params.name}</Text>
+          <Text style={{ fontSize: 20, width: "80%", fontWeight: "500", color: "#ffffff", paddingRight:5}} numberOfLines={1}>{this.props.navigation.state.params.name}</Text>
 {/* 
           <Icon name="ios-unlock" size={26}
             style={{ color: "#ffffff",  width: "10%" }}
