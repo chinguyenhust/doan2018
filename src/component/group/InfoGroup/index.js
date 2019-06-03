@@ -318,7 +318,7 @@ export default class InfoGroup extends Component {
             <Image
               source={{ uri: (avatar) ? avatar : "https://facebook.github.io/react-native/docs/assets/favicon.png" }}
               style={{ width: 250, height: 250 }}
-            />+
+            />
           </Dialog>
 
           <View style={{ alignItems: "center", justifyContent: "center", marginTop: 25 }}>

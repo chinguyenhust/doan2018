@@ -32,11 +32,11 @@ export default class Direction extends Component {
         latitude: 0,
         longtitude: 0
       },
-      destination:{
+      destination: {
         latitude: 0,
         longtitude: 0
       },
-      origin:{
+      origin: {
         latitude: 0,
         longtitude: 0
       }
@@ -45,12 +45,12 @@ export default class Direction extends Component {
 
   componentDidMount() {
     var location = this.props.navigation.state.params.location;
-      var destination = {
-        latitude: location.lat,
-        longitude: location.lng,
-      }
+    var destination = {
+      latitude: location.lat,
+      longitude: location.lng,
+    }
 
-      this.setState({ destination: destination });
+    this.setState({ destination: destination });
 
   }
 
@@ -61,7 +61,7 @@ export default class Direction extends Component {
     const GOOGLE_MAPS_APIKEY = 'AIzaSyDXwSjZX3_R1Pib3q0-XMXz76XgWhiMSS4';
     return (
       <View style={styles.container}>
-        <View style={{ paddingTop: 10, zIndex:10000 , paddingLeft:20}}>
+        <View style={{ paddingTop: 10, zIndex: 10000, paddingLeft: 20 }}>
           <Icon name="ios-arrow-round-back" size={40}
             style={{ color: "#006805" }} onPress={() => { this.props.navigation.goBack() }} />
         </View>
@@ -76,16 +76,36 @@ export default class Direction extends Component {
 
           initialRegion={this.state.initialPosition}
         >
-          
+
           <Marker
             coordinate={destination}>
           </Marker>
+
           <MapViewDirections
             origin={origin}
             destination={destination}
             apikey={GOOGLE_MAPS_APIKEY}
             strokeWidth={3}
             strokeColor="hotpink"
+            onStart={(params) => {
+              console.log(`Started routing between "${params.origin}" and "${params.destination}"`);
+            }}
+            onReady={result => {
+              console.log('Distance: ${result.distance} km')
+              console.log('Duration: ${result.duration} min.')
+
+              // this.mapView.fitToCoordinates(result.coordinates, {
+              //   edgePadding: {
+              //     right: (width / 20),
+              //     bottom: (height / 20),
+              //     left: (width / 20),
+              //     top: (height / 20),
+              //   }
+              // });
+            }}
+            onError={(errorMessage) => {
+              console.log(errorMessage);
+            }}
           />
         </MapView>
       </View>

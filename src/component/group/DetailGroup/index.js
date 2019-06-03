@@ -63,7 +63,7 @@ export default class DetailGroup extends Component {
           <Icon name="ios-arrow-round-back"
             size={34}
             style={{ width: "10%", color: "#ffff" }}
-            onPress={() => { this.props.navigation.goBack() }} />
+            onPress={() => { navigate("MyGroup",{}) }} />
           <Text style={{ fontSize: 20, width: "80%", fontWeight: "500", color: "#ffffff", paddingRight:5}} numberOfLines={1}>{this.props.navigation.state.params.name}</Text>
 {/* 
           <Icon name="ios-unlock" size={26}

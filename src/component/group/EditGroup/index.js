@@ -88,8 +88,10 @@ export default class EditGroup extends Component {
               Data.ref("notification").push({
                 topic: group_id,
                 groupName: name,
+                uid: uid,
                 userName: uid,
                 token: "",
+                read:0,
                 title: "Nhóm mới",
                 message: "Bạn vừa được thêm vào nhóm ",
                 created_at: firebase.database.ServerValue.TIMESTAMP,

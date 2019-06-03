@@ -392,7 +392,7 @@ export default class Home extends Component {
     const { navigate } = this.props.navigation;
     const { groupActive, searchTerm, searchAttribute,
       ignoreCase, groupFuture, groupDone, userLocation } = this.state;
-    var uid = this.props.navigation.state.params.user_id;
+    var uid = this.props.user_id;
    
     return (
       <View style={styles.container}>

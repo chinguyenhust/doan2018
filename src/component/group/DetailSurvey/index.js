@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View, Switch, TouchableOpacity, TextInput } from 'react-native';
+import { Platform, Keyboard, Text, View, Switch, TouchableOpacity, TextInput } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import IconAdd from 'react-native-vector-icons/Ionicons';
 import styles from './DetailSurveyStyle';
@@ -148,6 +148,7 @@ export default class DetailSurvey extends Component {
       isAdd: true,
       optionValue: ""
     })
+    Keyboard.dismiss();
   }
 
   handleToggle = () => {

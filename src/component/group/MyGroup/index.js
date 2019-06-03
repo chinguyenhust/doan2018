@@ -25,30 +25,38 @@ export default class MyGroup extends Component {
     super(props);
     this.state = {
       page: "HomeScreen",
-      user_id:""
+      user_id:"",
+      sum:0,
+      userLocation:""
     }
   }
 
   componentDidMount() {
     var email = this.props.navigation.state.params.email;
       this.setState({
-        page: this.props.navigation.state.params.page ? this.props.navigation.state.params.page : "HomeScreen"
+        page: this.props.navigation.state.params.page ? this.props.navigation.state.params.page : "HomeScreen",
+        sum:this.props.navigation.state.params.sum
     })
     users.orderByChild("email").equalTo(email).on("child_added", (snapshot) => {
       this.setState({
         user_id:snapshot.key,
+        userLocation:{
+          latitude:snapshot.val().latitude,
+          longitude: snapshot.val().longitude
+        }
       })
     })
-
 
   }
   componentWillReceiveProps (){
     this.setState({
-      page: this.props.navigation.state.params.page ? this.props.navigation.state.params.page : "HomeScreen"
+      page: this.props.navigation.state.params.page ? this.props.navigation.state.params.page : "HomeScreen",
+      sum:this.props.navigation.state.params.sum
   })
   }
 
   render() {
+    console.log(this.state.userLocation)
     return (
       <View style={styles.container}>
         <StatusBar backgroundColor="#003c00" barStyle="light-content" />
@@ -107,7 +115,7 @@ export default class MyGroup extends Component {
             {
               page: "NotificationScreen",
               icon: "notifications",
-              badgeNumber: 11,
+              badgeNumber: this.state.sum,
               iconText:"Thông báo"
             },
             {

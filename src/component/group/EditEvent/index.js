@@ -58,6 +58,8 @@ export default class EditEvent extends Component {
           groupName: groupName,
           userName: userName,
           token: "",
+          uid:uid,
+          read:0,
           title: "Chỉnh sửa kế hoạch",
           message: " vừa thay đổi thông tin kế hoạch. ",
           created_at: firebase.database.ServerValue.TIMESTAMP,

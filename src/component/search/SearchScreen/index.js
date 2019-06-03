@@ -17,7 +17,7 @@ import img_cafe from "../../../assets/cafe.png";
 import img_camera from "../../../assets/camera.png";
 import img_petrolimex from "../../../assets/petrolimex.png";
 
-const KEY = "AIzaSyBUlVo1hI6x58Zp3w1uvKDag5H4HqIuINE"
+const KEY = "AIzaSyDXwSjZX3_R1Pib3q0-XMXz76XgWhiMSS4"
 export default class SearchScreen extends React.Component {
   constructor(props) {
     super(props);
