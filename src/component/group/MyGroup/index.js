@@ -56,7 +56,7 @@ export default class MyGroup extends Component {
   }
 
   render() {
-    console.log(this.state.userLocation)
+    
     return (
       <View style={styles.container}>
         <StatusBar backgroundColor="#003c00" barStyle="light-content" />

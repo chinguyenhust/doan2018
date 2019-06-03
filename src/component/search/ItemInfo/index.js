@@ -50,7 +50,13 @@ export default class ItemInfo extends React.Component {
             ({ item }) =>
               <View style={{ flexDirection: "column" }}>
                 <TouchableOpacity 
-                style={styles.item} onPress={() => navigate("Direction", { "location": item.geometry.location , "userLocation": userLocation})}>
+                style={styles.item} onPress={() => navigate("Direction", {
+                   "location": item.geometry.location , 
+                   "userLocation": userLocation,
+                   "data": item,
+                   "source": this.props.navigation.state.params.source,
+
+                   })}>
                   <View style={{ flex: 3 }}>
                   {(item.photos) ?
                     <Image
