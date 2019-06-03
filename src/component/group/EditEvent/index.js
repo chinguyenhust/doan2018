@@ -20,7 +20,8 @@ export default class EditEvent extends Component {
       errDate: "",
       minDate: "",
       maxDate:"",
-      groupName: ""
+      groupName: "",
+      location:{}
     }
     this.handleSelectAddress = this.handleSelectAddress.bind(this)
   }
@@ -40,7 +41,7 @@ export default class EditEvent extends Component {
   _handleEditEvent = () => {
     var check = this._handleCheck();
     var id = this.props.navigation.state.params.id;
-    var { nameEvent, date, address, description, groupName } = this.state;
+    var { nameEvent, date, address, description, groupName , location} = this.state;
     // const uid = this.props.navigation.state.params.uid;
     if (check) {
       Data.ref("events").child(id).update(
@@ -49,7 +50,7 @@ export default class EditEvent extends Component {
           time: date,
           description: description,
           address: address,
-          // editByUserId: uid,
+          location:location,
           created_edit: firebase.database.ServerValue.TIMESTAMP,
         }
       ).then(() => {
@@ -91,7 +92,11 @@ export default class EditEvent extends Component {
 
   handleSelectAddress(data, details) {
     this.setState({
-      address: details.formatted_address
+      address: details.formatted_address,
+      location:{
+        latitude: details.geometry.location.lat,
+        longitude: details.geometry.location.lng
+      }
     })
   }
 
