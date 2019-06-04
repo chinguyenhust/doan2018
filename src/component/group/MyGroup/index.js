@@ -79,7 +79,7 @@ export default class MyGroup extends Component {
           <UserInfo
             navigation={this.props.navigation}
             email={this.props.navigation.state.params.email}
-            userId={this.state.userId}
+            userId={this.state.user_id}
           />
         }
         {this.state.page === "SearchScreen" &&
