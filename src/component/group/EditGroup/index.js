@@ -41,15 +41,27 @@ export default class EditGroup extends Component {
   componentWillMount() {
     var items = []
     var members = this.state.members;
-    users.on('child_added', (snapshot) => {
-      let data = snapshot.val();
-      items.push({
-        id: snapshot.key,
-        name: data.userName,
-        avatar: data.avatar,
-        phone: data.phone
+    users.on('value', (snapshot) => {
+      snapshot.forEach(snapChild => {
+        var data = snapChild.val();
+        items.push({
+          id: snapChild.key,
+          name: data.userName,
+          avatar: data.avatar,
+          phone: data.phone
+        })
       })
-      this.setState({ items: items });
+      if (items.length > 0) {
+        members.map(member => {
+          items.map((item, index) => {
+            if (item.id === member.id) {
+              items.splice(index, 1)
+            }
+          })
+          this.setState({ items: items });
+        })
+        
+      }
     });
   }
 
@@ -84,14 +96,13 @@ export default class EditGroup extends Component {
                 user_id: item
               }
             ).then(() => {
-              console.log("Success !");
               Data.ref("notification").push({
                 topic: group_id,
                 groupName: name,
                 uid: uid,
                 userName: uid,
                 token: "",
-                read:0,
+                read: 0,
                 title: "Nhóm mới",
                 message: "Bạn vừa được thêm vào nhóm ",
                 created_at: firebase.database.ServerValue.TIMESTAMP,

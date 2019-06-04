@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, Dimensions } from 'react-native';
+import { StyleSheet, Text, View, Dimensions, Platform } from 'react-native';
 import MapView from "react-native-maps";
 import { Marker, Callout } from 'react-native-maps';
 import { Data } from "../../../api/Data";
@@ -44,10 +44,69 @@ export default class Map extends Component {
     }
   }
 
+  watchID: ?number = null;
+
   componentDidMount() {
 
     const groupId = this.props.groupId;
     const uid = this.props.uid;
+
+    navigator.geolocation.getCurrentPosition((position) => {
+      var lat = parseFloat(position.coords.latitude);
+      var long = parseFloat(position.coords.longitude);
+     
+
+      var initalRegion = {
+        latitude: lat,
+        longitude: long,
+        latitudeDelta: LATTITUDE_DETA,
+        longitudeDelta: LONGTITUDE_DETA,
+      }
+
+      this.setState({ initialPosition: initalRegion });
+      this.setState({ markerPosition: initalRegion });
+    },
+      (error) => console.log(JSON.stringify(error)),
+      { enableHighAccuracy: true, timeout: 5000, maximumAge: 1000 }
+    )
+
+    this.watchID = navigator.geolocation.watchPosition((position) => {
+      var lat = parseFloat(position.coords.latitude);
+      var long = parseFloat(position.coords.longitude);
+      alert("chi");
+      const newCoordinate = {
+        lat,
+        long
+      };
+
+      users.child(uid).update({
+        latitude: lat,
+        longitude: long
+      })
+      if (Platform.OS === "android") {
+        if (this.marker) {
+          this.marker._component.animateMarkerToCoordinate(
+            newCoordinate,
+            500
+          );
+        }
+      } else {
+        coordinate.timing(newCoordinate).start();
+      }
+
+      var lastRegion = {
+        latitude: lat,
+        longitude: long,
+        latitudeDelta: LATTITUDE_DETA,
+        longitudeDelta: LONGTITUDE_DETA
+      }
+      this.setState({ initialPosition: lastRegion });
+      this.setState({ markerPosition: lastRegion });
+    },
+      error => console.log(error),
+      { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 }
+    )
+
     users.orderByKey().equalTo(uid).on("child_added", (snap) => {
       this.setState({
         origin: {
@@ -56,7 +115,8 @@ export default class Map extends Component {
         }
       })
     })
-    const listMember = this.state.listMember;
+
+    const listMember = [];
     groups.orderByKey().equalTo(groupId).on("child_added", (snapshot) => {
       this.setState({
         isOnPosition: snapshot.val().isOnMap,
@@ -85,7 +145,7 @@ export default class Map extends Component {
   }
 
   render() {
-    var { listMember, isOnPosition, leaderId, origin } = this.state;
+    var { listMember, isOnPosition, leaderId, origin, markerPosition } = this.state;
     const uid = this.props.uid;
     const dataEvent = (this.props.dataEvent) ? this.props.dataEvent : {};
 
@@ -105,7 +165,7 @@ export default class Map extends Component {
           {(listMember && isOnPosition) &&
             listMember.map((option) =>
               (leaderId === option.userId && leaderId !== uid) ?
-                <Marker
+                <Marker.Animated
                   // title={option.userName}
                   coordinate={option.position}
                   pinColor="#008605"
@@ -116,7 +176,7 @@ export default class Map extends Component {
                       <Text style={styles.textColor}>{option.phone}</Text>
                     </View>
                   </Callout>
-                </Marker>
+                </Marker.Animated>
                 :
                 (uid !== option.userId) ?
 

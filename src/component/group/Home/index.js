@@ -95,7 +95,7 @@ export default class Home extends Component {
       this.setState({ initialPosition: initalRegion });
       this.setState({ markerPosition: initalRegion });
     },
-      (error) => alert(JSON.stringify(error)),
+      (error) =>console.log(JSON.stringify(error)),
       { enableHighAccuracy: false, timeout: 5000, maximumAge: 1000}
     )
 
