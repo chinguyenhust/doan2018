@@ -12,30 +12,61 @@ export default class Notification extends Component {
     super(props);
     this.state = {
       items: [],
-
+      sum: 0
     }
   }
 
   componentDidMount() {
     var items = [];
+    var userId = this.props.user_id
 
     notifis.on('child_added', (snapshot) => {
       let data = snapshot.val();
-      items.push({
-        id: snapshot.key,
-        groupName: data.groupName,
-        userAvatar: data.userAvatar,
-        message: data.message,
-        title: data.title,
-        token: data.token,
-        topic: data.topic,
-        userName: data.userName,
-        created_at: data.created_at
-      })
+      if (data.uid !== userId && data.title !== "Nhóm mới") {
+        items.push({
+          id: snapshot.key,
+          groupName: data.groupName,
+          userAvatar: data.userAvatar,
+          read: data.read,
+          uid: data.uid,
+          message: data.message,
+          title: data.title,
+          token: data.token,
+          topic: data.topic,
+          userName: data.userName,
+          created_at: data.created_at
+        })
+      }
+      else if(data.uid === userId && data.title === "Nhóm mới"){
+        items.push({
+          id: snapshot.key,
+          groupName: data.groupName,
+          userAvatar: data.userAvatar,
+          read: data.read,
+          uid: data.uid,
+          message: data.message,
+          title: data.title,
+          token: data.token,
+          topic: data.topic,
+          userName: data.userName,
+          created_at: data.created_at
+        })
+      }
       this.setState({
-        items: items
+        items: items.sort(this.compare),
+        sum: items.length
       })
     });
+  }
+
+  compare = (a, b) => {
+    var time1 = new Date(a.created_at).getTime();
+    var time2 = new Date(b.created_at).getTime();
+    if (time2 < time1)
+      return -1;
+    if (time2 > time1)
+      return 1;
+    return 0;
   }
 
   getDate = (time) => {
@@ -78,15 +109,16 @@ export default class Notification extends Component {
     }
   }
 
-  handleClickItem = ( title, groupId, groupName, userName) => {
-    const navigation  = this.props.navigation;
-    if(title === "Nhóm mới"){
+  handleClickItem = (title, groupId, groupName, userName) => {
+    const navigation = this.props.navigation;
+    if (title === "Nhóm mới") {
       navigation.navigate('MyGroup', {
-         "email": this.props.email, 
-         "user_id": this.props.user_id ,
-         "page": "HomeScreen"
-        });
-    }else{
+        "email": this.props.email,
+        "user_id": this.props.user_id,
+        "page": "HomeScreen",
+        "sum": this.state.sum
+      });
+    } else {
       navigation.navigate('DetailGroup', {
         name: groupName,
         groupId: groupId,
@@ -97,7 +129,7 @@ export default class Notification extends Component {
   }
 
   render() {
-    const { items, isHome, isNoti, isSearch, isUser } = this.state;
+    const { items } = this.state;
     const { navigate } = this.props.navigation;
     return (
       <View style={styles.container}>
@@ -105,42 +137,48 @@ export default class Notification extends Component {
           style={styles.header}>
 
           <View style={{ justifyContent: "center" }}>
-            <Text style={{ color: "#ffffff", fontSize: 20, fontWeight: "600" }}>Thông báo</Text>
+            <Text style={{ color: "#ffffff", fontSize: 20, fontWeight: "500" }}>Thông báo</Text>
           </View>
         </View>
-        
-        <ScrollView>
-        <FlatList
-          data={items}
-          renderItem={
-            ({ item }) =>
-              <View style={{ flexDirection: "column" }}>
-                <TouchableOpacity style={styles.item} onPress={()=>{this.handleClickItem(item.title, item.topic, item.groupName, item.userName)}}>
-                  <View style={{ flex: 3 }}>
-                    <Image
-                      style={{ width: 50, height: 50 }}
-                      source={icon}
-                    />
-                  </View>
 
-                  <View style={{ flex: 11, paddingRight: 20 }}>
-                    <Text>
-                      {(item.title !== "Nhóm mới") &&
-                        <Text style={styles.username}>{item.userName}</Text>
-                      }
-                      <Text style={styles.content}>{item.message}</Text>
-                      <Text style={styles.username}>{item.groupName}</Text>
-                    </Text>
+        {(items.length > 0) ?
+          <ScrollView>
+            <FlatList
+              data={items}
+              renderItem={
+                ({ item }) =>
+                  <View style={{ flexDirection: "column" }}>
+                    <TouchableOpacity style={styles.item} onPress={() => { this.handleClickItem(item.title, item.topic, item.groupName, item.userName) }}>
+                      <View style={{ flex: 3 }}>
+                        <Image
+                          style={{ width: 50, height: 50 }}
+                          source={icon}
+                        />
+                      </View>
 
-                    <Text style={{ fontSize: 14 }}>{this.getTime(item.created_at)}</Text>
-                    <View style={{ height: 1, backgroundColor: "#bcbcbc", marginTop: 5 }}></View>
+                      <View style={{ flex: 11, paddingRight: 20 }}>
+                        <Text>
+                          {(item.title !== "Nhóm mới") &&
+                            <Text style={styles.username}>{item.userName}</Text>
+                          }
+                          <Text style={styles.content}>{item.message}</Text>
+                          <Text style={styles.username}>{item.groupName}</Text>
+                        </Text>
+
+                        <Text style={{ fontSize: 14 }}>{this.getTime(item.created_at)}</Text>
+                        <View style={{ height: 1, backgroundColor: "#bcbcbc", marginTop: 5 }}></View>
+                      </View>
+                    </TouchableOpacity>
                   </View>
-                </TouchableOpacity>
-              </View>
-          }
-        />
-        <View style={{height:100}}></View>
-        </ScrollView>
+              }
+            />
+            <View style={{ height: 100 }}></View>
+          </ScrollView>
+          :
+          <View style={{ marginTop: 200, justifyContent: "center", alignItems: "center", }}>
+            <Text>Chưa có thông báo!</Text>
+          </View>
+        }
       </View>
     );
   }

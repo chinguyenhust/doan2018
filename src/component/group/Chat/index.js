@@ -125,6 +125,7 @@ class Chat extends React.Component {
         renderUsernameOnMessage
         renderSend={this.renderSend}
         renderBubble={this.renderBubble}
+        placeholder="Nhập tin nhắn"
       />
     );
   }

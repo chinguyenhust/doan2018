@@ -19,7 +19,8 @@ export default class CreatEvent extends Component {
       errName: "",
       errDate: "",
       minDate: "",
-      maxDate:""
+      maxDate:"",
+      location:{}
     }
     this.handleSelectAddress = this.handleSelectAddress.bind(this)
   }
@@ -37,7 +38,7 @@ export default class CreatEvent extends Component {
 
   _handleCreatEvent = () => {
     var check = this._handleCheck();
-    var { nameEvent, date, address, description } = this.state;
+    var { nameEvent, date, address, description, location } = this.state;
     const uid = this.props.navigation.state.params.uid;
     const groupId = this.props.navigation.state.params.groupId;
     const userName = this.props.navigation.state.params.userName;
@@ -53,7 +54,8 @@ export default class CreatEvent extends Component {
           groupId: groupId,
           created_at: firebase.database.ServerValue.TIMESTAMP,
           userNameCreated: userName,
-          groupName: groupName
+          groupName: groupName,
+          location: location
         }
       ).then(() => {
         console.log("Success !");
@@ -61,7 +63,9 @@ export default class CreatEvent extends Component {
           topic: groupId,
           groupName: groupName,
           userName: userName,
+          uid:uid,
           token: "",
+          read:0,
           title: "Kế hoạch mới",
           message: " vừa tạo một kế hoạch mới trong ",
           created_at: firebase.database.ServerValue.TIMESTAMP,
@@ -93,7 +97,11 @@ export default class CreatEvent extends Component {
 
   handleSelectAddress(data, details) {
     this.setState({
-      address: details.formatted_address
+      address: details.formatted_address,
+      location:{
+        latitude: details.geometry.location.lat,
+        longitude: details.geometry.location.lng
+      }
     })
   }
 

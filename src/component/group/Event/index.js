@@ -67,6 +67,9 @@ export default class Event extends Component {
             groupId={groupId}
             uid={uid}
             leaderId={leaderId}
+            userName={username}
+            groupName={groupName}
+            handleClickEvent={this.props.handleClickEvent}
           />}
           {(this.state.isSurvey) && <ListSurvey
             navigate={navigate}

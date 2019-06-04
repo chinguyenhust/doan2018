@@ -14,9 +14,7 @@ const styles = StyleSheet.create({
     tap: {
         flex: 1,
         flexDirection: "row",
-        paddingLeft: 20,
-        paddingTop: 5,
-        alignSelf: "stretch",
+        alignItems:"center", paddingLeft:20
     },
     inputQuestion: {
         height: 40,

@@ -96,7 +96,7 @@ export default class Home extends Component {
       this.setState({ markerPosition: initalRegion });
     },
       (error) => alert(JSON.stringify(error)),
-      // { enableHighAccuracy: false, timeout: 50000, maximumAge: 10000}
+      { enableHighAccuracy: false, timeout: 5000, maximumAge: 1000}
     )
 
     this.watchID = navigator.geolocation.watchPosition((position) => {
@@ -112,6 +112,9 @@ export default class Home extends Component {
       })
 
       users.orderByChild("email").equalTo(email).on("child_added", (snapshot) => {
+        this.setState({
+          userId:snapshot.key
+        })
         users.child(snapshot.key).update({
           latitude: lat,
           longitude: long
@@ -389,7 +392,7 @@ export default class Home extends Component {
     const { navigate } = this.props.navigation;
     const { groupActive, searchTerm, searchAttribute,
       ignoreCase, groupFuture, groupDone, userLocation } = this.state;
-    var uid = this.props.navigation.state.params.user_id;
+    var uid = this.props.user_id;
    
     return (
       <View style={styles.container}>
@@ -580,7 +583,7 @@ export default class Home extends Component {
 
         <TouchableOpacity
           style={{ zIndex: 1000, bottom: 50, justifyContent: 'flex-end', marginLeft: "80%", position: 'absolute' }}
-          onPress={() => navigate("CreatGroup", { uid: uid })}>
+          onPress={() => navigate("CreatGroup", { uid: this.state.userId })}>
           <IconAdd name="add-circle" size={60} style={{ color: "#006805" }} />
         </TouchableOpacity>
 

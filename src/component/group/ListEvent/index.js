@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 import { Text, View, FlatList, TouchableOpacity, Alert } from 'react-native';
 import styles from "./ListEventStyle";
 import IconDelete from 'react-native-vector-icons/MaterialIcons';
-import IconClock from 'react-native-vector-icons/EvilIcons';
-import IconLocation from 'react-native-vector-icons/EvilIcons';
+import IconClock from 'react-native-vector-icons/Entypo';
+import IconLocation from 'react-native-vector-icons/Entypo';
 import { Data } from "../../../api/Data";
 import IconAdd from 'react-native-vector-icons/MaterialIcons';
 import IconEdit from 'react-native-vector-icons/MaterialIcons';
 import { ScrollView } from 'react-native-gesture-handler';
+import IconDescription from 'react-native-vector-icons/MaterialIcons';
 
 let events = Data.ref('/events');
 
@@ -16,7 +17,6 @@ export default class ListEvent extends Component {
     super(props);
     this.state = {
       items: [],
-
     }
   }
 
@@ -36,7 +36,8 @@ export default class ListEvent extends Component {
           created_at: data.created_at,
           groupId: data.groupId,
           time: data.time,
-          isDelete: true
+          isDelete: true,
+          location: data.location
         })
       } else {
         items.push({
@@ -48,7 +49,8 @@ export default class ListEvent extends Component {
           created_at: data.created_at,
           groupId: data.groupId,
           time: data.time,
-          isDelete: false
+          isDelete: false,
+          location: data.location
         })
       }
       this.setState({ items: items.sort(this.compare) });
@@ -69,7 +71,8 @@ export default class ListEvent extends Component {
             created_at: item.created_at,
             groupId: item.groupId,
             time: item.time,
-            isDelete: item.isDelete
+            isDelete: item.isDelete,
+            location: item.location
           })
           this.setState({ items: arr })
         } else {
@@ -95,7 +98,8 @@ export default class ListEvent extends Component {
           created_at: data.created_at,
           groupId: data.groupId,
           time: data.time,
-          isDelete: true
+          isDelete: true,
+          location: data.location
         })
       } else {
         items.push({
@@ -107,7 +111,8 @@ export default class ListEvent extends Component {
           created_at: data.created_at,
           groupId: data.groupId,
           time: data.time,
-          isDelete: false
+          isDelete: false,
+          location: data.location
         })
       }
       this.setState({ items: items.sort(this.compare) });
@@ -128,7 +133,8 @@ export default class ListEvent extends Component {
             created_at: item.created_at,
             groupId: item.groupId,
             time: item.time,
-            isDelete: item.isDelete
+            isDelete: item.isDelete,
+            location: item.location
           })
           this.setState({ items: arr })
         } else {
@@ -199,6 +205,8 @@ export default class ListEvent extends Component {
     const { items } = this.state;
     const uid = this.props.uid;
     const leaderId = this.props.leaderId;
+    const userName = this.props.userName;
+    const groupName = this.props.groupName;
     return (
       <View style={styles.container}>
         {(items.length > 0) ?
@@ -229,22 +237,26 @@ export default class ListEvent extends Component {
                         }
                       </View>
 
-                      <View style={styles.info} >
+                      <TouchableOpacity style={styles.info}
+                        onPress={() =>this.props.handleClickEvent(item)}>
                         {/* onPress={() => navigate("DetailEvent", { id: item.id , uid: uid})} */}
                         <Text style={styles.textName} numberOfLines={2}>{item.name}</Text>
-                        <Text style={styles.textView} numberOfLines={2}>{item.description}</Text>
+                        <View style={{ flexDirection: "row", alignItems: "center" }}>
+                          <IconDescription name="description" size={14} style={{ marginRight: 8 }} />
+                          <Text style={styles.textView} numberOfLines={2}>{item.description}</Text>
+                        </View>
                         <View style={{ flexDirection: "row", paddingTop: 6, paddingBottom: 3 }}>
-                          <IconClock name="clock" size={20} style={{ color: "#007aff", marginRight: 8 }} />
+                          <IconClock name="clock" size={14} style={{ marginRight: 8 }} />
                           <Text style={styles.textView}>{(item.time).substr(11, (item.time).length)}</Text>
                         </View>
                         <View style={{ flexDirection: "row", width: "90%", paddingTop: 3, paddingBottom: 3 }}>
-                          <IconLocation name="location" size={20} style={{ color: "#007aff", marginRight: 8 }} />
+                          <IconLocation name="location-pin" size={14} style={{ marginRight: 8 }} />
                           <View>
                             <Text style={styles.textView} numberOfLines={2}>{item.address}</Text>
                           </View>
                         </View>
                         <Text style={styles.textView}>{this.getTime(item.time)}</Text>
-                      </View>
+                      </TouchableOpacity>
 
                       {(uid === leaderId) &&
                         <View style={{ flexDirection: "column" }}>

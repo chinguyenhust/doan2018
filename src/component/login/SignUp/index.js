@@ -165,7 +165,7 @@ export default class SignUp extends React.Component {
         </TouchableOpacity>
         <TouchableOpacity style={{ marginTop: 20, justifyContent: "center", alignItems: 'center' }}
           onPress={() => this.props.navigation.navigate('Login')}>
-          <Text style={{ color: "#007aff", fontSize: 16 }}>Bạn đã có tài khoản? Đăng nhập</Text>
+          <Text style={{ color: "#008605", fontSize: 16 }}>Bạn đã có tài khoản? Đăng nhập</Text>
         </TouchableOpacity>
 
       </View>

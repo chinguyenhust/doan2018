@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View, Switch, TouchableOpacity, TextInput } from 'react-native';
+import { Platform, Keyboard, Text, View, Switch, TouchableOpacity, TextInput } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import IconAdd from 'react-native-vector-icons/Ionicons';
 import styles from './DetailSurveyStyle';
@@ -75,6 +75,57 @@ export default class DetailSurvey extends Component {
 
   }
 
+  componentWillReceiveProps() {
+    const surveyId = this.props.navigation.state.params.id;
+    const uid = this.props.navigation.state.params.uid;
+    // var user = firebase.auth().currentUser;
+    var checked = this.state.checked;
+    const vote = this.state.vote;
+    survey.child(surveyId).on("value", (snapshot) => {
+      var data = snapshot.val();
+      this.setState({
+        question: data.question,
+        isAccept: data.isAccept
+      });
+    })
+
+    const arrSurvey = [];
+    answers.orderByChild("survey_id").equalTo(surveyId).on("child_added", (snapshot) => {
+      var data = snapshot.val();
+      arrSurvey.push({
+        key: snapshot.key,
+        value: data.value,
+        members: data.members
+      })
+      this.setState({
+        options: arrSurvey
+      });
+      if (data.members) {
+        if (data.members.includes(uid)) {
+          checked.push(true);
+        } else {
+          checked.push(false);
+        }
+        var i = 0;
+        data.members.map((item) => {
+          if (item) {
+            i += 1;
+          }
+        });
+        vote.push(i);
+      } else {
+        checked.push(false);
+        vote.push(0);
+      }
+
+      this.setState({
+        checked: checked,
+        vote: vote
+      })
+    });
+
+  }
+
   _handleAddOption = () => {
     var { options, optionValue, checked } = this.state;
     const surveyId = this.props.navigation.state.params.id;
@@ -97,6 +148,7 @@ export default class DetailSurvey extends Component {
       isAdd: true,
       optionValue: ""
     })
+    Keyboard.dismiss();
   }
 
   handleToggle = () => {
@@ -126,14 +178,15 @@ export default class DetailSurvey extends Component {
       <View style={styles.container} >
         <View style={styles.tapbar}>
           <View style={styles.tap}>
-            <TouchableOpacity style={{ width: "10%", alignItems: "center" }} onPress={() => { this.props.navigation.goBack() }}>
+            <TouchableOpacity style={{ width: "10%" }} onPress={() => { this.props.navigation.goBack() }}>
               <Icon name="ios-arrow-round-back" size={34} style={{ color: "#ffffff" }} />
             </TouchableOpacity>
-            <View style={{ width: "80%", alignItems: "center", }}>
-              <Text style={{ fontSize: 20, width: "70%", fontWeight: "500", color: "#ffffff" }}>Khảo sát ý kiến</Text>
+            <View >
+              <Text style={{ fontSize: 20, fontWeight: "500", color: "#ffffff" }}>Khảo sát ý kiến</Text>
             </View>
           </View>
         </View>
+
         <View style={{ flex: 16, paddingLeft: 20, paddingRight: 20, flexDirection: "column" }}>
 
           <View style={{ flexDirection: "row", marginTop: 20 }}>

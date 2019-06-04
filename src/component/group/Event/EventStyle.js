@@ -21,12 +21,12 @@ const styles = StyleSheet.create({
     },
     lableAfter: {
         fontSize: 18,
-        color: "#007aff"
+        color: "#008605"
     },
     line: {
         height: 1,
         width: "100%",
-        backgroundColor: "#007aff",
+        backgroundColor: "#008605",
         marginTop: 5,
     }
 });

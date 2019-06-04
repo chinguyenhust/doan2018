@@ -15,15 +15,28 @@ export default class DetailGroup extends Component {
       isChat: true,
       isMap: false,
       isEvent: false,
-      name: ""
+      name: "",
+      dataEvent:{}
     }
   }
 
-  handleClickMap = () => {
+  componentDidMount() {
+    const ismap = this.props.navigation.state.params.isMap;
+    if (ismap) {
+      this.setState({
+        isMap: true,
+        isChat: false,
+        isEvent: false
+      })
+    }
+  }
+
+  handleClickMap = (dataEvent) => {
     this.setState({
       isMap: true,
       isChat: false,
-      isEvent: false
+      isEvent: false,
+      dataEvent: dataEvent
     })
   }
   handleClickChat = () => {
@@ -44,7 +57,7 @@ export default class DetailGroup extends Component {
   handlePrivateLocation = () => {
     const uid = this.props.navigation.state.params.uid;
     Data.ref("users").child(uid).update({
-      privateLocation:true,
+      privateLocation: true,
     })
 
   }
@@ -54,6 +67,8 @@ export default class DetailGroup extends Component {
     const name = this.props.navigation.state.params.userName;
     const groupId = this.props.navigation.state.params.groupId;
     const uid = this.props.navigation.state.params.uid;
+    const dataEvent = this.state.dataEvent;
+    console.log(this.state.isMap, this.state.isEvent, "%%%%")
 
     return (
       <View style={styles.container}>
@@ -63,9 +78,9 @@ export default class DetailGroup extends Component {
           <Icon name="ios-arrow-round-back"
             size={34}
             style={{ width: "10%", color: "#ffff" }}
-            onPress={() => { this.props.navigation.goBack() }} />
-          <Text style={{ fontSize: 20, width: "80%", fontWeight: "500", color: "#ffffff"}} numberOfLines={1}>{this.props.navigation.state.params.name}</Text>
-{/* 
+            onPress={() => { navigate("MyGroup", {}) }} />
+          <Text style={{ fontSize: 20, width: "80%", fontWeight: "500", color: "#ffffff", paddingRight: 5 }} numberOfLines={1}>{this.props.navigation.state.params.name}</Text>
+          {/* 
           <Icon name="ios-unlock" size={26}
             style={{ color: "#ffffff",  width: "10%" }}
             onPress={this.handlePrivateLocation}
@@ -102,6 +117,7 @@ export default class DetailGroup extends Component {
             <Map
               groupId={groupId}
               uid={uid}
+              dataEvent={dataEvent}
             />
           }
           {(this.state.isEvent) &&
@@ -111,6 +127,7 @@ export default class DetailGroup extends Component {
               uid={uid}
               userName={name}
               nameGroup={this.props.navigation.state.params.name}
+              handleClickEvent={this.handleClickMap}
             />}
         </View>
       </View>

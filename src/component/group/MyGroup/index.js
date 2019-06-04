@@ -1,19 +1,7 @@
 import React, { Component } from 'react';
 import { Text, View, TouchableOpacity, TextInput, Image, ScrollView, Dimensions, StatusBar, } from 'react-native';
 import styles from './MyGroupStyle';
-import Icon from 'react-native-vector-icons/Ionicons';
-import IconAdd from 'react-native-vector-icons/MaterialIcons';
-import IconDescription from 'react-native-vector-icons/MaterialIcons';
-import IconUser from 'react-native-vector-icons/FontAwesome5';
-import IconDiamond from 'react-native-vector-icons/FontAwesome';
-import IconNotifi from 'react-native-vector-icons/Ionicons';
-import IconHome from "react-native-vector-icons/Entypo";
-import { SearchableFlatList } from "react-native-searchable-list";
 import { Data } from "../../../api/Data";
-import { ProgressDialog } from 'react-native-simple-dialogs';
-import IconClock from 'react-native-vector-icons/Entypo';
-import FCM from 'react-native-fcm';
-import firebase from 'react-native-firebase';
 import Tabbar from 'react-native-tabbar-bottom';
 import SearchScreen from "../../search/SearchScreen";
 import UserInfo from "../../group//UserInfo";
@@ -37,21 +25,38 @@ export default class MyGroup extends Component {
     super(props);
     this.state = {
       page: "HomeScreen",
+      user_id:"",
+      sum:0,
+      userLocation:""
     }
   }
 
   componentDidMount() {
+    var email = this.props.navigation.state.params.email;
       this.setState({
-        page: this.props.navigation.state.params.page ? this.props.navigation.state.params.page : "HomeScreen"
+        page: this.props.navigation.state.params.page ? this.props.navigation.state.params.page : "HomeScreen",
+        sum:this.props.navigation.state.params.sum
     })
+    users.orderByChild("email").equalTo(email).on("child_added", (snapshot) => {
+      this.setState({
+        user_id:snapshot.key,
+        userLocation:{
+          latitude:snapshot.val().latitude,
+          longitude: snapshot.val().longitude
+        }
+      })
+    })
+
   }
   componentWillReceiveProps (){
     this.setState({
-      page: this.props.navigation.state.params.page ? this.props.navigation.state.params.page : "HomeScreen"
+      page: this.props.navigation.state.params.page ? this.props.navigation.state.params.page : "HomeScreen",
+      sum:this.props.navigation.state.params.sum
   })
   }
 
   render() {
+    
     return (
       <View style={styles.container}>
         <StatusBar backgroundColor="#003c00" barStyle="light-content" />
@@ -60,13 +65,13 @@ export default class MyGroup extends Component {
           <Home
             navigation={this.props.navigation}
             email={this.props.navigation.state.params.email}
-            user_id={this.props.navigation.state.params.user_id}
+            user_id={this.state.user_id}
           />
         }
         {this.state.page === "NotificationScreen" &&
           <Notification
             navigation={this.props.navigation}
-            user_id={this.props.navigation.state.params.user_id}
+            user_id={this.state.user_id}
             email={this.props.navigation.state.params.email}
           />
         }
@@ -74,7 +79,7 @@ export default class MyGroup extends Component {
           <UserInfo
             navigation={this.props.navigation}
             email={this.props.navigation.state.params.email}
-            userId={this.state.userId}
+            userId={this.state.user_id}
           />
         }
         {this.state.page === "SearchScreen" &&
@@ -91,6 +96,8 @@ export default class MyGroup extends Component {
           }}
           tabbarBgColor="#ffffff"
           iconColor="#bcbcbc"
+          lableColor="#bcbcbc"
+          selectedLabelColor="#008605"
           selectedIconColor="#008605"
           tabbarBorderTopColor="#bcbcbc"
           activePage={this.state.page}
@@ -98,20 +105,24 @@ export default class MyGroup extends Component {
             {
               page: "HomeScreen",
               icon: "home",
-            },
-            {
-              page: "NotificationScreen",
-              icon: "notifications",
-              badgeNumber: 11,
-            },
-            {
-              page: "ProfileScreen",
-              icon: "person",
+              iconText:"Nhóm của tôi"
             },
             {
               page: "SearchScreen",
               icon: "search",
+              iconText:"Tìm kiếm"
             },
+            {
+              page: "NotificationScreen",
+              icon: "notifications",
+              badgeNumber: this.state.sum,
+              iconText:"Thông báo"
+            },
+            {
+              page: "ProfileScreen",
+              icon: "person",
+              iconText:"Tôi"
+            }, 
           ]}
         />
       </View>

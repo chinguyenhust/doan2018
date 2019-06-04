@@ -5,6 +5,7 @@ import MapView from "react-native-maps";
 import { Marker, Callout } from 'react-native-maps';
 import { Data } from "../../../api/Data";
 import Icon from 'react-native-vector-icons/Ionicons';
+import MapViewDirections from 'react-native-maps-directions';
 
 
 const { width, height } = Dimensions.get('window')
@@ -17,6 +18,8 @@ const LONGTITUDE_DETA = LATTITUDE_DETA * ASPECT_RATIO;
 let groups = Data.ref('/groups');
 let group_user = Data.ref('/group_users');
 let users = Data.ref('users');
+
+const GOOGLE_MAPS_APIKEY = 'AIzaSyDXwSjZX3_R1Pib3q0-XMXz76XgWhiMSS4';
 
 export default class Map extends Component {
   constructor(props) {
@@ -35,6 +38,9 @@ export default class Map extends Component {
       listMember: [],
       isOnPosition: false,
       leaderId: "",
+      origin: {},
+      km: 0,
+      phut: 0,
     }
   }
 
@@ -42,6 +48,14 @@ export default class Map extends Component {
 
     const groupId = this.props.groupId;
     const uid = this.props.uid;
+    users.orderByKey().equalTo(uid).on("child_added", (snap) => {
+      this.setState({
+        origin: {
+          latitude: snap.val().latitude,
+          longitude: snap.val().longitude
+        }
+      })
+    })
     const listMember = this.state.listMember;
     groups.orderByKey().equalTo(groupId).on("child_added", (snapshot) => {
       this.setState({
@@ -71,8 +85,9 @@ export default class Map extends Component {
   }
 
   render() {
-    var { listMember, isOnPosition, leaderId } = this.state;
+    var { listMember, isOnPosition, leaderId, origin } = this.state;
     const uid = this.props.uid;
+    const dataEvent = (this.props.dataEvent) ? this.props.dataEvent : {};
 
     return (
       <View style={styles.container}>
@@ -118,6 +133,47 @@ export default class Map extends Component {
                   :
                   <View></View>
             )}
+          {(dataEvent.location) &&
+
+            <Marker
+              coordinate={dataEvent.location}
+              pinColor="#66245e"
+            >
+              <Callout>
+                <View style={{ padding: 10 }}>
+                  <Text style={styles.textColor}>Kế hoạch: {dataEvent.name}</Text>
+                  <Text style={styles.textColor}>Bắt đầu lúc: {dataEvent.time}</Text>
+                  <Text style={styles.textColor}>Khoảng cách: {this.state.km} km</Text>
+                  <Text style={styles.textColor}>Thời gian di chuyển: {Math.round(this.state.phut)} phút</Text>
+                </View>
+              </Callout>
+            </Marker>
+          }
+          {(dataEvent.location) &&
+            <MapViewDirections
+              origin={origin}
+              destination={dataEvent.location}
+              apikey={GOOGLE_MAPS_APIKEY}
+              strokeWidth={3}
+              strokeColor="hotpink"
+              onStart={(params) => {
+                console.log(`Started routing between "${params.origin}" and "${params.destination}"`);
+              }}
+              onReady={result => {
+                console.log(`Distance "${result.distance}" km`);
+                console.log(`duration "${result.duration}" phut`);
+
+                this.setState({
+                  km: result.distance,
+                  phut: result.duration
+                })
+              }}
+              onError={(errorMessage) => {
+                console.log(errorMessage);
+              }}
+            />
+          }
+
         </MapView>
       </View>
     );
@@ -156,10 +212,11 @@ const styles = StyleSheet.create({
     borderColor: "white",
     borderRadius: 10,
     overflow: "hidden",
-    backgroundColor: "#007aff"
+    backgroundColor: "#008605"
   },
   textColor: {
-    color: "#000000"
+    color: "#000000",
+    justifyContent: "flex-start"
   }
 
 });
