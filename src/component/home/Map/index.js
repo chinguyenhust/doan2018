@@ -108,7 +108,7 @@ export default class Map extends Component {
       this.setState({ markerPosition: lastRegion });
     },
       error => console.log(error),
-      { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 }
+      { enableHighAccuracy: true, timeout: 10000, maximumAge: 1000 }
     )
 
     users.orderByKey().equalTo(uid).on("child_added", (snap) => {
@@ -131,8 +131,6 @@ export default class Map extends Component {
     const listMember = [];
     group_user.orderByChild("group_id").equalTo(groupId).on("child_added", (snapshot) => {
       users.orderByKey().equalTo(snapshot.val().user_id).on("value", (snapshot1) => {
-        console.log("111111");
-        console.log(snapshot1)
         snapshot1.forEach(snapshot2 => {
           var data = snapshot2.val();
           listMember.push({
@@ -147,20 +145,13 @@ export default class Map extends Component {
           })
           
           users.orderByKey().equalTo(snapshot2.key).on("child_changed", snap3 => {
-            console.log(snap3.val());
             objIndex = listMember.findIndex((obj => obj.userId === snapshot2.key));
             this.setState({indexUpdate:objIndex})
-            console.log(objIndex)
 
-            //Log object to Console.
-            console.log("Before update: ", listMember[objIndex].position)
-
-            //Update object's name property.
             listMember[objIndex].position = {
               latitude: snap3.val().latitude,
               longitude: snap3.val().longitude
             }
-            console.log("after update: ", listMember[objIndex].position)
           })
 
           this.setState({
