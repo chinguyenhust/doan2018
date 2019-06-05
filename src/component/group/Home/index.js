@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, TouchableOpacity, TextInput, Image, ScrollView, Dimensions, StatusBar, } from 'react-native';
+import { Text, View, TouchableOpacity, TextInput, Image, ScrollView, Dimensions, StatusBar, PermissionsAndroid} from 'react-native';
 import styles from './HomeStyle';
 import Icon from 'react-native-vector-icons/Ionicons';
 import IconAdd from 'react-native-vector-icons/MaterialIcons';
@@ -75,6 +75,7 @@ export default class Home extends Component {
   watchID: ?number = null;
 
   async componentDidMount() {
+    this.requestLocationPermission();
     var items = [];
     var groupActive = [];
     var groupDone = [];
@@ -213,6 +214,26 @@ export default class Home extends Component {
     this.checkPermission();
     this.createNotificationListeners();
   }
+  requestLocationPermission = async () => {
+    try {
+      const granted = await PermissionsAndroid.request(
+        PermissionsAndroid.PERMISSIONS.PERMISSIONS.ACCESS_FINE_LOCATION,
+        {
+          title: "Location Access Permission",
+          buttonNeutral: "Ask Me Later",
+          buttonNegative: "Cancel",
+          buttonPositive: "OK"
+        }
+      );
+      if (granted === PermissionsAndroid.RESULTS.GRANTED) {
+        console.log("You can use the camera");
+      } else {
+        console.log("Camera permission denied");
+      }
+    } catch (err) {
+      console.warn(err);
+    }
+  };
 
   componentWillUnmount() {
     navigator.geolocation.clearWatch(this.watchID);

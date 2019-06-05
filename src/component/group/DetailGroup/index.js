@@ -7,6 +7,7 @@ import Map from '../../home/Map';
 import Event from '../Event';
 import Chat from '../Chat';
 import { Data } from "../../../api/Data";
+let users = Data.ref('users');
 
 export default class DetailGroup extends Component {
   constructor(props) {
@@ -16,7 +17,8 @@ export default class DetailGroup extends Component {
       isMap: false,
       isEvent: false,
       name: "",
-      dataEvent:{}
+      dataEvent:{},
+      size:0
     }
   }
 
@@ -29,6 +31,25 @@ export default class DetailGroup extends Component {
         isEvent: false
       })
     }
+
+    var items = [];
+    const groupId = this.props.navigation.state.params.groupId;;
+    const uid = this.props.uid;
+    var userGroup = Data.ref("group_users")
+      .orderByChild("group_id")
+      .equalTo(groupId)
+      .on("child_added", (snapshot) => {
+        users.orderByKey().equalTo(snapshot.val().user_id).on("child_added", (snapshot) => {
+          let data = snapshot.val();
+          items.push({
+            id: snapshot.key,
+            name: data.userName,
+            phone: data.phone,
+            avatar: data.avatar
+          })
+          this.setState({ size: items.length });
+        })
+      });
   }
 
   handleClickMap = (dataEvent) => {
@@ -118,6 +139,7 @@ export default class DetailGroup extends Component {
               groupId={groupId}
               uid={uid}
               dataEvent={dataEvent}
+              size={this.state.size}
             />
           }
           {(this.state.isEvent) &&

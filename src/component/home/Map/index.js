@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, Dimensions, Platform } from 'react-native';
+import { StyleSheet, Text, View, Dimensions, Platform, PermissionsAndroid } from 'react-native';
 import MapView from "react-native-maps";
 import { Marker, Callout } from 'react-native-maps';
 import { Data } from "../../../api/Data";
@@ -41,12 +41,16 @@ export default class Map extends Component {
       origin: {},
       km: 0,
       phut: 0,
+      
     }
   }
 
   watchID: ?number = null;
 
-  componentDidMount() {
+
+
+  async componentDidMount() {
+    await this.requestLocationPermission();
 
     const groupId = this.props.groupId;
     const uid = this.props.uid;
@@ -54,7 +58,7 @@ export default class Map extends Component {
     navigator.geolocation.getCurrentPosition((position) => {
       var lat = parseFloat(position.coords.latitude);
       var long = parseFloat(position.coords.longitude);
-     
+
 
       var initalRegion = {
         latitude: lat,
@@ -116,39 +120,86 @@ export default class Map extends Component {
       })
     })
 
-    const listMember = [];
+
     groups.orderByKey().equalTo(groupId).on("child_added", (snapshot) => {
       this.setState({
         isOnPosition: snapshot.val().isOnMap,
         leaderId: snapshot.val().createdByUserId,
       })
     })
+
+    const listMember = [];
     group_user.orderByChild("group_id").equalTo(groupId).on("child_added", (snapshot) => {
-      users.orderByKey().equalTo(snapshot.val().user_id).on("child_added", (snapshot) => {
-        var data = snapshot.val();
-        listMember.push({
-          userId: snapshot.key,
-          userName: data.userName,
-          phone: data.phone,
-          position: {
-            latitude: data.latitude,
-            longitude: data.longitude
-          },
-          privarteLocation: data.privarteLocation
-        })
-        this.setState({
-          listMember: listMember
+      users.orderByKey().equalTo(snapshot.val().user_id).on("value", (snapshot1) => {
+        console.log("111111");
+        console.log(snapshot1)
+        snapshot1.forEach(snapshot2 => {
+          var data = snapshot2.val();
+          listMember.push({
+            userId: snapshot2.key,
+            userName: data.userName,
+            phone: data.phone,
+            position: {
+              latitude: data.latitude,
+              longitude: data.longitude
+            },
+            privarteLocation: data.privarteLocation
+          })
+          
+          users.orderByKey().equalTo(snapshot2.key).on("child_changed", snap3 => {
+            console.log(snap3.val());
+            objIndex = listMember.findIndex((obj => obj.userId === snapshot2.key));
+            this.setState({indexUpdate:objIndex})
+            console.log(objIndex)
+
+            //Log object to Console.
+            console.log("Before update: ", listMember[objIndex].position)
+
+            //Update object's name property.
+            listMember[objIndex].position = {
+              latitude: snap3.val().latitude,
+              longitude: snap3.val().longitude
+            }
+            console.log("after update: ", listMember[objIndex].position)
+          })
+
+          this.setState({
+            listMember: listMember
+          })
         })
       })
     })
-
   }
 
+  requestLocationPermission = async () => {
+    try {
+      const granted = await PermissionsAndroid.request(
+        PermissionsAndroid.PERMISSIONS.PERMISSIONS.ACCESS_FINE_LOCATION,
+        {
+          title: "Location Access Permission",
+          buttonNeutral: "Ask Me Later",
+          buttonNegative: "Cancel",
+          buttonPositive: "OK"
+        }
+      );
+      if (granted === PermissionsAndroid.RESULTS.GRANTED) {
+        console.log("You can use the camera");
+      } else {
+        console.log("Camera permission denied");
+      }
+    } catch (err) {
+      console.warn(err);
+    }
+  };
+
   render() {
-    var { listMember, isOnPosition, leaderId, origin, markerPosition } = this.state;
+    var { listMember, isOnPosition, leaderId, origin, markerPosition ,} = this.state;
     const uid = this.props.uid;
     const dataEvent = (this.props.dataEvent) ? this.props.dataEvent : {};
-
+    var size = this.props.size;
+    if(listMember.length > size){
+      listMember.length = size
+    }
     return (
       <View style={styles.container}>
 
@@ -280,4 +331,3 @@ const styles = StyleSheet.create({
   }
 
 });
-
