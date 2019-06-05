@@ -21,7 +21,8 @@ export default class UserInfo extends Component {
       email: "",
       phone: "",
       avatar: "",
-      dialogVisible: false
+      dialogVisible: false,
+      password: ""
     }
   }
 
@@ -35,6 +36,7 @@ export default class UserInfo extends Component {
         email: data.email,
         phone: data.phone,
         avatar: data.avatar,
+        password: data.password
       })
     })
   }
@@ -51,6 +53,9 @@ export default class UserInfo extends Component {
       var data = snapshot.val();
       FCM.unsubscribeFromTopic(data.group_id);
     })
+  }
+  _handleChangePass = () => {
+    this.props.navigation.navigate('ChangePassWord', { pass : this.state.password});
   }
 
   _handleEdit = () => {
@@ -142,7 +147,16 @@ export default class UserInfo extends Component {
                 <Text style={styles.txt}> {email}</Text>
               </View>
             </View>
-            {/* <View style={styles.line}></View> */}
+            <View style={styles.line}></View>
+
+            <View style={styles.item}>
+              <IconMail name="md-lock" size={24} style={{ color: "#006805", flex: 2 }} />
+              <View style={{ flex: 10 }}>
+              <TouchableOpacity onPress={this._handleChangePass}>
+                <Text style={{textDecorationLine: "underline", color:"#007aff", fontSize:18}}>Đổi mật khẩu </Text>
+              </TouchableOpacity>
+              </View>
+            </View>
           </View>
 
           <TouchableOpacity style={styles.button} onPress={this._handleLogout}>

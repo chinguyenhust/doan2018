@@ -12,7 +12,8 @@ export default class Notification extends Component {
     super(props);
     this.state = {
       items: [],
-      sum: 0
+      sum: 0,
+      backgroundColor:"#f2f3f6"
     }
   }
 
@@ -148,7 +149,7 @@ export default class Notification extends Component {
               renderItem={
                 ({ item }) =>
                   <View style={{ flexDirection: "column" }}>
-                    <TouchableOpacity style={styles.item} onPress={() => { this.handleClickItem(item.title, item.topic, item.groupName, item.userName) }}>
+                    <TouchableOpacity style={styles.item}  onPress={() => { this.handleClickItem(item.title, item.topic, item.groupName, item.userName) }}>
                       <View style={{ flex: 3 }}>
                         <Image
                           style={{ width: 50, height: 50 }}

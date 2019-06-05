@@ -244,6 +244,7 @@ export default class Map extends Component {
               <Callout>
                 <View style={{ padding: 10 }}>
                   <Text style={styles.textColor}>Kế hoạch: {dataEvent.name}</Text>
+                  <Text style={styles.textColor} numberOfLines={2}>Địa điểm: {dataEvent.address}</Text>
                   <Text style={styles.textColor}>Bắt đầu lúc: {dataEvent.time}</Text>
                   <Text style={styles.textColor}>Khoảng cách: {this.state.km} km</Text>
                   <Text style={styles.textColor}>Thời gian di chuyển: {Math.round(this.state.phut)} phút</Text>
