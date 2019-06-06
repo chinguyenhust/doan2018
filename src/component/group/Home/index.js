@@ -211,7 +211,10 @@ export default class Home extends Component {
 
     this.checkPermission();
     this.createNotificationListeners();
+    
   }
+
+
   requestLocationPermission = async () => {
     try {
       const granted = await PermissionsAndroid.request(

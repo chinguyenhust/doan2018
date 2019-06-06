@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, TouchableOpacity, TextInput, Image, ScrollView, Dimensions, StatusBar, } from 'react-native';
+import { Text, View, TouchableOpacity, TextInput, Image, BackHandler, Dimensions, StatusBar, } from 'react-native';
 import styles from './MyGroupStyle';
 import { Data } from "../../../api/Data";
 import Tabbar from 'react-native-tabbar-bottom';
@@ -25,38 +25,66 @@ export default class MyGroup extends Component {
     super(props);
     this.state = {
       page: "HomeScreen",
-      user_id:"",
-      sum:0,
-      userLocation:""
+      user_id: "",
+      sum: 0,
+      userLocation: ""
+    }
+
+  }
+
+  componentWillMount() {
+    BackHandler.addEventListener('hardwareBackPress', this.backPressed);
+  }
+
+  componentWillUnmount() {
+    BackHandler.removeEventListener('hardwareBackPress', this.backPressed);
+  }
+
+  backPressed = () => {
+    if (this.props.navigation.isFocused()) {
+      Alert.alert(
+        "Exit App",
+        "Do you want to exit?",
+        [
+          {
+            text: "No",
+            onPress: () => console.log("Cancel Pressed"),
+            style: "cancel"
+          },
+          { text: "Yes", onPress: () => BackHandler.exitApp() }
+        ],
+        { cancelable: false }
+      );
     }
   }
 
   componentDidMount() {
     var email = this.props.navigation.state.params.email;
-      this.setState({
-        page: this.props.navigation.state.params.page ? this.props.navigation.state.params.page : "HomeScreen",
-        sum:this.props.navigation.state.params.sum
+    this.setState({
+      page: this.props.navigation.state.params.page ? this.props.navigation.state.params.page : "HomeScreen",
+      sum: this.props.navigation.state.params.sum
     })
     users.orderByChild("email").equalTo(email).on("child_added", (snapshot) => {
       this.setState({
-        user_id:snapshot.key,
-        userLocation:{
-          latitude:snapshot.val().latitude,
+        user_id: snapshot.key,
+        userLocation: {
+          latitude: snapshot.val().latitude,
           longitude: snapshot.val().longitude
         }
       })
     })
 
   }
-  componentWillReceiveProps (){
+
+  componentWillReceiveProps() {
     this.setState({
       page: this.props.navigation.state.params.page ? this.props.navigation.state.params.page : "HomeScreen",
-      sum:this.props.navigation.state.params.sum
-  })
+      sum: this.props.navigation.state.params.sum
+    })
   }
 
   render() {
-    
+
     return (
       <View style={styles.container}>
         <StatusBar backgroundColor="#003c00" barStyle="light-content" />
@@ -105,24 +133,24 @@ export default class MyGroup extends Component {
             {
               page: "HomeScreen",
               icon: "home",
-              iconText:"Nhóm của tôi"
+              iconText: "Nhóm của tôi"
             },
             {
               page: "SearchScreen",
               icon: "search",
-              iconText:"Tìm kiếm"
+              iconText: "Tìm kiếm"
             },
             {
               page: "NotificationScreen",
               icon: "notifications",
               badgeNumber: this.state.sum,
-              iconText:"Thông báo"
+              iconText: "Thông báo"
             },
             {
               page: "ProfileScreen",
               icon: "person",
-              iconText:"Tôi"
-            }, 
+              iconText: "Tôi"
+            },
           ]}
         />
       </View>
