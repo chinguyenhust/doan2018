@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, FlatList, TouchableOpacity , Alert} from 'react-native';
+import { Text, View, FlatList, TouchableOpacity, Alert, ActivityIndicator } from 'react-native';
 import styles from "./ListSurveyStyle";
 import IconDelete from 'react-native-vector-icons/MaterialIcons';
 import IconNote from 'react-native-vector-icons/Foundation';
@@ -14,15 +14,16 @@ export default class ListSurvey extends Component {
     super(props);
     this.state = {
       items: [],
-
+      loading: true
     }
   }
 
-  componentDidMount() {
+  async componentDidMount() {
     var items = [];
     const groupId = this.props.groupId;
     const uid = this.props.uid;
-    surveys.orderByChild("groupId").equalTo(groupId).on('child_added', (snapshot) => {
+
+    await surveys.orderByChild("groupId").equalTo(groupId).on('child_added', (snapshot) => {
       let data = snapshot.val();
       if (uid === snapshot.val().createdByUserId) {
         items.push({
@@ -45,8 +46,10 @@ export default class ListSurvey extends Component {
           isDelete: false
         })
       }
-      this.setState({ items: items.sort(this.compare) });
+      this.setState({ items: items.sort(this.compare), loading: false });
     });
+    this.closeActivityIndicator();
+    
 
     surveys.orderByChild("groupId").equalTo(groupId).on("child_removed", (snapshot) => {
       var items = this.state.items;
@@ -65,7 +68,7 @@ export default class ListSurvey extends Component {
           })
           this.setState({ items: arr })
         } else {
-          
+
           this.setState({ items: arr })
         }
       })
@@ -120,12 +123,15 @@ export default class ListSurvey extends Component {
           })
           this.setState({ items: arr })
         } else {
-          
+
           this.setState({ items: arr })
         }
       })
     });
   }
+
+  closeActivityIndicator = () => setTimeout(() => this.setState({
+    loading: false }), 500)
 
   compare = (a, b) => {
     var time1 = new Date(a.created_at).getTime();
@@ -162,7 +168,7 @@ export default class ListSurvey extends Component {
       return "Vừa xong"
     } else {
       var phut = Math.round(giay / 60);
-      if (0 <= phut && phut < 60) {
+      if (0 < phut && phut < 60) {
         return phut + " phút trước"
       }
       else {
@@ -199,57 +205,64 @@ export default class ListSurvey extends Component {
   }
 
   render() {
-    const { items } = this.state;
+    const { items, loading } = this.state;
     const { navigate } = { ...this.props };
     const uid = this.props.uid;
     const leaderId = this.props.leaderId;
 
     return (
-      <View style={styles.container}>
-        {(items.length > 0) ?
-        <ScrollView>
-          <FlatList
-            data={items}
-            extraData={this.state.items}
-            renderItem={
-              ({ item }) =>
-                <View style={styles.itemStyle}>
-                  <View style={styles.item} >
-                    <View style={{ width: "10%", justifyContent: "center", }}>
-                      <IconNote name="clipboard-notes" size={30} style={{ color: "red", }} />
-                    </View>
-                    <TouchableOpacity style={styles.info} onPress={() => navigate("DetailSurvey", { id: item.id, leaderId: leaderId, uid: uid })}>
-                      <Text style={styles.textName}>{item.question}</Text>
-                      <Text style={styles.textView}>{this.getTime(item.created_at)}</Text>
-                    </TouchableOpacity>
-                    {(uid === leaderId) &&
-                      <View style={{ width: "10%", justifyContent: "center", }}>
-                        <IconDelete name="delete" size={24}
-                          style={{ color: "gray" }}
-                          onPress={() => this.hanldeDelete(item.id)} />
+      (loading) ?
+        <View style={{ alignItems: 'center', justifyContent: 'center', flex: 1 }}>
+          <ActivityIndicator size="large" color="#008605" />
+        </View>
+        :
+
+        <View style={styles.container}>
+          {(items.length > 0) ?
+            <ScrollView>
+              <FlatList
+                data={items}
+                extraData={this.state.items}
+                renderItem={
+                  ({ item }) =>
+                    <View style={styles.itemStyle}>
+                      <View style={styles.item} >
+                        <View style={{ width: "10%", justifyContent: "center", }}>
+                          <IconNote name="clipboard-notes" size={30} style={{ color: "red", }} />
+                        </View>
+                        <TouchableOpacity style={styles.info} onPress={() => navigate("DetailSurvey", { id: item.id, leaderId: leaderId, uid: uid })}>
+                          <Text style={styles.textName}>{item.question}</Text>
+                          <Text style={styles.textView}>{this.getTime(item.created_at)}</Text>
+                        </TouchableOpacity>
+                        {(uid === leaderId) &&
+                          <View style={{ width: "10%", justifyContent: "center", }}>
+                            <IconDelete name="delete" size={24}
+                              style={{ color: "gray" }}
+                              onPress={() => this.hanldeDelete(item.id)} />
+                          </View>
+                        }
                       </View>
-                    }
-                  </View>
+                    </View>
+                }
+              />
+              <View style={{ height: 100 }}></View>
+            </ScrollView>
+            :
+            <View style={{ alignItems: "center", justifyContent: "center", marginTop: 170 }}>
+              <Text style={{ fontSize: 20 }}>Nhóm chưa có khảo sát nào</Text>
+              {(uid === leaderId) &&
+                <View style={{ flexDirection: "row", alignItems: "center" }}>
+                  <Text>Chọn nút  </Text>
+                  <IconAdd name="add-circle" size={25} style={{ color: "#006805" }} />
+                  <Text>  để tạo khảo sát</Text>
                 </View>
-            }
-          />
-          <View style={{height:100}}></View>
-          </ScrollView>
-          :
-          <View style={{ alignItems: "center", justifyContent: "center", marginTop: 170 }}>
-            <Text style={{ fontSize: 20 }}>Nhóm chưa có khảo sát nào</Text>
-            {(uid === leaderId) &&
-              <View style={{ flexDirection: "row", alignItems: "center" }}>
-                <Text>Chọn nút  </Text>
-                <IconAdd name="add-circle" size={25} style={{ color: "#006805" }} />
-                <Text>  để tạo khảo sát</Text>
-              </View>
-            }
-          </View>
+              }
+            </View>
 
-        }
+          }
 
-      </View>
+        </View>
+
     );
   }
 }

@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
         flexDirection:"row", 
         paddingLeft: 20, 
         paddingRight: 20,
-        height: 60, 
+        height: 50, 
         justifyContent: "center", 
         alignItems: "center",
     },
@@ -50,8 +50,8 @@ const styles = StyleSheet.create({
         borderRadius: 7,
         marginLeft:25,
         marginRight:25,
-        marginTop:30,
-        marginBottom:40 
+        marginTop:20,
+        
     },
     tapbar: {
         flexDirection: "row",

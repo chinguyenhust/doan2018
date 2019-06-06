@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, FlatList, TouchableOpacity, Alert } from 'react-native';
+import { Text, View, FlatList, TouchableOpacity, Alert, ActivityIndicator } from 'react-native';
 import styles from "./ListEventStyle";
 import IconDelete from 'react-native-vector-icons/MaterialIcons';
 import IconClock from 'react-native-vector-icons/Entypo';
@@ -17,6 +17,7 @@ export default class ListEvent extends Component {
     super(props);
     this.state = {
       items: [],
+      loading: true
     }
   }
 
@@ -53,8 +54,9 @@ export default class ListEvent extends Component {
           location: data.location
         })
       }
-      this.setState({ items: items.sort(this.compare) });
+      this.setState({ items: items.sort(this.compare), loading:false });
     });
+    this.closeActivityIndicator();
 
     events.orderByChild("groupId").equalTo(groupId).on("child_removed", (snapshot) => {
       var items = this.state.items;
@@ -144,6 +146,9 @@ export default class ListEvent extends Component {
     });
   }
 
+  closeActivityIndicator = () => setTimeout(() => this.setState({
+    loading: false }), 500)
+
   compare = (a, b) => {
     var time1 = new Date(a.created_at).getTime();
     var time2 = new Date(b.created_at).getTime();
@@ -202,12 +207,17 @@ export default class ListEvent extends Component {
 
   render() {
     const { navigate } = { ...this.props };
-    const { items } = this.state;
+    const { items, loading } = this.state;
     const uid = this.props.uid;
     const leaderId = this.props.leaderId;
     const userName = this.props.userName;
     const groupName = this.props.groupName;
     return (
+      (loading) ?
+        <View style={{ alignItems: 'center', justifyContent: 'center', flex: 1 }}>
+          <ActivityIndicator size="large" color="#008605" />
+        </View>
+        :
       <View style={styles.container}>
         {(items.length > 0) ?
           <ScrollView>

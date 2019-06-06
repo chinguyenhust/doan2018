@@ -99,7 +99,7 @@ export default class EditGroup extends Component {
               Data.ref("notification").push({
                 topic: group_id,
                 groupName: name,
-                uid: uid,
+                uid: item,
                 userName: uid,
                 token: "",
                 read: 0,

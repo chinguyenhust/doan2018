@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, FlatList, TouchableOpacity, Image } from 'react-native';
+import { Text, View, FlatList, TouchableOpacity, Image, ActivityIndicator } from 'react-native';
 import styles from "./NotificationStyle";
 import { Data } from "../../../api/Data";
 import icon from '../../../assets/icon.png';
@@ -13,7 +13,8 @@ export default class Notification extends Component {
     this.state = {
       items: [],
       sum: 0,
-      backgroundColor:"#f2f3f6"
+      backgroundColor:"#f2f3f6",
+      loading:true
     }
   }
 
@@ -55,9 +56,11 @@ export default class Notification extends Component {
       }
       this.setState({
         items: items.sort(this.compare),
-        sum: items.length
+        sum: items.length,
+        loading:false
       })
     });
+    this.closeActivityIndicator();
   }
 
   compare = (a, b) => {
@@ -129,8 +132,11 @@ export default class Notification extends Component {
     }
   }
 
+  closeActivityIndicator = () => setTimeout(() => this.setState({
+    loading: false }), 500)
+
   render() {
-    const { items } = this.state;
+    const { items, loading } = this.state;
     const { navigate } = this.props.navigation;
     return (
       <View style={styles.container}>
@@ -141,6 +147,12 @@ export default class Notification extends Component {
             <Text style={{ color: "#ffffff", fontSize: 20, fontWeight: "500" }}>Thông báo</Text>
           </View>
         </View>
+
+        {(loading) &&
+        <View style={{ alignItems: 'center', justifyContent: 'center', flex: 1 }}>
+          <ActivityIndicator size="large" color="#008605" />
+        </View>
+        }
 
         {(items.length > 0) ?
           <ScrollView>

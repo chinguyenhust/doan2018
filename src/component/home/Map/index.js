@@ -41,7 +41,7 @@ export default class Map extends Component {
       origin: {},
       km: 0,
       phut: 0,
-      
+
     }
   }
 
@@ -77,7 +77,7 @@ export default class Map extends Component {
     this.watchID = navigator.geolocation.watchPosition((position) => {
       var lat = parseFloat(position.coords.latitude);
       var long = parseFloat(position.coords.longitude);
-      alert("chi");
+      console.log("update location")
       const newCoordinate = {
         lat,
         long
@@ -108,7 +108,7 @@ export default class Map extends Component {
       this.setState({ markerPosition: lastRegion });
     },
       error => console.log(error),
-      { enableHighAccuracy: true, timeout: 10000, maximumAge: 1000 }
+      { enableHighAccuracy: true, timeout: 5000, maximumAge: 1000 }
     )
 
     users.orderByKey().equalTo(uid).on("child_added", (snap) => {
@@ -143,10 +143,10 @@ export default class Map extends Component {
             },
             privarteLocation: data.privarteLocation
           })
-          
+
           users.orderByKey().equalTo(snapshot2.key).on("child_changed", snap3 => {
             objIndex = listMember.findIndex((obj => obj.userId === snapshot2.key));
-            this.setState({indexUpdate:objIndex})
+            this.setState({ indexUpdate: objIndex })
 
             listMember[objIndex].position = {
               latitude: snap3.val().latitude,
@@ -184,11 +184,11 @@ export default class Map extends Component {
   };
 
   render() {
-    var { listMember, isOnPosition, leaderId, origin, markerPosition ,} = this.state;
+    var { listMember, isOnPosition, leaderId, origin, markerPosition, } = this.state;
     const uid = this.props.uid;
     const dataEvent = (this.props.dataEvent) ? this.props.dataEvent : {};
     var size = this.props.size;
-    if(listMember.length > size){
+    if (listMember.length > size) {
       listMember.length = size
     }
     return (
@@ -244,7 +244,9 @@ export default class Map extends Component {
               <Callout>
                 <View style={{ padding: 10 }}>
                   <Text style={styles.textColor}>Kế hoạch: {dataEvent.name}</Text>
-                  <Text style={styles.textColor} numberOfLines={2}>Địa điểm: {dataEvent.address}</Text>
+                  <View style={{width:250}}>
+                    <Text style={styles.textColor} numberOfLines={2}>Địa điểm: {dataEvent.address}</Text>
+                  </View>
                   <Text style={styles.textColor}>Bắt đầu lúc: {dataEvent.time}</Text>
                   <Text style={styles.textColor}>Khoảng cách: {this.state.km} km</Text>
                   <Text style={styles.textColor}>Thời gian di chuyển: {Math.round(this.state.phut)} phút</Text>

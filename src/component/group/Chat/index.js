@@ -1,6 +1,6 @@
 import React from 'react';
 import { GiftedChat, Send, Bubble } from 'react-native-gifted-chat'; // 0.3.0
-import { View } from 'react-native'
+import { View, ActivityIndicator } from 'react-native'
 import firebase from 'firebase';
 import Icon from 'react-native-vector-icons/Ionicons';
 
@@ -9,6 +9,7 @@ class Chat extends React.Component {
     super(props);
     this.state = {
       message: [],
+      loading: true
     }
     this.observeAuth();
   }
@@ -102,7 +103,7 @@ class Chat extends React.Component {
     );
   }
 
-  renderBubble (props) {
+  renderBubble(props) {
     return (
       <Bubble
         {...props}
@@ -115,18 +116,28 @@ class Chat extends React.Component {
     )
   }
 
+  closeActivityIndicator = () => setTimeout(() => this.setState({
+    loading: false
+  }), 500)
+
   render() {
     return (
-      <GiftedChat
-        messages={this.state.messages}
-        onSend={this.send}
-        user={this.user}
-        alwaysShowSend
-        renderUsernameOnMessage
-        renderSend={this.renderSend}
-        renderBubble={this.renderBubble}
-        placeholder="Nhập tin nhắn"
-      />
+      (this.state.loading) ?
+        <View style={{ alignItems: 'center', justifyContent: 'center', flex: 1 }}>
+          <ActivityIndicator size="large" color="#008605" />
+        </View>
+        :
+
+        <GiftedChat
+          messages={this.state.messages}
+          onSend={this.send}
+          user={this.user}
+          alwaysShowSend
+          renderUsernameOnMessage
+          renderSend={this.renderSend}
+          renderBubble={this.renderBubble}
+          placeholder="Nhập tin nhắn"
+        />
     );
   }
 
@@ -136,6 +147,7 @@ class Chat extends React.Component {
         messages: GiftedChat.append(previousState.messages, message),
       }))
     );
+    this.closeActivityIndicator();
   }
   // componentWillReceiveProps(){
   //   this.on(message =>
