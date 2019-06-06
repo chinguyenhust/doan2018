@@ -6,7 +6,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="88bb4849-7001-4244-b643-ed904cc1049d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/fileContent/fileContent.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/fileContent/fileContent.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/fileHashes.lock" afterDir="false" />
 <<<<<<< HEAD
@@ -23,6 +22,7 @@
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/caches/gradle_models.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/gradle_models.ser" afterDir="false" />
 <<<<<<< HEAD
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/app/app.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle.properties" afterDir="false" />
@@ -36,20 +36,33 @@
       <change beforePath="$PROJECT_DIR$/../src/component/group/Notification/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../src/component/group/Notification/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../src/component/home/GoogleMapInput/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../src/component/home/GoogleMapInput/index.js" afterDir="false" />
 =======
+=======
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+>>>>>>> develop
       <change beforePath="$PROJECT_DIR$/app/build/generated/assets/react/release/index.android.bundle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/generated/assets/react/release/index.android.bundle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/assets/release/index.android.bundle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/assets/release/index.android.bundle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/release/multi-v2/release.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/release/multi-v2/release.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/release/single/release.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/release/single/release.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeReleaseResources/compile-file-map.properties" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeReleaseResources/compile-file-map.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeReleaseResources/merger.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeReleaseResources/merger.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/bundle_manifest/release/processReleaseManifest/bundle-manifest/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/bundle_manifest/release/processReleaseManifest/bundle-manifest/AndroidManifest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/packageRelease/tmp/release/dex-renamer-state.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/packageRelease/tmp/release/dex-renamer-state.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/packageRelease/tmp/release/zip-cache/6wzefnRYjb0L3Aghyi+H279rt_M=" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/packageRelease/tmp/release/zip-cache/6wzefnRYjb0L3Aghyi+H279rt_M=" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/instant_app_manifest/release/processReleaseManifest/instant-app-manifest/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/instant_app_manifest/release/processReleaseManifest/instant-app-manifest/AndroidManifest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/merged_assets/release/mergeReleaseAssets/out/index.android.bundle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/merged_assets/release/mergeReleaseAssets/out/index.android.bundle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/merged_manifests/release/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/merged_manifests/release/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/processed_res/release/processReleaseResources/out/resources-release.ap_" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/processed_res/release/processReleaseResources/out/resources-release.ap_" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/outputs/apk/release/app-release.apk" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/outputs/apk/release/app-release.apk" afterDir="false" />
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/../src/component/group/MyGroup/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../src/component/group/MyGroup/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../src/component/group/Notification/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../src/component/group/Notification/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../src/component/group/UserInfo/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../src/component/group/UserInfo/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../src/component/search/SearchScreen/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../src/component/search/SearchScreen/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../src/component/user/UserInfo/UserInfoStyle.js" beforeDir="false" afterPath="$PROJECT_DIR$/../src/component/user/UserInfo/UserInfoStyle.js" afterDir="false" />
+>>>>>>> develop
+=======
+      <change beforePath="$PROJECT_DIR$/../src/component/group/EditGroup/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../src/component/group/EditGroup/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/component/group/EditUser/EditUserStyle.js" beforeDir="false" afterPath="$PROJECT_DIR$/../src/component/group/EditUser/EditUserStyle.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/component/group/ListSurvey/ListSurveyStyle.js" beforeDir="false" afterPath="$PROJECT_DIR$/../src/component/group/ListSurvey/ListSurveyStyle.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/component/group/UserInfo/UserInfoStyle.js" beforeDir="false" afterPath="$PROJECT_DIR$/../src/component/group/UserInfo/UserInfoStyle.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/component/home/Map/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../src/component/home/Map/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/component/user/ChangePassWord/ChangePassWordStyle.js" beforeDir="false" afterPath="$PROJECT_DIR$/../src/component/user/ChangePassWord/ChangePassWordStyle.js" afterDir="false" />
 >>>>>>> develop
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -69,11 +82,16 @@
     <session id="-871503556">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
+<<<<<<< HEAD
           <entry key="project.closed" value="21" />
 <<<<<<< HEAD
           <entry key="project.open.time.11" value="4" />
 =======
           <entry key="project.open.time.11" value="3" />
+>>>>>>> develop
+=======
+          <entry key="project.closed" value="22" />
+          <entry key="project.open.time.11" value="4" />
 >>>>>>> develop
           <entry key="project.open.time.12" value="1" />
           <entry key="project.open.time.14" value="1" />
@@ -81,7 +99,7 @@
           <entry key="project.open.time.7" value="1" />
           <entry key="project.open.time.8" value="6" />
           <entry key="project.open.time.9" value="6" />
-          <entry key="project.opened" value="20" />
+          <entry key="project.opened" value="21" />
         </counts>
       </usages-collector>
     </session>
@@ -104,9 +122,13 @@
     </navigator>
     <panes>
 <<<<<<< HEAD
+<<<<<<< HEAD
       <pane id="PackagesPane" />
       <pane id="Scope" />
 =======
+>>>>>>> develop
+=======
+      <pane id="Scope" />
 >>>>>>> develop
       <pane id="AndroidView">
         <subPane>
@@ -123,7 +145,10 @@
 <<<<<<< HEAD
 =======
       <pane id="PackagesPane" />
+<<<<<<< HEAD
       <pane id="Scope" />
+>>>>>>> develop
+=======
 >>>>>>> develop
     </panes>
   </component>
@@ -235,7 +260,7 @@
     <layout>
       <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
       <window_info id="Capture Tool" order="1" />
-      <window_info content_ui="combo" id="Project" order="2" visible="true" weight="0.32398754" />
+      <window_info active="true" content_ui="combo" id="Project" order="2" visible="true" weight="0.32398754" />
       <window_info id="Structure" order="3" side_tool="true" />
       <window_info id="Build Variants" order="4" side_tool="true" />
       <window_info id="Image Layers" order="5" />
@@ -246,9 +271,9 @@
       <window_info anchor="bottom" id="Android Profiler" order="2" show_stripe_button="false" />
       <window_info anchor="bottom" id="Debug" order="3" />
       <window_info anchor="bottom" id="Run" order="4" />
-      <window_info anchor="bottom" id="Event Log" order="5" sideWeight="0.14641744" side_tool="true" visible="true" weight="0.3093415" />
+      <window_info anchor="bottom" id="Event Log" order="5" sideWeight="0.14719626" side_tool="true" visible="true" weight="0.3093415" />
       <window_info anchor="bottom" id="Version Control" order="6" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Build" order="7" sideWeight="0.85358256" visible="true" weight="0.3093415" />
+      <window_info anchor="bottom" id="Build" order="7" sideWeight="0.85280377" visible="true" weight="0.3093415" />
       <window_info anchor="bottom" id="Find" order="8" />
       <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.4961059" weight="0.32924962" />
       <window_info anchor="right" id="Device File Explorer" order="0" side_tool="true" />

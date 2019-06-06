@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
     },
     textName: {
         height: 25,
-        fontSize: 20,
+        fontSize: 18,
         fontWeight: "500"
     },
     textView: {

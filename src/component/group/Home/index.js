@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, TouchableOpacity, TextInput, Image, ScrollView, Dimensions, StatusBar, PermissionsAndroid} from 'react-native';
+import { Text, View, TouchableOpacity, TextInput, Image, ScrollView, Dimensions, StatusBar, PermissionsAndroid, ActivityIndicator} from 'react-native';
 import styles from './HomeStyle';
 import Icon from 'react-native-vector-icons/Ionicons';
 import IconAdd from 'react-native-vector-icons/MaterialIcons';
@@ -54,6 +54,7 @@ export default class Home extends Component {
         longtitude: 0
       },
       page: "HomeScreen",
+      loading:true
     }
   }
 
@@ -133,7 +134,7 @@ export default class Home extends Component {
 
     })
 
-    users.orderByChild("email").equalTo(email).on("child_added", (snapshot) => {
+   await users.orderByChild("email").equalTo(email).on("child_added", (snapshot) => {
       this.setState({
         userName: snapshot.val().userName,
         userId: snapshot.key
@@ -198,22 +199,22 @@ export default class Home extends Component {
             this.setState({
               groupDone: groupDone,
               groupActive: groupActive,
-              groupFuture: groupFuture
+              groupFuture: groupFuture,
+              loading: false
             });
           }
         });
-        this.setState({
-          progressVisible: false
-        })
+        
       });
-      this.setState({
-        progressVisible: false
-      })
+      this.closeActivityIndicator()
     })
 
     this.checkPermission();
     this.createNotificationListeners();
+    
   }
+
+
   requestLocationPermission = async () => {
     try {
       const granted = await PermissionsAndroid.request(
@@ -321,6 +322,8 @@ export default class Home extends Component {
       { cancelable: false },
     );
   }
+  closeActivityIndicator = () => setTimeout(() => this.setState({
+    loading: false }), 1000)
 
   componentWillReceiveProps() {
     var groupActive = [];
@@ -412,10 +415,11 @@ export default class Home extends Component {
   render() {
     const { navigate } = this.props.navigation;
     const { groupActive, searchTerm, searchAttribute,
-      ignoreCase, groupFuture, groupDone, userLocation } = this.state;
+      ignoreCase, groupFuture, groupDone, userLocation, loading } = this.state;
     var uid = this.props.user_id;
    
     return (
+      
       <View style={styles.container}>
         <StatusBar backgroundColor="#003c00" barStyle="light-content" />
         <View style={styles.header}>
@@ -434,7 +438,7 @@ export default class Home extends Component {
             <Icon name="ios-search" style={{ fontSize: 24, color: "#a9a9a9", width: "6%", marginTop: 5, }} />
           </TouchableOpacity>
         </View>
-
+{/* 
         <ProgressDialog
           visible={this.state.progressVisible}
           title="Loading"
@@ -442,10 +446,15 @@ export default class Home extends Component {
           activityIndicatorSize="large"
           message="Please, wait..."
           activityIndicatorStyle={{ justifyContent: "center" }}
-        />
+        /> */}
+        {(loading) &&
+        <View style={{ alignItems: 'center', justifyContent: 'center', flex: 1 }}>
+          <ActivityIndicator size="large" color="#008605" />
+        </View>
+        }
 
         {(groupActive || groupDone || groupFuture) ?
-
+          
           <ScrollView style={{}}>
             {(groupActive.length > 0) &&
               <View style={{ paddingLeft: 20, marginTop: 20 }}>
