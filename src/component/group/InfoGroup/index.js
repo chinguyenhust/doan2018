@@ -36,7 +36,8 @@ export default class InfoGroup extends Component {
       isOn: false,
       isSchedule: true,
       isSwitch: false,
-      dialogVisible: false
+      dialogVisible: false,
+      isRemoveGroup: false
     };
     this.uploadImage = this.uploadImage.bind(this);
   }
@@ -220,11 +221,35 @@ export default class InfoGroup extends Component {
 
   };
 
+  handleRemoveGroup = () => {
+    this.setState({
+      isRemoveGroup: !this.state.isRemoveGroup
+    })
+    const groupId = this.props.navigation.state.params.groupId;
+    const uid = this.props.navigation.state.params.uid;
+    if (!this.state.isRemoveGroup) {
+      Data.ref("group_users")
+        .orderByChild("group_id")
+        .equalTo(groupId)
+        .on("value", (snapshot) => {
+          snapshot.forEach(snap => {
+            if (snap.val().user_id === uid) {
+              Data.ref("group_users").child(snap.key).remove();
+            }
+          })
+        });
+        this.props.navigation.navigate('MyGroup',{
+
+        })
+    }
+  }
+
   handleToggle = () => {
     this.setState({
       isOn: !this.state.isOn
     })
     const groupId = this.props.navigation.state.params.groupId;
+
     Data.ref("groups").child(groupId).update(
       {
         isOnMap: !this.state.isOn,
@@ -257,7 +282,7 @@ export default class InfoGroup extends Component {
 
   handleImage = () => {
     this.setState({
-      dialogVisible:true
+      dialogVisible: true
     })
   }
 
@@ -276,17 +301,17 @@ export default class InfoGroup extends Component {
             <Icon name="ios-arrow-round-back" size={34}
               style={{ color: "#ffffff" }} onPress={() => { this.props.navigation.goBack() }} />
           </View>
-          <View style={{flex:8}}>
+          <View style={{ flex: 8 }}>
             <Text style={{ color: "#ffffff", fontSize: 20, fontWeight: "500" }}>Thông tin nhóm</Text>
           </View>
           <View style={{ justifyContent: "flex-end", flex: 1 }}>
             {untilDate && (new Date().getTime() < (this.toDate(untilDate).getTime())) ?
-            <IconEdit name="edit"
-              style={{ fontSize: 24, color: "#ffffff" }}
-              onPress={this._handleEdit}
-            />
-            :
-            <View></View>
+              <IconEdit name="edit"
+                style={{ fontSize: 24, color: "#ffffff" }}
+                onPress={this._handleEdit}
+              />
+              :
+              <View></View>
             }
           </View>
         </View>
@@ -310,11 +335,11 @@ export default class InfoGroup extends Component {
               {
                 alignItems: "center",
                 justifyContent: "center",
+              }
             }
-            }
-            onTouchOutside={() => this.setState({ dialogVisible: false })} 
-            >
-            
+            onTouchOutside={() => this.setState({ dialogVisible: false })}
+          >
+
             <Image
               source={{ uri: (avatar) ? avatar : "https://facebook.github.io/react-native/docs/assets/favicon.png" }}
               style={{ width: 250, height: 250 }}
@@ -420,6 +445,21 @@ export default class InfoGroup extends Component {
               </View>
             </View>
           }
+
+          <View style={styles.schedule}>
+            <View style={{ flexDirection: "row", marginTop: 10, alignItems: "center" }} >
+              <View style={{ flex: 4 }}>
+                <Text style={{ color: "#000000", fontSize: 16, fontWeight: "600" }}>Rời khỏi nhóm </Text>
+              </View>
+
+              <View style={{ flex: 1, alignItems: "center", }} >
+                <Switch
+                  thumbColor="#006805"
+                  onValueChange={this.handleRemoveGroup}
+                  value={this.state.isRemoveGroup} />
+              </View>
+            </View>
+          </View>
 
         </ScrollView>
       </View>

@@ -18,7 +18,7 @@
       android:theme="@style/AppTheme">
       <meta-data
          android:name="com.google.android.geo.API_KEY"
-         android:value="AIzaSyBDZSUAda65OflvYZmZ4G5XSGONZv3pkuY"/>
+         android:value="AIzaSyDXwSjZX3_R1Pib3q0-XMXz76XgWhiMSS4"/>
       <meta-data android:name="com.google.firebase.messaging.default_notification_icon" android:resource="@mipmap/ic_notif"/>
       <meta-data android:name="com.google.firebase.messaging.default_notification_channel_id" android:value="my_default_channel"/>
       <service android:name="com.evollu.react.fcm.MessagingService" android:enabled="true" android:exported="true">

@@ -18,6 +18,7 @@ export default class UserInfo extends Component {
       email: "",
       phone: "",
       avatar: null,
+      password :"",
     }
   }
 
@@ -25,12 +26,12 @@ export default class UserInfo extends Component {
     var email = this.props.navigation.state.params.email;
     Data.ref("users").orderByChild("email").equalTo(email).on("child_added", (snapshot) => {
       var data = snapshot.val();
-      console.log(data)
       this.setState({
         name: data.userName,
         email: data.email,
         phone: data.phone,
         avatar: data.avatar,
+        password: data.password
       })
     })
   }
@@ -43,6 +44,8 @@ export default class UserInfo extends Component {
     });
     FCM.unsubscribeFromTopic("test");
   }
+
+ 
 
   _handleEdit = () => {
     this.props.navigation.navigate('EditUser', {
@@ -114,6 +117,10 @@ export default class UserInfo extends Component {
             </View>
             {/* <View style={styles.line}></View> */}
           </View>
+
+          <TouchableOpacity style={styles.button} onPress={this._handleLogout}>
+            <Text style={{ color: "#fff", fontSize: 20 }}>Đổi mật khẩu</Text>
+          </TouchableOpacity>
 
           <TouchableOpacity style={styles.button} onPress={this._handleLogout}>
             <Text style={{ color: "#fff", fontSize: 20 }}>Đăng xuất</Text>

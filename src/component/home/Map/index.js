@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, Dimensions } from 'react-native';
+import { StyleSheet, Text, View, Dimensions, Platform, PermissionsAndroid } from 'react-native';
 import MapView from "react-native-maps";
 import { Marker, Callout } from 'react-native-maps';
 import { Data } from "../../../api/Data";
@@ -41,13 +41,76 @@ export default class Map extends Component {
       origin: {},
       km: 0,
       phut: 0,
+      
     }
   }
 
-  componentDidMount() {
+  watchID: ?number = null;
+
+
+
+  async componentDidMount() {
+    await this.requestLocationPermission();
 
     const groupId = this.props.groupId;
     const uid = this.props.uid;
+
+    navigator.geolocation.getCurrentPosition((position) => {
+      var lat = parseFloat(position.coords.latitude);
+      var long = parseFloat(position.coords.longitude);
+
+
+      var initalRegion = {
+        latitude: lat,
+        longitude: long,
+        latitudeDelta: LATTITUDE_DETA,
+        longitudeDelta: LONGTITUDE_DETA,
+      }
+
+      this.setState({ initialPosition: initalRegion });
+      this.setState({ markerPosition: initalRegion });
+    },
+      (error) => console.log(JSON.stringify(error)),
+      { enableHighAccuracy: true, timeout: 5000, maximumAge: 1000 }
+    )
+
+    this.watchID = navigator.geolocation.watchPosition((position) => {
+      var lat = parseFloat(position.coords.latitude);
+      var long = parseFloat(position.coords.longitude);
+      alert("chi");
+      const newCoordinate = {
+        lat,
+        long
+      };
+
+      users.child(uid).update({
+        latitude: lat,
+        longitude: long
+      })
+      if (Platform.OS === "android") {
+        if (this.marker) {
+          this.marker._component.animateMarkerToCoordinate(
+            newCoordinate,
+            500
+          );
+        }
+      } else {
+        coordinate.timing(newCoordinate).start();
+      }
+
+      var lastRegion = {
+        latitude: lat,
+        longitude: long,
+        latitudeDelta: LATTITUDE_DETA,
+        longitudeDelta: LONGTITUDE_DETA
+      }
+      this.setState({ initialPosition: lastRegion });
+      this.setState({ markerPosition: lastRegion });
+    },
+      error => console.log(error),
+      { enableHighAccuracy: true, timeout: 10000, maximumAge: 1000 }
+    )
+
     users.orderByKey().equalTo(uid).on("child_added", (snap) => {
       this.setState({
         origin: {
@@ -56,39 +119,78 @@ export default class Map extends Component {
         }
       })
     })
-    const listMember = this.state.listMember;
+
+
     groups.orderByKey().equalTo(groupId).on("child_added", (snapshot) => {
       this.setState({
         isOnPosition: snapshot.val().isOnMap,
         leaderId: snapshot.val().createdByUserId,
       })
     })
+
+    const listMember = [];
     group_user.orderByChild("group_id").equalTo(groupId).on("child_added", (snapshot) => {
-      users.orderByKey().equalTo(snapshot.val().user_id).on("child_added", (snapshot) => {
-        var data = snapshot.val();
-        listMember.push({
-          userId: snapshot.key,
-          userName: data.userName,
-          phone: data.phone,
-          position: {
-            latitude: data.latitude,
-            longitude: data.longitude
-          },
-          privarteLocation: data.privarteLocation
-        })
-        this.setState({
-          listMember: listMember
+      users.orderByKey().equalTo(snapshot.val().user_id).on("value", (snapshot1) => {
+        snapshot1.forEach(snapshot2 => {
+          var data = snapshot2.val();
+          listMember.push({
+            userId: snapshot2.key,
+            userName: data.userName,
+            phone: data.phone,
+            position: {
+              latitude: data.latitude,
+              longitude: data.longitude
+            },
+            privarteLocation: data.privarteLocation
+          })
+          
+          users.orderByKey().equalTo(snapshot2.key).on("child_changed", snap3 => {
+            objIndex = listMember.findIndex((obj => obj.userId === snapshot2.key));
+            this.setState({indexUpdate:objIndex})
+
+            listMember[objIndex].position = {
+              latitude: snap3.val().latitude,
+              longitude: snap3.val().longitude
+            }
+          })
+
+          this.setState({
+            listMember: listMember
+          })
         })
       })
     })
-
   }
 
+  requestLocationPermission = async () => {
+    try {
+      const granted = await PermissionsAndroid.request(
+        PermissionsAndroid.PERMISSIONS.PERMISSIONS.ACCESS_FINE_LOCATION,
+        {
+          title: "Location Access Permission",
+          buttonNeutral: "Ask Me Later",
+          buttonNegative: "Cancel",
+          buttonPositive: "OK"
+        }
+      );
+      if (granted === PermissionsAndroid.RESULTS.GRANTED) {
+        console.log("You can use the camera");
+      } else {
+        console.log("Camera permission denied");
+      }
+    } catch (err) {
+      console.warn(err);
+    }
+  };
+
   render() {
-    var { listMember, isOnPosition, leaderId, origin } = this.state;
+    var { listMember, isOnPosition, leaderId, origin, markerPosition ,} = this.state;
     const uid = this.props.uid;
     const dataEvent = (this.props.dataEvent) ? this.props.dataEvent : {};
-
+    var size = this.props.size;
+    if(listMember.length > size){
+      listMember.length = size
+    }
     return (
       <View style={styles.container}>
 
@@ -105,7 +207,7 @@ export default class Map extends Component {
           {(listMember && isOnPosition) &&
             listMember.map((option) =>
               (leaderId === option.userId && leaderId !== uid) ?
-                <Marker
+                <Marker.Animated
                   // title={option.userName}
                   coordinate={option.position}
                   pinColor="#008605"
@@ -116,7 +218,7 @@ export default class Map extends Component {
                       <Text style={styles.textColor}>{option.phone}</Text>
                     </View>
                   </Callout>
-                </Marker>
+                </Marker.Animated>
                 :
                 (uid !== option.userId) ?
 
@@ -142,6 +244,7 @@ export default class Map extends Component {
               <Callout>
                 <View style={{ padding: 10 }}>
                   <Text style={styles.textColor}>Kế hoạch: {dataEvent.name}</Text>
+                  <Text style={styles.textColor} numberOfLines={2}>Địa điểm: {dataEvent.address}</Text>
                   <Text style={styles.textColor}>Bắt đầu lúc: {dataEvent.time}</Text>
                   <Text style={styles.textColor}>Khoảng cách: {this.state.km} km</Text>
                   <Text style={styles.textColor}>Thời gian di chuyển: {Math.round(this.state.phut)} phút</Text>
@@ -220,4 +323,3 @@ const styles = StyleSheet.create({
   }
 
 });
-
