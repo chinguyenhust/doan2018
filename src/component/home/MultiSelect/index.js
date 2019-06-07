@@ -342,7 +342,7 @@ export default class MultiSelect extends Component {
                 >
                   {item[displayKey]}
                 </Text>
-                <Text>{item.phone}</Text>
+                {/* <Text>{item.phone}</Text> */}
               </View>
             </View>
             {this._itemSelected(item) ? (
